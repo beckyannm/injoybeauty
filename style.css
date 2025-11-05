@@ -29,8 +29,7 @@ body {
    Option A (recommended): put the white background on <header>
    — makes the white bar span the entire screen edge-to-edge. */
 header {
-  header {
-  position: sticky;
+position: sticky;
   top: 0;
   z-index: 1000;}
   background: #fff;        
