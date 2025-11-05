@@ -1,1 +1,15 @@
+.top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    background: white;   /* or rgba(255, 255, 255, 0.7) */
+    width: 100vw;
+    border-radius: 0;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(217, 106, 167, 0.15);
+    box-sizing: border-box;
+    margin: 0;
+}
 
