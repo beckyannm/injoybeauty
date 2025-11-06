@@ -80,13 +80,13 @@ nav {
   margin: 3rem 0;           /* adds space above and below */
 }
 
-.center-photo img {
-  max-width: 50%;           /* keeps image responsive */
-  height: auto;             /* keeps proportions */
-  border-radius: 20px;      /* optional, makes edges rounded */
-  box-shadow: 0 10px 30px rgba(58, 28, 53, 0.15); /* subtle shadow */
+.center-photo {
+  background: #fff;           /* Solid white background */
+  box-shadow: 0 10px 30px rgba(58, 28, 53, 0.12); /* for nice shadow */
+  border-radius: 18px;        /* rounded corners, optional */
+  padding: 2rem 3rem;         /* adjust padding as needed */
+  /* If you previously had a background like rgba(255,255,255,0.7), replace it! */
 }
-
 nav a {
   text-decoration: none;
   padding: 0.75rem 1.4rem;
