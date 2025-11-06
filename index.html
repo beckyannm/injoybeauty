@@ -22,25 +22,83 @@
       </nav>
     </div>
   </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer Example</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'OpenDyslexic', 'Open Dyslexic', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
+  /* Footer Bar */
+  footer {
+    background-color: #d96aa7; /* change this to your accent color */
+    color: #fff;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+
+  footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  footer a {
+    color: #fff7fb;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: opacity 0.2s ease;
+  }
+
+  footer a:hover {
+    opacity: 0.8;
+  }
+
+  @media (min-width: 600px) {
+    footer .footer-content {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Your Page Content -->
+<main>
+  <h1 style="text-align:center; margin-top:100px;">Page Content</h1>
+</main>
+
+<!-- Footer Bar -->
+<footer>
+  <div class="footer-content">
+    <span>© 2025 Inclusive Beauty Services</span>
+    <span>•</span>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#privacy">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
 <main> 
   <section class="center-photo">
     <img src="9e54c78b-b91c-4c01-bec0-a661fbb80cef.png" alt="everyone deserves to feel beautiful">
   </section>
 </main>
 
-  <footer>
-  <div class="footer-content">
-    <div class="footer-logo" aria-hidden="false">
-      <img class="footer-photo" src="Snapchat-1687659624.jpg" alt="Jaymie's logo or portrait">
-    </div>
-      <br>
-      <br>
-      <span>Bourget, Ontario</span>
-      <span>613-xxx-xxx | <a href="mailto:inclusivebeauty@gmail.com">inclusivebeauty@gmail.com</a></span>
-      <span>&copy; 2025 InJoy Beauty — All Rights Reserved</span>
-      <span>Follow along: <a href="https://www.instagram.com/injoy_beautyy?igsh=MTMxeTQ3cmN3MW1m" target="_blank" rel="noopener">Instagram</a></span>
-    </div>
-  </footer>
+
 </body>
 </html>
