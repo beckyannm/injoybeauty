@@ -118,7 +118,7 @@ main {
 
 footer {
   background: #fff;
-  padding: .075rem, 5vw;
+  padding: .05rem, 5vw;
   color: var(--text-dark);
   font-size: clamp(0.85rem, 1.8vw, 1rem);
   box-shadow: 0 -8px 30px rgba(58, 28, 53, 0.06);
