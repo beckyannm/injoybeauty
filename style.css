@@ -161,7 +161,7 @@ footer {
 html, body { height: 100%; }
 
 body {
-  background: var(--primary-bg) url('walledit.png') top left / 800px auto repeat fixed;
+  background: var(--primary-bg) url('whitebackground.jpg') top left / 800px auto repeat fixed;
   font-family: 'OpenDyslexic', sans-serif;
   color: var(--text-dark);
   line-height: 1.6;
