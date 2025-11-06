@@ -144,7 +144,7 @@ footer a { color: inherit; text-decoration: underline; }
 html, body { height: 100%; }
 
 body {
-  background: var(--primary-bg) url('walledit2.png') top left / 260px auto repeat fixed;
+  background: var(--primary-bg) url('walledit.png') top left / 500px auto repeat fixed;
   font-family: 'OpenDyslexic', sans-serif;
   color: var(--text-dark);
   line-height: 1.6;
