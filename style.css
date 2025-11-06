@@ -50,7 +50,6 @@ body {
   background: white;   /* or rgba(255, 255, 255, 0.7) */
   border-radius: 0;
   padding: 1.5rem 2rem;
-  box-shadow: 0 10px 30px rgba(217, 106, 167, 0.15);
 }
 
 /* Logo block */
@@ -59,8 +58,6 @@ body {
   padding: 1rem;                     /* was 1.5rem */
   background: #fff;
   border-radius: 18px;
-  box-shadow: inset 0 0 0 2px rgba(217, 106, 167, 0.35),
-              0 10px 25px rgba(58, 28, 53, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
