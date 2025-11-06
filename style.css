@@ -90,6 +90,19 @@ nav {
   gap: 0.25rem;
   justify-content: flex-end;
 }
+.center-photo {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;      /* centers vertically if there's height */
+  margin: 3rem 0;           /* adds space above and below */
+}
+
+.center-photo img {
+  max-width: 80%;           /* keeps image responsive */
+  height: auto;             /* keeps proportions */
+  border-radius: 20px;      /* optional, makes edges rounded */
+  box-shadow: 0 10px 30px rgba(58, 28, 53, 0.15); /* subtle shadow */
+}
 
 nav a {
   text-decoration: none;
