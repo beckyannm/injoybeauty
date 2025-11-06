@@ -133,56 +133,6 @@ main {
   justify-content: center;
 }
 
-.hero {
-  position: relative;
-  width: min(1100px, 100%);
-  border-radius: 32px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px rgba(58, 28, 53, 0.15);
-  background: linear-gradient(135deg,
-              rgba(217, 106, 167, 0.25),
-              rgba(58, 28, 53, 0.15));
-}
-
-.hero-placeholder {
-  width: 100%;
-  padding-top: min(60%, 640px);
-  background: repeating-linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.4) 20px,
-    rgba(217, 106, 167, 0.2) 20px,
-    rgba(217, 106, 167, 0.2) 40px
-  );
-  border-bottom: 2px dashed rgba(217, 106, 167, 0.5);
-}
-
-.hero-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 3rem;
-  color: #fff;
-}
-
-.hero-text h1 {
-  font-size: clamp(2.5rem, 6vw, 52px);
-  letter-spacing: 0.08em;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-}
-
-.hero-text p {
-  font-size: clamp(1.1rem, 3vw, 25px);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
 /* Footer */
 footer {
   background: rgba(58, 28, 53, 0.12);
