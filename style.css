@@ -28,37 +28,31 @@ body {
 /* === FULL-WIDTH WHITE NAV BAR ===
    Option A (recommended): put the white background on <header>
    — makes the white bar span the entire screen edge-to-edge. */
-header {
-position: sticky;
+ header {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  background: #fff;
+  position: sticky;
   top: 0;
-  z-index: 1000;}
-  background: #fff;        
-  padding: 2rem 5vw 1.5rem; /* keep your spacing */
+  z-index: 1000;
+  padding: 2rem 5vw 1.5rem;
 }
 
-/* .top-bar is the inner layout container (no rounded corners needed now) */
 .top-bar {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1.5rem;
   align-items: center;
   justify-content: space-between;
-  /* background removed so header's white covers full width */
-  border-radius: 0; 
+  background: white;   /* or rgba(255, 255, 255, 0.7) */
+  border-radius: 0;
   padding: 1.5rem 2rem;
   box-shadow: 0 10px 30px rgba(217, 106, 167, 0.15);
 }
-
-/* If you prefer your original translucent card but still full width,
-   use this instead of the header background:
-   .top-bar {
-     width: 100vw;
-     margin-left: calc(50% - 50vw);
-     margin-right: calc(50% - 50vw);
-     background: rgba(255,255,255,0.7);
-     border-radius: 0;
-   }
-*/
 
 /* Logo block */
 .logo-box {
@@ -204,27 +198,4 @@ footer .footer-content {
 }
 
 footer a { color: inherit; text-decoration: underline; }
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .top-bar { flex-direction: column; align-items: stretch; }
-  nav { justify-content: center; }
-  nav a { flex: 1 1 auto; text-align: center; }
-  .hero-text { padding: 2rem; }
-}
-
-.top-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: center;
-    justify-content: space-between;
-    background: white;   /* or rgba(255, 255, 255, 0.7) */
-    width: 100vw;
-    border-radius: 0;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 10px 30px rgba(217, 106, 167, 0.15);
-    box-sizing: border-box;
-    margin: 0;
-}
 
