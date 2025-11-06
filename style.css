@@ -57,7 +57,7 @@
 /* If you ever use the placeholder again and want a white dashed border: */
 .logo-placeholder {
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
   border: 2px dashed #fff; /* was rgba(217,106,167,0.6); now white */
   border-radius: 14px;
   color: rgba(58, 28, 53, 0.7);
