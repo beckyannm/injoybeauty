@@ -118,7 +118,7 @@ main {
 
 footer {
   background: #fff;
-  padding: .2rem, 4vw;
+  padding: 2rem, 4vw;
   color: var(--text-dark);
   font-size: clamp(0.85rem, 1.8vw, 1rem);
   box-shadow: 0 -8px 30px rgba(58, 28, 53, 0.06);
@@ -139,7 +139,7 @@ footer {
 /* Small logo/photo box — set explicit height so object-fit can crop */
 .footer-logo {
   width: clamp(68px, 11vw, 100px);    /* slightly narrower max width */
-  height: clamp(25px, 5vw, 48px);     /* smaller height -> shorter box */
+  height: clamp(30px, 5vw, 48px);     /* smaller height -> shorter box */
   margin: 0 auto 0.25rem;             
   border-radius: 8px;
   overflow: hidden;
