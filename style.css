@@ -142,7 +142,7 @@ nav a {
 @media (max-width: 520px) {
   nav {
     flex-direction: column;
-    align-items: center;      /* (optional) center the pills horizontally */
+    align-items: flex-end;      /* (optional) center the pills horizontally */
     justify-content: flex-start;
     gap: 0.5rem;              /* or whatever vertical gap you want */
   }
