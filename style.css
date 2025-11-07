@@ -324,6 +324,7 @@ body {
 }
 
 main {
+  padding-top: 112px;
   flex: 1 0 auto;
 }
 
