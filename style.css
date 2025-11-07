@@ -14,10 +14,10 @@
 
 body {
   background-color: var(--primary-bg);
-  background-image: url('simplewhitefloral.jpg');
+  background-image: url('simplewhitebackground.jpg');
   background-repeat: repeat;
   background-attachment: fixed;
-  background-position: top left;
+  background-position: auto;
   background-size: auto;
   /* ...other styles... */
 }
