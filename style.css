@@ -297,10 +297,11 @@ footer {
 /* actual <img> fills the box and can be cropped via object-fit */
 .footer-photo {
   display: block;
-  width: auto;                 /* use image's natural width */
-  height: auto;                /* use image's natural height */
-  object-fit: unset;           /* no cropping */
+  max-width: 64px;       /* set a reasonable max width */
+  height: auto;
+  object-fit: contain;   /* better than unset! */
   border: 0;
+  margin-bottom: 0.5rem;
 }
 
 html, body {
