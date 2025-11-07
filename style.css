@@ -259,23 +259,6 @@ footer {
   gap: 0.5rem;
   text-align: left;
 }
-
-@media (max-width: 640px) {
-  .footer-split {
-    flex-direction: column;
-    align-items: center;
-  } 
-}
-
-  .footer-text {
-    border-left: 0;
-    border-top: 1px solid #e0e0e0;
-    padding-left: 0;
-    padding-top: 1.5rem;
-    text-align: center;
-    align-items: center;
-  }
-
   .footer-buttons {
     align-items: center;
   }
