@@ -278,7 +278,7 @@ footer {
   
   .footer-text p {
   margin: 0.2em 0;  /* minimal space above/below each <p> */
-  line-height: 1.2; /* tighter space within each paragraph */
+  line-height: 1; /* tighter space within each paragraph */
 }
   /* Small logo/photo box — set explicit height so object-fit can crop */
 .footer-logo {
