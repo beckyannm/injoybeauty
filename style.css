@@ -116,6 +116,28 @@ nav a {
   transition: all 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  nav {
+    gap: 0.2rem;
+  }
+
+  nav a {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 520px) {
+  nav {
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
 nav a:hover,
 nav a:focus {
   background: var(--accent);
