@@ -194,13 +194,6 @@ footer {
   align-items: flex-start;
 }
 
-.footer-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: flex-start;
-}
-
 .footer-buttons .footer-label {
   font-weight: 700;
   text-transform: uppercase;
