@@ -307,7 +307,7 @@ footer {
 /* actual <img> fills the box and can be cropped via object-fit */
 .footer-photo {
   width: auto;         /* Show at natural width */
-  height: auto;        /* Show at natural height */
+  height: 75px;        /* Show at natural height */
   max-width: none;     /* Do not impose max-width */
   object-fit: contain; /* Show full image (unless you want crop) */
   display: inline-block;
