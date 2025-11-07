@@ -302,7 +302,6 @@ footer {
   object-fit: contain; /* Show full image (unless you want crop) */
   display: inline-block;
 }
-}
 
 html, body {
   height: 100%;
