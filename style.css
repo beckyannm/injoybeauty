@@ -142,7 +142,12 @@ footer {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
+footer hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin-bottom: 2rem;
+  width: 100%;
+}
 .footer-content {
   display: grid;
   gap: 0.5rem;
