@@ -78,13 +78,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem auto;           /* Center horizontally */
-  background: #fff;            /* solid white for non-transparency */
-  border-radius: 20px;
-  padding: 2rem 3vw;
-  max-width: 90vw;
-  box-sizing: border-box;
-  box-shadow: 0 10px 30px rgba(58, 28, 53, 0.15);
+  margin: 3rem 0;
 }
 
 .center-photo img {
