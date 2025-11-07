@@ -186,7 +186,14 @@ footer {
   justify-content: center;
   align-items: stretch;
 }
-
+.footer-divider {
+  width: 1px;
+  background: #e0e0e0;
+  margin: 0 1.5rem;
+  /* To fill the height between two sections */
+  min-height: 80px; /* adjust as needed for your layout */
+  align-self: stretch;
+}
 .footer-buttons {
   display: flex;
   flex-direction: column;
@@ -299,21 +306,6 @@ footer {
   height: auto;                /* use image's natural height */
   object-fit: unset;           /* no cropping */
   border: 0;
-}
-.footer-split {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.footer-divider {
-  width: 1px;
-  background: #e0e0e0;
-  margin: 0 1.5rem;
-  /* To fill the height between two sections */
-  min-height: 80px; /* adjust as needed for your layout */
-  align-self: stretch;
 }
 
 html, body {
