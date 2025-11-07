@@ -108,6 +108,7 @@ nav {
     /* Remove border-radius for mobile */
   }
 }
+
 nav a {
   text-decoration: none;
   padding: 0.75rem 1.4rem;
