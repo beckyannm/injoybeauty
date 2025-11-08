@@ -25,12 +25,18 @@ body{
   line-height:1.4;
   -webkit-font-smoothing:antialiased;
 
-  /* page background image (uses your repo asset) */
+  /* Use the original image size and repeat it rather than stretching.
+     If you want the image to tile horizontally only, change repeat to repeat-x.
+     If the file is .png change the filename below. */
   background-image: url('simplewhitebackground.jpg');
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
+  background-repeat: repeat;       /* tile at its natural size */
+  background-position: top center; /* starting position of the tiling */
+  background-size: auto;           /* do not scale the image */
 }
+
+/* If the tiled image makes text low-contrast in areas, apply a translucent backdrop:
+   .site-header, .site-main, .site-footer { background: rgba(255,255,255,0.85); }
+*/
 
 /* Skip link */
 .skip-link{
@@ -92,7 +98,7 @@ body{
 /* Logo */
 .logo-img, .footer-photo{ display:block; max-width:100%; height:auto; object-fit:contain; }
 
-/* Nav - pill style restored */
+/* Nav - pill style */
 .primary-nav ul{
   list-style:none;
   margin:0;
@@ -117,7 +123,7 @@ body{
 }
 
 /* hover, focus and active states for pill */
-/* On hover/focus we now switch to the requested color (#A30096), white text, and a subtle jump & scale */
+/* When hovered/focused change to the requested color and do a small jump/scale */
 .primary-nav a:hover,
 .primary-nav a:focus,
 .primary-nav a:focus-visible {
