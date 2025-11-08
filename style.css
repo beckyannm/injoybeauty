@@ -192,7 +192,7 @@ main {
   max-width: 480px;
 }
 
-footer { outline: 2px dashed red; }
+footer { 
   width: 100%;
   max-width: 100vw;
   background: transparent;
