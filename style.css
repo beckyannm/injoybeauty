@@ -164,7 +164,7 @@ button:focus-visible {
 }
 .hero-image{
   width:100%;
-  max-width:var(--max-width);
+  max-width: var(--hero-max-width);
   height:auto;
   object-fit:cover;
   aspect-ratio: 16 / 9;
