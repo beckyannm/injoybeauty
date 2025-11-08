@@ -423,7 +423,7 @@ a:focus, button:focus{
   font-weight: 600;
   font-size: clamp(2.5rem, 6vw, 3.8rem);
   line-height: 0.95;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
   margin-bottom: 0.25rem;
   text-align: left;
 }
