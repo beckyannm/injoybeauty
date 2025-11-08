@@ -255,7 +255,7 @@ button:focus-visible {
 /* Increased size and weight for the "Follow me" label so it stands out */
 .footer-left p{
   margin:0;
-  font-size:1.05rem; /* slightly larger */
+  font-size:1.45rem; /* slightly larger */
   font-weight:600;   /* bolder */
   color:var(--muted);
 }
@@ -281,7 +281,7 @@ button:focus-visible {
   font-weight:700;
   color:var(--text);
   letter-spacing:0.2px;
-  margin-bottom:0.08rem; /* very small gap (≈1.3px) between name and tagline */
+  margin-bottom:0.04rem; /* very small gap (≈1.3px) between name and tagline */
   line-height:1;
 }
 .footer-right .footer-copy .tagline{
@@ -295,7 +295,7 @@ button:focus-visible {
 
 /* Make the gap between logo and copy smaller */
 .footer-right {
-  gap: 0.32rem; /* ~5px between logo and text by default */
+  gap: 0.25rem; /* ~5px between logo and text by default */
 }
 
 /* Social icons */
