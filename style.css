@@ -2,10 +2,10 @@
   --bg: #ffffff;
   --text: #202124;
   --muted: #6b6f76;
-  --brand: #6b2e6b; /* deep brand purple (used for active pills) */
-  --pill-hover-bg: #A30096; /* user-requested hover color */
+  --brand: #F2D8C2; /* deep brand purple (used for active pills) */
+  --pill-hover-bg: #C2DCF2; /* user-requested hover color */
   --pill-hover-text: #ffffff;
-  --accent: #f6c6e7; /* fallback/light accent */
+  --accent: #F2C2DC; /* fallback/light accent */
   --pill-bg: transparent; /* default pill background */
   --pill-text: var(--text);
   --pill-active-bg: var(--brand);
