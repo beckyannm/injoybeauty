@@ -213,69 +213,78 @@ footer {
   border-top-right-radius: 10px;
 }
 
+/* Centered inner row */
 .footer-content {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 1100px;      /* keeps content readable */
+  margin: 0 auto;         /* centers the row in the white footer */
+  padding: 8px 0;         /* small breathing room */
   display: flex;
-  justify-content: space-between;   /* left and right columns */
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;                  /* stack on small screens */
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-  text-align: initial;              /* don’t force center on everything */
+  align-items: center;    /* vertical centering inside the footer */
+  justify-content: center;/* center the whole group (not stretched) */
+  gap: 28px;              /* space between left/right and divider */
+  flex-wrap: wrap;        /* stack nicely on small screens */
 }
+
+/* optional: swap sides (buttons left, logo/text right) */
+ /* .footer-content { flex-direction: row-reverse; } */
+
 
 .footer-divider {
   width: 1px;
-  background: #e0e0e0;
-  margin: 0 1.5rem;
-  /* To fill the height between two sections */
-  min-height: 80px; /* adjust as needed for your layout */
-  align-self: stretch;
+  align-self: stretch;        /* fill the column height */
+  background: rgba(58, 28, 53, 0.12);
 }
+
+/* --- Follow Me Section --- */
 .footer-buttons {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  align-items: flex-end;     /* align the column to the right */
+  align-items: center;     /* centers the text and icons */
+  justify-content: center;
+  gap: 0.8rem;
+  text-align: center;
 }
 
+/* Pretty and larger "Follow me" text */
 .footer-buttons .footer-label {
+  font-family: "Playfair Display", "Georgia", serif; /* elegant serif font */
+  font-size: clamp(1.6rem, 3vw, 2rem);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
-  color: rgba(58, 28, 53, 0.8);
+  letter-spacing: 0.06em;
+  color: var(--text-dark);
+  text-transform: none; /* keep natural capitalization */
+  background: linear-gradient(90deg, #d96aa7, #9f5f9f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* soft pink-to-purple gradient text */
 }
 
+/* Align the icons below */
 .social-links {
   display: flex;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.4rem;
 }
 
+/* Slightly larger social icons */
 .social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: linear-gradient(145deg, rgba(255,255,255,0.85), rgba(255,255,255,0.35));
-  box-shadow: 0 4px 12px rgba(58, 28, 53, 0.12);
+  background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.35));
+  box-shadow: 0 6px 16px rgba(58, 28, 53, 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.social-link:focus,
-.social-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(58, 28, 53, 0.18);
+.social-link:hover,
+.social-link:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(58, 28, 53, 0.18);
 }
 
 .social-icon {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
 }
 
 .footer-buttons .footer-link {
@@ -291,12 +300,12 @@ footer {
 }
 
 .footer-text {
-  padding-left: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  text-align: left;         /* was center */
-  align-items: flex-start;  /* was center */
+  align-items: center;     /* centered to match the card look in your screenshot */
+  text-align: center;
+  padding-left: 0;         /* remove the previous left indent */
 }
 
 footer.text p {
