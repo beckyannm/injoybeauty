@@ -397,7 +397,7 @@ button:focus-visible {
 .home-intro {
   display: block;
   max-width: 100%;
-  margin: 1.95rem auto;
+  margin: 2rem auto;
   padding: 0;           /* padding is on .intro-card */
   text-align: center;   /* heading alignment controlled in .welcome-title */
 }
