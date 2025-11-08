@@ -31,7 +31,7 @@ body{
   line-height:1.4;
   -webkit-font-smoothing:antialiased;
 
-  background-image: url('simplewhitebackground.jpg');
+  background-image: url('simplewhitefloral.jpg');
   background-repeat: repeat;
   background-position: top center;
   background-size: auto;
@@ -48,7 +48,7 @@ body{
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.55); /* adjust alpha to taste (0.45–0.7) */
+  background: rgba(255,255,255,0.45); /* adjust alpha to taste (0.45–0.7) */
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   pointer-events: none; /* allow clicks through */
