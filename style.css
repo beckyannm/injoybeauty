@@ -260,72 +260,47 @@ button:hover {
   font-family: Arial;
 }
 
-/* Pretty and larger "Follow me" text */
-.footer-buttons .footer-label {
-  font-family: "Playfair Display", "Georgia", serif; /* elegant serif font */
-  font-size: clamp(1.6rem, 3vw, 2rem);
+/* Footer text ("Follow me") */
+.footer-left p {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.8rem; /* change this for larger/smaller text */
   font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--text-dark);
-  text-transform: none; /* keep natural capitalization */
-  background: linear-gradient(90deg, #d96aa7, #9f5f9f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* soft pink-to-purple gradient text */
+  color: #3a1c35; /* or var(--text-dark) if you have it defined */
+  text-align: center;
+  margin-bottom: 0.8rem; /* space before icons */
 }
 
-/* Align the icons below */
-.social-links {
+/* Align icons below the text */
+.footer-actions {
   display: flex;
-  gap: 1rem;
   justify-content: center;
-  margin-top: 0.4rem;
+  gap: 1rem; /* spacing between buttons */
 }
 
-/* Slightly larger social icons */
-.social-link {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.35));
-  box-shadow: 0 6px 16px rgba(58, 28, 53, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.social-link:hover,
-.social-link:focus {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(58, 28, 53, 0.18);
-}
-
-.social-icon {
-  width: 26px;
-  height: 26px;
-}
-
-.footer-buttons .footer-link {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 0.75rem;
-}
-
-.footer-buttons .footer-link:hover,
-.footer-buttons .footer-link:focus {
-  opacity: 0.75;
-}
-
-.footer-text {
+/* Make sure everything in this section is stacked vertically */
+.footer-left {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;     /* centered to match the card look in your screenshot */
-  text-align: center;
-  padding-left: 0;         /* remove the previous left indent */
+  align-items: center;
 }
 
-footer.text p {
-  margin: 0.2em 0;  /* minimal space above/below each <p> */
-  line-height: 1; /* tighter space within each paragraph */
+/* Style buttons (remove border + background) */
+.footer-actions button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Optional: resize and smooth hover for icons */
+.footer-actions img {
+  width: 45px;  /* adjust to desired icon size */
+  height: 45px;
+  transition: transform 0.3s ease;
+}
+
+.footer-actions img:hover {
+  transform: scale(1.1);
 }
    /* Small logo/photo box — set explicit height so object-fit can crop */
 .footer-logo {
