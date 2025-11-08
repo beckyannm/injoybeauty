@@ -244,7 +244,23 @@ a:focus, button:focus{
 /* Utility */
 .header-divider,
 .footer-divider{ width:1px; background:#eee; height:38px; margin:0 0.75rem; }
+/* --- make vertical dividers horizontal on small screens --- */
 
+@media (max-width: 700px) {
+  .header-divider,
+  .footer-divider {
+    width: 70%;               /* horizontal length; adjust as needed */
+    height: 1px;              /* thin horizontal line */
+    margin: 0.5rem auto;      /* center it and add small vertical spacing */
+    background: #eee;
+  }
+  /* ensure header stacks when needed so divider sits between elements */
+  .top-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
 /* Reduce motion preference: remove transform/animation for those who request reduced motion */
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
