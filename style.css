@@ -50,7 +50,7 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  background: white;   /* or rgba(255, 255, 255, 0.7) */
+  background: rgba(255, 255, 255, 0.7)
   border-radius: 0;
   padding: 0.5rem 1rem;
 }
@@ -59,7 +59,7 @@ header {
 .logo-box {
   width: clamp(120px, 15vw, 150px); 
   padding: 0.5rem;                     
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7)
   border-radius: 18px;
   display: flex;
   align-items: center;
@@ -168,7 +168,7 @@ nav a:focus {
 
 .sub-header {
   width: 100%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7)
   padding: 0.7em 5vw;
   text-align: center;
   font-size: 1.1em;
