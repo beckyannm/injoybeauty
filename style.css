@@ -400,33 +400,32 @@ button:focus-visible {
 
 /* ---------- HOME INTRO: blurred card & decorative heading ---------- */
 /* The home intro is excluded from the global overlay above; this block provides a subtle blurred backdrop */
-.home-intro {
-  display: block;
-  max-width: 100%;
+.home-intro { /* keep container behaviour; no change needed normally */ 
+  max-width: 1200px; /* allow more room if needed */
   margin: 1.75rem auto;
   padding: 0;
   text-align: center;
 }
-
 /* The card: semi-transparent, blurred backdrop and constrained width to match the marked area */
 .intro-card {
-  width: clamp(450px, 46%, 560px);
+  /* Wider: grows to 60% of viewport, max 800px; min 420px for readability */
+  width: clamp(420px, 60%, 800px);
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0 auto; /* center the card; change if you want left-hugging */
   padding: 1.25rem 1.1rem;
   border-radius: 10px;
 
-  /* translucent background & blur to show floral pattern behind */
   background: rgba(255,255,255,0.28);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 
-  /* subtle border and shadow for legibility */
   border: 1px solid rgba(255,255,255,0.45);
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 
   position: relative;
   z-index: 2;
+}
+  .home-intro { text-align: left; padding-left: .6rem; padding-right: .6rem; }
 }
 
 /* Decorative heading: The Nautigal for welcome title */
