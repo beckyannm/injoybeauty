@@ -48,4 +48,437 @@ body{
   z-index: 1; /* content sits above its own overlay pseudo-element */
 }
 
-/* Apply overlay
+/* Remove overlay completely */
+.site-main > *:not(.center-photo)::before {
+  display: none;
+}
+
+/* Make the hero container explicitly transparent */
+.center-photo {
+  background: transparent;
+}
+
+/* make sure header/footer still have a simple translucent backdrop */
+.site-header,
+.site-footer {
+  background: rgba(255,255,255,0.85);
+  position: relative;
+  z-index: 10;
+}
+
+/* Respect reduced motion/possible reduced-transparency preferences */
+@media (prefers-reduced-motion: reduce) {
+  .site-main > *:not(.center-photo)::before {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Skip link */
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+.skip-link:focus,
+.skip-link:active,
+.skip-link:focus-visible{
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: .5rem .75rem;
+  background: var(--brand);
+  color: #fff;
+  z-index: 9999;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  transform-origin: center;
+  transition: background .15s ease, color .15s ease;
+}
+.skip-icon{
+  display:inline-block;
+  transition: transform .6s cubic-bezier(.2,.9,.3,1);
+  transform-origin: center;
+}
+.skip-link:hover .skip-icon,
+.skip-link:focus-visible .skip-icon,
+.skip-link:active .skip-icon {
+  transform: rotate(360deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .skip-icon { transition: none; transform: none; }
+}
+
+/* Layout container */
+.top-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0.6rem 1rem;
+  gap:1rem;
+}
+
+/* Logo */
+.logo-img, .footer-photo{ display:block; max-width:100%; height:auto; object-fit:contain; }
+
+/* Nav - pill style with updated colors */
+.primary-nav{
+  z-index: 12;
+  -webkit-overflow-scrolling: touch;
+}
+.primary-nav ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+  flex-wrap: wrap;
+}
+.primary-nav a{
+  display:inline-block;
+  text-decoration:none;
+  color:var(--pill-text);
+  background: var(--pill-bg);
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.06);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color .18s ease, color .18s ease, transform .16s cubic-bezier(.2,.8,.2,1), box-shadow .16s ease;
+  -webkit-tap-highlight-color: transparent;
+  transform-origin: center;
+  min-width: max-content;
+}
+
+/* hover, focus and active states for pill */
+.primary-nav a:hover,
+.primary-nav a:focus,
+.primary-nav a:focus-visible {
+  background: var(--pill-hover-bg);
+  color: var(--pill-hover-text);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transform: translateY(-5px) scale(1.03);
+}
+
+/* Active/current page pill */
+.primary-nav a[aria-current="page"],
+.primary-nav a.active {
+  background: var(--pill-active-bg);
+  color: var(--pill-active-text);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transform: none;
+}
+
+/* Focus visuals — light-yellow focus ring for keyboard users */
+.primary-nav a:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Hero image container and accessibility helpers */
+.center-photo{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:2rem 1rem; /* this padding remains transparent */
+}
+.hero-image{
+  width:100%;
+  max-width: var(--hero-max-width);
+  height:auto;
+  object-fit:cover;
+  aspect-ratio: 16 / 9;
+  border-radius:8px;
+}
+
+/* Footer - condensed and centered layout */
+.site-footer{
+  background: rgba(250,250,250,0.95);
+  padding:1rem 1rem;
+}
+
+/* Make the footer inner container narrower so items sit closer to the center */
+.footer-inner{
+  max-width:var(--footer-max-width);
+  margin:0 auto;
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  justify-content:center;
+  padding:0.25rem 0;
+  text-align:center;
+}
+
+/* Left/right groups */
+.footer-left,
+.footer-right{
+  display:flex;
+  gap:.75rem;
+  align-items:center;
+  justify-content:center;
+  flex: 0 1 auto;
+  flex-direction: row;
+}
+
+/* Make the "Follow me" text larger and place it above the social icons */
+.footer-left {
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+}
+.footer-left p{
+  margin:0;
+  font-size:1.05rem;
+  font-weight:600;
+  color:var(--muted);
+}
+
+/* Footer-right: logo + copy */
+.footer-right .footer-photo{
+  max-height:56px;
+  width:auto;
+  display:block;
+  margin: 0;
+}
+.footer-right .footer-copy{
+  display:block;
+  text-align:center;
+  margin:0;
+  line-height:1;
+}
+
+/* Footer typography: use Inter (or fallbacks) and tighten spacing between brand and tagline */
+.footer-right .footer-copy h3,
+.footer-right .footer-copy .brand-name {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.02;
+  margin: 0 0 2px 0; /* small gap between brand and tagline */
+  letter-spacing: 0.2px;
+  color: var(--text);
+  display: block;
+}
+
+.footer-right .footer-copy p,
+.footer-right .footer-copy .tagline {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.04;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  display: block;
+}
+
+/* Reduce gap between logo and copy */
+.footer-right {
+  gap: 0.28rem; /* ~4–5px between logo and text */
+}
+.footer-right .footer-photo {
+  margin-bottom: 2px; /* small vertical gap under the logo when stacked */
+}
+
+/* Social icons */
+.footer-actions{
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+}
+.social-link img{ display:block; height:32px; width:32px; object-fit:contain; }
+
+/* Visible focus for buttons/links (global fallback) */
+a:focus, button:focus{
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* Utility */
+.header-divider,
+.footer-divider{ width:1px; background:#eee; height:38px; margin:0 0.75rem; }
+
+/* Responsive & accessibility adjustments */
+@media (max-width: 700px) {
+  .header-divider,
+  .footer-divider {
+    width: 70%;
+    height: 1px;
+    margin: 0.5rem auto;
+    background: #eee;
+  }
+  .top-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  .primary-nav a,
+  .primary-nav a:hover,
+  .primary-nav a:focus,
+  .primary-nav a:focus-visible { transform: none !important; transition: none !important; box-shadow: none !important; }
+}
+
+/* Responsive adjustments */
+@media (max-width:900px){
+  .footer-inner{
+    gap:1rem;
+    padding:0.35rem 0;
+  }
+  .top-bar{
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+  .primary-nav ul{
+    justify-content: center;
+  }
+  .logo-img{
+    max-width: 140px;
+    height: auto;
+  }
+}
+
+/* On small phones ensure nav fits and can scroll horizontally if needed */
+@media (max-width:480px){
+  .top-bar{
+    padding:0.5rem 0.75rem;
+  }
+  .primary-nav{
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .primary-nav ul{
+    gap: .4rem;
+    padding: 0 .5rem;
+  }
+  .logo-img{ max-width: 120px; }
+}
+
+/* On small screens, stack footer content vertically and keep everything centered */
+@media (max-width:700px){
+  .footer-inner{
+    flex-direction:column;
+    gap:.75rem;
+    align-items:center;
+    justify-content:center;
+    max-width:calc(var(--footer-max-width) - 40px);
+    padding:0.5rem 0;
+  }
+  .footer-left, .footer-right{ flex-direction:column; gap:.5rem; }
+  .footer-right .footer-photo{ max-height:48px; }
+}
+
+/* Desktop override: stack logo above footer text in .footer-right */
+@media (min-width: 900px) {
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .footer-right .footer-photo {
+    max-height: 56px;
+    width: auto;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .footer-right .footer-copy {
+    display: block;
+    margin: 0;
+  }
+}
+
+/* small-screen tweaks */
+@media (max-width: 480px) {
+  .footer-inner { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .footer-right { gap: 0.28rem; }
+  .footer-right .footer-photo { margin-bottom: 0.14rem; }
+  .footer-right .footer-copy h3 { margin-bottom: 0.04rem; }
+}
+
+/* ---------- Home intro styles (append at end of style.css) ---------- */
+.home-intro {
+  max-width: 980px;
+  margin: 1.75rem auto;
+  padding: 1rem 1.25rem;
+  text-align: center;
+}
+
+.intro-card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 1.25rem 1.1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* Fancy welcome title using Great Vibes (import in head). */
+.welcome-title {
+  margin: 0;
+  font-family: "Great Vibes", cursive;
+  color: var(--brand);            /* soft purple from your variables */
+  font-size: clamp(2.0rem, 6vw, 3.6rem); /* responsive sizing */
+  line-height: 0.95;
+  letter-spacing: 0.6px;
+  margin-bottom: 0.35rem;
+  text-wrap: balance;
+}
+
+/* Intro body paragraphs */
+.intro-text {
+  margin: 0.5rem auto 0;
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  line-height: 1.5;
+  max-width: 56ch; /* keep line length readable */
+}
+
+/* Slightly stronger emphasis for the closing sentence */
+.home-intro .intro-text[style] {
+  font-weight: 600;
+}
+
+/* Small screens: tighten spacing */
+@media (max-width:700px){
+  .home-intro { margin: 1rem .75rem; padding: .85rem; }
+  .intro-card { padding: .85rem; }
+  .welcome-title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
+  .intro-text { font-size: 0.98rem; max-width: 45ch; text-align:left; }
+  .home-intro { text-align: left; }
+}
+
+/* Improve contrast if needed on very light backgrounds */
+@media (prefers-contrast: more) {
+  .intro-card { background: #fff; }
+  .welcome-title { color: #5a235a; }
+}
+
+/* Utility: small visual separator if you want spacing between intro and hero */
+.home-intro + .center-photo { margin-top: 0.75rem; }
