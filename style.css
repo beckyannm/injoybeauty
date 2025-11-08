@@ -397,14 +397,14 @@ button:focus-visible {
 .home-intro {
   display: block;
   max-width: 100%;
-  margin: 2rem auto;
+  margin: 0rem auto;
   padding: 0;           /* padding is on .intro-card */
   text-align: center;   /* heading alignment controlled in .welcome-title */
 }
 
 /* The card: semi-transparent, blurred backdrop and constrained width to match the marked area */
 .intro-card {
-  width: clamp(340px, 46%, 560px); /* ~46% on wide screens; clamp keeps it readable on small screens */
+  width: clamp(400px, 46%, 560px); /* ~46% on wide screens; clamp keeps it readable on small screens */
   max-width: 100%;
   margin: 0 auto;                  /* center the card; change to margin-left:0 if you want left-hugging */
   padding: 1.25rem 1.1rem;
