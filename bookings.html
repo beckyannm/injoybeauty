@@ -3,18 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>InJoy Beauty | Inclusive Beauty Services</title>
+  <title>InJoy Beauty | Bookings & Intake</title>
+
   <!-- Load Inter (Google Fonts) for consistent sans-serif rendering across devices -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- site styles -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Page-scoped helpers for the PDF preview + upload UI */
+    .booking-hero{ max-width:1100px; margin:1.75rem auto; padding:1.25rem; }
+    .booking-card{ background: rgba(255,255,255,0.95); border-radius:10px; padding:1rem; box-shadow:0 6px 18px rgba(0,0,0,0.06); max-width:920px; margin:0 auto 2rem;}
+    .preview-wrap{ display:grid; grid-template-columns: 1fr 340px; gap:1rem; align-items:start; }
+    .pdf-preview{ width:100%; height:640px; border-radius:8px; overflow:hidden; border:1px solid #ececec; background:#fff; }
+    .side-col { padding:0.5rem; }
+    .download-link { display:inline-block; margin-top:.5rem; color:var(--brand); font-weight:600; text-decoration:none; }
+    label{ display:block; font-weight:600; margin-bottom:.25rem; font-size:0.95rem; }
+    .note{ font-size:.92rem; color:var(--muted); margin-top:.5rem; }
+    input[type="file"]{ display:block; margin-top:.25rem; }
+    .form-actions{ display:flex; gap:.75rem; align-items:center; margin-top:.75rem; flex-wrap:wrap; }
+    .btn{ background: var(--pill-bg); border:1px solid rgba(0,0,0,0.06); color:var(--pill-text); padding:.5rem .9rem; border-radius:999px; font-weight:600; cursor:pointer; }
+    .error{ color:#b00020; font-size:.9rem; margin-top:.5rem; }
+    @media (max-width:900px){ .preview-wrap{ grid-template-columns: 1fr; } .pdf-preview{ height:480px; } }
+  </style>
 </head>
 <body>
-  <!-- Skip link for keyboard users -->
-  <a class="skip-link" href="#main-content">
-    Skip to main content
-    <span class="skip-icon" aria-hidden="true">↘</span>
-  </a>
+  <a class="skip-link" href="#main-content">Skip to main content <span class="skip-icon" aria-hidden="true">↘</span></a>
 
   <header class="site-header" role="banner">
     <div class="top-bar">
@@ -28,13 +42,192 @@
 
       <nav aria-label="Primary Navigation" class="primary-nav">
         <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="bookings.html">Bookings</a></li>
+          <li><a href="bookings.html" aria-current="page">Bookings</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#gallery">Gallery</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
+  <main id="main-content" class="site-main" role="main" tabindex="-1">
+    <div class="booking-hero center-photo" aria-hidden="false">
+      <div class="booking-card" role="region" aria-label="Booking and intake form">
+        <h1 style="margin-top:0; font-size:1.6rem;">Booking & Intake</h1>
+        <p class="note">You can preview the intake form below, download it to fill offline, then upload the completed PDF here. If you prefer, use the HTML booking request form on this page to submit your appointment request.</p>
+
+        <div class="preview-wrap" aria-live="polite">
+          <!-- LEFT: inline PDF preview (iframe/object) -->
+          <div class="pdf-preview" aria-hidden="false">
+            <!-- 
+              Place your PDF in the repo root as intake-form.pdf (or update the src path).
+              Some browsers support filling AcroForms inline; many require downloading and editing in a PDF app.
+            -->
+            <iframe src="intake-form.pdf" title="Intake form preview" style="width:100%;height:100%;border:0;">
+              <p>This browser does not support in-page PDF previews. You can <a href="intake-form.pdf">download the intake form</a>.</p>
+            </iframe>
+          </div>
+
+          <!-- RIGHT: download + upload controls -->
+          <aside class="side-col" aria-label="Download and upload completed intake form">
+            <h2 style="margin-top:0.1rem;font-size:1.05rem;">Download & Upload</h2>
+
+            <p class="note">If your browser doesn't allow filling PDFs inline, download the file, fill it in your PDF app, then upload the completed file below.</p>
+
+            <a class="download-link" href="Injoy Intake Form.pdf" download>Download intake-form.pdf</a>
+
+            <hr style="margin:12px 0;border:none;border-top:1px solid #efefef" />
+
+            <!-- Replace the action URL with your upload endpoint.
+                 Options:
+                 - Your own server endpoint: https://your-server.example.com/upload
+                 - If using Formspree file uploads (paid): the Formspree endpoint (see Formspree docs)
+                 - If using a 3rd-party service like JotForm, Typeform, or Netlify, follow their file-upload instructions
+            -->
+            <form id="uploadForm" method="POST" action="https://your-server.example.com/upload" enctype="multipart/form-data" novalidate>
+              <label for="completedPdf">Upload completed PDF <span aria-hidden="true">*</span></label>
+              <input id="completedPdf" name="completedPdf" type="file" accept="application/pdf" required aria-required="true">
+              <div class="note">Accepted: PDF only. Max file size: 10MB.</div>
+
+              <div id="uploadError" class="error" role="alert" aria-live="assertive" hidden></div>
+
+              <div class="form-actions">
+                <button class="btn" type="submit">Upload completed form</button>
+                <a class="download-link" href="mailto:you@example.com?subject=Completed%20Intake%20Form&body=I've%20attached%20my%20completed%20intake%20form." target="_blank">Or email it</a>
+              </div>
+
+              <div class="note">If you have trouble uploading, email the completed PDF to <strong>you@example.com</strong> (replace with your contact) or call/text <strong>(your phone number)</strong>.</div>
+            </form>
+          </aside>
+        </div>
+
+        <!-- Optional: a short HTML booking request form (structured fields) -->
+        <div style="margin-top:1rem;">
+          <h2 style="margin:0 0 .5rem 0;">Quick booking request (optional)</h2>
+          <p class="note">If you'd rather request a booking without the full intake, use this short form and we'll follow up for details.</p>
+
+          <form id="bookingRequest" method="POST" action="https://formspree.io/f/yourFormID" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+            <input name="honeypot" style="display:none">
+            <label for="rq-name" class="full">Full name</label>
+            <input id="rq-name" name="name" class="full" type="text" required>
+
+            <label for="rq-email">Email</label>
+            <input id="rq-email" name="email" type="email" required>
+
+            <label for="rq-phone">Phone</label>
+            <input id="rq-phone" name="phone" type="tel">
+
+            <label for="rq-service">Service</label>
+            <select id="rq-service" name="service">
+              <option>Haircut / Styling</option>
+              <option>Colour</option>
+              <option>Makeup</option>
+              <option>Other</option>
+            </select>
+
+            <div style="grid-column:1 / -1; margin-top:.5rem;">
+              <label for="rq-notes">Notes</label>
+              <textarea id="rq-notes" name="notes" placeholder="Short note about what you'd like"></textarea>
+            </div>
+
+            <div style="grid-column:1 / -1; display:flex; gap:.5rem; align-items:center; margin-top:.25rem;">
+              <button class="btn" type="submit">Send request</button>
+              <div class="note">We will contact you to confirm availability.</div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left social-links">
+        <p>Follow me</p>
+        <div class="footer-actions">
+          <a href="https://www.facebook.com/" class="social-link" aria-label="InJoy Beauty on Facebook">
+            <img src="smallfacebook.png" alt="Facebook icon" width="32" height="32" />
+          </a>
+          <a href="https://www.instagram.com/" class="social-link" aria-label="InJoy Beauty on Instagram">
+            <img src="smallinstagram.png" alt="Instagram icon" width="32" height="32" />
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <div class="footer-right">
+        <img src="transparentlogo.png" alt="InJoy Beauty" class="footer-photo" width="75" height="72" />
+        <aside class="section-card aside-text" aria-label="InJoy Beauty mission">
+          <div class="footer-copy">
+            <h3>INJOY • Inclusive Beauty</h3>
+            <p>Everyone deserves to feel beautiful.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Client-side upload validation (PDF only, max 10MB). Replace or extend as needed.
+    (function(){
+      const uploadForm = document.getElementById('uploadForm');
+      const fileInput = document.getElementById('completedPdf');
+      const uploadError = document.getElementById('uploadError');
+      const MAX_BYTES = 10 * 1024 * 1024; // 10MB
+
+      uploadForm.addEventListener('submit', function(e){
+        uploadError.hidden = true;
+        uploadError.textContent = '';
+
+        const file = fileInput.files[0];
+        if(!file){
+          e.preventDefault();
+          uploadError.hidden = false;
+          uploadError.textContent = 'Please choose a PDF to upload.';
+          fileInput.focus();
+          return;
+        }
+        if(file.type !== 'application/pdf'){
+          e.preventDefault();
+          uploadError.hidden = false;
+          uploadError.textContent = 'Only PDF files are accepted. Please upload a PDF.';
+          fileInput.focus();
+          return;
+        }
+        if(file.size > MAX_BYTES){
+          e.preventDefault();
+          uploadError.hidden = false;
+          uploadError.textContent = 'File is too large. Please upload a PDF smaller than 10MB.';
+          fileInput.focus();
+          return;
+        }
+
+        // At this point, the browser will POST the multipart form to your action endpoint.
+        // If you want to upload via XHR/fetch and show progress, implement fetch with FormData here.
+      });
+
+      // Small enhancement: show filename when chosen (optional)
+      fileInput.addEventListener('change', function(){
+        uploadError.hidden = true;
+        uploadError.textContent = '';
+        if(fileInput.files && fileInput.files[0]) {
+          const f = fileInput.files[0];
+          const label = document.createElement('div');
+          label.textContent = `Selected: ${f.name} (${Math.round(f.size/1024)} KB)`;
+          label.className = 'note';
+          // remove old label if present
+          const old = uploadForm.querySelector('.selected-file-note');
+          if(old) old.remove();
+          label.classList.add('selected-file-note');
+          uploadForm.appendChild(label);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
