@@ -15,6 +15,9 @@
   --max-width: 1100px;
   /* New footer width so footer content sits closer to center */
   --footer-max-width: 600px;
+
+  /* hero sizing used elsewhere */
+  --hero-max-width: 720px;
 }
 
 /* Reset & base */
@@ -40,6 +43,8 @@ body{
 .site-main,
 .site-footer {
   background: rgba(255,255,255,0.85);
+  position: relative; /* create stacking context for header items */
+  z-index: 10;        /* keep header above tiled background/other content */
 }
 
 /* Skip link */
@@ -103,6 +108,11 @@ body{
 .logo-img, .footer-photo{ display:block; max-width:100%; height:auto; object-fit:contain; }
 
 /* Nav - pill style with updated colors */
+.primary-nav{
+  /* give the nav a stacking context so it sits above overlapped content when needed */
+  z-index: 12;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS when overflow occurs */
+}
 .primary-nav ul{
   list-style:none;
   margin:0;
@@ -110,6 +120,8 @@ body{
   display:flex;
   gap:.5rem;
   align-items:center;
+  /* allow wrapping so links remain visible on narrow screens */
+  flex-wrap: wrap;
 }
 .primary-nav a{
   display:inline-block;
@@ -124,6 +136,8 @@ body{
   transition: background-color .18s ease, color .18s ease, transform .16s cubic-bezier(.2,.8,.2,1), box-shadow .16s ease;
   -webkit-tap-highlight-color: transparent;
   transform-origin: center;
+  /* ensure anchors can be scrolled into view on tiny screens */
+  min-width: max-content;
 }
 
 /* hover, focus and active states for pill */
@@ -241,13 +255,44 @@ a:focus, button:focus{
 }
 
 /* Responsive adjustments */
+/* stack the header elements on narrow screens and center nav pills */
 @media (max-width:900px){
-  /* On medium screens, keep footer compact but stack if needed */
   .footer-inner{
     gap:1rem;
     padding:0.35rem 0;
   }
+  .top-bar{
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+  .primary-nav ul{
+    justify-content: center;
+  }
+  /* reduce logo size so nav has room */
+  .logo-img{
+    max-width: 140px;
+    height: auto;
+  }
 }
+
+/* On small phones ensure nav fits and can scroll horizontally if needed */
+@media (max-width:480px){
+  .top-bar{
+    padding:0.5rem 0.75rem;
+  }
+  .primary-nav{
+    width: 100%;
+    overflow-x: auto;     /* allow horizontal scrolling if many pills */
+    -webkit-overflow-scrolling: touch;
+  }
+  .primary-nav ul{
+    gap: .4rem;
+    padding: 0 .5rem;
+  }
+  .logo-img{ max-width: 120px; }
+}
+
 @media (max-width:700px){
   /* On small screens, stack footer content vertically and keep everything centered */
   .footer-inner{
