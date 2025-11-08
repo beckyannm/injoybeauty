@@ -5,7 +5,7 @@
   --brand: #C2DCF2; 
   --pill-hover-bg: #C2DCF2; /* user-requested hover color */
   --pill-hover-text: #ffffff;
-  --accent: #F2C2DC; /* fallback/light accent */
+  --accent: #F7E6ED; /* fallback/light accent */
   --pill-bg: transparent; /* default pill background */
   --pill-text: var(--text);
   --pill-active-bg: var(--brand);
