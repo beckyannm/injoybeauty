@@ -245,3 +245,68 @@
   </script>
 </body>
 </html>
+/* ---------- Bookings hero styles (append to style.css) ---------- */
+.bookings-hero {
+  max-width: var(--max-width);
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+/* Card that sits above the global overlay (if you use one) */
+.bookings-card {
+  background: rgba(255,255,255,0.94);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 2;
+}
+
+/* Heading uses your decorative welcome font */
+.bookings-title {
+  margin: 0 0 0.35rem 0;
+  font-family: var(--decorative-welcome);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  line-height: 1.02;
+  text-align: left;
+}
+
+/* Short subheading line */
+.bookings-sub {
+  margin: 0 0 0.45rem 0;
+  font-family: var(--ui-font);
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Availability row */
+.bookings-availability {
+  margin: 0 0 0.6rem 0;
+  font-family: var(--ui-font);
+  color: var(--text);
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Descriptive paragraph */
+.bookings-info {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--ui-font);
+  line-height: 1.5;
+  font-size: clamp(0.98rem, 1.6vw, 1.06rem);
+  max-width: 68ch;
+  text-align: left;
+}
+
+/* Small screens: tighten spacing and keep layout comfortable */
+@media (max-width: 700px) {
+  .bookings-hero { padding: 0 0.75rem; margin: 1rem auto; }
+  .bookings-card { padding: 0.9rem 0.9rem; }
+  .bookings-title { font-size: clamp(1.3rem, 7vw, 1.8rem); }
+  .bookings-sub, .bookings-availability, .bookings-info { font-size: 0.98rem; }
+}
