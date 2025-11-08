@@ -75,7 +75,7 @@ header {
 .logo-placeholder {
   width: 100%;
   padding: 2rem;
-  border: 2px dashed #fff; /* was rgba(217,106,167,0.6); now white */
+  border: 2px dashed transparent; /* was rgba(217,106,167,0.6); now white */
   border-radius: 14px;
   color: rgba(58, 28, 53, 0.7);
   font-size: clamp(1rem, 2vw, 1.2rem);
@@ -98,7 +98,7 @@ nav {
   height: auto;
   display: block;
   margin: 0 auto;
-  filter: drop-shadow(0 8px 18px rgba(58, 28, 53, 0.10));
+ /* filter: drop-shadow(0 8px 18px rgba(58, 28, 53, 0.10)); */
 }
 .center-photo {
   display: flex;
