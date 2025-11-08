@@ -14,7 +14,7 @@
 
   --max-width: 1100px;
   /* New footer width so footer content sits closer to center */
-  --footer-max-width: 700px;
+  --footer-max-width: 600px;
 }
 
 /* Reset & base */
@@ -183,7 +183,7 @@ button:focus-visible {
   max-width:var(--footer-max-width);   /* narrower than page width */
   margin:0 auto;                       /* center the entire block */
   display:flex;
-  gap:1.25rem;                         /* space between left and right groups */
+  gap:1rem;                         /* space between left and right groups */
   align-items:center;
   justify-content:center;              /* keep children centered horizontally */
   padding:0.25rem 0;
