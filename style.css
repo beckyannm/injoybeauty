@@ -337,8 +337,10 @@ header,
 
 /* The main “card” look for individual panels or text boxes */
 .section-card {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(58, 28, 53, 0.08);
   border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(58, 28, 53, 0.08);
   padding: clamp(1rem, 3vw, 1.5rem);
 }
 
