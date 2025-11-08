@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>InJoy Beauty | Inclusive Beauty Services</title>
 
-  <!-- Load Great Vibes for the fancy welcome heading -->
-  <!-- Add this in the <head> before your stylesheet link (or replace the existing decorative font) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <!-- Load Inter (Google Fonts) for consistent sans-serif rendering across devices -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Decorative heading font (Playfair) + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- site styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -24,7 +21,7 @@
   <header class="site-header" role="banner">
     <div class="top-bar">
       <div class="logo-box">
-        <a href="/" class="logo-link" aria-label="InJoy Beauty home">
+        <a href="index.html" class="logo-link" aria-label="InJoy Beauty home">
           <img src="InjoyBeauty.jpg" alt="InJoy Beauty logo" class="logo-img" width="160" height="80" />
         </a>
       </div>
@@ -37,16 +34,16 @@
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="bookings.html">Bookings</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#gallery">Gallery</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
+  
   <main id="main-content" class="site-main" role="main" tabindex="-1">
 
-    <!-- HOME INTRO: fancy welcome heading + paragraph -->
+    <!-- HOME INTRO: fancy welcome heading + paragraph (left-aligned by CSS) -->
     <section class="home-intro" aria-labelledby="home-intro-heading">
       <div class="intro-card">
         <h1 id="home-intro-heading" class="welcome-title">Welcome to InJoy Beauty!</h1>
@@ -65,9 +62,7 @@
       </div>
     </section>
 
-    <div class="center-photo" aria-hidden="false">
-      <img src="smallerinjoy.jpg" alt="Everyone deserves to feel beautiful" class="hero-image" width="1200" height="700" />
-    </div>
+
   </main>
 
   <footer class="site-footer" role="contentinfo">
