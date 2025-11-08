@@ -1,10 +1,10 @@
 :root{
   --bg: #ffffff;
-  --text: #202124;
+  --text: #000000;
   --muted: #6b6f76;
   --brand: #6b2e6b; /* deep brand purple */
   --accent: #f6c6e7; /* light accent used for pill background on hover */
-  --pill-bg: transparent; /* default pill background */
+  --pill-bg: #FFE8FD; /* default pill background */
   --pill-text: var(--text);
   --pill-active-bg: var(--brand);
   --pill-active-text: #ffffff;
