@@ -34,9 +34,14 @@ body{
   background-size: auto;           /* do not scale the image */
 }
 
-/* If the tiled image makes text low-contrast in areas, apply a translucent backdrop:
-   .site-header, .site-main, .site-footer { background: rgba(255,255,255,0.85); }
-*/
+/* Make header, main and footer sit on a translucent white backdrop so content
+   remains readable above the tiled background image. Adjust the alpha value
+   (0.85 below) to taste. */
+.site-header,
+.site-main,
+.site-footer {
+  background: rgba(255,255,255,0.85);
+}
 
 /* Skip link */
 .skip-link{
@@ -166,7 +171,8 @@ body{
 
 /* Footer - reduced vertical spacing */
 .site-footer{
-  background: rgba(250,250,250,0.85);
+  /* keep a slightly more opaque background here to ensure contrast with social icons */
+  background: rgba(250,250,250,0.95);
   padding:1rem 1rem; /* reduced from 2rem */
 }
 .footer-inner{
