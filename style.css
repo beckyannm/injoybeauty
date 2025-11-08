@@ -22,17 +22,50 @@
 html,body{height:100%}
 body{
   margin:0;
-  /* Inter primary site font; Playfair Display is used for decorative headings (loaded in the HTML head) */
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background-color:var(--bg);
   color:var(--text);
   line-height:1.4;
   -webkit-font-smoothing:antialiased;
 
+  /* decorative background */
   background-image: url('simplewhitefloral.jpg');
   background-repeat: repeat;
   background-position: top center;
   background-size: auto;
+}
+
+/* --- GLOBAL OVERLAY (non-hero sections) --- */
+/* Apply a translucent wash to site-main children except the hero and the home intro.
+   The home intro will have its own blurred backdrop below. */
+.site-main {
+  position: relative;
+  background: transparent;
+  z-index: 0;
+}
+
+/* Ensure direct children sit above their overlay pseudo-element */
+.site-main > * {
+  position: relative;
+  z-index: 1; /* content sits above its own overlay pseudo-element */
+}
+
+/* Global translucent overlay applied to every direct child except hero and home intro */
+.site-main > *:not(.center-photo):not(.home-intro)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.60); /* light translucent wash to separate content from busy background */
+  backdrop-filter: none;              /* no blur globally to improve clarity/performance */
+  -webkit-backdrop-filter: none;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* Make the hero container explicitly transparent so background shows through */
+.center-photo {
+  background: transparent;
 }
 
 /* make sure header/footer still have a simple translucent backdrop */
@@ -43,9 +76,9 @@ body{
   z-index: 10;
 }
 
-/* Respect reduced motion/possible reduced-transparency preferences */
+/* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .site-main > *:not(.center-photo)::before {
+  .site-main > *:not(.center-photo):not(.home-intro)::before {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -79,7 +112,6 @@ body{
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  transform-origin: center;
   transition: background .15s ease, color .15s ease;
 }
 .skip-icon{
@@ -110,7 +142,7 @@ body{
 /* Logo */
 .logo-img, .footer-photo{ display:block; max-width:100%; height:auto; object-fit:contain; }
 
-/* Nav - pill style with updated colors */
+/* Nav - pill style */
 .primary-nav{
   z-index: 12;
   -webkit-overflow-scrolling: touch;
@@ -139,19 +171,14 @@ body{
   transform-origin: center;
   min-width: max-content;
 }
-
-/* hover, focus and active states for pill */
 .primary-nav a:hover,
 .primary-nav a:focus,
 .primary-nav a:focus-visible {
   background: var(--pill-hover-bg);
   color: var(--pill-hover-text);
-  text-decoration: none;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transform: translateY(-5px) scale(1.03);
 }
-
-/* Active/current page pill */
 .primary-nav a[aria-current="page"],
 .primary-nav a.active {
   background: var(--pill-active-bg);
@@ -160,7 +187,7 @@ body{
   transform: none;
 }
 
-/* Focus visuals — light-yellow focus ring for keyboard users */
+/* Focus visuals */
 .primary-nav a:focus-visible,
 a:focus-visible,
 button:focus-visible {
@@ -174,7 +201,7 @@ button:focus-visible {
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:2rem 1rem; /* hero padding remains transparent */
+  padding:2rem 1rem;
 }
 .hero-image{
   width:100%;
@@ -185,13 +212,11 @@ button:focus-visible {
   border-radius:8px;
 }
 
-/* Footer - condensed and centered layout */
+/* Footer */
 .site-footer{
   background: rgba(250,250,250,0.95);
   padding:1rem 1rem;
 }
-
-/* Make the footer inner container narrower so items sit closer to the center */
 .footer-inner{
   max-width:var(--footer-max-width);
   margin:0 auto;
@@ -202,8 +227,6 @@ button:focus-visible {
   padding:0.25rem 0;
   text-align:center;
 }
-
-/* Left/right groups */
 .footer-left,
 .footer-right{
   display:flex;
@@ -213,8 +236,6 @@ button:focus-visible {
   flex: 0 1 auto;
   flex-direction: row;
 }
-
-/* Make the "Follow me" text larger and place it above the social icons */
 .footer-left {
   flex-direction: column;
   align-items: center;
@@ -226,8 +247,6 @@ button:focus-visible {
   font-weight:600;
   color:var(--muted);
 }
-
-/* Footer-right: logo + copy */
 .footer-right .footer-photo{
   max-height:56px;
   width:auto;
@@ -240,20 +259,17 @@ button:focus-visible {
   margin:0;
   line-height:1;
 }
-
-/* Footer typography: use Inter (or fallbacks) and tighten spacing between brand and tagline */
 .footer-right .footer-copy h3,
 .footer-right .footer-copy .brand-name {
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
   line-height: 1.02;
-  margin: 0 0 2px 0; /* small gap between brand and tagline */
+  margin: 0 0 2px 0;
   letter-spacing: 0.2px;
   color: var(--text);
   display: block;
 }
-
 .footer-right .footer-copy p,
 .footer-right .footer-copy .tagline {
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -265,28 +281,14 @@ button:focus-visible {
   color: var(--muted);
   display: block;
 }
-
-/* Reduce gap between logo and copy */
-.footer-right {
-  gap: 0.28rem; /* ~4–5px between logo and text */
-}
-.footer-right .footer-photo {
-  margin-bottom: 2px; /* small vertical gap under the logo when stacked */
-}
-
-/* Social icons */
+.footer-right { gap: 0.28rem; }
+.footer-right .footer-photo { margin-bottom: 2px; }
 .footer-actions{
   display:flex;
   gap:.5rem;
   align-items:center;
 }
 .social-link img{ display:block; height:32px; width:32px; object-fit:contain; }
-
-/* Visible focus for buttons/links (global fallback) */
-a:focus, button:focus{
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-}
 
 /* Utility */
 .header-divider,
@@ -308,7 +310,7 @@ a:focus, button:focus{
   }
 }
 
-/* Respect reduced motion preference */
+/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
   .primary-nav a,
@@ -354,7 +356,7 @@ a:focus, button:focus{
   .logo-img{ max-width: 120px; }
 }
 
-/* On small screens, stack footer content vertically and keep everything centered */
+/* Footer stacking on small screens */
 @media (max-width:700px){
   .footer-inner{
     flex-direction:column;
@@ -378,85 +380,101 @@ a:focus, button:focus{
     gap: 0.5rem;
     text-align: center;
   }
-
   .footer-right .footer-photo {
     max-height: 56px;
     width: auto;
     display: block;
     margin-bottom: 0.35rem;
   }
-
   .footer-right .footer-copy {
     display: block;
     margin: 0;
   }
 }
 
-/* small-screen tweaks */
-@media (max-width: 480px) {
-  .footer-inner { padding-left: 0.5rem; padding-right: 0.5rem; }
-  .footer-right { gap: 0.28rem; }
-  .footer-right .footer-photo { margin-bottom: 0.14rem; }
-  .footer-right .footer-copy h3 { margin-bottom: 0.04rem; }
-}
-
-/* ---------- Home intro styles (decorative heading left-aligned) ---------- */
+/* ---------- HOME INTRO: blurred card & decorative heading ---------- */
+/* The home intro is excluded from the global overlay above; this block provides a subtle blurred backdrop */
 .home-intro {
-  max-width: 750px;
+  display: block;
+  max-width: 100%;
   margin: 1.75rem auto;
-  padding: 1rem 1.25rem;
-  text-align: left; /* left-align the intro block so content hugs left */
+  padding: 0;           /* padding is on .intro-card */
+  text-align: center;   /* heading alignment controlled in .welcome-title */
 }
 
+/* The card: semi-transparent, blurred backdrop and constrained width to match the marked area */
 .intro-card {
-  background: rgba(255,255,255,0.94);
+  width: clamp(340px, 46%, 560px); /* ~46% on wide screens; clamp keeps it readable on small screens */
+  max-width: 100%;
+  margin: 0 auto;                  /* center the card; change to margin-left:0 if you want left-hugging */
+  padding: 1.25rem 1.1rem;
   border-radius: 10px;
-  padding: 1rem 0.9rem 1rem 0.8rem; /* reduced left padding so heading comes closer to the edge */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+
+  /* translucent background & blur to show floral pattern behind */
+  background: rgba(255,255,255,0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  /* subtle border and shadow for legibility */
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+  position: relative;
+  z-index: 2;
 }
 
-/* Decorative heading: Playfair Display (add the Google Fonts link in <head>) */
+/* Decorative heading: Playfair Display (load the font in the page head) */
 .welcome-title {
   margin: 0;
   font-family: "Playfair Display", serif;
-  color: var(--accent);               /* soft light pink */
+  color: var(--accent);               /* soft light-pink heading */
   font-weight: 600;
-  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  font-size: clamp(2.0rem, 6vw, 3.2rem);
   line-height: 0.95;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   margin-bottom: 0.25rem;
-  text-align: left;
+  text-align: left; /* keep title hugging the left edge of the card's content */
 }
 
 /* Intro body paragraphs */
 .intro-text {
-  margin: 0.5rem 0 0;
+  margin: 0.5rem auto 0;
   color: var(--text);
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   line-height: 1.5;
-  max-width: 56ch; /* keep line length readable */
-  text-align: left;
+  max-width: 56ch;
+  text-align: left; /* paragraphs left-aligned inside the card for readability */
 }
 
-/* Slight emphasize rule (used when inline style font-weight set) */
+/* Strong closing sentence */
 .home-intro .intro-text[style] {
   font-weight: 600;
 }
 
-/* Small screens: tighten spacing and keep left alignment */
-@media (max-width:700px){
-  .home-intro { margin: 1rem .75rem; padding: .85rem; }
-  .intro-card { padding: .75rem .75rem .75rem .6rem; }
+/* Small screens: make card nearly full width and reduce blur slightly */
+@media (max-width: 700px) {
+  .intro-card {
+    width: calc(100% - 2rem);
+    padding: 0.9rem 0.85rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .home-intro { text-align: left; padding-left: .6rem; padding-right: .6rem; }
   .welcome-title { font-size: clamp(1.6rem, 8vw, 2.4rem); }
   .intro-text { font-size: 0.98rem; max-width: 50ch; }
 }
 
-/* Accessibility: increase contrast in high-contrast mode */
-@media (prefers-contrast: more) {
-  .intro-card { background: #fff; }
-  .welcome-title { color: #eaa7d6; }
+/* Respect reduced motion / reduced visual effects preference */
+@media (prefers-reduced-motion: reduce), (prefers-reduced-transparency: reduce) {
+  .intro-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255,255,255,0.92); /* higher-opacity fallback for legibility */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  }
 }
 
-/* Small separation between intro and hero */
+/* Small separation between intro and following content */
 .home-intro + .center-photo { margin-top: 0.75rem; }
