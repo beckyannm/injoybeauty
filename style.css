@@ -96,19 +96,19 @@ nav {
   justify-content: flex-end;
 }
 /* center photo with "injoy beauty */
+.center-photo img {
+  width: min(680px, 92vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 8px 18px rgba(58, 28, 53, 0.10));
+}
 .center-photo {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem 0;
+  margin: 1.5rem 0 1rem;
   /* Remove padding and border-radius everywhere */
-}
-
-.center-photo img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  /* Remove border-radius and box-shadow */
 }
 
 @media (max-width: 600px) {
@@ -153,6 +153,9 @@ nav a {
 
   nav a {
     padding: 0.5rem 0.9rem;
+     background: rgba(217, 106, 167, 0.12);
+    border: 1px solid rgba(217, 106, 167, 0.18);
+    letter-spacing: 0.03em;
     font-size: 0.8rem;
     width: 100%;              /* (optional) pills fill the width of nav */
     box-sizing: border-box;
@@ -164,8 +167,8 @@ nav a:focus {
   color: #fff;
   border-color: rgba(58, 28, 53, 0.08);
   outline: none;
+  border-color: transparent;
 }
-
 .sub-header {
   width: 100%;
   background: rgba(255, 255, 255, 0.7)
@@ -198,7 +201,7 @@ footer {
 
 .footer-content {
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
   max-width: 1100px;
   margin: 0 auto;
   text-align: center;
@@ -302,14 +305,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;            /* optional: remove BG if you want */
-  border: none;                /* optional: remove border */
 }
 
 /* actual <img> fills the box and can be cropped via object-fit */
 .footer-photo {
   width: auto;         /* Show at natural width */
-  height: 50px;        /* Show at natural height */
+  height: 75px;        /* Show at natural height */
   max-width: none;     /* Do not impose max-width */
   object-fit: contain; /* Show full image (unless you want crop) */
   display: inline-block;
@@ -339,31 +340,6 @@ header,
   box-shadow: 0 6px 24px rgba(58, 28, 53, 0.06);
 }
 
-/* Navigation polish */
-nav a {
-  background: rgba(217, 106, 167, 0.12);
-  border: 1px solid rgba(217, 106, 167, 0.18);
-  letter-spacing: 0.03em;
-}
-
-nav a:hover,
-nav a:focus {
-  background: var(--accent);
-  color: #fff;
-  border-color: transparent;
-}
-
-/* Hero/logo section refinement */
-.center-photo {
-  margin: 1.5rem 0 1rem;
-}
-.center-photo img {
-  width: min(680px, 92vw);
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  filter: drop-shadow(0 8px 18px rgba(58, 28, 53, 0.10));
-}
 
 /* The main “card” look for individual panels or text boxes */
 .section-card {
@@ -387,8 +363,7 @@ nav a:focus {
 }
 
 /* Footer layout refinements */
-.footer-content {
-  gap: 1rem;
+
 }
 .footer-text p {
   line-height: 1.2;
