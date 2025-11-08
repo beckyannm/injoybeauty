@@ -291,7 +291,7 @@ button:focus-visible {
   font-weight:500;
   color:var(--muted);
   opacity:0.98;
-  line-height:1;
+  line-height:.5;
 }
 
 /* Make the gap between logo and copy smaller */
