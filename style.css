@@ -261,7 +261,7 @@ button:focus-visible {
 }
 .footer-left p{
   margin:0;
-  font-size:1.05rem;
+  font-size:1.5rem;
   font-weight:600;
   color:var(--muted);
   /* Use decorative follow font for the "Follow me" text */
