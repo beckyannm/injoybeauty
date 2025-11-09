@@ -28,6 +28,11 @@
 html,body{height:100%}
 body{
   margin:0;
+  /* Make the page a column flex so we can push the footer to the bottom when content is short */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
   /* site UI font: Roboto Flex (set in root) */
   font-family: var(--ui-font);
   background-color:var(--bg);
@@ -47,6 +52,9 @@ body{
   position: relative;
   background: transparent;
   z-index: 0;
+
+  /* Allow main to grow and take available space so footer stays at bottom */
+  flex: 1 0 auto;
 }
 
 /* Ensure direct children sit above their overlay pseudo-element */
@@ -130,6 +138,13 @@ body{
 }
 @media (prefers-reduced-motion: reduce) {
   .skip-icon { transition: none; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-main > *:not(.center-photo):not(.home-intro)::before {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 /* Layout container */
