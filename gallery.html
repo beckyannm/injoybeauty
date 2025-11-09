@@ -1,1 +1,183 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Look Inside — InJoy Beauty (Gallery)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Gallery page scoped styles -->
+  <style>
+    /* small, self-contained gallery styles */
+    .gallery-hero { max-width: var(--max-width); margin: 1.5rem auto; padding: 1rem; }
+    .gallery-card { background: rgba(255,255,255,0.92); border-radius:10px; padding:1rem; box-shadow:0 8px 24px rgba(0,0,0,0.04); position:relative; z-index:2; }
+    .gallery-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1rem; }
+    .gallery-item { background: #f7f7f7; border-radius:8px; min-height:160px; display:flex; align-items:center; justify-content:center; flex-direction:column; padding:1rem; }
+    .gallery-item .placeholder { width:100%; height:120px; background: linear-gradient(135deg,#eee,#f6f6f6); border-radius:6px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-weight:600; text-align:center; padding:0 .5rem; }
+    .gallery-caption { margin-top:0.5rem; color:var(--muted); font-size:0.95rem; }
+    .gallery-note { margin-top:1rem; color:var(--muted); }
+
+    /* Password modal */
+    .pw-overlay { position:fixed; inset:0; background: rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:9999; }
+    .pw-modal { background:#fff; padding:1.25rem; max-width:420px; width:92%; border-radius:8px; box-shadow:0 8px 32px rgba(0,0,0,0.3); }
+    .pw-modal h2{ margin:0 0 .5rem 0; font-family: "Playfair Display", serif; }
+    .pw-modal p{ margin:0 0 .75rem 0; color:var(--muted); }
+    .pw-input-row{ display:flex; gap:.5rem; }
+    .pw-input-row input[type="password"]{ flex:1; padding:.5rem .6rem; border-radius:6px; border:1px solid #ddd; }
+    .pw-input-row button{ padding:.5rem .75rem; border-radius:6px; border:none; background:var(--brand); color:#fff; }
+    .pw-error{ color:#b00020; margin-top:.5rem; }
+
+    @media (max-width:1100px){ .gallery-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:700px){ .gallery-grid{ grid-template-columns:1fr; } .gallery-item .placeholder{ height:160px; } }
+  </style>
+
+  <!--
+    NOTE: This client-side password gate is only obfuscation and is NOT secure.
+    For real protection use server-side auth or GitHub Pages password-protected area.
+
+    To change the password: edit the GALLERY_PASSWORD constant in the script below.
+  -->
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content <span class="skip-icon" aria-hidden="true">↘</span></a>
+
+  <header class="site-header" role="banner">
+    <div class="top-bar">
+      <div class="logo-box">
+        <a href="index.html" class="logo-link" aria-label="InJoy Beauty home">
+          <img src="InjoyBeauty.jpg" alt="InJoy Beauty logo" class="logo-img" width="160" height="80" />
+        </a>
+      </div>
+      <div class="header-divider" aria-hidden="true"></div>
+      <nav aria-label="Primary Navigation" class="primary-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="bookings.html">Bookings</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="site-main" role="main" tabindex="-1">
+    <section class="gallery-hero" aria-labelledby="gallery-heading">
+      <div class="gallery-card">
+        <h1 id="gallery-heading" style="margin-top:0; font-family:Playfair Display, serif;">A Look Inside InJoy Beauty</h1>
+        <p class="gallery-note"><strong>Note:</strong> This will have to wait until next year when I move into a new place — for now I offer only mobile services.</p>
+        <p class="gallery-note">Step inside my sensory-friendly home salon — a calm, welcoming space designed for comfort and accessibility. Here, beauty is about feeling good, not just looking good.</p>
+
+        <div class="gallery-grid" aria-live="polite">
+          <!-- Placeholder items for future photos -->
+          <figure class="gallery-item" role="group" aria-label="Salon setup — coming soon">
+            <div class="placeholder" role="img" aria-label="Salon setup placeholder">Salon setup — coming soon</div>
+            <figcaption class="gallery-caption">Salon setup (wheelchair accessible)</figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="group" aria-label="Soft lighting placeholder">
+            <div class="placeholder" role="img" aria-label="Soft lighting placeholder">Soft lighting — coming soon</div>
+            <figcaption class="gallery-caption">Soft lighting & calming colors</figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="group" aria-label="Before and after placeholder">
+            <div class="placeholder" role="img" aria-label="Before and after placeholder">Before / After — coming soon</div>
+            <figcaption class="gallery-caption">Before & after (with permission)</figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="group" aria-label="Smiling clients placeholder">
+            <div class="placeholder" role="img" aria-label="Smiling clients placeholder">Smiling clients — coming soon</div>
+            <figcaption class="gallery-caption">Smiling clients & cozy atmosphere</figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="group" aria-label="Cozy atmosphere placeholder">
+            <div class="placeholder" role="img" aria-label="Cozy atmosphere placeholder">Cozy atmosphere — coming soon</div>
+            <figcaption class="gallery-caption">Gentle care & calm spaces</figcaption>
+          </figure>
+
+          <figure class="gallery-item" role="group" aria-label="Mobile services placeholder">
+            <div class="placeholder" role="img" aria-label="Mobile services placeholder">Mobile services — coming soon</div>
+            <figcaption class="gallery-caption">Mobile services available</figcaption>
+          </figure>
+        </div>
+
+        <p class="gallery-note" style="margin-top:1.25rem;">Photos will be added soon — check back later.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left social-links">
+        <p>Follow me</p>
+        <div class="footer-actions">
+          <a href="https://www.facebook.com/" class="social-link" aria-label="InJoy Beauty on Facebook"><img src="smallfacebook.png" alt="Facebook icon" width="32" height="32" /></a>
+          <a href="https://www.instagram.com/" class="social-link" aria-label="InJoy Beauty on Instagram"><img src="smallinstagram.png" alt="Instagram icon" width="32" height="32" /></a>
+        </div>
+      </div>
+      <div class="footer-divider" aria-hidden="true"></div>
+      <div class="footer-right">
+        <img src="transparentlogo.png" alt="InJoy Beauty" class="footer-photo" width="75" height="72" />
+        <aside class="section-card aside-text" aria-label="InJoy Beauty mission">
+          <div class="footer-copy"><h3>INJOY • Inclusive Beauty</h3><p>Everyone deserves to feel beautiful.</p></div>
+        </aside>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Password overlay (client-side protection) -->
+  <div id="pwOverlay" class="pw-overlay" hidden>
+    <div class="pw-modal" role="dialog" aria-modal="true" aria-labelledby="pwTitle">
+      <h2 id="pwTitle">This gallery is private</h2>
+      <p>Enter the password to view these photos.</p>
+      <div class="pw-input-row">
+        <input id="pwInput" type="password" aria-label="Gallery password" placeholder="Enter password">
+        <button id="pwSubmit">Enter</button>
+      </div>
+      <div id="pwError" class="pw-error" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      // CHANGE THIS to set the gallery password. Keep it a simple client-side gate.
+      const GALLERY_PASSWORD = 'INJOY2025';
+      const storageKey = 'injoy_gallery_unlocked_v1';
+      const overlay = document.getElementById('pwOverlay');
+      const pwInput = document.getElementById('pwInput');
+      const pwSubmit = document.getElementById('pwSubmit');
+      const pwError = document.getElementById('pwError');
+
+      function unlockGallery(){
+        sessionStorage.setItem(storageKey, '1');
+        overlay.hidden = true;
+      }
+      function lockGallery(){
+        overlay.hidden = false;
+        pwInput.focus();
+      }
+
+      // Check sessionStorage on load
+      if(sessionStorage.getItem(storageKey) === '1'){
+        overlay.hidden = true;
+      } else {
+        lockGallery();
+      }
+
+      pwSubmit.addEventListener('click', function(){
+        const val = pwInput.value || '';
+        if(val === GALLERY_PASSWORD){ unlockGallery(); }
+        else { pwError.textContent = 'Incorrect password — please try again.'; pwInput.value = ''; pwInput.focus(); }
+      });
+
+      pwInput.addEventListener('keypress', function(e){ if(e.key === 'Enter'){ pwSubmit.click(); } });
+
+      // Prevent tabbing into the page when locked: trap focus inside modal
+      document.addEventListener('focus', function(e){ if(!overlay.hidden && !overlay.contains(e.target)){ e.stopPropagation(); overlay.querySelector('input').focus(); } }, true);
+    })();
+  </script>
+</body>
+</html>
