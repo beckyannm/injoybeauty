@@ -161,42 +161,60 @@
   </div>
 
   <script>
-    (function(){
-      // CHANGE THIS to set the gallery password. Keep it a simple client-side gate.
-      const GALLERY_PASSWORD = 'Molly2025';
-      const storageKey = 'injoy_gallery_unlocked_v1';
-      const overlay = document.getElementById('pwOverlay');
-      const pwInput = document.getElementById('pwInput');
-      const pwSubmit = document.getElementById('pwSubmit');
-      const pwError = document.getElementById('pwError');
+  (function(){
+    // CHANGE THIS to set the gallery password. Keep it a simple client-side gate.
+    const GALLERY_PASSWORD = 'Molly2025';
+    const storageKey = 'injoy_gallery_unlocked_v1';
+    const overlay = document.getElementById('pwOverlay');
+    const pwInput = document.getElementById('pwInput');
+    const pwSubmit = document.getElementById('pwSubmit');
+    const pwError = document.getElementById('pwError');
 
-      function unlockGallery(){
-        sessionStorage.setItem(storageKey, '1');
-        overlay.hidden = true;
-      }
-      function lockGallery(){
-        overlay.hidden = false;
+    function unlockGallery(){
+      sessionStorage.setItem(storageKey, '1');
+      // hide the overlay explicitly (CSS may override the hidden attribute)
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden', 'true');
+      pwError.textContent = '';
+    }
+    function lockGallery(){
+      // show overlay explicitly
+      overlay.style.display = 'flex';
+      overlay.setAttribute('aria-hidden', 'false');
+      // ensure the input is focused and cleared
+      pwInput.value = '';
+      pwInput.focus();
+    }
+
+    // Initialize overlay display based on sessionStorage
+    if(sessionStorage.getItem(storageKey) === '1'){
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden', 'true');
+    } else {
+      lockGallery();
+    }
+
+    pwSubmit.addEventListener('click', function(){
+      const val = (pwInput.value || '').trim();
+      if(val === GALLERY_PASSWORD){
+        unlockGallery();
+      } else {
+        pwError.textContent = 'Incorrect password — please try again.';
+        pwInput.value = '';
         pwInput.focus();
       }
+    });
 
-      // Check sessionStorage on load
-      if(sessionStorage.getItem(storageKey) === '1'){
-        overlay.hidden = true;
-      } else {
-        lockGallery();
+    pwInput.addEventListener('keypress', function(e){ if(e.key === 'Enter'){ pwSubmit.click(); } });
+
+    // Prevent tabbing into the page when locked: trap focus inside modal
+    document.addEventListener('focus', function(e){
+      if(overlay.style.display !== 'none' && !overlay.contains(e.target)){
+        e.stopPropagation();
+        overlay.querySelector('input').focus();
       }
-
-      pwSubmit.addEventListener('click', function(){
-        const val = pwInput.value || '';
-        if(val === GALLERY_PASSWORD){ unlockGallery(); }
-        else { pwError.textContent = 'Incorrect password — please try again.'; pwInput.value = ''; pwInput.focus(); }
-      });
-
-      pwInput.addEventListener('keypress', function(e){ if(e.key === 'Enter'){ pwSubmit.click(); } });
-
-      // Prevent tabbing into the page when locked: trap focus inside modal
-      document.addEventListener('focus', function(e){ if(!overlay.hidden && !overlay.contains(e.target)){ e.stopPropagation(); overlay.querySelector('input').focus(); } }, true);
-    })();
-  </script>
+    }, true);
+  })();
+</script>
 </body>
 </html>
