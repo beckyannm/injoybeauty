@@ -67,33 +67,46 @@
 
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-left social-links">
-        <p>Follow me</p>
-        <div class="footer-actions">
-          <a href="https://www.facebook.com/" class="social-link" aria-label="InJoy Beauty on Facebook">
-            <img src="smallfacebook.png" alt="Facebook icon" width="32" height="32" />
-          </a>
-          <a href="https://www.instagram.com/" class="social-link" aria-label="InJoy Beauty on Instagram">
-            <img src="smallinstagram.png" alt="Instagram icon" width="32" height="32" />
-          </a>
-        </div>
-      </div>
+<!-- Footer (preserves original layout, adds Instagram & Facebook rotate buttons) -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-left social-links">
+      <p>Follow me</p>
+      <div class="footer-actions">
+        <!-- Facebook (placeholder URL — replace when available) -->
+        <a
+          class="social-btn social-btn--facebook"
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="InJoy Beauty on Facebook">
+          <img src="smallfacebook.png" alt="Facebook icon" class="social-icon">
+        </a>
 
-      <div class="footer-divider" aria-hidden="true"></div>
-
-      <div class="footer-right">
-        <a class="instagram-btn" href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Instagram">
-  <img src="smallinstagram.png" alt="InJoy Beauty on Instagram" class="instagram-icon">
-</a>
-          <div class="footer-copy">
-            <h3>INJOY • Inclusive Beauty</h3>
-            <p>Everyone deserves to feel beautiful.</p>
-          </div>
-        </aside>
+        <!-- Instagram -->
+        <a
+          class="social-btn social-btn--instagram"
+          href="https://www.instagram.com/injoy_beautyy"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="InJoy Beauty on Instagram">
+          <img src="smallinstagram.png" alt="Instagram icon" class="social-icon">
+        </a>
       </div>
     </div>
-  </footer>
+
+    <div class="footer-divider" aria-hidden="true"></div>
+
+    <div class="footer-right">
+      <img src="transparentlogo.png" alt="InJoy Beauty" class="footer-photo" width="75" height="72" />
+      <aside class="section-card aside-text" aria-label="InJoy Beauty mission">
+        <div class="footer-copy">
+          <h3>INJOY • Inclusive Beauty</h3>
+          <p>Everyone deserves to feel beautiful.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
