@@ -504,26 +504,21 @@ button:focus-visible {
 /* ---------- SERVICES PAGE: allow service photo to show at its original intrinsic size ---------- */
 .service-figure {
   margin: 0 0 1rem 0;
-  /* allow overflow if the image is larger than the layout — it won't be cropped */
-  overflow: auto;
+  overflow: auto; /* allows the intrinsic image to overflow if very wide */
 }
-
-/* Base: show the image at its original (intrinsic) size by default */
 .service-figure img {
-  width: auto;         /* use intrinsic width */
-  max-width: none;     /* don't force scale down by default */
-  height: auto;        /* keep aspect ratio */
+  width: auto;       /* use the image's intrinsic width */
+  max-width: none;   /* don't force down by default on desktop */
+  height: auto;
   display: block;
   border-radius: 8px;
   object-fit: none;
 }
-
-/* Small-screen safe option: if the image is wider than the viewport/container,
-   scale it down so it never overflows on small devices. */
-@media (max-width: 700px) {
+/* Small-screen safe fallback: never overflow the viewport on phones */
+@media (max-width:700px) {
   .service-figure img {
-    max-width: 100%; /* constrain to container/viewport width */
-    width: auto;     /* keep intrinsic sizing otherwise */
+    max-width: 100%;
+    width: auto;
     height: auto;
   }
 }
