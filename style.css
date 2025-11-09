@@ -414,50 +414,38 @@ button:focus-visible {
 }
 
 /* ---------- HOME INTRO: blurred card & decorative heading ---------- */
-/* The home intro is excluded from the global overlay above; this block provides a subtle blurred backdrop */
 .home-intro { /* keep container behaviour; no change needed normally */ 
   max-width: 1200px; /* allow more room if needed */
   margin: 1.75rem auto;
   padding: 0;
   text-align: center;
 }
-/* The card: semi-transparent, blurred backdrop and constrained width to match the marked area */
 .intro-card {
-  /* Wider: grows to 60% of viewport, max 800px; min 420px for readability */
   width: clamp(420px, 60%, 800px);
   max-width: 100%;
-  margin: 0 auto; /* center the card; change if you want left-hugging */
+  margin: 0 auto;
   padding: 1.25rem 1.1rem;
   border-radius: 10px;
-
   background: rgba(255,255,255,0.28);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-
   border: 1px solid rgba(255,255,255,0.45);
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-
   position: relative;
   z-index: 2;
 }
-
-/* keep content left aligned inside the card by default */
 .home-intro { text-align: left; padding-left: .6rem; padding-right: .6rem; }
-
-/* Decorative heading: The Nautigal for welcome title */
 .welcome-title {
   margin: 0;
   font-family: var(--decorative-welcome);
-  color: var(--accent);               /* soft light-pink heading */
+  color: var(--accent);
   font-weight: 700;
   font-size: clamp(2.0rem, 6vw, 3.2rem);
   line-height: 0.95;
   letter-spacing: 0.4px;
   margin-bottom: 0.25rem;
-  text-align: left; /* keep title hugging the left edge of the card's content */
+  text-align: left;
 }
-
-/* Intro body paragraphs: use UI font (Roboto Flex) */
 .intro-text {
   margin: 0.5rem auto 0;
   color: var(--text);
@@ -467,13 +455,7 @@ button:focus-visible {
   max-width: 56ch;
   text-align: left;
 }
-
-/* Strong closing sentence */
-.home-intro .intro-text[style] {
-  font-weight: 600;
-}
-
-/* Small screens: make card nearly full width and reduce blur slightly */
+.home-intro .intro-text[style] { font-weight: 600; }
 @media (max-width: 700px) {
   .intro-card {
     width: calc(100% - 2rem);
@@ -481,26 +463,12 @@ button:focus-visible {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
-
   .home-intro { text-align: left; padding-left: .6rem; padding-right: .6rem; }
   .welcome-title { font-size: clamp(1.6rem, 8vw, 2.4rem); }
   .intro-text { font-size: 0.98rem; max-width: 50ch; }
 }
 
-/* Respect reduced motion / reduced visual effects preference */
-@media (prefers-reduced-motion: reduce), (prefers-reduced-transparency: reduce) {
-  .intro-card {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: rgba(255,255,255,0.92); /* higher-opacity fallback for legibility */
-    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  }
-}
-
-/* Small separation between intro and following content */
-.home-intro + .center-photo { margin-top: 0.75rem; }
-
-/* ---------- SERVICES PAGE: allow service photo to show at its original intrinsic size ---------- */
+/* Services image rules (repeat to ensure available) */
 .service-figure {
   margin: 0 0 1rem 0;
   overflow: auto; /* allows the intrinsic image to overflow if very wide */
@@ -513,7 +481,6 @@ button:focus-visible {
   border-radius: 8px;
   object-fit: none;
 }
-/* Small-screen safe fallback: never overflow the viewport on phones */
 @media (max-width:700px) {
   .service-figure img, .service-photo {
     max-width: 100%;
@@ -528,8 +495,6 @@ button:focus-visible {
   margin: 1.5rem auto;
   padding: 0 1rem;
 }
-
-/* Card that sits above the global overlay (if you use one) */
 .bookings-card {
   background: rgba(255,255,255,0.94);
   border-radius: 10px;
@@ -538,8 +503,6 @@ button:focus-visible {
   position: relative;
   z-index: 2;
 }
-
-/* Heading uses your decorative welcome font */
 .bookings-title {
   margin: 0 0 0.35rem 0;
   font-family: var(--decorative-welcome);
@@ -549,8 +512,6 @@ button:focus-visible {
   line-height: 1.02;
   text-align: left;
 }
-
-/* Short subheading line */
 .bookings-sub {
   margin: 0 0 0.45rem 0;
   font-family: var(--ui-font);
@@ -559,8 +520,6 @@ button:focus-visible {
   font-weight: 600;
   text-align: left;
 }
-
-/* Availability row */
 .bookings-availability {
   margin: 0 0 0.6rem 0;
   font-family: var(--ui-font);
@@ -568,8 +527,6 @@ button:focus-visible {
   font-weight: 600;
   text-align: left;
 }
-
-/* Descriptive paragraph */
 .bookings-info {
   margin: 0;
   color: var(--text);
@@ -579,12 +536,9 @@ button:focus-visible {
   max-width: 68ch;
   text-align: left;
 }
-
-/* Small screens: tighten spacing and keep layout comfortable */
 @media (max-width: 700px) {
   .bookings-hero { padding: 0 0.75rem; margin: 1rem auto; }
   .bookings-card { padding: 0.9rem 0.9rem; }
   .bookings-title { font-size: clamp(1.3rem, 7vw, 1.8rem); }
   .bookings-sub, .bookings-availability, .bookings-info { font-size: 0.98rem; }
-
 }
