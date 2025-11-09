@@ -502,14 +502,13 @@ button:focus-visible {
   margin-bottom: 0.25rem;
   text-align: left;
 }
-.intro-text {
-  margin: 0.5rem auto 0;
-  color: var(--text);
-  font-family: var(--ui-font);
-  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
-  line-height: 1.5;
-  max-width: 56ch;
-  text-align: left;
+.intro-text { 
+  margin: 0.5rem auto 0; 
+  color: var(--text); 
+  font-family: var(--ui-font); 
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem); 
+  line-height: 1.5; max-width: 56ch; 
+  text-align: center; 
 }
 .home-intro .intro-text[style] { font-weight: 600; }
 @media (max-width: 700px) {
