@@ -215,26 +215,40 @@
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo" style="border-top:1px solid rgba(0,0,0,0.04);margin-top:2rem">
-    <div style="max-width:var(--max-width);margin:0 auto;padding:1rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
-      <div style="flex:1">
-        <p style="margin:.25rem 0">Follow me</p>
-        <div style="display:flex;gap:.5rem;align-items:center">
-          <a class="social-btn" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Facebook">
-            <img src="PSX_20251109_193743.png" alt="Facebook icon" style="height:28px">
+   <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left social-links">
+        <p>Follow me</p>
+        <div class="footer-actions">
+          <a
+            class="social-btn social-btn--facebook"
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="InJoy Beauty on Facebook">
+            <img src="PSX_20251109_193743.png" alt="Facebook icon" class="social-icon">
           </a>
-          <a class="social-btn" href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Instagram">
-            <img src="PSX_20251109_193650.png" alt="Instagram icon" style="height:28px">
+          <a
+            class="social-btn social-btn--instagram"
+            href="https://www.instagram.com/injoy_beautyy"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="InJoy Beauty on Instagram">
+            <img src="PSX_20251109_193650.png" alt="Instagram icon" class="social-icon">
           </a>
         </div>
       </div>
 
-      <div style="margin-left:auto;display:flex;gap:1rem;align-items:center">
-        <img src="transparentlogo.png" alt="InJoy Beauty" width="75" height="72" />
-        <div>
-          <h3 style="margin:.25rem 0">INJOY • Inclusive Beauty</h3>
-          <p style="margin:.25rem 0">Everyone deserves to feel beautiful.</p>
-        </div>
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <div class="footer-right">
+        <img src="transparentlogo.png" alt="InJoy Beauty" class="footer-photo" width="75" height="72" />
+        <aside class="section-card aside-text" aria-label="InJoy Beauty mission">
+          <div class="footer-copy">
+            <h3>INJOY • Inclusive Beauty</h3>
+            <p>Everyone deserves to feel beautiful.</p>
+          </div>
+        </aside>
       </div>
     </div>
   </footer>
