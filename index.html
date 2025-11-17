@@ -1,507 +1,113 @@
-:root{
-  --bg: #ffffff;
-  --text: #202124;
-  --muted: #6b6f76;
-  --pill-bg: #FFEBFB;         /* normal pill background — light pink */
-  --pill-text: #202124;       /* pill text (dark for contrast) */
-  --pill-active-bg: #E5CAED;  /* active/current pill — light purple */
-  --pill-active-text: #202124;
-  --pill-hover-bg: #E0F9FF;   /* hover/focus pill background — light blue */
-  --pill-hover-text: #202124;
-  --focus: #F9FFE0;           /* light yellow focus outline */
-  --brand: #6b2e6b;           /* primary brand purple */
-  --accent: #f6c6e7;          /* soft light pink accent */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InJoy Beauty | Inclusive Beauty Services</title>
 
-  /* Font variables (link to fonts must be in HTML <head>, not here) */
-  --ui-font: "Roboto Flex", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --decorative-welcome: "The Nautigal", serif;
-  --decorative-follow: "Delius Swash Caps", cursive;
+  <!-- Decorative heading font (Playfair) + Inter -->
+  <!-- Add these font links inside your <head>, before the existing <link rel="stylesheet" href="style.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=The+Nautigal:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  --max-width: 1100px;
-  --footer-max-width: 600px;
-  --hero-max-width: 720px;
-}
+  <!-- site styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+    <span class="skip-icon" aria-hidden="true">↘</span>
+  </a>
 
-/* Reset & base */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  /* Make the page a column flex so we can push the footer to the bottom when content is short */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  <header class="site-header" role="banner">
+    <div class="top-bar">
+      <div class="logo-box">
+        <a href="index.html" class="logo-link" aria-label="InJoy Beauty home">
+          <img src="InjoyBeauty.jpg" alt="InJoy Beauty logo" class="logo-img" width="160" height="80" />
+        </a>
+      </div>
 
-  /* site UI font: Roboto Flex (set in root) */
-  font-family: var(--ui-font);
-  background-color:var(--bg);
-  color:var(--text);
-  line-height:1.45;
-  -webkit-font-smoothing:antialiased;
+      <div class="header-divider" aria-hidden="true"></div>
 
-  /* decorative background */
-  background-image: url('simplewhitefloral.jpg');
-  background-repeat: repeat;
-  background-position: top center;
-  background-size: auto;
-}
+      <nav aria-label="Primary Navigation" class="primary-nav">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="bookings.html">Bookings</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main id="main-content" class="site-main" role="main" tabindex="-1">
 
-/* --- GLOBAL OVERLAY (non-hero sections) --- */
-.site-main {
-  position: relative;
-  background: transparent;
-  z-index: 0;
+    <!-- HOME INTRO: fancy welcome heading + paragraph -->
+    <section class="home-intro" aria-labelledby="home-intro-heading">
+      <!-- Heading moved outside of the intro-card so it sits above the paragraph and is not inside the blurred box -->
+      <h1 id="home-intro-heading" class="welcome-title">Welcome to InJoy Beauty!</h1>
 
-  /* Allow main to grow and take available space so footer stays at bottom */
-  flex: 1 0 auto;
-}
+      <div class="intro-card">
+        <p class="intro-text">
+          At InJoy Beauty, my goal is to make beauty services accessible, comfortable, and inclusive for everyone. I provide gentle, sensory-friendly beauty care for individuals who may experience cha[...]
+        </p>
 
-/* Ensure direct children sit above their overlay pseudo-element */
-.site-main > * {
-  position: relative;
-  z-index: 1;
-}
+        <p class="intro-text">
+          Whether you prefer to have your services completed in your own home (extra charge applies for mobile services) or at my sensory-friendly, wheelchair-accessible home salon in Bourget, Ontario[...]
+        </p>
 
-/* Apply global overlay to everything except hero, home intro, about, services */
-.site-main > *:not(.center-photo):not(.home-intro):not(.about-hero):not(.services-hero)::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.60); /* adjust as you like */
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  pointer-events: none;
-  z-index: 0;
-  border-radius: inherit;
-}
-/* Make the hero container explicitly transparent */
-.center-photo {
-  background: transparent;
-}
+        <p class="intro-text" style="font-weight:600;">
+          Everyone deserves to feel beautiful — in a space that feels safe.
+        </p>
+      </div>
+    </section>
 
-/* Header/footer backdrop */
-.site-header,
-.site-footer {
-  background: rgba(255,255,255,0.85);
-  position: relative;
-  z-index: 10;
-}
 
-/* Respect reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .site-main > *:not(.center-photo):not(.home-intro)::before {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
+  </main>
 
-/* Skip link */
-.skip-link{
-  position: absolute;
-  left: -999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-decoration: none;
-  color: inherit;
-}
-.skip-link:focus,
-.skip-link:active,
-.skip-link:focus-visible{
-  position: fixed;
-  left: 1rem;
-  top: 1rem;
-  width: auto;
-  height: auto;
-  padding: .5rem .75rem;
-  background: var(--brand);
-  color: #fff;
-  z-index: 9999;
-  border-radius: 4px;
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  transition: background .15s ease, color .15s ease;
-}
-.skip-icon{
-  display:inline-block;
-  transition: transform .6s cubic-bezier(.2,.9,.3,1);
-  transform-origin: center;
-}
-.skip-link:hover .skip-icon,
-.skip-link:focus-visible .skip-icon,
-.skip-link:active .skip-icon {
-  transform: rotate(360deg);
-}
-@media (prefers-reduced-motion: reduce) {
-  .skip-icon { transition: none; transform: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .site-main > *:not(.center-photo):not(.home-intro)::before {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
+<!-- Footer (preserves original layout, adds Instagram & Facebook rotate buttons) -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-left social-links">
+      <p>Follow me</p>
+      <div class="footer-actions">
+        <!-- Facebook (placeholder URL — replace when available) -->
+        <a
+          class="social-btn social-btn--facebook"
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="InJoy Beauty on Facebook">
+          <img src="PSX_20251109_193743.png" alt="Facebook icon" class="social-icon">
+        </a>
 
-/* Layout container */
-.top-bar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:0.6rem 1rem;
-  gap:1rem;
-}
+        <!-- Instagram -->
+        <a
+          class="social-btn social-btn--instagram"
+          href="https://www.instagram.com/injoy_beautyy"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="InJoy Beauty on Instagram">
+          <img src="PSX_20251109_193650.png" alt="Instagram icon" class="social-icon">
+        </a>
+      </div>
+    </div>
 
-/* Logo */
-.logo-img, .footer-photo{ display:block; max-width:100%; height:auto; object-fit:contain; }
+    <div class="footer-divider" aria-hidden="true"></div>
 
-/* Nav - pill style */
-.primary-nav{
-  z-index: 12;
-  -webkit-overflow-scrolling: touch;
-}
-.primary-nav ul{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:flex;
-  gap:.5rem;
-  align-items:center;
-  flex-wrap: wrap;
-}
-.primary-nav a{
-  display:inline-block;
-  text-decoration:none;
-  color:var(--pill-text);
-  background: var(--pill-bg);
-  padding: .4rem .9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.06);
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: background-color .18s ease, color .18s ease, transform .16s cubic-bezier(.2,.8,.2,1), box-shadow .16s ease;
-  -webkit-tap-highlight-color: transparent;
-  transform-origin: center;
-  min-width: max-content;
-}
-.primary-nav a:hover,
-.primary-nav a:focus,
-.primary-nav a:focus-visible {
-  background: var(--pill-hover-bg);
-  color: var(--pill-hover-text);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transform: translateY(-5px) scale(1.03);
-}
-.primary-nav a[aria-current="page"],
-.primary-nav a.active {
-  background: var(--pill-active-bg);
-  color: var(--pill-active-text);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  transform: none;
-}
-
-/* Focus visuals */
-.primary-nav a:focus-visible,
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 8px;
-}
-
-/* Hero image container */
-.center-photo{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:2rem 1rem;
-}
-.hero-image{
-  width:100%;
-  max-width: var(--hero-max-width);
-  height:auto;
-  object-fit:cover;
-  aspect-ratio: 16 / 9;
-  border-radius:8px;
-}
-
-/* Footer */
-.site-footer{
-  background: rgba(250,250,250,0.95);
-  padding:1rem 1rem;
-}
-.footer-inner{
-  max-width:var(--footer-max-width);
-  margin:0 auto;
-  display:flex;
-  gap:1rem;
-  align-items:center;
-  justify-content:center;
-  padding:0.25rem 0;
-  text-align:center;
-}
-.footer-left,
-.footer-right{
-  display:flex;
-  gap:.75rem;
-  align-items:center;
-  justify-content:center;
-  flex: 0 1 auto;
-  flex-direction: row;
-}
-.footer-left {
-  flex-direction: column;
-  align-items: center;
-  gap: .4rem;
-}
-.footer-left p{
-  margin:0;
-  font-size:1.5rem;
-  font-weight:600;
-  color:var(--muted);
-  /* Use decorative follow font for the "Follow me" text */
-  font-family: var(--decorative-follow);
-  letter-spacing: 0.6px;
-}
-.footer-right .footer-photo{
-  max-height:56px;
-  width:auto;
-  display:block;
-  margin: 0;
-}
-.footer-right .footer-copy{
-  display:block;
-  text-align:center;
-  margin:0;
-  line-height:1;
-}
-.footer-right .footer-copy h3,
-.footer-right .footer-copy .brand-name {
-  font-family: var(--ui-font);
-  font-weight: 700;
-  font-size: 1.05rem;
-  line-height: 1.02;
-  margin: 0 0 2px 0;
-  letter-spacing: 0.2px;
-  color: var(--text);
-  display: block;
-}
-.footer-right .footer-copy p,
-.footer-right .footer-copy .tagline {
-  font-family: var(--ui-font);
-  font-weight: 500;
-  font-size: 0.95rem;
-  line-height: 1.04;
-  margin: 0;
-  padding: 0;
-  color: var(--muted);
-  display: block;
-}
-.footer-right { gap: 0.28rem; }
-.footer-right .footer-photo { margin-bottom: 2px; }
-.footer-actions{
-  display:flex;
-  gap:.5rem;
-  align-items:center;
-}
-/* Rotating social buttons (Instagram + Facebook)
-   Add near your social/footer styles in style.css */
-
-/* Base button container (anchor) */
-.social-btn {
-  display: inline-block;
-  width: 48px;            /* adjust to match your small icons */
-  height: 48px;
-  padding: 0;
-  margin-left: 10px;      /* match spacing used elsewhere */
-  border-radius: 50%;
-  overflow: hidden;
-  background: transparent;
-  text-decoration: none;
-  transform-origin: 50% 50%;
-  transition: transform 0.7s cubic-bezier(.21,.9,.3,1);
-  will-change: transform;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* The image inside the anchor */
-.social-icon {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;      /* or contain if you'd prefer letterboxing */
-  pointer-events: none;   /* let clicks go to the anchor */
-}
-
-/* Rotate on hover/focus/active */
-.social-btn:hover,
-.social-btn:focus,
-.social-btn:active {
-  transform: rotate(360deg);
-  outline: none;
-}
-
-/* Visible focus ring for keyboard users */
-.social-btn:focus-visible {
-  box-shadow: 0 0 0 3px rgba(107,46,107,0.14);
-  border-radius: 50%;
-}
-
-/* Optional: slightly different visual for Instagram vs Facebook (if you want) */
-.social-btn--instagram { /* no color required if you keep PNG gradient */ }
-.social-btn--facebook { /* no color required; but could use subtle bg if desired */ }
-
-/* Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .social-btn { transition: none; }
-  .social-btn:hover,
-  .social-btn:focus,
-  .social-btn:active { transform: none; }
-}
-
-/* If you have an existing .social-link img rule, ensure this specificity overrides if necessary:
-   .social-link .social-icon { ... } or increase specificity as needed. */
-/* Utility */
-.header-divider,
-.footer-divider{ width:1px; background:#eee; height:38px; margin:0 0.75rem; }
-
-/* Responsive & accessibility adjustments */
-@media (max-width: 700px) {
-  .header-divider,
-  .footer-divider {
-    width: 70%;
-    height: 1px;
-    margin: 0.5rem auto;
-    background: #eee;
-  }
-  .top-bar {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-  }
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce){
-  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
-  .primary-nav a,
-  .primary-nav a:hover,
-  .primary-nav a:focus,
-  .primary-nav a:focus-visible { transform: none !important; transition: none !important; box-shadow: none !important; }
-}
-
-/* Responsive adjustments */
-@media (max-width:900px){
-  .footer-inner{
-    gap:1rem;
-    padding:0.35rem 0;
-  }
-  .top-bar{
-    flex-direction: column;
-    align-items: center;
-    gap: .5rem;
-  }
-  .primary-nav ul{
-    justify-content: center;
-  }
-  .logo-img{
-    max-width: 140px;
-    height: auto;
-  }
-}
-
-/* On small phones ensure nav fits and can scroll horizontally if needed */
-@media (max-width:480px){
-  .top-bar{
-    padding:0.5rem 0.75rem;
-  }
-  .primary-nav{
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .primary-nav ul{
-    gap: .4rem;
-    padding: 0 .5rem;
-  }
-  .logo-img{ max-width: 120px; }
-}
-
-/* Footer stacking on small screens */
-@media (max-width:700px){
-  .footer-inner{
-    flex-direction:column;
-    gap:.75rem;
-    align-items:center;
-    justify-content:center;
-    max-width:calc(var(--footer-max-width) - 40px);
-    padding:0.5rem 0;
-  }
-  .footer-left, .footer-right{ flex-direction:column; gap:.5rem; }
-  .footer-right .footer-photo{ max-height:48px; }
-}
-
-/* Desktop override: stack logo above footer text in .footer-right */
-@media (min-width: 900px) {
-  .footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    text-align: center;
-  }
-  .footer-right .footer-photo {
-    max-height: 56px;
-    width: auto;
-    display: block;
-    margin-bottom: 0.35rem;
-  }
-  .footer-right .footer-copy {
-    display: block;
-    margin: 0;
-  }
-}
-
-/* ---------- HOME INTRO: blurred card & decorative heading ---------- */
-.home-intro { /* keep container behaviour; no change needed normally */ 
-  max-width: 1200px; /* allow more room if needed */
-  margin: 1.75rem auto;
-  padding: 0;
-  text-align: center;
-}
-.intro-card {
-  width: clamp(420px, 60%, 800px);
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 1.25rem 1.1rem;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.28);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  position: relative;
-  z-index: 2;
-}
-.home-intro { text-align: center; padding-left: .6rem; padding-right: .6rem; }
-
-/* UPDATED: welcome title moved outside the card and styled here (color #6322C9, centered, slightly larger) */
-.welcome-title {
-  margin: 0;
-  font-family: var(--decorative-welcome);
-  color: #6322C9;                       /* updated color */
-  font-weight: 700;
-  font-size: clamp(2.25rem, 6vw, 3.4rem); /* slightly larger */
-  line-height: 0.95;
-  letter-spacing: 0.4px;
-  margin-bottom: 0.5rem;
-  text-align: center;                    /* centered above the intro-card */
-}
-
-/* existing intro
+    <div class="footer-right">
+      <img src="transparentlogo.png" alt="InJoy Beauty" class="footer-photo" width="75" height="72" />
+      <aside class="section-card aside-text" aria-label="InJoy Beauty mission">
+        <div class="footer-copy">
+          <h3>INJOY • Inclusive Beauty</h3>
+          <p>Everyone deserves to feel beautiful.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
