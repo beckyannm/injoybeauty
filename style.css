@@ -138,7 +138,6 @@ body{
 @media (prefers-reduced-motion: reduce) {
   .skip-icon { transition: none; transform: none; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .site-main > *:not(.center-photo):not(.home-intro)::before {
     backdrop-filter: none;
@@ -491,17 +490,21 @@ button:focus-visible {
   z-index: 2;
 }
 .home-intro { text-align: center; padding-left: .6rem; padding-right: .6rem; }
+
+/* UPDATED: welcome title moved outside the card and styled here (color #6322C9, centered, slightly larger) */
 .welcome-title {
   margin: 0;
   font-family: var(--decorative-welcome);
-  color: var(--accent);
+  color: #6322C9;                       /* updated color */
   font-weight: 700;
-  font-size: clamp(2.0rem, 6vw, 3.2rem);
+  font-size: clamp(2.25rem, 6vw, 3.4rem); /* slightly larger */
   line-height: 0.95;
   letter-spacing: 0.4px;
-  margin-bottom: 0.25rem;
-  text-align: left;
+  margin-bottom: 0.5rem;
+  text-align: center;                    /* centered above the intro-card */
 }
+
+/* existing intro text rules */
 .intro-text { 
   margin: 0.5rem auto 0; 
   color: var(--text); 
@@ -511,6 +514,7 @@ button:focus-visible {
   text-align: center; 
 }
 .home-intro .intro-text[style] { font-weight: 600; }
+
 @media (max-width: 700px) {
   .intro-card {
     width: calc(100% - 2rem);
@@ -519,7 +523,7 @@ button:focus-visible {
     -webkit-backdrop-filter: blur(5px);
   }
   .home-intro { text-align: left; padding-left: .6rem; padding-right: .6rem; }
-  .welcome-title { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+  .welcome-title { font-size: clamp(1.8rem, 8vw, 2.6rem); } /* adjusted small-screen size */
   .intro-text { font-size: 0.98rem; max-width: 50ch; }
 }
 
