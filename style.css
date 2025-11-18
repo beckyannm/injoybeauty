@@ -230,6 +230,10 @@ button:focus-visible {
 }
 
 /* Footer */
+/* Keep footer columns side-by-side at all screen sizes.
+   Updated so the InJoy logo hugs the left page edge and the social/buttons sit
+   immediately to the right of the divider (logo → divider → buttons). */
+
 .site-footer {
   /* allow horizontal scrolling instead of wrapping/stacking */
   overflow-x: auto;
@@ -240,27 +244,45 @@ button:focus-visible {
 .site-footer .footer-inner {
   display: flex !important;
   flex-direction: row !important;
-  justify-content: space-between;
+  /* pack items to the left so logo sits at the left edge and the other
+     elements follow immediately after (logo → divider → buttons) */
+  justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem; /* small gap so items sit close together */
   flex-wrap: nowrap !important; /* force side-by-side */
-  padding: 1rem;
+  padding: 0.5rem 1rem; /* vertical padding, keep horizontal padding on right only */
+  padding-left: 0; /* remove left padding so logo can hug the left border */
 }
 
-/* footer columns can shrink but won't force wrapping */
-.site-footer .footer-left,
-.site-footer .footer-right {
-  flex: 0 1 auto; /* allow shrinking but not forced to full width */
-  min-width: 0; /* allow children to shrink (important for overflowing text) */
+/* control visual order without changing HTML */
+.site-footer .footer-right  { /* logo group: make it first visually */
+  order: 1;
+  flex: 0 0 auto; /* keep its intrinsic size and don't expand */
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
-/* If you have a divider element between them, keep it narrow */
+/* divider sits right after the logo */
 .site-footer .footer-divider {
+  order: 2;
   width: 1px;
   background: var(--footer-divider-color, rgba(0,0,0,0.08));
   height: 48px;
   align-self: center;
   flex: 0 0 auto;
+  margin: 0 0.15rem; /* tiny space so divider isn't glued pixel-perfect to neighbors */
+}
+
+/* social/buttons group comes after the divider */
+.site-footer .footer-left {
+  order: 3;
+  flex: 0 1 auto; /* allow shrinking but don't force full width */
+  min-width: 0; /* allow children to shrink */
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 /* Ensure images and social icons scale down rather than push layout */
@@ -279,11 +301,11 @@ button:focus-visible {
   flex-wrap: nowrap;
 }
 
-/* reduce spacing on very small screens but keep side-by-side */
+/* small-screen tweaks: keep groups compact and readable */
 @media (max-width: 420px) {
   .site-footer .footer-inner {
-    gap: 0.5rem;
-    padding-left: 0.75rem;
+    gap: 0.35rem;
+    padding-left: 0; /* keep logo hugging left even on tiny screens */
     padding-right: 0.75rem;
   }
 
