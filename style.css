@@ -233,59 +233,66 @@ button:focus-visible {
 /* Keep footer columns side-by-side at all screen sizes.
    Updated so the InJoy logo hugs the left page edge and the social/buttons sit
    immediately to the right of the divider (logo → divider → buttons). */
-
 .site-footer {
-  /* allow horizontal scrolling instead of wrapping/stacking */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  background: var(--footer-bg, transparent);
 }
 
-/* core layout: non-wrapping row */
+/* 3-column grid: left 1fr, center auto (divider), right 1fr.
+   The divider remains centered because the left/right columns share remaining space. */
 .site-footer .footer-inner {
-  display: flex !important;
-  flex-direction: row !important;
-  /* pack items to the left so logo sits at the left edge and the other
-     elements follow immediately after (logo → divider → buttons) */
-  justify-content: flex-start;
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 0.5rem; /* small gap so items sit close together */
-  flex-wrap: nowrap !important; /* force side-by-side */
-  padding: 0.5rem 1rem; /* vertical padding, keep horizontal padding on right only */
-  padding-left: 0; /* remove left padding so logo can hug the left border */
-}
-
-/* control visual order without changing HTML */
-.site-footer .footer-right  { /* logo group: make it first visually */
-  order: 1;
-  flex: 0 0 auto; /* keep its intrinsic size and don't expand */
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  /* remove left padding if you want the left-group to be able to sit flush with page edge */
+  padding-left: 0;
   min-width: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
 }
 
-/* divider sits right after the logo */
+/* Place elements into the grid columns by selector (DOM order can stay the same). */
+
+/* Visual left group: logo + text stacked, sit in left column and align their
+   right edge up against the center divider (justify-self: end). */
+.site-footer .footer-right {
+  grid-column: 1;          /* left column */
+  justify-self: end;       /* push group's right edge to divider */
+  display: flex;
+  flex-direction: column;  /* stack logo above the text */
+  align-items: center;     /* center logo and text over each other */
+  gap: 0.25rem;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+/* Divider sits in the exact center column */
 .site-footer .footer-divider {
-  order: 2;
+  grid-column: 2;          /* center column */
+  justify-self: center;
   width: 1px;
   background: var(--footer-divider-color, rgba(0,0,0,0.08));
   height: 48px;
   align-self: center;
   flex: 0 0 auto;
-  margin: 0 0.15rem; /* tiny space so divider isn't glued pixel-perfect to neighbors */
+  margin: 0 0.15rem;
 }
 
-/* social/buttons group comes after the divider */
+/* Visual right group: social buttons — place in right column and align their
+   left edge up against the divider (justify-self: start). */
 .site-footer .footer-left {
-  order: 3;
-  flex: 0 1 auto; /* allow shrinking but don't force full width */
-  min-width: 0; /* allow children to shrink */
-  margin: 0;
+  grid-column: 3;          /* right column */
+  justify-self: start;     /* push group's left edge to divider */
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
 }
 
-/* Ensure images and social icons scale down rather than push layout */
+/* Keep images and icons from forcing the layout to overflow excessively */
 .site-footer img,
 .site-footer .social-icon {
   max-width: 100%;
@@ -293,7 +300,7 @@ button:focus-visible {
   display: block;
 }
 
-/* make social buttons row compact */
+/* Keep social buttons in a horizontal row */
 .site-footer .footer-actions {
   display: flex;
   gap: 0.5rem;
@@ -301,12 +308,12 @@ button:focus-visible {
   flex-wrap: nowrap;
 }
 
-/* small-screen tweaks: keep groups compact and readable */
+/* Small screen adjustments: keep everything side-by-side but reduce sizes/spacing */
 @media (max-width: 420px) {
   .site-footer .footer-inner {
     gap: 0.35rem;
-    padding-left: 0; /* keep logo hugging left even on tiny screens */
     padding-right: 0.75rem;
+    padding-left: 0; /* ensure left group can remain adjacent to divider */
   }
 
   .site-footer .footer-copy h3 {
