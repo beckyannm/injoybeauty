@@ -1,102 +1,58 @@
+/* style.css — full-site stylesheet
+   Replace your current style.css with this file on every page (index.html, about.html,
+   bookings.html, services.html, gallery.html). It includes header, main and the redesigned
+   fixed footer that stays side-by-side at all widths. */
+
+/* -------------------------
+   Root variables & reset
+   ------------------------- */
 :root{
   --bg: #ffffff;
   --text: #202124;
   --muted: #6b6f76;
-  --pill-bg: #FFEBFB;         /* normal pill background — light pink */
-  --pill-text: #202124;       /* pill text (dark for contrast) */
-  --pill-active-bg: #E5CAED;  /* active/current pill — light purple */
-  --pill-active-text: #202124;
-  --pill-hover-bg: #E0F9FF;   /* hover/focus pill background — light blue */
-  --pill-hover-text: #202124;
-  --focus: #F9FFE0;           /* light yellow focus outline */
-  --brand: #6b2e6b;           /* primary brand purple */
-  --accent: #f6c6e7;          /* soft light pink accent */
+  --brand: #6b2e6b;
+  --accent: #f6c6e7;
+  --focus: #F9FFE0;
 
-  /* Font variables (link to fonts must be in HTML <head>, not here) */
   --ui-font: "Roboto Flex", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --decorative-welcome: "The Nautigal", serif;
   --decorative-follow: "Delius Swash Caps", cursive;
 
   --max-width: 1100px;
-  --footer-max-width: 600px;
   --hero-max-width: 720px;
+
+  --footer-height: 92px; /* adjust if you want a taller/shorter footer */
+  --footer-inner-padding-x: 1rem;
 }
 
-/* Reset & base */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  /* Make the page a column flex so we can push the footer to the bottom when content is short */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-
-  /* site UI font: Roboto Flex (set in root) */
   font-family: var(--ui-font);
-  background-color:var(--bg);
-  color:var(--text);
-  line-height:1.45;
-  -webkit-font-smoothing:antialiased;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.45;
 
-  /* decorative background */
+  /* decorative background if you keep the asset */
   background-image: url('simplewhitefloral.jpg');
   background-repeat: repeat;
   background-position: top center;
-  background-size: auto;
 }
 
-/* --- GLOBAL OVERLAY (non-hero sections) --- */
+/* Ensure main grows and leaves room for a fixed footer */
 .site-main {
-  position: relative;
-  background: transparent;
-  z-index: 0;
-
-  /* Allow main to grow and take available space so footer stays at bottom */
   flex: 1 0 auto;
-}
-
-/* Ensure direct children sit above their overlay pseudo-element */
-.site-main > * {
   position: relative;
-  z-index: 1;
-}
-
-/* Apply global overlay to everything except hero, home intro, about, services */
-.site-main > *:not(.center-photo):not(.home-intro):not(.about-hero):not(.services-hero)::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.60); /* adjust as you like */
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  pointer-events: none;
   z-index: 0;
-  border-radius: inherit;
-}
-/* Make the hero container explicitly transparent */
-.center-photo {
-  background: transparent;
+  padding-bottom: calc(var(--footer-height) + 0.5rem); /* keep content above fixed footer */
 }
 
-/* Header/footer backdrop */
-.site-header,
-.site-footer {
-  background: rgba(255,255,255,0.85);
-  position: relative;
-  z-index: 10;
-}
-
-/* Respect reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .site-main > *:not(.center-photo):not(.home-intro)::before {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
-
-/* Skip link */
-.skip-link{
+/* Accessibility helpers */
+.skip-link {
   position: absolute;
   left: -999px;
   top: auto;
@@ -104,187 +60,163 @@ body{
   height: 1px;
   overflow: hidden;
   white-space: nowrap;
-  text-decoration: none;
-  color: inherit;
 }
-.skip-link:focus,
-.skip-link:active,
-.skip-link:focus-visible{
+.skip-link:focus, .skip-link:active, .skip-link:focus-visible {
   position: fixed;
   left: 1rem;
   top: 1rem;
-  width: auto;
-  height: auto;
+  width: auto; height: auto;
   padding: .5rem .75rem;
   background: var(--brand);
-  color: #fff;
+  color: white;
   z-index: 9999;
   border-radius: 4px;
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  transition: background .15s ease, color .15s ease;
-}
-.skip-icon{
-  display:inline-block;
-  transition: transform .6s cubic-bezier(.2,.9,.3,1);
-  transform-origin: center;
-}
-.skip-link:hover .skip-icon,
-.skip-link:focus-visible .skip-icon,
-.skip-link:active .skip-icon {
-  transform: rotate(360deg);
-}
-@media (prefers-reduced-motion: reduce) {
-  .skip-icon { transition: none; transform: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .site-main > *:not(.center-photo):not(.home-intro)::before {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
 }
 
-/* Layout container */
-.top-bar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:0.2rem 1rem;
-  gap:1rem;
+/* -------------------------
+   Top bar / header
+   ------------------------- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.2rem 1rem;
+  gap: 1rem;
 }
 
 /* Logo */
-.logo-img, .footer-photo{ display:block; max-width:100%; height:auto; object-fit:contain; }
-
-/* Nav - pill style */
-.primary-nav{
-  z-index: 12;
-  -webkit-overflow-scrolling: touch;
+.logo-img, .footer-photo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
-.primary-nav ul{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:flex;
-  gap:.5rem;
-  align-items:center;
+
+/* Navigation */
+.primary-nav ul {
+  list-style: none;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
   flex-wrap: wrap;
 }
-.primary-nav a{
-  display:inline-block;
-  text-decoration:none;
-  color:var(--pill-text);
-  background: var(--pill-bg);
+.primary-nav a {
+  text-decoration: none;
+  color: var(--text);
+  background: #FFEBFB;
   padding: .4rem .9rem;
   border-radius: 999px;
   border: 1px solid rgba(0,0,0,0.06);
   font-weight: 500;
   font-size: 0.95rem;
-  transition: background-color .18s ease, color .18s ease, transform .16s cubic-bezier(.2,.8,.2,1), box-shadow .16s ease;
-  -webkit-tap-highlight-color: transparent;
-  transform-origin: center;
-  min-width: max-content;
-}
-.primary-nav a:hover,
-.primary-nav a:focus,
-.primary-nav a:focus-visible {
-  background: var(--pill-hover-bg);
-  color: var(--pill-hover-text);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transform: translateY(-5px) scale(1.03);
-}
-.primary-nav a[aria-current="page"],
-.primary-nav a.active {
-  background: var(--pill-active-bg);
-  color: var(--pill-active-text);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  transform: none;
+  transition: background .18s ease, transform .16s cubic-bezier(.2,.8,.2,1);
 }
 
-/* Focus visuals */
-.primary-nav a:focus-visible,
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 8px;
+/* -------------------------
+   Content / hero / cards
+   ------------------------- */
+.center-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
 }
-
-/* Hero image container */
-.center-photo{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:2rem 1rem;
-}
-.hero-image{
-  width:100%;
+.hero-image {
+  width: 100%;
   max-width: var(--hero-max-width);
-  height:auto;
-  object-fit:cover;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
   aspect-ratio: 16 / 9;
-  border-radius:8px;
 }
 
-/* Footer */
+/* Intro card (example) */
+.intro-card {
+  width: clamp(420px, 60%, 800px);
+  margin: 0 auto;
+  padding: 1.25rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.28);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
 
-/* Footer rewrite: keep side-by-side at all sizes (grid), center divider vertical,
-   social buttons to the left, logo+copy to the right. Load this AFTER style.css. */
+/* Welcome title */
+.welcome-title {
+  font-family: var(--decorative-welcome);
+  color: #6322C9;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 6vw, 3.4rem);
+  text-align: center;
+  line-height: 0.95;
+  margin-bottom: .5rem;
+}
 
-/* overall footer look */
+/* -------------------------
+   Footer (redesigned & fixed)
+   ------------------------- */
+
+/* Fixed footer container (stays at bottom of viewport) */
 .site-footer {
-  background: rgba(255,255,255,0.78); /* slight white, fairly transparent */
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--footer-height);
+  z-index: 9999;
+  background: rgba(255,255,255,0.78); /* slightly white & transparent */
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
+  border-top: 1px solid rgba(0,0,0,0.04);
   box-sizing: border-box;
-  width: 100%;
-  overflow-x: auto; /* don't allow stacking; allow horizontal scroll if necessary */
-  -webkit-overflow-scrolling: touch;
-  padding: 0.6rem 0;
+  overflow: visible; /* don't create internal scroll */
+  display: block;
 }
 
-/* three-column grid with center auto column for divider.
-   Use !important to override previous responsive rules in style.css */
+/* inner grid: left / divider / right
+   keeps divider centered regardless of content width */
 .site-footer .footer-inner {
-  display: grid !important;
-  grid-template-columns: 1fr auto 1fr !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  max-width: var(--max-width, 1100px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1rem !important;
+  padding: 0 calc(var(--footer-inner-padding-x));
+  height: 100%;
   box-sizing: border-box;
   min-width: 0;
 }
 
-/* ---- Left column: socials ----
-   DOM uses .footer-left for social block; place it visually in column 1 and
-   push its right edge toward the center divider (justify-self: end). */
+/* ---- Left column: social icons + label ---- */
 .site-footer .footer-left {
-  grid-column: 1 !important;
-  justify-self: end !important; /* hug the divider */
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important; /* center icons and label inside their column */
-  gap: 0.35rem !important;
-  min-width: 0 !important;
-  padding-right: 0;
+  grid-column: 1;
+  justify-self: end;         /* right edge hugs the divider */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
   margin: 0;
+  padding-right: 0;
 }
 
-/* Social button row (icons) */
+/* row of icons */
 .site-footer .footer-actions {
-  display: flex !important;
-  gap: 0.5rem !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-wrap: nowrap !important;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
 
-/* Icon buttons (fixed size, rotate on hover) */
+/* circular icon buttons */
 .social-btn {
   width: 48px;
   height: 48px;
@@ -295,14 +227,14 @@ button:focus-visible {
   overflow: hidden;
   padding: 0;
   background: transparent;
-  border: none;
   text-decoration: none;
   transform-origin: 50% 50%;
   transition: transform 0.7s cubic-bezier(.21,.9,.3,1);
   -webkit-tap-highlight-color: transparent;
+  border: none;
 }
 
-/* Image inside button */
+/* icon image inside button */
 .social-icon {
   width: 100%;
   height: 100%;
@@ -311,241 +243,106 @@ button:focus-visible {
   pointer-events: none;
 }
 
-/* spinning effect (respect reduced-motion) */
+/* spin on hover/focus (respect reduced-motion preference) */
 @media (prefers-reduced-motion: no-preference) {
   .social-btn:hover,
-  .social-btn:focus {
-    transform: rotate(360deg);
-  }
+  .social-btn:focus { transform: rotate(360deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .social-btn { transition: none; transform: none; }
 }
 
-/* "Follow Along" label under icons — decorative script family (fallback to Delius Swash Caps) */
+/* "Follow Along" decorative label below icons */
 .follow-label {
   margin-top: 0.15rem;
-  font-family: "Delius Swash Caps", "Delius", cursive;
+  font-family: var(--decorative-follow);
   font-size: 1.05rem;
-  color: var(--text, #202124);
+  color: var(--text);
   text-align: center;
   line-height: 1;
 }
 
 /* ---- Divider (center) ---- */
 .site-footer .footer-divider {
-  grid-column: 2 !important;
-  justify-self: center !important;
-  width: 1px !important;
-  height: 56px !important;
-  background: #000 !important; /* black vertical divider */
-  margin: 0 0.25rem !important;
+  grid-column: 2;
+  justify-self: center;
+  width: 1px;
+  height: calc(var(--footer-height) - 20px);
+  background: #000; /* black vertical divider */
+  margin: 0 0.25rem;
   box-sizing: border-box;
 }
 
-/* ---- Right column: logo + copy ----
-   DOM uses .footer-right for logo block; place it visually in column 3 and
-   push its left edge toward the divider (justify-self: start). */
+/* ---- Right column: logo + copy ---- */
 .site-footer .footer-right {
-  grid-column: 3 !important;
-  justify-self: start !important; /* hug the divider */
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important; /* center logo and text over each other */
-  gap: 0.45rem !important;
-  min-width: 0 !important;
+  grid-column: 3;
+  justify-self: start; /* left edge hugs the divider */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
   margin: 0;
-  padding-left: 0;
   text-align: center;
 }
 
-/* Logo image sizing */
+/* logo sizing */
 .site-footer .footer-photo {
   width: 72px;
   height: auto;
-  display: block;
   object-fit: contain;
+  display: block;
   border-radius: 6px;
 }
 
-/* Brand title + tag */
+/* brand title and tagline */
 .site-footer .brand-title {
   font-weight: 700;
   font-size: 1.05rem;
-  letter-spacing: 0.5px;
-  color: var(--text, #202124);
+  color: var(--text);
+  letter-spacing: 0.4px;
 }
-
 .site-footer .brand-tag {
   font-size: 0.95rem;
-  color: var(--text, #202124);
+  color: var(--text);
 }
 
-/* Copyright small-caps, smaller & with a little spacing above */
+/* copyright (small-caps) */
 .site-footer .footer-copyright {
   margin-top: 0.35rem;
   font-size: 0.82rem;
   font-variant: small-caps;
-  opacity: 0.9;
-  color: var(--muted, #6b6f76);
+  color: var(--muted);
+  opacity: 0.95;
 }
 
-/* Ensure nothing forces the grid to collapse into rows.
-   These rules override earlier responsive rules that may have stacked the footer. */
-@media (max-width: 900px) {
-  .site-footer .footer-inner {
-    display: grid !important;
-    grid-template-columns: 1fr auto 1fr !important;
-    gap: 0.35rem !important;
-    padding-left: 0 !important;
-    padding-right: 0.75rem !important;
-  }
+/* -------------------------
+   Responsive tweaks (keep side-by-side)
+   ------------------------- */
 
-  .site-footer .footer-divider {
-    height: 48px !important;
-  }
-}
-
-/* Slight tweak for very small screens so items remain usable but side-by-side */
-@media (max-width: 420px) {
+/* reduce sizes slightly on very small screens but keep grid/side-by-side layout */
+@media (max-width: 480px) {
   .social-btn { width: 44px; height: 44px; }
   .site-footer .footer-photo { width: 64px; }
   .follow-label { font-size: 0.98rem; }
   .site-footer .brand-title { font-size: 1rem; }
   .site-footer .brand-tag { font-size: 0.9rem; }
-  .site-footer .footer-copyright { font-size: 0.78rem; }
+  .site-footer .footer-divider { height: calc(var(--footer-height) - 22px); }
+  .site-main { padding-bottom: calc(var(--footer-height) + 0.25rem); }
 }
 
-/* ---------- HOME INTRO: blurred card & decorative heading ---------- */
-.home-intro { /* keep container behaviour; no change needed normally */ 
-  max-width: 1200px; /* allow more room if needed */
-  margin: 1.75rem auto;
-  padding: 0;
-  text-align: center;
-}
-.intro-card {
-  width: clamp(420px, 60%, 800px);
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 1.25rem 1.1rem;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.28);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  position: relative;
-  z-index: 2;
-}
-.home-intro { text-align: center; padding-left: .6rem; padding-right: .6rem; }
+/* Optional: if your pages include very small viewports, you can further tweak
+   spacing here. We intentionally never switch to a stacked column — the grid
+   ensures the divider remains centered and left/right blocks hug it. */
 
-/* UPDATED: welcome title moved outside the card and styled here (color #6322C9, centered, slightly larger) */
-.welcome-title {
-  margin: 0;
-  font-family: var(--decorative-welcome);
-  color: #6322C9;                       /* updated color */
-  font-weight: 700;
-  font-size: clamp(4.5rem, 6vw, 3.4rem); /* slightly larger */
-  line-height: 0.95;
-  letter-spacing: 0.4px;
-  margin-bottom: 0.5rem;
-  text-align: center;                    /* centered above the intro-card */
+/* -------------------------
+   Utility / accessibility
+   ------------------------- */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-/* existing intro text rules */
-.intro-text { 
-  margin: 0.5rem auto 0; 
-  color: var(--text); 
-  font-family: var(--ui-font); 
-  font-size: clamp(0.95rem, 1.8vw, 1.05rem); 
-  line-height: 1.5; max-width: 56ch; 
-  text-align: justify; 
-}
-.home-intro .intro-text[style] { font-weight: 600; }
-
-@media (max-width: 700px) {
-  .intro-card {
-    width: calc(100% - 2rem);
-    padding: 0.9rem 0.85rem;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-  }
-  .home-intro { text-align: justify; padding-left: .6rem; padding-right: .6rem; }
-  .welcome-title { font-size: clamp(1.8rem, 8vw, 2.6rem); } /* adjusted small-screen size */
-  .intro-text { font-size: 0.98rem; max-width: 50ch; }
-}
-
-/* Services image rules (repeat to ensure available) */
-.service-figure {
-  margin: 0 0 1rem 0;
-  overflow: auto; /* allows the intrinsic image to overflow if very wide */
-}
-.service-figure img, .service-photo {
-  width: auto;       /* use the image's intrinsic width */
-  max-width: none;   /* don't force down by default on desktop */
-  height: auto;
-  display: block;
-  border-radius: 8px;
-  object-fit: none;
-}
-@media (max-width:700px) {
-  .service-figure img, .service-photo {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-  }
-}
-
-/* ---------- Bookings hero styles (append to style.css) ---------- */
-.bookings-hero {
-  max-width: var(--max-width);
-  margin: 1.5rem auto;
-  padding: 0 1rem;
-}
-.bookings-card {
-  background: rgba(255,255,255,0.94);
-  border-radius: 10px;
-  padding: 1.1rem 1.25rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-  position: relative;
-  z-index: 2;
-}
-.bookings-title {
-  margin: 0 0 0.35rem 0;
-  font-family: var(--decorative-welcome);
-  color: var(--accent);
-  font-weight: 700;
-  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
-  line-height: 1.02;
-  text-align: left;
-}
-.bookings-sub {
-  margin: 0 0 0.45rem 0;
-  font-family: var(--ui-font);
-  font-size: 1rem;
-  color: var(--text);
-  font-weight: 600;
-  text-align: left;
-}
-.bookings-availability {
-  margin: 0 0 0.6rem 0;
-  font-family: var(--ui-font);
-  color: var(--text);
-  font-weight: 600;
-  text-align: left;
-}
-.bookings-info {
-  margin: 0;
-  color: var(--text);
-  font-family: var(--ui-font);
-  line-height: 1.5;
-  font-size: clamp(0.98rem, 1.6vw, 1.06rem);
-  max-width: 68ch;
-  text-align: left;
-}
-@media (max-width: 700px) {
-  .bookings-hero { padding: 0 0.75rem; margin: 1rem auto; }
-  .bookings-card { padding: 0.9rem 0.9rem; }
-  .bookings-title { font-size: clamp(1.3rem, 7vw, 1.8rem); }
-  .bookings-sub, .bookings-availability, .bookings-info { font-size: 0.98rem; }
-}
+/* keep images from overflowing */
+img { max-width: 100%; height: auto; display: block; }
