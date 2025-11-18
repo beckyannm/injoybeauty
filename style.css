@@ -152,7 +152,7 @@ body{
   justify-content:space-between;
   max-width:var(--max-width);
   margin:0 auto;
-  padding:0.6rem 1rem;
+  padding:0.2rem 1rem;
   gap:1rem;
 }
 
