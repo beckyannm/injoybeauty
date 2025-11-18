@@ -230,69 +230,74 @@ button:focus-visible {
 }
 
 /* Footer */
-/* Keep footer columns side-by-side at all screen sizes.
-   Updated so the InJoy logo hugs the left page edge and the social/buttons sit
-   immediately to the right of the divider (logo → divider → buttons). */
+/* Keep footer side-by-side at all widths — override any stacking rules.
+   Load this after style.css so it wins. */
+
+/* Container / scrolling fallback */
 .site-footer {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
   background: var(--footer-bg, transparent);
 }
 
-/* 3-column grid: left 1fr, center auto (divider), right 1fr.
-   The divider remains centered because the left/right columns share remaining space. */
+/* Always use a centered divider grid: left 1fr, center auto, right 1fr */
 .site-footer .footer-inner {
   display: grid !important;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr !important;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  /* remove left padding if you want the left-group to be able to sit flush with page edge */
-  padding-left: 0;
+  padding-left: 0; /* allow left content to sit flush if desired */
+  width: 100%;
   min-width: 0;
+  box-sizing: border-box;
 }
 
-/* Place elements into the grid columns by selector (DOM order can stay the same). */
+/* Map DOM classes to the visual layout you requested. */
 
-/* Visual left group: logo + text stacked, sit in left column and align their
-   right edge up against the center divider (justify-self: end). */
+/* Logo + text block (DOM .footer-right) — left column, right-aligned against divider.
+   Stacks logo above text and centers them over each other. */
 .site-footer .footer-right {
-  grid-column: 1;          /* left column */
-  justify-self: end;       /* push group's right edge to divider */
-  display: flex;
-  flex-direction: column;  /* stack logo above the text */
-  align-items: center;     /* center logo and text over each other */
-  gap: 0.25rem;
-  flex: 0 0 auto;
-  min-width: 0;
+  grid-column: 1 !important;
+  justify-self: end !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  text-align: center;
 }
 
-/* Divider sits in the exact center column */
+/* Divider stays vertical and centered at every width */
 .site-footer .footer-divider {
-  grid-column: 2;          /* center column */
-  justify-self: center;
-  width: 1px;
-  background: var(--footer-divider-color, rgba(0,0,0,0.08));
-  height: 48px;
-  align-self: center;
-  flex: 0 0 auto;
-  margin: 0 0.15rem;
+  grid-column: 2 !important;
+  justify-self: center !important;
+  width: 1px !important;
+  height: 48px !important;
+  background: var(--footer-divider-color, rgba(0,0,0,0.08)) !important;
+  align-self: center !important;
+  margin: 0 0.15rem !important;
+  box-sizing: border-box;
 }
 
-/* Visual right group: social buttons — place in right column and align their
-   left edge up against the divider (justify-self: start). */
+/* Social / buttons block (DOM .footer-left) — right column, left-aligned against divider.
+   Keep social buttons in a horizontal row. */
 .site-footer .footer-left {
-  grid-column: 3;          /* right column */
-  justify-self: start;     /* push group's left edge to divider */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 0 1 auto;
-  min-width: 0;
-  margin: 0;
+  grid-column: 3 !important;
+  justify-self: start !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex: 0 1 auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
 }
 
-/* Keep images and icons from forcing the layout to overflow excessively */
+/* Prevent images and icons from forcing layout overflow */
 .site-footer img,
 .site-footer .social-icon {
   max-width: 100%;
@@ -300,171 +305,63 @@ button:focus-visible {
   display: block;
 }
 
-/* Keep social buttons in a horizontal row */
+/* Social buttons row */
 .site-footer .footer-actions {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  flex-wrap: nowrap;
+  display: flex !important;
+  gap: 0.5rem !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
 }
 
-/* Small screen adjustments: keep everything side-by-side but reduce sizes/spacing */
-@media (max-width: 420px) {
+/* Override any global media rules that attempted to stack the footer at <=700px.
+   These ensure grid behavior and vertical divider remain active on small screens. */
+@media (max-width: 700px) {
   .site-footer .footer-inner {
-    gap: 0.35rem;
-    padding-right: 0.75rem;
-    padding-left: 0; /* ensure left group can remain adjacent to divider */
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    gap: 0.35rem !important;
+    padding-left: 0 !important;
+    padding-right: 0.75rem !important;
+    align-items: center !important;
+    min-width: 0;
+  }
+
+  .site-footer .footer-divider {
+    width: 1px !important;
+    height: 48px !important;
+    margin: 0 0.15rem !important;
+    background: var(--footer-divider-color, rgba(0,0,0,0.08)) !important;
+  }
+
+  .site-footer .footer-left {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-self: start !important;
+    gap: 0.4rem !important;
+  }
+
+  .site-footer .footer-right {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-self: end !important;
+    align-items: center !important;
+  }
+
+  /* Slightly reduce icon sizes so the horizontal layout fits better on tiny screens */
+  .site-footer .social-icon {
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .site-footer .footer-copy h3 {
-    font-size: 0.95rem;
+    font-size: 0.95rem !important;
+    margin: 0;
   }
 
   .site-footer p {
     margin: 0;
     font-size: 0.9rem;
   }
-
-  .site-footer .social-icon {
-    width: 28px;
-    height: 28px;
-  }
-}
-/* Rotating social buttons (Instagram + Facebook)
-   Add near your social/footer styles in style.css */
-/* Base button container (anchor) */
-.social-btn {
-  display: inline-block;
-  width: 48px;            /* adjust to match your small icons */
-  height: 48px;
-  padding: 0;
-  margin-left: 10px;      /* match spacing used elsewhere */
-  border-radius: 50%;
-  overflow: hidden;
-  background: transparent;
-  text-decoration: none;
-  transform-origin: 50% 50%;
-  transition: transform 0.7s cubic-bezier(.21,.9,.3,1);
-  will-change: transform;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* The image inside the anchor */
-.social-icon {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;      /* or contain if you'd prefer letterboxing */
-  pointer-events: none;   /* let clicks go to the anchor */
-}
-
-/* Rotate on hover/focus/active */
-.social-btn:hover,
-.social-btn:focus,
-.social-btn:active {
-  transform: rotate(360deg);
-  outline: none;
-}
-
-/* Visible focus ring for keyboard users */
-.social-btn:focus-visible {
-  box-shadow: 0 0 0 3px rgba(107,46,107,0.14);
-  border-radius: 50%;
-}
-
-/* Optional: slightly different visual for Instagram vs Facebook (if you want) */
-.social-btn--instagram { /* no color required if you keep PNG gradient */ }
-.social-btn--facebook { /* no color required; but could use subtle bg if desired */ }
-
-/* Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .social-btn { transition: none; }
-  .social-btn:hover,
-  .social-btn:focus,
-  .social-btn:active { transform: none; }
-}
-
-/* If you have an existing .social-link img rule, ensure this specificity overrides if necessary:
-   .social-link .social-icon { ... } or increase specificity as needed. */
-/* Utility */
-.header-divider,
-.footer-divider{ width:1px; background:#eee; height:38px; margin:0 0.75rem; }
-
-/* Responsive & accessibility adjustments */
-@media (max-width: 700px) {
-  .header-divider,
-  .footer-divider {
-    width: 70%;
-    height: 1px;
-    margin: 0.5rem auto;
-    background: #eee;
-  }
-  .top-bar {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-  }
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce){
-  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
-  .primary-nav a,
-  .primary-nav a:hover,
-  .primary-nav a:focus,
-  .primary-nav a:focus-visible { transform: none !important; transition: none !important; box-shadow: none !important; }
-}
-
-/* Responsive adjustments */
-@media (max-width:900px){
-  .footer-inner{
-    gap:1rem;
-    padding:0.35rem 0;
-  }
-  .top-bar{
-    flex-direction: column;
-    align-items: center;
-    gap: .5rem;
-  }
-  .primary-nav ul{
-    justify-content: center;
-  }
-  .logo-img{
-    max-width: 140px;
-    height: auto;
-  }
-}
-
-/* On small phones ensure nav fits and can scroll horizontally if needed */
-@media (max-width:480px){
-  .top-bar{
-    padding:0.5rem 0.75rem;
-  }
-  .primary-nav{
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .primary-nav ul{
-    gap: .4rem;
-    padding: 0 .5rem;
-  }
-  .logo-img{ max-width: 120px; }
-}
-
-/* Footer stacking on small screens */
-@media (max-width:700px){
-  .footer-inner{
-    flex-direction:column;
-    gap:.75rem;
-    align-items:center;
-    justify-content:center;
-    max-width:calc(var(--footer-max-width) - 40px);
-    padding:0.5rem 0;
-  }
-  .footer-left, .footer-right{ flex-direction:column; gap:.5rem; }
-  .footer-right .footer-photo{ max-height:48px; }
 }
 
 /* Desktop override: stack logo above footer text in .footer-right */
