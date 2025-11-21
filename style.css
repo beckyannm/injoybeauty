@@ -450,6 +450,45 @@ a:focus-visible, button:focus-visible {
   border-radius: 6px;
 }
 
+/* Primary CTA button styling */
+.btn-primary {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid var(--brand);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #5a2660;
+  border-color: #5a2660;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(107, 46, 107, 0.25);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(107, 46, 107, 0.2);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary {
+    transition: none;
+    transform: none;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:active {
+    transform: none;
+  }
+}
+
 /* keep images from overflowing */
 img { max-width: 100%; height: auto; display: block; }
 /* Ensure service images never cause horizontal overflow */
