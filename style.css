@@ -53,12 +53,8 @@ body{
   position: relative;
   background: transparent;
   z-index: 0;
-  padding-bottom: calc(var(--footer-height) + 0.25rem);
-}
-
   /* Allow main to grow and take available space so footer stays at bottom */
   flex: 1 0 auto;
-
   /* Keep page content clear of the fixed footer on all viewports */
   padding-bottom: calc(var(--footer-height) + 0.5rem);
 }
@@ -145,12 +141,6 @@ body{
 @media (prefers-reduced-motion: reduce) {
   .skip-icon { transition: none; transform: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .site-main > *:not(.center-photo):not(.home-intro)::before {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
 
 /* Layout container */
 .top-bar{
@@ -206,7 +196,7 @@ body{
   background: var(--pill-hover-bg);
   color: var(--pill-hover-text);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transform: translateY(-5px) scale(1.03);
+  transform: translateY(-3px) scale(1.03); /* reduced lift to -3px */
 }
 .primary-nav a[aria-current="page"],
 .primary-nav a.active {
@@ -336,7 +326,7 @@ button:focus-visible {
   background: transparent;
   text-decoration: none;
   transform-origin: 50% 50%;
-  transition: transform 0.7s cubic-bezier(.21,.9,.3,1);
+  transition: transform 0.45s cubic-bezier(.21,.9,.3,1); /* slightly snappier */
   -webkit-tap-highlight-color: transparent;
   border: none;
 }
@@ -375,7 +365,7 @@ button:focus-visible {
   justify-self: center;
   width: 1px;
   height: calc(var(--footer-height) - 20px);
-  background: #000; /* black vertical divider */
+  background: rgba(0,0,0,0.08); /* softened divider */
   margin: 0 0.25rem;
   box-sizing: border-box;
 }
@@ -438,9 +428,18 @@ button:focus-visible {
   .site-main { padding-bottom: calc(var(--footer-height) + 0.25rem); }
 }
 
-/* Optional: if your pages include very small viewports, you can further tweak
-   spacing here. We intentionally never switch to a stacked column — the grid
-   ensures the divider remains centered and left/right blocks hug it. */
+/* Collapse footer to single-column on very small viewports */
+@media (max-width: 420px) {
+  .site-footer .footer-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.35rem;
+    padding: 0 .6rem;
+    justify-items: center;
+  }
+  .site-footer .footer-divider { display: none; }
+  .site-footer .footer-left, .site-footer .footer-right { justify-self: center; }
+}
 
 /* -------------------------
    Utility / accessibility
@@ -453,6 +452,9 @@ a:focus-visible, button:focus-visible {
 
 /* keep images from overflowing */
 img { max-width: 100%; height: auto; display: block; }
+/* Ensure service images never cause horizontal overflow */
+.service-figure img, .service-photo { max-width: 100%; width: auto; height: auto; display: block; border-radius: 8px; object-fit: cover; }
+
 /* ---------- HOME INTRO: blurred card & decorative heading ---------- */
 .home-intro { /* keep container behaviour; no change needed normally */ 
   max-width: 1200px; /* allow more room if needed */
@@ -482,8 +484,9 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--decorative-welcome);
   color: #6322C9;                       /* updated color */
   font-weight: 700;
-  font-size: clamp(4.5rem, 6vw, 3.4rem); /* slightly larger */
-  line-height: 0.95;
+  /* corrected clamp: min <= preferred <= max */
+  font-size: clamp(1.8rem, 4.8vw, 3.4rem);
+  line-height: 1.02;
   letter-spacing: 0.4px;
   margin-bottom: 0.5rem;
   text-align: center;                    /* centered above the intro-card */
@@ -510,6 +513,8 @@ img { max-width: 100%; height: auto; display: block; }
   .home-intro { text-align: justify; padding-left: .6rem; padding-right: .6rem; }
   .welcome-title { font-size: clamp(1.8rem, 8vw, 2.6rem); } /* adjusted small-screen size */
   .intro-text { font-size: 0.98rem; max-width: 50ch; }
+  /* Improve readability on small screens */
+  .home-intro .intro-text { text-align: left; }
 }
 
 /* Services image rules (repeat to ensure available) */
@@ -519,11 +524,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .service-figure img, .service-photo {
   width: auto;       /* use the image's intrinsic width */
-  max-width: none;   /* don't force down by default on desktop */
+  max-width: 100%;   /* don't force down by default on desktop */
   height: auto;
   display: block;
   border-radius: 8px;
-  object-fit: none;
+  object-fit: cover;
 }
 @media (max-width:700px) {
   .service-figure img, .service-photo {
@@ -533,56 +538,4 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
-/* ---------- Bookings hero styles (append to style.css) ---------- */
-.bookings-hero {
-  max-width: var(--max-width);
-  margin: 1.5rem auto;
-  padding: 0 1rem;
-}
-.bookings-card {
-  background: rgba(255,255,255,0.94);
-  border-radius: 10px;
-  padding: 1.1rem 1.25rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-  position: relative;
-  z-index: 2;
-}
-.bookings-title {
-  margin: 0 0 0.35rem 0;
-  font-family: var(--decorative-welcome);
-  color: var(--accent);
-  font-weight: 700;
-  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
-  line-height: 1.02;
-  text-align: left;
-}
-.bookings-sub {
-  margin: 0 0 0.45rem 0;
-  font-family: var(--ui-font);
-  font-size: 1rem;
-  color: var(--text);
-  font-weight: 600;
-  text-align: left;
-}
-.bookings-availability {
-  margin: 0 0 0.6rem 0;
-  font-family: var(--ui-font);
-  color: var(--text);
-  font-weight: 600;
-  text-align: left;
-}
-.bookings-info {
-  margin: 0;
-  color: var(--text);
-  font-family: var(--ui-font);
-  line-height: 1.5;
-  font-size: clamp(0.98rem, 1.6vw, 1.06rem);
-  max-width: 68ch;
-  text-align: left;
-}
-@media (max-width: 700px) {
-  .bookings-hero { padding: 0 0.75rem; margin: 1rem auto; }
-  .bookings-card { padding: 0.9rem 0.9rem; }
-  .bookings-title { font-size: clamp(1.3rem, 7vw, 1.8rem); }
-  .bookings-sub, .bookings-availability, .bookings-info { font-size: 0.98rem; }
-}
+/* ---------- Bookings hero styles
