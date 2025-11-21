@@ -23,6 +23,7 @@
   --footer-height: 104px;
   --footer-inner-padding-x: 0.75rem;
   --hero-max-width: 720px;
+  --footer-bottom: 50px;
 }
 
 /* Reset & base */
