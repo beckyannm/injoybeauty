@@ -40,7 +40,12 @@ body {
   font-family: var(--ui-font);
   color: var(--text);
   line-height: 1.6;
-  background: var(--bg-gradient);
+
+  /* Gradient background with repeating */
+  background: linear-gradient(135deg, #FCF0F7 35%, #F7FCF0 60%, #F0F7FC 85%);
+  background-size: 200px 200px; /* Define the size of the repeated tiles */
+  background-repeat: repeat; /* Repeats the gradient horizontally and vertically */
+
   -webkit-font-smoothing: antialiased;
 }
 
