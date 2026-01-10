@@ -41,16 +41,15 @@ body {
   color: var(--text);
   line-height: 1.6;
 
-  /* Repeating linear gradient */
-  background: repeating-linear-gradient(
-    135deg, 
-    #FCF0F7, 
-    #F7FCF0 60px, /* End of the first gradient stop */
-    #F0F7FC 120px /* End of the gradient block */
-  );
+  /* Full-page gradient background */
+  background: linear-gradient(135deg, #FCF0F7 0%, #F7FCF0 45%, #F0F7FC 100%);
+  background-size: cover; /* Stretch to cover the viewport */
+  background-repeat: no-repeat; /* Prevent tiling */
+  background-attachment: fixed; /* Optional: Lock the gradient during scroll */
 
   -webkit-font-smoothing: antialiased;
 }
+
 img {
   max-width: 100%;
   height: auto;
