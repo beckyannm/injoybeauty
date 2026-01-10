@@ -279,17 +279,38 @@ button:focus-visible {
   color: var(--text);
 }
 
+.services-glance-section {
+  --services-glance-bg: none;
+  position: relative;
+  padding: 3.5rem 0 4rem;
+  background-color: #f7f0f5;
+  background-image: var(--services-glance-bg);
+  background-size: cover;
+  background-position: center;
+}
+
+.services-glance-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.services-glance-section > * {
+  position: relative;
+}
+
 .services-preview {
   max-width: var(--section-max);
   margin: 0 auto;
-  padding: 0 1.25rem 3.5rem;
+  padding: 0 1.25rem;
 }
 
 .services-preview h2 {
   margin: 0 0 1rem 0;
   font-family: "Playfair Display", serif;
   color: var(--brand);
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
 }
 
 .services-intro,
