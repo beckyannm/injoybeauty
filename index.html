@@ -5,15 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InJoy Beauty | Inclusive Beauty Services</title>
 
-  <!-- Optimize fonts (removed unused weights) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="footer-fix.css" />
 </head>
 <body>
   <!-- Skip link for keyboard users -->
@@ -43,18 +39,57 @@
           <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
+
+      <div class="header-social" aria-label="Social links">
+        <a class="social-btn social-btn--facebook" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Facebook">
+          <img src="facebook2.png" alt="Facebook" class="social-icon">
+        </a>
+
+        <a class="social-btn social-btn--instagram" href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Instagram">
+          <img src="instagram2.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
     </div>
   </header>
   
   <!-- Main Content -->
   <main id="main-content" class="site-main" role="main" tabindex="-1">
-    <!-- Home Section: Welcome -->
-    <section class="home-intro" aria-labelledby="home-intro-heading">
-      <h1 id="home-intro-heading" class="welcome-title">Welcome to InJoy Beauty!</h1>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title" class="hero-title">Welcome to InJoy Beauty</h1>
+        <p class="hero-subtitle">Inclusive, gentle beauty care — on your terms.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="bookings.html">Book Now</a>
+          <a class="btn-secondary" href="about.html">Learn more</a>
+        </div>
+        <p class="hero-reassurance">A calm, respectful space — always unrushed.</p>
+      </div>
+    </section>
+
+    <section class="intro-section" aria-labelledby="intro-heading">
       <div class="intro-card">
-        <p class="intro-text">
-          Experience inclusive and accessible beauty services tailored just for you.
-        </p>
+        <h2 id="intro-heading" class="sr-only">About InJoy Beauty</h2>
+        <p class="intro-text">At InJoy Beauty, my goal is to make beauty services accessible, comfortable, and inclusive for everyone. I provide gentle, sensory-friendly beauty care for individuals who may experience challenges with traditional salon environments — including those with sensory sensitivities, mobility concerns, or anxiety.</p>
+        <p class="intro-text">Whether you prefer to have your services completed in your own home (extra charge applies for mobile services) or at my sensory-friendly home salon in Bourget, Ontario, you’ll be welcomed with understanding, patience, and care.</p>
+        <p class="intro-text">Everyone deserves to feel beautiful — in a space that feels safe.</p>
+      </div>
+    </section>
+
+    <section class="services-preview" aria-labelledby="services-preview-title">
+      <h2 id="services-preview-title">Services at a glance</h2>
+      <div class="services-grid">
+        <article class="service-item">
+          <h3>In-home appointments</h3>
+          <p>Comfortable care in your own space, with gentle pacing.</p>
+        </article>
+        <article class="service-item">
+          <h3>In-studio appointments</h3>
+          <p>Visit a sensory-friendly home salon in Bourget, Ontario.</p>
+        </article>
+        <article class="service-item">
+          <h3>Sensory-considerate approach</h3>
+          <p>Flexible, respectful service tailored to your needs.</p>
+        </article>
       </div>
     </section>
   </main>
@@ -62,25 +97,13 @@
   <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-left social-links">
-        <p>Follow us:</p>
-        <div class="footer-actions">
-          <a href="https://facebook.com" class="social-link" aria-label="InJoy Beauty on Facebook">
-            <img src="facebook-icon.png" alt="Facebook Icon" width="32" height="32" />
-          </a>
-          <a href="https://instagram.com" class="social-link" aria-label="InJoy Beauty on Instagram">
-            <img src="instagram-icon.png" alt="Instagram Icon" width="32" height="32" />
-          </a>
+      <div class="footer-brand">
+        <img src="InjoyOGsmall.jpg" alt="InJoy Beauty logo" class="footer-photo">
+        <div class="footer-copy">
+          <div class="brand-title">INJOY • Inclusive Beauty</div>
+          <div class="brand-tag">Everyone deserves to feel beautiful.</div>
+          <div class="footer-copyright">© 2025 InJoy Beauty — All Rights Reserved</div>
         </div>
-      </div>
-      <div class="footer-divider" aria-hidden="true"></div>
-      <div class="footer-right">
-        <aside class="section-card aside-text" aria-label="InJoy Beauty Mission">
-          <div class="footer-copy">
-            <h3>INJOY • Inclusive Beauty</h3>
-            <p>Everyone deserves to feel beautiful.</p>
-          </div>
-        </aside>
       </div>
     </div>
   </footer>

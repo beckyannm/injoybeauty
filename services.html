@@ -16,36 +16,6 @@
       --text: #222;
     }
 
-    body {
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      margin: 0;
-      line-height: 1.45;
-      color: var(--text);
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-    .skip-link:focus {
-      left: 1rem;
-      top: 1rem;
-      width: auto;
-      height: auto;
-      padding: .5rem .75rem;
-      background: #000;
-      color: #fff;
-      z-index: 9999;
-    }
-
-    .site-header { border-bottom: 1px solid rgba(0,0,0,0.04); }
-    .top-bar { max-width: var(--max-width); margin: 0 auto; padding: .75rem 1rem; display:flex; align-items:center; gap:1rem; }
     .logo-img { display:block; }
 
     /* Services hero / card */
@@ -143,16 +113,28 @@
         </a>
       </div>
 
-      <nav aria-label="Primary Navigation" class="primary-nav" style="margin-left:auto">
-        <ul style="list-style:none;display:flex;gap:1rem;margin:0;padding:0;align-items:center">
+      <div class="header-divider" aria-hidden="true"></div>
+
+      <nav aria-label="Primary Navigation" class="primary-nav">
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html" aria-current="page">Services</a></li>
-          <li><a href="bookings.html">Bookings</a></li>
+          <li><a href="bookings.html">Book Now</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
+
+      <div class="header-social" aria-label="Social links">
+        <a class="social-btn social-btn--facebook" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Facebook">
+          <img src="facebook2.png" alt="Facebook" class="social-icon">
+        </a>
+
+        <a class="social-btn social-btn--instagram" href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Instagram">
+          <img src="instagram2.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
     </div>
   </header>
 
@@ -213,23 +195,7 @@
 
  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
     <div class="footer-inner">
-      <div class="footer-left social-links" aria-label="Follow links">
-        <div class="footer-actions">
-          <a class="social-btn social-btn--facebook" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Facebook">
-            <img src="https://injoybeauty.ca/facebook1.png" alt="Facebook" class="social-icon">
-          </a>
-
-          <a class="social-btn social-btn--instagram" href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Instagram">
-            <img src="https://injoybeauty.ca/instagram1.png" alt="Instagram" class="social-icon">
-          </a>
-        </div>
-
-        <div class="follow-label">Follow Along</div>
-      </div>
-
-      <div class="footer-divider" aria-hidden="true"></div>
-
-      <div class="footer-right" aria-label="Brand and copyright">
+      <div class="footer-brand" aria-label="Brand and copyright">
         <img src="InjoyOGsmall.jpg" alt="InJoy Beauty logo" class="footer-photo">
 
         <div class="footer-copy">
