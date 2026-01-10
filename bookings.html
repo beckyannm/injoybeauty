@@ -8,8 +8,11 @@
 
   <style>
     /* Page-scoped helpers for the PDF preview + upload UI */
-    .booking-hero{ max-width:1100px; margin:1.75rem auto; padding:1.25rem; }
-    .booking-card{ background: rgba(255,255,255,0.95); border-radius:10px; padding:1rem; box-shadow:0 6px 18px rgba(0,0,0,0.06); max-width:920px; margin:0 auto 2rem;}
+    .bookings-layout{ max-width:1100px; margin:1.75rem auto 2.5rem; padding:1.25rem; display:grid; gap:1.5rem; }
+    .bookings-card,
+    .booking-card{ background: rgba(255,255,255,0.9); border-radius:20px; padding:1.5rem; box-shadow:0 12px 30px rgba(0,0,0,0.06); border:1px solid rgba(255,255,255,0.7); backdrop-filter: blur(8px); }
+    .bookings-card{ max-width:920px; margin:0 auto; }
+    .booking-card{ max-width:980px; margin:0 auto; }
     .preview-wrap{ display:grid; grid-template-columns: 1fr 340px; gap:1rem; align-items:start; }
     .pdf-preview{ width:100%; height:640px; border-radius:8px; overflow:hidden; border:1px solid #ececec; background:#fff; }
     .side-col { padding:0.5rem; }
@@ -29,7 +32,7 @@
   <header class="site-header" role="banner">
     <div class="top-bar">
       <div class="logo-box">
-        <a href="/" class="logo-link" aria-label="InJoy Beauty home">
+        <a href="index.html" class="logo-link" aria-label="InJoy Beauty home">
           <img src="InjoyBeauty.jpg" alt="InJoy Beauty logo" class="logo-img" width="160" height="80" />
         </a>
       </div>
@@ -41,33 +44,42 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="bookings.html" aria-current="page">Bookings</a></li>
+          <li><a href="bookings.html" aria-current="page">Book Now</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
+
+      <div class="header-social" aria-label="Social links">
+        <a class="social-btn social-btn--facebook" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Facebook">
+          <img src="facebook2.png" alt="Facebook" class="social-icon">
+        </a>
+
+        <a class="social-btn social-btn--instagram" href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Instagram">
+          <img src="instagram2.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
     </div>
   </header>
 
   <main id="main-content" class="site-main" role="main" tabindex="-1">
-<section class="bookings-hero" aria-labelledby="bookings-heading">
-  <div class="bookings-card">
-    <h1 id="bookings-heading" class="bookings-title">Book Your Appointment</h1>
+    <section class="bookings-layout" aria-label="Booking information">
+      <div class="bookings-card">
+        <h1 id="bookings-heading" class="bookings-title">Book Your Appointment</h1>
 
-    <p class="bookings-sub">
-      I offer flexible booking to meet your comfort level and needs.
-    </p>
+        <p class="bookings-sub">
+          I offer flexible booking to meet your comfort level and needs.
+        </p>
 
-    <p class="bookings-availability"><strong>Availability:</strong> Monday → Saturday │ 3:00 PM – 8:00 PM</p>
+        <p class="bookings-availability"><strong>Availability:</strong> Monday → Saturday │ 3:00 PM – 8:00 PM</p>
 
-    <p class="bookings-info">
-      Appointments can be booked for either in‑home visits or salon appointments in my Bourget location. If you need extra time for sensory breaks, movement, or conversation, I’m happy to schedule accordingly — no rush, no pressure.
-    </p>
-  </div>
-</section>
-    <div class="booking-hero center-photo" aria-hidden="false">
+        <p class="bookings-info">
+          Appointments can be booked for either in‑home visits or salon appointments in my Bourget location. If you need extra time for sensory breaks, movement, or conversation, I’m happy to schedule accordingly — no rush, no pressure.
+        </p>
+      </div>
+
       <div class="booking-card" role="region" aria-label="Booking and intake form">
-        <h1 style="margin-top:0; font-size:1.6rem;">Booking & Intake</h1>
+        <h2 style="margin-top:0; font-size:1.5rem;">Booking & Intake</h2>
         <p class="note">You can preview the intake form below, download it to fill offline, then upload the completed PDF here. If you prefer, use the HTML booking request form on this page to submit your appointment request.</p>
 
         <div class="preview-wrap" aria-live="polite">
@@ -151,28 +163,12 @@
         </div>
 
       </div>
-    </div>
+    </section>
   </main>
 
 <footer class="site-footer" role="contentinfo" aria-label="Site footer">
     <div class="footer-inner">
-      <div class="footer-left social-links" aria-label="Follow links">
-        <div class="footer-actions">
-          <a class="social-btn social-btn--facebook" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Facebook">
-            <img class="social-icon" src="https://injoybeauty.ca/facebook1.png" alt="Facebook icon">
-          </a>
-
-          <a class="social-btn social-btn--instagram" href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="InJoy Beauty on Instagram">
-            <img class="social-icon" src="https://injoybeauty.ca/instagram1.png" alt="Instagram icon">
-          </a>
-        </div>
-
-        <div class="follow-label">Follow Along</div>
-      </div>
-
-      <div class="footer-divider" aria-hidden="true"></div>
-
-      <div class="footer-right" aria-label="Brand">
+      <div class="footer-brand" aria-label="Brand">
         <img class="footer-photo" src="InjoyOGsmall.jpg" alt="InJoy Beauty logo">
         <div class="footer-copy">
           <div class="brand-title">INJOY • Inclusive Beauty</div>
