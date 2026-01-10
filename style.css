@@ -287,7 +287,7 @@ button:focus-visible {
 
 .services-glance-section {
   position: relative;
-  padding: 3.5rem 0 4rem;
+  padding: 3.5rem 0 5.75rem;
   background-image: var(--services-glance-bg); /* Use background.png */
   background-size: cover;
   background-position: center;
@@ -444,7 +444,7 @@ button:focus-visible {
 }
 
 .site-footer {
-  padding: 2.5rem 1.25rem 3rem;
+  padding: 1.6rem 1.25rem 2.1rem;
   color: var(--muted);
 }
 
@@ -659,7 +659,7 @@ button:focus-visible {
 }
 
 .site-footer {
-  padding: 2.5rem 1.25rem 3rem;
+  padding: 1.6rem 1.25rem 2.1rem;
   color: var(--muted);
 }
 
