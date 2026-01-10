@@ -300,8 +300,12 @@ button:focus-visible {
   padding: 0 1.25rem 2.5rem;
 }
 
+.services-page .services-intro {
+  padding-top: 1.5rem;
+}
+
 .services-intro-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, rgba(255, 248, 245, 0.92), rgba(246, 250, 244, 0.9));
   border-radius: 24px;
   padding: 2.25rem;
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -311,9 +315,10 @@ button:focus-visible {
 
 .services-intro-card h1 {
   margin: 0 0 0.75rem 0;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-family: var(--decorative-welcome);
+  font-size: clamp(2.6rem, 6vw, 4.1rem);
   color: var(--brand);
+  font-weight: 700;
 }
 
 .services-intro-text {
@@ -323,13 +328,21 @@ button:focus-visible {
   max-width: 70ch;
 }
 
+.services-listing-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(248, 244, 239, 0.9));
+  border-radius: 28px;
+  padding: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.05);
+}
+
 .service-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.88);
   border-radius: 22px;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.06);
+  padding: 1.7rem;
+  border: 1px solid rgba(229, 224, 216, 0.6);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05);
 }
 
 .service-card h2 {
@@ -343,7 +356,7 @@ button:focus-visible {
   width: 56px;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #f4cfe4, #e9f2db);
+  background: linear-gradient(90deg, #f2d7df, #dde8db, #f7e9d6);
   margin-bottom: 0.9rem;
 }
 
@@ -355,13 +368,19 @@ button:focus-visible {
 }
 
 .services-note-card {
-  background: rgba(255, 255, 255, 0.78);
+  background: linear-gradient(140deg, rgba(255, 252, 250, 0.95), rgba(241, 246, 240, 0.9));
   border-radius: 22px;
   padding: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(232, 226, 219, 0.7);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
   display: grid;
   gap: 1rem;
+}
+
+.services-cta-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 .services-cta {
