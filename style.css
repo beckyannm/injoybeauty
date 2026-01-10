@@ -104,18 +104,17 @@ button:focus-visible {
   left: 0;
   width: 100%;
   z-index: 999;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  background: transparent;
 }
 
 .top-bar {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0.6rem 1.25rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.75rem 2rem;
 }
 
 .logo-box {
@@ -711,7 +710,7 @@ button:focus-visible {
   }
   .header-social {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-left: 0;
   }
   .site-main {
@@ -749,7 +748,7 @@ button:focus-visible {
   }
   .header-social {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-left: 0;
   }
   .site-main {
