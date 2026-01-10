@@ -7,99 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* Page-scoped styles (kept self-contained for copy/paste) */
-
-    :root {
-      --max-width: 980px;
-      --brand: #8d6cab;
-      --muted: #7a7a7a;
-      --text: #222;
-    }
-
     .logo-img { display:block; }
-
-    /* Services hero / card */
-    .services-hero { max-width: var(--max-width); margin: 1.5rem auto; padding: 1rem; }
-    .services-card {
-      background: rgba(255,255,255,0.96);
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-    }
-
-    /* Updated H1: use Meow Script and 20px font size */
-    h1 {
-      margin: 0 0 1.5rem 0;
-      font-family: "Meow Script", cursive;
-      font-size: 80px;
-      color: #F77CC2;
-    }
-
-    .service-note { margin-top: 1rem; color: var(--muted); font-size: .95rem; }
-
-    /* Services grid */
-    .services-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1rem; align-items:start; }
-    .service-block { background: rgba(250,250,250,0.98); padding:.85rem; border-radius:8px; min-height:120px; }
-    .service-block h3 { margin:0 0 .5rem 0; font-family:"Playfair Display",serif; color:var(--brand); font-size:1.05rem; }
-    .service-list { margin:0; padding-left:1rem; color:var(--text); font-size:.98rem; line-height:1.45; }
-
-    /* ----------------------------
-       Title replacing the photo
-       Uses Tilt Neon (neon tilt) and neon glow per request
-       ---------------------------- */
-
-    .service-title {
-      font-family: "Neonderthaw", cursive;
-      font-size: 110px;
-      line-height: 1.12;
-      text-align: center;
-      margin: 1.25rem 0 0 0;
-      display: block;
-      white-space: nowrap;
-      overflow: visible;
-      text-overflow: ellipsis;
-      -webkit-font-smoothing: antialiased;
-      /* small base shadow to keep letters readable on pure-white backgrounds */
-      text-shadow: 0 2px 6px rgba(0,0,0,8);
-    }
-
-       .service-title .injoy {
-      color: #FFE3FC; /* base color */
-      -webkit-text-stroke: 1px rgba(0,0,0,0.09); /* stronger crispness */
-      text-shadow:
-        0 0 8px rgba(247, 124, 194,1.00),
-        0 0 18px rgba(247, 124, 194,0.90),
-        0 0 26px rgba(247, 124, 194,0.70),
-        0 10px 30px rgba(247, 124, 194,0.18);
-    }
-
-    .service-title .beauty {
-      color: #FCED86; /* existing Beauty color */
-      -webkit-text-stroke: 1px rgba(0,0,0,0.08);
-      text-shadow:
-        0 0 8px rgba(252,237,134,1.00),
-        0 0 18px rgba(252,237,134,0.90),
-        0 0 36px rgba(252,237,134,0.70),
-        0 10px 30px rgba(252,237,134,0.18);
-    }
-    /* Responsive adjustments */
-    @media (max-width:1100px) {
-      .services-grid { grid-template-columns: repeat(2,1fr); }
-      .service-title { font-size: 80px; white-space: normal; }
-    }
-    @media (max-width:700px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .services-card { padding: .9rem; }
-      .service-title { font-size: 48px; margin-top: .9rem; white-space: normal; }
-    }
-
-    /* prefers-reduced-motion: reduce heavy blur/shadow intensity */
-    @media (prefers-reduced-motion: reduce) {
-      .service-title .injoy,
-      .service-title .beauty {
-        text-shadow: 0 0 6px rgba(0,0,0,0.03);
-      }
-    }
   </style>
 </head>
 <body>
@@ -139,56 +47,55 @@
   </header>
 
   <main id="main-content" class="site-main" role="main" tabindex="-1">
-    <section class="services-hero" aria-labelledby="services-heading">
-      <div class="services-card" role="region" aria-labelledby="services-heading">
-        <h1 id="services-heading" style="margin-top:0; font-family: 'Meow Script', cursive; font-size:40px;">Services</h1>
-
-        <p class="service-note" style="margin-top:.25rem;">
-          I offer a welcoming, sensory-friendly approach — if you need accommodations (extra time, quiet space, mobile visit), please let me know.
+    <section class="services-intro" aria-labelledby="services-heading">
+      <div class="services-intro-card">
+        <h1 id="services-heading">Services</h1>
+        <p class="services-intro-text">
+          I offer a welcoming, sensory-friendly approach. If you need accommodations such as extra time, a quiet space, or a mobile visit, please let me know.
         </p>
+      </div>
+    </section>
 
-        <div class="services-grid" aria-live="polite">
-          <div class="service-block" aria-labelledby="hair-services-heading">
-            <h3 id="hair-services-heading">Hair Services</h3>
-            <ul class="service-list">
-              <li>Haircuts for men, women, and children</li>
-              <li>Hair coloring & touch-ups</li>
-              <li>Simple styling and trims</li>
-            </ul>
-          </div>
+    <section class="services-listing" aria-label="Service offerings">
+      <div class="services-grid">
+        <article class="service-card" aria-labelledby="hair-services-heading">
+          <div class="service-accent" aria-hidden="true"></div>
+          <h2 id="hair-services-heading">Hair Services</h2>
+          <ul class="service-list">
+            <li>Haircuts for men, women, and children</li>
+            <li>Hair coloring & touch-ups</li>
+            <li>Simple styling and trims</li>
+          </ul>
+        </article>
 
-          <div class="service-block" aria-labelledby="facial-body-heading">
-            <h3 id="facial-body-heading">Facial & Body Hair</h3>
-            <ul class="service-list">
-              <li>Beard trimming & shaving</li>
-              <li>Leg waxing or shaving</li>
-              <li>Gentle facial waxing</li>
-            </ul>
-          </div>
+        <article class="service-card" aria-labelledby="facial-body-heading">
+          <div class="service-accent" aria-hidden="true"></div>
+          <h2 id="facial-body-heading">Facial & Body Hair</h2>
+          <ul class="service-list">
+            <li>Beard trimming & shaving</li>
+            <li>Leg waxing or shaving</li>
+            <li>Gentle facial waxing</li>
+          </ul>
+        </article>
 
-          <div class="service-block" aria-labelledby="nail-care-heading">
-            <h3 id="nail-care-heading">Nail Care</h3>
-            <ul class="service-list">
-              <li>Nail trimming & shaping</li>
-              <li>Hand & foot care</li>
-              <li>Nail painting & polish changes</li>
-            </ul>
-          </div>
-        </div>
+        <article class="service-card" aria-labelledby="nail-care-heading">
+          <div class="service-accent" aria-hidden="true"></div>
+          <h2 id="nail-care-heading">Nail Care</h2>
+          <ul class="service-list">
+            <li>Nail trimming & shaping</li>
+            <li>Hand & foot care</li>
+            <li>Nail painting & polish changes</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-        <p class="service-note">
+    <section class="services-note" aria-label="Service details">
+      <div class="services-note-card">
+        <p>
           All services are available in my home salon or as mobile visits (additional charge). Pricing varies depending on location, service type, and individual needs. If you or your loved one require extra time or accommodations, please let me know — your comfort is my priority.
         </p>
-
-        <p class="service-note">
-          To request a booking or discuss accommodations, visit <a href="bookings.html">Bookings</a>.
-        </p>
-
-        <!-- Replaced photo with neon Tilt title -->
-        <div class="service-title" aria-hidden="false" role="img" aria-label="InJoy Beauty">
-          <span class="injoy">InJoy</span> <span class="beauty">Beauty</span>
-        </div>
-
+        <a class="btn-secondary services-cta" href="bookings.html">Visit Bookings</a>
       </div>
     </section>
   </main>
