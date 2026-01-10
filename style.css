@@ -2,6 +2,7 @@
 
 :root {
   --bg-gradient: linear-gradient(135deg, #FCF0F7 0%, #F7FCF0 45%, #F0F7FC 100%);
+  --services-glance-bg: url('background.png'); 
   --text: #1f2328;
   --muted: #5f6368;
   --brand: #7a3c7a;
@@ -280,15 +281,14 @@ button:focus-visible {
 }
 
 .services-glance-section {
-  --services-glance-bg: none;
   position: relative;
   padding: 3.5rem 0 4rem;
-  background-color: #f7f0f5;
-  background-image: var(--services-glance-bg);
+  background-image: var(--services-glance-bg); /* Use background.png */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f7f0f5; /* Fallback color */
 }
-
 .services-glance-section::before {
   content: "";
   position: absolute;
