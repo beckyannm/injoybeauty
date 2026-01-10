@@ -85,16 +85,28 @@ body{
 }
 
 /* Header/footer backdrop */
-.site-header,
+.site-header {
+  background: rgba(255,255,255,0.85);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 .site-footer {
   background: rgba(255,255,255,0.85);
-  position: relative;
+  position: fixed;
   z-index: 10;
 }
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .site-main > *:not(.center-photo):not(.home-intro)::before {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .site-header {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -153,6 +165,21 @@ body{
   margin:0 auto;
   padding:0.2rem 1rem;
   gap:1rem;
+}
+
+/* Scroll margin for anchor links - prevents content from hiding under sticky header */
+:target,
+#main-content {
+  scroll-margin-top: 100px;
+}
+
+/* Ensure sections have proper scroll margins */
+section[id],
+[id^="about-"],
+[id^="services-"],
+[id^="gallery-"],
+[id^="bookings-"] {
+  scroll-margin-top: 100px;
 }
 .header-divider {
   width: 1px;
