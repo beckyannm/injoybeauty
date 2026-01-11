@@ -318,12 +318,19 @@ button:focus-visible {
   height: var(--divider-height);
   display: block;
   pointer-events: none;
+  z-index: 2; /* Above the section's ::before overlay */
+  overflow: hidden; /* Prevent any overflow distortion */
 }
 
 .section-divider svg {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.section-divider svg path {
+  /* Fill color that blends with the overlay effect */
+  fill: rgba(255, 255, 255, 0.95);
 }
 
 .services-preview {
