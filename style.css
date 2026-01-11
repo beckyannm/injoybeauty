@@ -719,15 +719,14 @@ button:focus-visible {
   }
   
   .mobile-nav a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 0.75rem 1.5rem;
     min-height: 44px;
     color: var(--text);
     font-weight: 500;
     text-decoration: none;
     transition: background 0.2s ease;
-    display: flex;
-    align-items: center;
   }
   
   .mobile-nav a:hover {
