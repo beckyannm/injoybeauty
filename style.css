@@ -627,3 +627,144 @@ button:focus-visible {
 *::-webkit-scrollbar-thumb:hover {
   background: var(--pill-hover-bg);
 }
+
+/* ============================================
+   Mobile Navigation Styles
+   ============================================ */
+
+/* Hide mobile navigation elements on desktop/tablet (>=769px) */
+@media (min-width: 769px) {
+  .nav-toggle,
+  .mobile-nav {
+    display: none !important;
+  }
+}
+
+/* Mobile-specific styles (<=768px) */
+@media (max-width: 768px) {
+  /* Hide desktop/tablet horizontal navigation on mobile */
+  .primary-nav {
+    display: none !important;
+  }
+  
+  /* Mobile hamburger button */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: auto;
+    z-index: 1001;
+    position: relative;
+  }
+  
+  .nav-toggle__line {
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  /* Hamburger to X animation */
+  .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav-toggle[aria-expanded="true"] .nav-toggle__line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  
+  /* Mobile dropdown navigation */
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0 0 16px 16px;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(8px);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .mobile-nav--open {
+    max-height: 400px;
+    opacity: 1;
+  }
+  
+  .mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  
+  .mobile-nav li {
+    margin: 0;
+  }
+  
+  .mobile-nav a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    min-height: 44px;
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .mobile-nav a:hover {
+    background: rgba(122, 60, 122, 0.08);
+  }
+  
+  /* Style Book Now button inside mobile nav */
+  .mobile-nav a.btn-primary {
+    background: var(--brand);
+    color: #fff;
+    margin: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 8px 16px rgba(122, 60, 122, 0.25);
+    justify-content: center;
+  }
+  
+  .mobile-nav a.btn-primary:hover {
+    background: #5f2f5f;
+  }
+  
+  /* Ensure focus outlines are preserved */
+  .nav-toggle:focus-visible,
+  .mobile-nav a:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+}
+
+/* ============================================
+   Mobile Curved Divider Fix
+   ============================================ */
+
+@media (max-width: 768px) {
+  .services-glance-section { overflow: hidden; }
+  .services-glance-section::before { background: #f7f0f5; }
+  .section-divider { z-index: 2; background: #f7f0f5; overflow: hidden; }
+  .section-divider svg path { fill: #f7f0f5 !important; }
+}

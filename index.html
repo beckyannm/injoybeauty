@@ -49,6 +49,25 @@
           <img src="instagram2.png" alt="Instagram" class="social-icon">
         </a>
       </div>
+
+      <!-- Mobile Navigation Toggle -->
+      <button type="button" id="nav-toggle" class="nav-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Menu">
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+      </button>
+
+      <!-- Mobile Dropdown Navigation -->
+      <nav id="mobile-nav" class="mobile-nav" aria-hidden="true" aria-label="Mobile Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="bookings.html" class="btn-primary">Book Now</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
   
@@ -114,5 +133,66 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Navigation Toggle Script -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('nav-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      
+      if (!toggle || !mobileNav) return;
+      
+      let lastFocusedElement = null;
+      
+      function openMenu() {
+        toggle.setAttribute('aria-expanded', 'true');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        mobileNav.classList.add('mobile-nav--open');
+        lastFocusedElement = document.activeElement;
+        const firstLink = mobileNav.querySelector('a');
+        if (firstLink) firstLink.focus();
+      }
+      
+      function closeMenu() {
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNav.classList.remove('mobile-nav--open');
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+          lastFocusedElement = null;
+        }
+      }
+      
+      function toggleMenu() {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        isExpanded ? closeMenu() : openMenu();
+      }
+      
+      toggle.addEventListener('click', toggleMenu);
+      
+      // Close when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
+          if (toggle.getAttribute('aria-expanded') === 'true') {
+            closeMenu();
+          }
+        }
+      });
+      
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+        }
+      });
+      
+      // Close when clicking a link inside mobile nav
+      mobileNav.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          closeMenu();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
