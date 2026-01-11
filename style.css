@@ -288,7 +288,8 @@ button:focus-visible {
 
 .services-glance-section {
   position: relative;
-  padding: 3.5rem 0 5.75rem;
+  --divider-height: clamp(70px, 12vw, 130px);
+  padding: calc(3.5rem + var(--divider-height)) 0 5.75rem;
   background-image: var(--services-glance-bg); /* Use background.png */
   background-size: cover;
   background-position: center;
@@ -299,11 +300,30 @@ button:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.62);
+  z-index: 0;
 }
 
 .services-glance-section > * {
   position: relative;
+  z-index: 1;
+}
+
+/* Services split divider */
+.section-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--divider-height);
+  display: block;
+  pointer-events: none;
+}
+
+.section-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .services-preview {
