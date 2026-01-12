@@ -40,12 +40,7 @@ body {
   font-family: var(--ui-font);
   color: var(--text);
   line-height: 1.6;
-
-  /* Full-page gradient background */
-  background: linear-gradient(135deg, #FCF0F7 0%, #F7FCF0 45%, #F0F7FC 100%);
-  background-size: cover; /* Stretch to cover the viewport */
-  background-repeat: no-repeat; /* Prevent tiling */
-  background-attachment: fixed; /* Optional: Lock the gradient during scroll */
+  background: #f7f0f5;
 
   -webkit-font-smoothing: antialiased;
 }
@@ -127,6 +122,7 @@ button:focus-visible {
   width: 180px;
   height: auto;
   display: block;
+  object-fit: contain;
 }
 
 .header-divider {
@@ -193,6 +189,10 @@ button:focus-visible {
 .site-main {
   flex: 1;
   padding-top: var(--header-offset);
+  background: linear-gradient(135deg, #FFE3EC 0%, #E3FDFF 50%, #E3E3FF 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .hero {
@@ -292,21 +292,9 @@ button:focus-visible {
   padding: calc(3.5rem + var(--divider-height)) 0 5.75rem;
   background-image: var(--services-glance-bg); /* Use background.png */
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   background-repeat: no-repeat;
   background-color: #f7f0f5; /* Fallback color */
-}
-.services-glance-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.62);
-  z-index: 0;
-}
-
-.services-glance-section > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* Services split divider */
