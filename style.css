@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600&family=The+Nautigal:wght@400;700&display=swap');
 
 :root {
-  --bg-gradient: linear-gradient(135deg, #F0F7FC 0%, #FFFAFE 45%, #F0F7FC 100%);
+  --bg-gradient: linear-gradient(135deg, #FFE3EC 0%, #E3FDFF 50%, #E3E3FF 100%);
   --services-glance-bg: url('background.png'); 
   --text: #1f2328;
   --muted: #5f6368;
@@ -42,10 +42,7 @@ body {
   line-height: 1.6;
 
   /* Full-page gradient background */
-  background: linear-gradient(135deg, #FCF0F7 0%, #F7FCF0 45%, #F0F7FC 100%);
-  background-size: cover; /* Stretch to cover the viewport */
-  background-repeat: no-repeat; /* Prevent tiling */
-  background-attachment: fixed; /* Optional: Lock the gradient during scroll */
+  background: #fff;
 
   -webkit-font-smoothing: antialiased;
 }
@@ -193,6 +190,10 @@ button:focus-visible {
 .site-main {
   flex: 1;
   padding-top: var(--header-offset);
+  background: var(--bg-gradient);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% clamp(420px, 70vh, 720px);
 }
 
 .hero {
@@ -292,21 +293,9 @@ button:focus-visible {
   padding: calc(3.5rem + var(--divider-height)) 0 5.75rem;
   background-image: var(--services-glance-bg); /* Use background.png */
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   background-color: #f7f0f5; /* Fallback color */
-}
-.services-glance-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.62);
-  z-index: 0;
-}
-
-.services-glance-section > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* Services split divider */
@@ -318,6 +307,7 @@ button:focus-visible {
   height: var(--divider-height);
   display: block;
   pointer-events: none;
+  z-index: 0;
 }
 
 .section-divider svg {
@@ -330,6 +320,8 @@ button:focus-visible {
   max-width: var(--section-max);
   margin: 0 auto;
   padding: 0 1.25rem;
+  position: relative;
+  z-index: 1;
 }
 
 .services-preview h2 {
@@ -446,8 +438,8 @@ button:focus-visible {
   }
 }
 .service-item {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: #fff;
+  border: 1px solid rgba(225, 217, 229, 0.7);
   border-radius: 20px;
   padding: 1.2rem;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
