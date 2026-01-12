@@ -146,6 +146,7 @@ button:focus-visible {
   color: var(--text);
   padding: 0.35rem 0.25rem;
   border-radius: 6px;
+  position: relative;
 }
 
 .primary-nav a[aria-current="page"] {
@@ -154,6 +155,36 @@ button:focus-visible {
 
 .primary-nav a:hover {
   color: var(--brand);
+}
+
+.primary-nav a:focus-visible {
+  color: var(--brand);
+}
+
+.primary-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.1rem;
+  height: 2px;
+  background: linear-gradient(90deg, #7a3c7a, #f7c7df);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease-out;
+}
+
+.primary-nav a:hover::after,
+.primary-nav a:focus-visible::after,
+.primary-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary-nav a::after {
+    transition: none;
+  }
 }
 
 .header-social {
