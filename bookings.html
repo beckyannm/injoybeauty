@@ -14,7 +14,11 @@
     .bookings-card{ max-width:920px; margin:0 auto; }
     .booking-card{ max-width:980px; margin:0 auto; }
     .preview-wrap{ display:grid; grid-template-columns: 1fr 340px; gap:1rem; align-items:start; }
-    .pdf-preview{ width:100%; height:640px; border-radius:8px; overflow:hidden; border:1px solid #ececec; background:#fff; }
+    .preview-wrap > *{ min-width:0; }
+    .pdf-preview{ width:100%; height:640px; max-width:100%; border-radius:8px; overflow:hidden; border:1px solid #ececec; background:#fff; }
+    .pdf-preview iframe,
+    .pdf-preview embed,
+    .pdf-preview object{ width:100%; height:100%; border:0; display:block; }
     .side-col { padding:0.5rem; }
     .download-link { display:inline-block; margin-top:.5rem; color:var(--brand); font-weight:600; text-decoration:none; }
     label{ display:block; font-weight:600; margin-bottom:.25rem; font-size:0.95rem; }
@@ -23,7 +27,8 @@
     .form-actions{ display:flex; gap:.75rem; align-items:center; margin-top:.75rem; flex-wrap:wrap; }
     .btn{ background: var(--pill-bg); border:1px solid rgba(0,0,0,0.06); color:var(--pill-text); padding:.5rem .9rem; border-radius:999px; font-weight:600; cursor:pointer; }
     .error{ color:#b00020; font-size:.9rem; margin-top:.5rem; }
-    @media (max-width:900px){ .preview-wrap{ grid-template-columns: 1fr; } .pdf-preview{ height:480px; } }
+    @media (max-width:900px){ .preview-wrap{ grid-template-columns: 1fr; } .pdf-preview{ height:clamp(360px, 70vh, 560px); } }
+    @media (max-width:600px){ .pdf-preview{ height:clamp(320px, 65vh, 520px); } }
   </style>
 </head>
 <body>
