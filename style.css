@@ -201,6 +201,8 @@ button:focus-visible {
   padding: 3.5rem 1.25rem 2.5rem;
   display: grid;
   gap: 1.5rem;
+  background: transparent;
+  backdrop-filter: none;
 }
 
 .hero-content {
@@ -269,6 +271,8 @@ button:focus-visible {
   max-width: var(--section-max);
   margin: 0 auto;
   padding: 0 1.25rem 2.5rem;
+  background: transparent;
+  backdrop-filter: none;
 }
 
 .intro-card {
