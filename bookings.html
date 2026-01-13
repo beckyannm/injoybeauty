@@ -187,10 +187,19 @@
   <script>
     // Client-side upload validation (PDF only, max 10MB). Replace or extend as needed.
     (function(){
+      const header = document.querySelector('.site-header');
       const uploadForm = document.getElementById('uploadForm');
       const fileInput = document.getElementById('completedPdf');
       const uploadError = document.getElementById('uploadError');
       const MAX_BYTES = 10 * 1024 * 1024; // 10MB
+
+      if (header) {
+        const toggleHeader = function() {
+          header.classList.toggle('is-scrolled', window.scrollY > 10);
+        };
+        toggleHeader();
+        window.addEventListener('scroll', toggleHeader, { passive: true });
+      }
 
       uploadForm.addEventListener('submit', function(e){
         uploadError.hidden = true;
