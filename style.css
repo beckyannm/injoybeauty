@@ -100,15 +100,6 @@ button:focus-visible {
   width: 100%;
   z-index: 999;
   background: transparent;
-  transition: background 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease;
-}
-
-.site-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .top-bar {
@@ -371,31 +362,16 @@ button:focus-visible {
   font-size: clamp(2.2rem, 4vw, 3.4rem);
 }
 
-.services-overview,
+.services-intro,
+.services-listing,
 .services-note {
   max-width: var(--section-max);
   margin: 0 auto;
   padding: 0 1.25rem 2.5rem;
 }
 
-.services-overview-card {
-  background: linear-gradient(150deg, rgba(255, 248, 245, 0.92), rgba(248, 251, 246, 0.92));
-  border-radius: 28px;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
-  display: grid;
-  gap: 1.5rem;
-}
-
-.services-intro,
-.services-listing {
-  margin: 0;
-  padding: 0;
-}
-
 .services-page .services-intro {
-  padding-top: 0;
+  padding-top: 1.5rem;
 }
 
 .services-intro-card {
@@ -443,7 +419,7 @@ button:focus-visible {
   margin: 0 0 0.6rem 0;
   font-family: "Playfair Display", serif;
   color: var(--brand);
-  font-size: 2.25rem;
+  font-size: 1.25rem;
 }
 
 .service-accent {
@@ -514,14 +490,11 @@ button:focus-visible {
 .site-footer {
   padding: 1.6rem 1.25rem 2.1rem;
   color: var(--muted);
-  text-align: center;
 }
 
 .footer-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
 }
 
 .footer-brand {
@@ -529,8 +502,6 @@ button:focus-visible {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
 }
 
 .footer-photo {
@@ -544,7 +515,6 @@ button:focus-visible {
 .footer-copy {
   display: grid;
   gap: 0.2rem;
-  text-align: center;
 }
 
 .brand-title {
