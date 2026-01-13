@@ -11,30 +11,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   
-  <!-- Mobile menu script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.querySelector('.hamburger-btn');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const header = document.querySelector('.site-header');
-      
-      if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function() {
-          const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-          hamburger.setAttribute('aria-expanded', !isExpanded);
-          mobileMenu.classList.toggle('active');
-        });
-      }
-
-      if (header) {
-        const toggleHeader = function() {
-          header.classList.toggle('is-scrolled', window.scrollY > 10);
-        };
-        toggleHeader();
-        window.addEventListener('scroll', toggleHeader, { passive: true });
-      }
-    });
-  </script>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <!-- Skip link for keyboard users -->

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>A Look Inside — InJoy Beauty (Gallery)</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 
 </head>
 <body class="gallery-page">
@@ -18,14 +19,19 @@
         </a>
       </div>
       <div class="header-divider" aria-hidden="true"></div>
+      <button class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
       <nav aria-label="Primary Navigation" class="primary-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="bookings.html">Book Now</a></li>
-          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
         </ul>
       </nav>
 
@@ -39,6 +45,17 @@
         </a>
       </div>
     </div>
+
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="bookings.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main id="main-content" class="site-main" role="main" tabindex="-1">
@@ -193,18 +210,5 @@
     </div>
   </div>
 </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const header = document.querySelector('.site-header');
-      if (!header) {
-        return;
-      }
-      const toggleHeader = function() {
-        header.classList.toggle('is-scrolled', window.scrollY > 10);
-      };
-      toggleHeader();
-      window.addEventListener('scroll', toggleHeader, { passive: true });
-    });
-  </script>
 </body>
 </html>

@@ -521,13 +521,14 @@ button:focus-visible {
 }
 
 .services-menu-block {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.35);
   border-radius: 30px;
   padding: 2rem;
-  border: none;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 12px 30px rgba(122, 60, 122, 0.08);
   display: grid;
   gap: 1.75rem;
+  backdrop-filter: blur(10px);
 }
 
 .services-menu-block .services-intro,
@@ -602,11 +603,11 @@ button:focus-visible {
 }
 
 .services-note-card {
-  background: linear-gradient(140deg, rgba(255, 252, 250, 0.6), rgba(241, 246, 240, 0.55));
+  background: rgba(255, 255, 255, 0.82);
   border-radius: 22px;
   padding: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 14px 28px rgba(122, 60, 122, 0.08);
+  border: 1px solid rgba(229, 224, 216, 0.5);
+  box-shadow: 0 12px 26px rgba(122, 60, 122, 0.08);
   backdrop-filter: blur(10px);
   display: grid;
   gap: 1rem;
@@ -625,15 +626,11 @@ button:focus-visible {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-#facial-body-heading {
-  white-space: nowrap;
+  gap: 1.25rem;
 }
 
 @media (max-width: 320px) {
-  .services-grid {
+  .services-page .services-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -761,6 +758,7 @@ button:focus-visible {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
+  z-index: 998;
 }
 
 .mobile-menu.active {
@@ -817,6 +815,14 @@ button:focus-visible {
   .site-main {
     padding-top: 120px;
   }
+
+  .services-page .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-menu-block {
+    padding: 1.6rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -845,6 +851,7 @@ button:focus-visible {
   /* Adjust header social position */
   .header-social {
     order: 3;
+    margin-left: 0;
   }
   
   .site-main {
@@ -858,6 +865,36 @@ button:focus-visible {
   }
   .services-intro-card {
     padding: 1.5rem;
+  }
+
+  .services-menu-shell {
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .services-menu-block {
+    padding: 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.4rem;
+  }
+
+  .service-card h2 {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+
+  .services-intro-text {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .services-note-card {
+    padding: 1.4rem;
+  }
+
+  .services-cta {
+    min-height: 44px;
   }
 }
 
