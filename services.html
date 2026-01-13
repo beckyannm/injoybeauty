@@ -47,51 +47,47 @@
   </header>
 
   <main id="main-content" class="site-main services-page" role="main" tabindex="-1">
-    <section class="services-overview" aria-labelledby="services-heading">
-      <div class="services-overview-card">
-        <div class="services-intro">
-          <div class="services-intro-card">
-            <h1 id="services-heading">Service Menu</h1>
-            <p class="services-intro-text">
-              I offer a welcoming, sensory-friendly approach. If you need accommodations such as extra time, a quiet space, or a mobile visit, please let me know.
-            </p>
-          </div>
-        </div>
+    <section class="services-intro" aria-labelledby="services-heading">
+      <div class="services-intro-card">
+        <h1 id="services-heading">Service Menu</h1>
+        <p class="services-intro-text">
+          I offer a welcoming, sensory-friendly approach. If you need accommodations such as extra time, a quiet space, or a mobile visit, please let me know.
+        </p>
+      </div>
+    </section>
 
-        <div class="services-listing" aria-label="Service offerings">
-          <div class="services-listing-card">
-            <div class="services-grid">
-              <article class="service-card" aria-labelledby="hair-services-heading">
-                <div class="service-accent" aria-hidden="true"></div>
-                <h2 id="hair-services-heading">Hair Services</h2>
-                <ul class="service-list">
-                  <li>Haircuts for men, women, and children</li>
-                  <li>Hair coloring & touch-ups</li>
-                  <li>Simple styling and trims</li>
-                </ul>
-              </article>
+    <section class="services-listing" aria-label="Service offerings">
+      <div class="services-listing-card">
+        <div class="services-grid">
+          <article class="service-card" aria-labelledby="hair-services-heading">
+            <div class="service-accent" aria-hidden="true"></div>
+            <h2 id="hair-services-heading">Hair Services</h2>
+            <ul class="service-list">
+              <li>Haircuts for men, women, and children</li>
+              <li>Hair coloring & touch-ups</li>
+              <li>Simple styling and trims</li>
+            </ul>
+          </article>
 
-              <article class="service-card" aria-labelledby="facial-body-heading">
-                <div class="service-accent" aria-hidden="true"></div>
-                <h2 id="facial-body-heading">Facial & Body Hair</h2>
-                <ul class="service-list">
-                  <li>Beard trimming & shaving</li>
-                  <li>Leg waxing or shaving</li>
-                  <li>Gentle facial waxing</li>
-                </ul>
-              </article>
+          <article class="service-card" aria-labelledby="facial-body-heading">
+            <div class="service-accent" aria-hidden="true"></div>
+            <h2 id="facial-body-heading">Facial & Body Hair</h2>
+            <ul class="service-list">
+              <li>Beard trimming & shaving</li>
+              <li>Leg waxing or shaving</li>
+              <li>Gentle facial waxing</li>
+            </ul>
+          </article>
 
-              <article class="service-card" aria-labelledby="nail-care-heading">
-                <div class="service-accent" aria-hidden="true"></div>
-                <h2 id="nail-care-heading">Nail Care</h2>
-                <ul class="service-list">
-                  <li>Nail trimming & shaping</li>
-                  <li>Hand & foot care</li>
-                  <li>Nail painting & polish changes</li>
-                </ul>
-              </article>
-            </div>
-          </div>
+          <article class="service-card" aria-labelledby="nail-care-heading">
+            <div class="service-accent" aria-hidden="true"></div>
+            <h2 id="nail-care-heading">Nail Care</h2>
+            <ul class="service-list">
+              <li>Nail trimming & shaping</li>
+              <li>Hand & foot care</li>
+              <li>Nail painting & polish changes</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -121,18 +117,5 @@
       </div>
     </div>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const header = document.querySelector('.site-header');
-
-      function updateHeaderState() {
-        if (!header) return;
-        header.classList.toggle('is-scrolled', window.scrollY > 10);
-      }
-
-      updateHeaderState();
-      window.addEventListener('scroll', updateHeaderState, { passive: true });
-    });
-  </script>
 </body>
 </html>
