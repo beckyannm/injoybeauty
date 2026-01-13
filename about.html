@@ -190,5 +190,18 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('.site-header');
+      if (!header) {
+        return;
+      }
+      const toggleHeader = function() {
+        header.classList.toggle('is-scrolled', window.scrollY > 10);
+      };
+      toggleHeader();
+      window.addEventListener('scroll', toggleHeader, { passive: true });
+    });
+  </script>
 </body>
 </html>

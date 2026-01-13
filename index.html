@@ -16,6 +16,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.querySelector('.hamburger-btn');
       const mobileMenu = document.querySelector('.mobile-menu');
+      const header = document.querySelector('.site-header');
       
       if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', function() {
@@ -23,6 +24,14 @@
           hamburger.setAttribute('aria-expanded', !isExpanded);
           mobileMenu.classList.toggle('active');
         });
+      }
+
+      if (header) {
+        const toggleHeader = function() {
+          header.classList.toggle('is-scrolled', window.scrollY > 10);
+        };
+        toggleHeader();
+        window.addEventListener('scroll', toggleHeader, { passive: true });
       }
     });
   </script>
