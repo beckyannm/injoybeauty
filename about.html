@@ -60,6 +60,7 @@
       color: var(--brand);
       font-size: clamp(1.6rem, 4.6vw, 2.6rem);
       line-height: 1.02;
+      grid-column: 1 / -1;
     }
 
     .about-paragraph {
@@ -69,6 +70,7 @@
       font-size: 1rem;
       line-height: 1.55;
       max-width: 68ch;
+      text-align: justify;
     }
 
     .why-list {
@@ -142,6 +144,7 @@
   <main id="main-content" class="site-main" role="main" tabindex="-1">
     <section class="about-hero" aria-labelledby="about-heading">
       <div class="about-card" role="region" aria-labelledby="about-heading" aria-describedby="about-desc">
+        <h1 id="about-heading" class="about-title">Meet Jaymie!</h1>
         <!-- Photo placeholder: replace 'jaymie.jpg' with your photo filename -->
         <div class="about-photo" aria-hidden="false">
           <figure>
@@ -152,8 +155,6 @@
 
         <!-- Text content -->
         <div class="about-body">
-          <h1 id="about-heading" class="about-title">Meet Jaymie!</h1>
-
           <div id="about-desc" class="about-text">
             <p class="about-paragraph"><strong>Hello! My name is Jaymie Law, and I’m the proud owner of InJoy Beauty.</strong></p>
 
