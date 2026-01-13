@@ -16,6 +16,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.querySelector('.hamburger-btn');
       const mobileMenu = document.querySelector('.mobile-menu');
+      const header = document.querySelector('.site-header');
       
       if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', function() {
@@ -24,6 +25,14 @@
           mobileMenu.classList.toggle('active');
         });
       }
+
+      function updateHeaderState() {
+        if (!header) return;
+        header.classList.toggle('is-scrolled', window.scrollY > 10);
+      }
+
+      updateHeaderState();
+      window.addEventListener('scroll', updateHeaderState, { passive: true });
     });
   </script>
 </head>
