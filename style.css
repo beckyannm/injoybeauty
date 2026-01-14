@@ -50,7 +50,14 @@ body.site-page {
 }
 
 body.home-page {
-  background-color: #f7f0f5;
+  background: linear-gradient(
+    135deg,
+    #FFE3EC 0%,
+    #E3FDFF 45%,
+    #E3E3FF 60%,
+    #f7f0f5 60%,
+    #f7f0f5 100%
+  );
 }
 
 .display-title {
