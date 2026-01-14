@@ -40,9 +40,17 @@ body {
   font-family: var(--ui-font);
   color: var(--text);
   line-height: 1.6;
-  background: #f7f0f5;
+  background: transparent;
 
   -webkit-font-smoothing: antialiased;
+}
+
+body.site-page {
+  background: var(--bg-gradient);
+}
+
+body.home-page {
+  background-color: #f7f0f5;
 }
 
 .display-title {
@@ -234,10 +242,7 @@ button:focus-visible {
 .site-main {
   flex: 1;
   padding-top: var(--header-offset);
-  background: linear-gradient(135deg, #FFE3EC 0%, #E3FDFF 50%, #E3E3FF 100%);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: transparent;
 }
 
 .hero {
