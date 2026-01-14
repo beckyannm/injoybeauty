@@ -45,6 +45,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body.site-page {
+  background: var(--bg-gradient);
+}
+
+body.home-page {
+  background-color: #f7f0f5;
+}
+
 .display-title {
   font-family: "Playfair Display", serif;
 }
@@ -234,6 +242,10 @@ button:focus-visible {
 .site-main {
   flex: 1;
   padding-top: var(--header-offset);
+  background: transparent;
+}
+
+.home-page .site-main {
   background: linear-gradient(135deg, #FFE3EC 0%, #E3FDFF 50%, #E3E3FF 100%);
   background-size: cover;
   background-repeat: no-repeat;
