@@ -341,7 +341,7 @@ button:focus-visible {
   --divider-height: clamp(70px, 12vw, 130px);
   padding: calc(3.5rem + var(--divider-height)) 0 5.75rem;
   background-image: var(--services-glance-bg); /* Use background.png */
-  background-size: cover;
+  background-size: clamp(320px, 60vw, 900px) auto;
   background-position: right center;
   background-repeat: no-repeat;
   background-color: #f7f0f5; /* Fallback color */
