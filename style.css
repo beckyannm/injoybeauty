@@ -898,6 +898,62 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 420px) {
+  .top-bar {
+    flex-wrap: wrap;
+    row-gap: 0.65rem;
+    align-items: center;
+  }
+  .logo-box {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .hamburger-btn {
+    margin-left: auto;
+  }
+  .header-social {
+    order: 4;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .site-main {
+    padding-top: 116px;
+  }
+  .hero {
+    padding-top: 2.2rem;
+  }
+  .hero-title {
+    font-size: clamp(2.2rem, 9vw, 3.1rem);
+    line-height: 1.05;
+    margin-bottom: 0.35rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-main {
+    padding-top: 126px;
+  }
+  .hero {
+    padding-top: 2rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions a {
+    justify-content: center;
+    width: 100%;
+  }
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.7rem 1.25rem;
+  }
+}
+
 /* Footer responsive */
 @media (max-width: 700px) {
   .footer-inner {
