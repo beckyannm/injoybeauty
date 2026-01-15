@@ -381,10 +381,6 @@ button:focus-visible {
   height: 100%;
 }
 
-.section-divider path {
-  fill: #FDF1F6;
-}
-
 .services-preview {
   max-width: var(--section-max);
   margin: 0 auto;
