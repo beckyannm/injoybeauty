@@ -382,10 +382,6 @@ button:focus-visible {
   height: 100%;
 }
 
-.section-divider path {
-  fill: unset;
-}
-
 .services-preview {
   position: relative;
   z-index: 1;
