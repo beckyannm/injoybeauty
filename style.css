@@ -373,6 +373,7 @@ button:focus-visible {
   height: var(--divider-height);
   display: block;
   pointer-events: none;
+  z-index: 0;
 }
 
 .section-divider svg {
@@ -381,18 +382,15 @@ button:focus-visible {
   height: 100%;
 }
 
-.services-preview {
-  max-width: var(--section-max);
-  margin: 0 auto;
-  padding: 0 1.25rem;
+.section-divider path {
+  fill: inherit;
 }
 
-.services-preview h2 {
-  margin: 0 0 1rem 0;
-  font-family: "Playfair Display", serif;
-  color: var(--brand);
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+.services-preview {
+  position: relative;
+  z-index: 1;
 }
+
 
 /* Gallery layout */
 .gallery-page .gallery-hero {
