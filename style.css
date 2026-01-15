@@ -367,7 +367,7 @@ button:focus-visible {
 
 .section-divider {
   position: absolute;
-  top: var(--wave-offset);
+  top: calc(-1 * var(--divider-height) - 1px);
   left: 0;
   width: 100%;
   height: var(--divider-height);
