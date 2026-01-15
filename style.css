@@ -352,22 +352,22 @@ button:focus-visible {
 .services-glance-section {
   position: relative;
   --divider-height: clamp(70px, 12vw, 130px);
+  --wave-offset: 0px;
 
-  /* was: padding: calc(3.5rem + var(--divider-height)) 0 5.75rem; */
-  padding: 3.5rem 0 5.75rem;
+  padding: calc(3.5rem + var(--divider-height)) 0 5.75rem;
 
   background-image: var(--services-glance-bg);
   background-color: #FDF1F6;
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: clamp(700px, 85vw, 1200px) auto;
+  background-size: clamp(520px, 70vw, 980px) auto;
 
   min-height: 420px;
 }
 
 .section-divider {
   position: absolute;
-  top: calc(-1 * var(--divider-height));
+  top: var(--wave-offset);
   left: 0;
   width: 100%;
   height: var(--divider-height);
