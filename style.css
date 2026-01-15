@@ -50,12 +50,13 @@ body.site-page {
 }
 
 body.home-page {
+  /* Use a single continuous gradient on the body to avoid seams. */
   background: linear-gradient(
     135deg,
     #FFE3EC 0%,
     #E3FDFF 45%,
-    #E3E3FF 60%,
-    #f7f0f5 60%,
+    #E3E3FF 58%,
+    #f7f0f5 72%,
     #f7f0f5 100%
   );
 }
@@ -356,7 +357,8 @@ button:focus-visible {
   background-size: clamp(320px, 60vw, 900px) auto;
   background-position: right center;
   background-repeat: no-repeat;
-  background-color: #f7f0f5; /* Fallback color */
+  /* Keep transparent so the home gradient remains continuous. */
+  background-color: transparent;
 }
 
 /* Services split divider */
