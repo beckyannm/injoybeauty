@@ -389,6 +389,69 @@ button:focus-visible {
 
 
 /* Gallery layout */
+.gallery-page {
+  overflow-x: clip;
+}
+
+.gallery-page .gallery-full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: var(--gallery-bleed-bg, transparent);
+}
+
+.gallery-page .gallery-full-bleed--lavender {
+  --gallery-bleed-bg: #FAF5FF;
+}
+
+.gallery-page .gallery-full-bleed--aqua {
+  --gallery-bleed-bg: #F5FFFF;
+}
+
+.gallery-page .gallery-full-bleed--pink {
+  --gallery-bleed-bg: #FFF5FB;
+}
+
+.gallery-page .gallery-wave {
+  width: 100%;
+  height: clamp(70px, 12vw, 130px);
+  display: block;
+  pointer-events: none;
+}
+
+.gallery-page .gallery-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-page .gallery-wave path {
+  fill: var(--gallery-wave-fill, #f7f0f5);
+}
+
+.gallery-page .gallery-wave--lavender {
+  --gallery-wave-fill: #FAF5FF;
+}
+
+.gallery-page .gallery-wave--aqua {
+  --gallery-wave-fill: #F5FFFF;
+}
+
+.gallery-page .gallery-wave--pink {
+  --gallery-wave-fill: #FFF5FB;
+}
+
+.gallery-page .gallery-wave--flip {
+  transform: rotate(180deg);
+}
+
+.gallery-page .gallery-wave--spaced {
+  margin-top: 1rem;
+}
+
+.gallery-page .gallery-wave--flush {
+  margin: 0;
+}
+
 .gallery-page .gallery-hero {
   max-width: var(--max-width);
   margin: 2.5rem auto 0;
@@ -439,6 +502,30 @@ button:focus-visible {
 
 .gallery-page .gallery-section--alt {
   --section-bg: #f5ecf3;
+}
+
+.gallery-page .gallery-section--lavender {
+  --section-bg: #FAF5FF;
+}
+
+.gallery-page .gallery-section--aqua {
+  --section-bg: #F5FFFF;
+}
+
+.gallery-page .gallery-section--pink {
+  --section-bg: #FFF5FB;
+}
+
+.gallery-page .gallery-section--no-top-wave {
+  padding-top: 3.25rem;
+}
+
+.gallery-page .gallery-section--tight-top {
+  padding-top: 1.5rem;
+}
+
+.gallery-page .gallery-section--tight-bottom {
+  padding-bottom: 1.5rem;
 }
 
 .gallery-page .gallery-divider {
@@ -533,7 +620,7 @@ button:focus-visible {
 
 .gallery-page .gallery-group-header h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.35rem;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
   color: var(--brand);
 }
 
@@ -561,6 +648,18 @@ button:focus-visible {
 @media (max-width: 700px) {
   .gallery-page .gallery-section {
     padding: calc(2.75rem + var(--divider-height)) 0 3rem;
+  }
+
+  .gallery-page .gallery-section--no-top-wave {
+    padding-top: 2.75rem;
+  }
+
+  .gallery-page .gallery-section--tight-top {
+    padding-top: 1.25rem;
+  }
+
+  .gallery-page .gallery-section--tight-bottom {
+    padding-bottom: 1.25rem;
   }
 }
 
