@@ -382,6 +382,10 @@ button:focus-visible {
   height: 100%;
 }
 
+.section-divider:not(.section-divider--hero) path {
+  fill: var(--divider-fill, #f7f0f5);
+}
+
 .services-preview {
   position: relative;
   z-index: 1;
