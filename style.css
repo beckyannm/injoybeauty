@@ -354,7 +354,7 @@ button:focus-visible {
   --divider-height: clamp(70px, 12vw, 130px);
   --wave-offset: 100px;
 
-  padding: calc(3.5rem + var(--divider-height)) 0 5.75rem;
+  padding: calc(3.5rem + var(--divider-height) + var(--wave-offset)) 0 5.75rem;
 
   background-image: var(--services-glance-bg);
   background-color: #FDF1F6;
