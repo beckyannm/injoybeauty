@@ -724,7 +724,7 @@ button:focus-visible {
 .site-footer {
   padding: 1rem 1.25rem 1.35rem;
   color: var(--muted);
-  background: transparent;
+  background-color: #FDF1F6;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border-top: none;
