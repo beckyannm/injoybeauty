@@ -352,7 +352,7 @@ button:focus-visible {
 .services-glance-section {
   position: relative;
   --divider-height: clamp(70px, 12vw, 130px);
-  --wave-offset: 80px;
+  --wave-offset: 10px;
 
   padding: calc(3.5rem + var(--divider-height) + var(--wave-offset)) 0 5.75rem;
 
