@@ -354,10 +354,11 @@ button:focus-visible {
   --divider-height: clamp(70px, 12vw, 130px);
   padding: calc(3.5rem + var(--divider-height)) 0 5.75rem;
   background-image: var(--services-glance-bg); /* Use background.png */
-  background-size: clamp(320px, 60vw, 900px) auto;
-  background-position: right center;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-color: #FFE3EC;
+  min-height: 420px;
 }
 
 /* Services split divider */
@@ -395,6 +396,7 @@ button:focus-visible {
   max-width: var(--max-width);
   margin: 2.5rem auto 0;
   padding: 0 1.25rem 3.5rem;
+  --divider-fill: #f7f0f5;
 }
 
 .gallery-page .gallery-hero-grid {
@@ -421,11 +423,12 @@ button:focus-visible {
 
 .gallery-page .gallery-hero-content .display-title {
   margin: 0 0 1rem;
+  color: var(--brand);
 }
 
 .gallery-page .gallery-note {
   margin: 0 0 1rem;
-  color: var(--muted);
+  color: var(--brand);
 }
 
 .gallery-page .gallery-section {
@@ -470,12 +473,29 @@ button:focus-visible {
 .gallery-page .section-title {
   margin: 0 0 0.5rem;
   color: var(--brand);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(2rem, 3.4vw, 2.9rem);
+  font-weight: 600;
+}
+
+.gallery-page .section-title-wave {
+  width: 100%;
+  height: clamp(24px, 6vw, 60px);
+  margin: 0.35rem 0 1.5rem;
+}
+
+.gallery-page .section-title-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-page .section-title-wave path {
+  fill: var(--accent);
 }
 
 .gallery-page .gallery-blurb {
   margin: 0 0 1.75rem;
-  color: var(--muted);
+  color: var(--brand);
 }
 
 .gallery-page .gallery-card {
@@ -506,6 +526,10 @@ button:focus-visible {
   gap: 2.5rem;
 }
 
+.gallery-page .gallery-collection .gallery-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .gallery-page .gallery-group-header {
   margin-bottom: 1.5rem;
 }
@@ -518,7 +542,7 @@ button:focus-visible {
 
 .gallery-page .gallery-group-note {
   margin: 0;
-  color: var(--muted);
+  color: var(--brand);
 }
 
 .gallery-page .gallery-grid {
