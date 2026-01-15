@@ -328,7 +328,7 @@ button:focus-visible {
 .intro-section {
   max-width: var(--section-max);
   margin: 0 auto;
-  padding: 0 1.25rem 2.5rem;
+  padding: 0 1.25rem 6rem;
   background: transparent;
   backdrop-filter: none;
 }
@@ -354,7 +354,7 @@ button:focus-visible {
   --divider-height: clamp(70px, 12vw, 130px);
   --wave-offset: 0px;
 
-  padding: calc(3.5rem + var(--divider-height) + var(--wave-offset)) 0 5.75rem;
+  padding: calc(5rem + var(--divider-height) + var(--wave-offset)) 0 5.75rem;
 
   background-image: var(--services-glance-bg);
   background-color: #FDF1F6;
