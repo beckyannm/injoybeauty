@@ -383,7 +383,7 @@ button:focus-visible {
 }
 
 .section-divider path {
-  fill: inherit;
+  fill: unset;
 }
 
 .services-preview {
