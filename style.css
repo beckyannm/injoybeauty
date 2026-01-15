@@ -40,7 +40,7 @@ body {
   font-family: var(--ui-font);
   color: var(--text);
   line-height: 1.6;
-  background: transparent;
+  background: var(--bg-gradient);
 
   -webkit-font-smoothing: antialiased;
 }
@@ -357,8 +357,7 @@ button:focus-visible {
   background-size: clamp(320px, 60vw, 900px) auto;
   background-position: right center;
   background-repeat: no-repeat;
-  /* Keep transparent so the home gradient remains continuous. */
-  background-color: transparent;
+  background-color: #FFE3EC;
 }
 
 /* Services split divider */
@@ -563,11 +562,11 @@ button:focus-visible {
 }
 
 .services-menu-block {
-  background: rgba(255, 255, 255, 0.35);
+  background: var(--card-bg);
   border-radius: 30px;
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 12px 30px rgba(122, 60, 122, 0.08);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
   display: grid;
   gap: 1.75rem;
   backdrop-filter: blur(10px);
