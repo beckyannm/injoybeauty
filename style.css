@@ -380,6 +380,8 @@ button:focus-visible {
 /* Gallery layout */
 .gallery-page {
   overflow-x: clip;
+  --gallery-wave-height: clamp(70px, 12vw, 130px);
+  --gallery-wave-fill: #f7f0f5;
 }
 
 .gallery-page .gallery-full-bleed {
@@ -390,6 +392,7 @@ button:focus-visible {
 
 .gallery-page .gallery-full-bleed--lavender {
   --gallery-bleed-bg: #FAF5FF;
+  --gallery-wave-fill: #FAF5FF;
 }
 
 .gallery-page .gallery-full-bleed--aqua {
@@ -400,21 +403,29 @@ button:focus-visible {
   --gallery-bleed-bg: #FFF5FB;
 }
 
-.gallery-page .gallery-wave {
-  width: 100%;
-  height: clamp(70px, 12vw, 130px);
+.gallery-page .gallery-wave,
+.gallery-page .gallery-divider,
+.gallery-page .section-title-wave {
+  width: 100vw;
+  height: var(--gallery-wave-height, 120px);
   display: block;
   pointer-events: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
-.gallery-page .gallery-wave svg {
+.gallery-page .gallery-wave svg,
+.gallery-page .gallery-divider svg,
+.gallery-page .section-title-wave svg {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.gallery-page .gallery-wave path {
-  fill: var(--gallery-wave-fill, #f7f0f5);
+.gallery-page .gallery-wave path,
+.gallery-page .gallery-divider path,
+.gallery-page .section-title-wave path {
+  fill: var(--gallery-wave-fill);
 }
 
 .gallery-page .gallery-wave--lavender {
@@ -429,6 +440,22 @@ button:focus-visible {
   --gallery-wave-fill: #FFF5FB;
 }
 
+.gallery-page .gallery-section--aqua {
+  --gallery-bg: #F5FFFF;
+  --gallery-wave-fill: #F5FFFF;
+}
+
+.gallery-page .gallery-section--pink {
+  --gallery-bg: #FFF5FB;
+  --gallery-wave-fill: #FFF5FB;
+}
+
+.gallery-page .gallery-section--alt {
+  --gallery-bg: #f5ecf3;
+  --gallery-alt-bg: #f5ecf3;
+  --gallery-wave-fill: #f5ecf3;
+}
+
 .gallery-page .gallery-wave--flip {
   transform: rotate(180deg);
 }
@@ -439,6 +466,18 @@ button:focus-visible {
 
 .gallery-page .gallery-wave--flush {
   margin: 0;
+}
+
+.gallery-page .gallery-section--tight-bottom {
+  padding-bottom: 1.75rem;
+}
+
+.gallery-page .gallery-section--tight-top {
+  padding-top: 2rem;
+}
+
+.gallery-page .gallery-group-header .display-title {
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
 }
 
 .gallery-page .gallery-hero {
@@ -464,11 +503,11 @@ button:focus-visible {
   position: relative;
   --divider-height: clamp(70px, 12vw, 130px);
   padding: calc(3.25rem + var(--divider-height)) 0 3.5rem;
-  background: #f7f0f5;
+  background: var(--gallery-bg, #f7f0f5);
 }
 
 .gallery-page .gallery-section:nth-of-type(even) {
-  background: #f5ecf3;
+  background: var(--gallery-alt-bg, #f5ecf3);
 }
 
 .gallery-page .gallery-section-inner {
