@@ -476,14 +476,30 @@ button:focus-visible {
   padding-top: 2rem;
 }
 
+.gallery-page .gallery-section--no-top-wave {
+  padding-top: 3rem;
+}
+
 .gallery-page .gallery-group-header .display-title {
   font-size: clamp(2.1rem, 4vw, 2.8rem);
 }
 
 .gallery-page .gallery-hero {
+  width: 100vw;
+  margin: 1.75rem calc(50% - 50vw) 0;
+  padding: 1rem 1.25rem 2.5rem;
+  background: #FFE3F1;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-page .gallery-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
   max-width: var(--max-width);
-  margin: 1.75rem auto 0;
-  padding: 1rem 1.25rem 0;
+  margin: 0 auto;
 }
 
 .gallery-page .gallery-hero-card {
@@ -592,8 +608,46 @@ button:focus-visible {
   gap: 1.5rem;
 }
 
+.gallery-page .gallery-divider--overlap {
+  margin-top: calc(var(--gallery-wave-height) * -0.6);
+  position: relative;
+  z-index: 2;
+  --gallery-wave-fill: #FFE3F1;
+}
+
+.gallery-page .gallery-services {
+  text-align: center;
+}
+
+.gallery-page .gallery-services .gallery-blurb {
+  margin-bottom: 2rem;
+}
+
+.gallery-page .gallery-services-labels {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-page .gallery-services-label {
+  grid-column: span 2;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  color: var(--brand);
+}
+
+.gallery-page .gallery-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
 @media (max-width: 900px) {
   .gallery-page .gallery-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-page .gallery-hero-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -613,6 +667,18 @@ button:focus-visible {
 
   .gallery-page .gallery-section--tight-bottom {
     padding-bottom: 1.25rem;
+  }
+
+  .gallery-page .gallery-services-labels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-page .gallery-services-label {
+    grid-column: auto;
+  }
+
+  .gallery-page .gallery-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
