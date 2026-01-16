@@ -488,7 +488,7 @@ button:focus-visible {
   width: 100vw;
   margin: 1.75rem calc(50% - 50vw) 0;
   padding: 1rem 1.25rem 2.5rem;
-  background: #FFE3F1;
+  background: #FFFFFF; /* Fix: changed from pink (#FFE3F1) to white */
   position: relative;
   z-index: 1;
 }
@@ -499,17 +499,7 @@ button:focus-visible {
   gap: clamp(1.5rem, 3vw, 3rem);
   align-items: center;
   max-width: var(--max-width);
-  margin: 1.75rem auto 0;
-  padding: 1rem 1.25rem 2.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.gallery-page .gallery-hero-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: center;
+  margin: 0 auto; /* Fix: removed duplicate padding/margin that caused visual duplication */
 }
 
 .gallery-page .gallery-hero-card {
@@ -622,6 +612,7 @@ button:focus-visible {
   margin-top: calc(var(--gallery-wave-height) * -0.45);
   position: relative;
   z-index: 2;
+  --gallery-wave-fill: #FFFFFF; /* Fix: override wave color to white for hero overlap */
 }
 
 .gallery-page .gallery-services {
