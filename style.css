@@ -485,6 +485,19 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-hero {
+  width: 100vw;
+  margin: 1.75rem calc(50% - 50vw) 0;
+  padding: 1rem 1.25rem 2.5rem;
+  background: #FFE3F1;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-page .gallery-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
   max-width: var(--max-width);
   margin: 1.75rem auto 0;
   padding: 1rem 1.25rem 2.5rem;
