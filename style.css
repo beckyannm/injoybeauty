@@ -499,7 +499,17 @@ button:focus-visible {
   gap: clamp(1.5rem, 3vw, 3rem);
   align-items: center;
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 1.75rem auto 0;
+  padding: 1rem 1.25rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-page .gallery-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
 }
 
 .gallery-page .gallery-hero-card {
@@ -609,10 +619,9 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-divider--overlap {
-  margin-top: calc(var(--gallery-wave-height) * -0.6);
+  margin-top: calc(var(--gallery-wave-height) * -0.45);
   position: relative;
   z-index: 2;
-  --gallery-wave-fill: #FFE3F1;
 }
 
 .gallery-page .gallery-services {
