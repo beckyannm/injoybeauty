@@ -5,24 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>A Look Inside — InJoy Beauty (Gallery)</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Gallery page scoped styles -->
-  <style>
-    /* small, self-contained gallery styles */
-    .gallery-hero { max-width: var(--max-width); margin: 1.5rem auto; padding: 1rem; }
-    .gallery-card { background: rgba(255,255,255,0.92); border-radius:10px; padding:1rem; box-shadow:0 8px 24px rgba(0,0,0,0.04); position:relative; z-index:2; }
-    .gallery-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1rem; }
-    .gallery-item { background: #f7f7f7; border-radius:8px; min-height:160px; display:flex; align-items:center; justify-content:center; flex-direction:column; padding:1rem; }
-    .gallery-item .placeholder { width:100%; height:120px; background: linear-gradient(135deg,#eee,#f6f6f6); border-radius:6px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-weight:600; text-align:center; padding:0 .5rem; }
-    .gallery-caption { margin-top:0.5rem; color:var(--muted); font-size:0.95rem; }
-    .gallery-note { margin-top:1rem; color:var(--muted); }
-
-    @media (max-width:1100px){ .gallery-grid{ grid-template-columns:repeat(2,1fr);} }
-    @media (max-width:700px){ .gallery-grid{ grid-template-columns:1fr; } .gallery-item .placeholder{ height:160px; } }
-  </style>
+  <script src="script.js" defer></script>
 
 </head>
-<body>
+<body class="gallery-page site-page">
   <a class="skip-link" href="#main-content">Skip to main content <span class="skip-icon" aria-hidden="true">↘</span></a>
 
   <header class="site-header" role="banner">
@@ -33,14 +19,19 @@
         </a>
       </div>
       <div class="header-divider" aria-hidden="true"></div>
+      <button class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
       <nav aria-label="Primary Navigation" class="primary-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="bookings.html">Book Now</a></li>
-          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
         </ul>
       </nav>
 
@@ -54,49 +45,163 @@
         </a>
       </div>
     </div>
+
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="bookings.html">Book Now</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main id="main-content" class="site-main" role="main" tabindex="-1">
     <section class="gallery-hero" aria-labelledby="gallery-heading">
-      <div class="gallery-card">
-        <h1 id="gallery-heading" style="margin-top:0; font-family:Playfair Display, serif;">A Look Inside InJoy Beauty</h1>
-        <p class="gallery-note"><strong>Note:</strong> This will have to wait until next year when I move into a new place — for now I offer only mobile services.</p>
-        <p class="gallery-note">Step inside my sensory-friendly home salon — a calm, welcoming space designed for comfort and accessibility. Here, beauty is about feeling good, not just looking good.</p>
+      <div class="gallery-hero-grid">
+        <div class="gallery-hero-media">
+          <img src="https://placehold.co/720x900?text=InJoy+Beauty+Studio" alt="A calm, welcoming InJoy Beauty studio vignette">
+        </div>
+        <div class="gallery-hero-content">
+          <h1 id="gallery-heading" class="display-title">A Look Inside InJoy Beauty</h1>
+          <p class="gallery-note"><strong>Note:</strong> This will have to wait until next year when I move into a new place — for now I offer only mobile services.</p>
+          <p class="gallery-note">Step inside my sensory-friendly home salon — a calm, welcoming space designed for comfort and accessibility. Here, beauty is about feeling good, not just looking good.</p>
+          <p class="gallery-note">Photos will be added soon — check back later.</p>
+        </div>
+      </div>
+    </section>
 
-        <div class="gallery-grid" aria-live="polite">
-          <!-- Placeholder items for future photos -->
-          <figure class="gallery-item" role="group" aria-label="Salon setup — coming soon">
-            <div class="placeholder" role="img" aria-label="Salon setup placeholder">Salon setup — coming soon</div>
-            <figcaption class="gallery-caption">Salon setup (wheelchair accessible)</figcaption>
+    <section class="gallery-section" aria-labelledby="hair-services-title">
+      <div class="gallery-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none" role="presentation" focusable="false">
+          <path d="M0,70 C180,20 420,15 720,65 C1020,115 1260,120 1440,55 V0 H0 Z"></path>
+        </svg>
+      </div>
+      <div class="gallery-section-inner">
+        <h2 id="hair-services-title" class="section-title display-title">Hair Services</h2>
+        <p class="gallery-blurb">(Write-up goes here…)</p>
+
+        <div class="gallery-collection">
+          <div class="gallery-group">
+            <div class="gallery-group-header">
+              <h3 class="display-title">Men</h3>
+              <p class="gallery-group-note">Classic cuts, textured blends, and tidy finishing details.</p>
+            </div>
+            <div class="gallery-grid">
+              <figure class="gallery-card">
+                <div class="photo-slot">
+                  <img class="gallery-photo" src="https://placehold.co/480x600?text=Men+Hair+1" alt="Men's hair service placeholder">
+                </div>
+              </figure>
+              <figure class="gallery-card">
+                <div class="photo-slot">
+                  <img class="gallery-photo" src="https://placehold.co/480x600?text=Men+Hair+2" alt="Men's hair service placeholder">
+                </div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="gallery-group">
+            <div class="gallery-group-header">
+              <h3 class="display-title">Women</h3>
+              <p class="gallery-group-note">Soft layers, lived-in color moments, and styled finishings.</p>
+            </div>
+            <div class="gallery-grid">
+              <figure class="gallery-card">
+                <div class="photo-slot">
+                  <img class="gallery-photo" src="https://placehold.co/480x600?text=Women+Hair+1" alt="Women's hair service placeholder">
+                </div>
+              </figure>
+              <figure class="gallery-card">
+                <div class="photo-slot">
+                  <img class="gallery-photo" src="https://placehold.co/480x600?text=Women+Hair+2" alt="Women's hair service placeholder">
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section gallery-section--alt" aria-labelledby="nail-care-title">
+      <div class="gallery-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none" role="presentation" focusable="false">
+          <path d="M0,70 C180,20 420,15 720,65 C1020,115 1260,120 1440,55 V0 H0 Z"></path>
+        </svg>
+      </div>
+      <div class="gallery-section-inner">
+        <h2 id="nail-care-title" class="section-title display-title">Nail Care</h2>
+        <p class="gallery-blurb">(Write-up goes here…)</p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Nail+Care+1" alt="Nail care placeholder">
+            </div>
           </figure>
-
-          <figure class="gallery-item" role="group" aria-label="Soft lighting placeholder">
-            <div class="placeholder" role="img" aria-label="Soft lighting placeholder">Soft lighting — coming soon</div>
-            <figcaption class="gallery-caption">Soft lighting & calming colors</figcaption>
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Nail+Care+2" alt="Nail care placeholder">
+            </div>
           </figure>
-
-          <figure class="gallery-item" role="group" aria-label="Before and after placeholder">
-            <div class="placeholder" role="img" aria-label="Before and after placeholder">Before / After — coming soon</div>
-            <figcaption class="gallery-caption">Before & after (with permission)</figcaption>
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Nail+Care+3" alt="Nail care placeholder">
+            </div>
           </figure>
-
-          <figure class="gallery-item" role="group" aria-label="Smiling clients placeholder">
-            <div class="placeholder" role="img" aria-label="Smiling clients placeholder">Smiling clients — coming soon</div>
-            <figcaption class="gallery-caption">Smiling clients & cozy atmosphere</figcaption>
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Nail+Care+4" alt="Nail care placeholder">
+            </div>
           </figure>
-
-          <figure class="gallery-item" role="group" aria-label="Cozy atmosphere placeholder">
-            <div class="placeholder" role="img" aria-label="Cozy atmosphere placeholder">Cozy atmosphere — coming soon</div>
-            <figcaption class="gallery-caption">Gentle care & calm spaces</figcaption>
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Nail+Care+5" alt="Nail care placeholder">
+            </div>
           </figure>
-
-          <figure class="gallery-item" role="group" aria-label="Mobile services placeholder">
-            <div class="placeholder" role="img" aria-label="Mobile services placeholder">Mobile services — coming soon</div>
-            <figcaption class="gallery-caption">Mobile services available</figcaption>
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Nail+Care+6" alt="Nail care placeholder">
+            </div>
           </figure>
         </div>
+      </div>
+    </section>
 
-        <p class="gallery-note" style="margin-top:1.25rem;">Photos will be added soon — check back later.</p>
+    <section class="gallery-section" aria-labelledby="extras-title">
+      <div class="gallery-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none" role="presentation" focusable="false">
+          <path d="M0,70 C180,20 420,15 720,65 C1020,115 1260,120 1440,55 V0 H0 Z"></path>
+        </svg>
+      </div>
+      <div class="gallery-section-inner">
+        <h2 id="extras-title" class="section-title display-title">Extras</h2>
+        <p class="gallery-blurb">(Write-up goes here…)</p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Extras+1" alt="Extras placeholder">
+            </div>
+          </figure>
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Extras+2" alt="Extras placeholder">
+            </div>
+          </figure>
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Extras+3" alt="Extras placeholder">
+            </div>
+          </figure>
+          <figure class="gallery-card">
+            <div class="photo-slot">
+              <img class="gallery-photo" src="https://placehold.co/420x525?text=Extras+4" alt="Extras placeholder">
+            </div>
+          </figure>
+        </div>
       </div>
     </section>
   </main>
@@ -116,18 +221,5 @@
     </div>
   </div>
 </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const header = document.querySelector('.site-header');
-
-      function updateHeaderState() {
-        if (!header) return;
-        header.classList.toggle('is-scrolled', window.scrollY > 10);
-      }
-
-      updateHeaderState();
-      window.addEventListener('scroll', updateHeaderState, { passive: true });
-    });
-  </script>
 </body>
 </html>
