@@ -381,7 +381,7 @@ button:focus-visible {
 .gallery-page {
   overflow-x: clip;
   --gallery-wave-height: clamp(70px, 12vw, 130px);
-  --gallery-wave-fill: #f7f0f5;
+  --gallery-wave-fill: rgb(255 255 255);
 }
 
 .gallery-page .gallery-full-bleed {
