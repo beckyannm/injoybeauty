@@ -25,8 +25,9 @@
   
   /* Gallery section colors */
   --gallery-intro-bg: #f8f2ec;
-  --gallery-women-bg: #faf5f0;
-  --gallery-men-bg: #f0f4f7;
+  --gallery-hair-bg: #faf5f0;
+  --gallery-nail-bg: #f0f4f7;
+  --gallery-extras-bg: #f5f0f5;
   --gallery-accent: #d7b3aa;
 }
 
@@ -414,12 +415,16 @@ button:focus-visible {
   --gallery-bleed-bg: #FFF5FB;
 }
 
-.gallery-page .gallery-section--women {
-  --gallery-bg: var(--gallery-women-bg);
+.gallery-page .gallery-section--hair {
+  --gallery-bg: var(--gallery-hair-bg);
 }
 
-.gallery-page .gallery-section--men {
-  --gallery-bg: var(--gallery-men-bg);
+.gallery-page .gallery-section--nails {
+  --gallery-bg: var(--gallery-nail-bg);
+}
+
+.gallery-page .gallery-section--extras {
+  --gallery-bg: var(--gallery-extras-bg);
 }
 
 .gallery-page .gallery-group-header .display-title {
@@ -539,6 +544,23 @@ button:focus-visible {
 
 .gallery-page .gallery-section:nth-of-type(even) {
   background: var(--gallery-alt-bg, #f5ecf3);
+}
+
+.gallery-page .gallery-category {
+  margin-top: 2.5rem;
+}
+
+.gallery-page .gallery-category:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.gallery-page .category-heading {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--brand);
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+  text-align: left;
 }
 
 .gallery-page .gallery-section-inner {
