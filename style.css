@@ -250,8 +250,9 @@ button:focus-visible {
 
 /* Gallery page uses a different background - neutral and soft */
 .gallery-page .site-main {
-  background: #f9f7f8;
+  background: #f6eee5;
   background-image: none;
+  padding-top: 0;
 }
 
 .hero {
@@ -634,6 +635,14 @@ button:focus-visible {
   margin-bottom: 2rem;
 }
 
+.gallery-page .gallery-portfolio-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f9f5f1;
+  box-shadow: 0 16px 30px rgba(45, 25, 15, 0.12);
+}
+
 @media (max-width: 900px) {
   .gallery-page .gallery-hero-grid {
     grid-template-columns: 1fr;
@@ -650,6 +659,7 @@ button:focus-visible {
   .gallery-page .gallery-hero-card {
     order: 2;
   }
+}
 
   .gallery-page .gallery-hero-visual {
     order: 1;
@@ -675,6 +685,10 @@ button:focus-visible {
     width: min(260px, 70%);
     margin-top: 1.5rem;
     border-width: 6px;
+  }
+
+  .gallery-page .gallery-hero-accent {
+    width: min(260px, 70%);
   }
 }
 
