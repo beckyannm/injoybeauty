@@ -1052,8 +1052,15 @@ button:focus-visible {
     display: block;
   }
   
-  /* Adjust header social position */
+  /* Adjust header social position - place before hamburger */
   .header-social {
+    order: 2;
+    margin-left: auto;
+    margin-right: 0.75rem;
+  }
+  
+  /* Hamburger comes after social buttons */
+  .hamburger-btn {
     order: 3;
     margin-left: 0;
   }
@@ -1112,16 +1119,19 @@ button:focus-visible {
     flex: 1 1 auto;
     min-width: 0;
   }
-  .hamburger-btn {
-    margin-left: auto;
-  }
+  /* Keep social buttons and hamburger on the same row */
   .header-social {
-    order: 4;
-    width: 100%;
-    justify-content: flex-start;
+    order: 2;
+    margin-left: auto;
+    margin-right: 0.75rem;
   }
+  .hamburger-btn {
+    order: 3;
+    margin-left: 0;
+  }
+  /* Remove extra padding adjustment since layout stays single row */
   .site-main {
-    padding-top: 116px;
+    padding-top: 80px;
   }
   .hero {
     padding-top: 2.2rem;
@@ -1138,8 +1148,9 @@ button:focus-visible {
 }
 
 @media (max-width: 380px) {
+  /* No change needed - header stays at 80px height */
   .site-main {
-    padding-top: 126px;
+    padding-top: 80px;
   }
   .hero {
     padding-top: 2rem;
