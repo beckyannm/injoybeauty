@@ -22,6 +22,12 @@
   --card-bg: rgba(255, 255, 255, 0.7);
   --card-border: rgba(255, 255, 255, 0.6);
   --card-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  
+  /* Gallery section colors */
+  --gallery-intro-bg: #FFFFFF;
+  --gallery-hair-bg: #FFF7FF;
+  --gallery-nail-bg: #FCF7FF;
+  --gallery-extras-bg: #F7FFFA;
 }
 
 * {
@@ -240,6 +246,12 @@ button:focus-visible {
   background-position: center;
 }
 
+/* Gallery page uses a different background - neutral and soft */
+.gallery-page .site-main {
+  background: #f9f7f8;
+  background-image: none;
+}
+
 .hero {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -433,7 +445,7 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-wave--aqua {
-  --gallery-wave-fill: #F5FFFF;
+  --gallery-wave-fill: var(--gallery-hair-bg);
 }
 
 .gallery-page .gallery-wave--pink {
@@ -441,8 +453,8 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-section--aqua {
-  --gallery-bg: #F5FFFF;
-  --gallery-wave-fill: #F5FFFF;
+  --gallery-bg: var(--gallery-hair-bg);
+  --gallery-wave-fill: var(--gallery-hair-bg);
 }
 
 .gallery-page .gallery-section--pink {
@@ -451,9 +463,9 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-section--alt {
-  --gallery-bg: #f5ecf3;
-  --gallery-alt-bg: #f5ecf3;
-  --gallery-wave-fill: #f5ecf3;
+  --gallery-bg: var(--gallery-nail-bg);
+  --gallery-alt-bg: var(--gallery-nail-bg);
+  --gallery-wave-fill: var(--gallery-nail-bg);
 }
 
 .gallery-page .gallery-wave--flip {
@@ -488,7 +500,7 @@ button:focus-visible {
   width: 100vw;
   margin: 1.75rem calc(50% - 50vw) 0;
   padding: 1rem 1.25rem 2.5rem;
-  background: #FFFFFF; /* Fix: changed from pink (#FFE3F1) to white */
+  background: var(--gallery-intro-bg); /* Intro section - white */
   position: relative;
   z-index: 1;
 }
@@ -518,8 +530,8 @@ button:focus-visible {
 .gallery-page .gallery-section {
   position: relative;
   --divider-height: clamp(70px, 12vw, 130px);
-  padding: calc(3.25rem + var(--divider-height)) 0 3.5rem;
-  background: var(--gallery-bg, #f7f0f5);
+  padding: calc(2.5rem + var(--divider-height)) 0 2.75rem;
+  background: var(--gallery-bg, var(--gallery-extras-bg));
 }
 
 .gallery-page .gallery-section:nth-of-type(even) {
@@ -529,7 +541,7 @@ button:focus-visible {
 .gallery-page .gallery-section-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
 }
 
 .gallery-page .section-title {
@@ -612,7 +624,7 @@ button:focus-visible {
   margin-top: calc(var(--gallery-wave-height) * -0.45);
   position: relative;
   z-index: 2;
-  --gallery-wave-fill: #FFFFFF; /* Fix: override wave color to white for hero overlap */
+  --gallery-wave-fill: var(--gallery-hair-bg); /* Match hair section color */
 }
 
 .gallery-page .gallery-services {
@@ -654,19 +666,19 @@ button:focus-visible {
 
 @media (max-width: 700px) {
   .gallery-page .gallery-section {
-    padding: calc(2.75rem + var(--divider-height)) 0 3rem;
+    padding: calc(2rem + var(--divider-height)) 0 2.25rem;
   }
 
   .gallery-page .gallery-section--no-top-wave {
-    padding-top: 2.75rem;
+    padding-top: 2rem;
   }
 
   .gallery-page .gallery-section--tight-top {
-    padding-top: 1.25rem;
+    padding-top: 1rem;
   }
 
   .gallery-page .gallery-section--tight-bottom {
-    padding-bottom: 1.25rem;
+    padding-bottom: 1rem;
   }
 
   .gallery-page .gallery-services-labels {
