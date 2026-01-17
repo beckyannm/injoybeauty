@@ -518,7 +518,7 @@ button:focus-visible {
 .gallery-page .gallery-section {
   position: relative;
   --divider-height: clamp(70px, 12vw, 130px);
-  padding: calc(3.25rem + var(--divider-height)) 0 3.5rem;
+  padding: calc(2.5rem + var(--divider-height)) 0 2.75rem;
   background: var(--gallery-bg, #f7f0f5);
 }
 
@@ -529,7 +529,7 @@ button:focus-visible {
 .gallery-page .gallery-section-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
 }
 
 .gallery-page .section-title {
@@ -654,19 +654,19 @@ button:focus-visible {
 
 @media (max-width: 700px) {
   .gallery-page .gallery-section {
-    padding: calc(2.75rem + var(--divider-height)) 0 3rem;
+    padding: calc(2rem + var(--divider-height)) 0 2.25rem;
   }
 
   .gallery-page .gallery-section--no-top-wave {
-    padding-top: 2.75rem;
+    padding-top: 2rem;
   }
 
   .gallery-page .gallery-section--tight-top {
-    padding-top: 1.25rem;
+    padding-top: 1rem;
   }
 
   .gallery-page .gallery-section--tight-bottom {
-    padding-bottom: 1.25rem;
+    padding-bottom: 1rem;
   }
 
   .gallery-page .gallery-services-labels {
