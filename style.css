@@ -22,6 +22,12 @@
   --card-bg: rgba(255, 255, 255, 0.7);
   --card-border: rgba(255, 255, 255, 0.6);
   --card-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  
+  /* Gallery section colors */
+  --gallery-intro-bg: #FFFFFF;
+  --gallery-hair-bg: #FFF7FF;
+  --gallery-nail-bg: #FCF7FF;
+  --gallery-extras-bg: #F7FFFA;
 }
 
 * {
@@ -439,7 +445,7 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-wave--aqua {
-  --gallery-wave-fill: #F5FFFF;
+  --gallery-wave-fill: var(--gallery-hair-bg);
 }
 
 .gallery-page .gallery-wave--pink {
@@ -447,8 +453,8 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-section--aqua {
-  --gallery-bg: #FFF7FF;
-  --gallery-wave-fill: #FFF7FF;
+  --gallery-bg: var(--gallery-hair-bg);
+  --gallery-wave-fill: var(--gallery-hair-bg);
 }
 
 .gallery-page .gallery-section--pink {
@@ -457,9 +463,9 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-section--alt {
-  --gallery-bg: #FCF7FF;
-  --gallery-alt-bg: #FCF7FF;
-  --gallery-wave-fill: #FCF7FF;
+  --gallery-bg: var(--gallery-nail-bg);
+  --gallery-alt-bg: var(--gallery-nail-bg);
+  --gallery-wave-fill: var(--gallery-nail-bg);
 }
 
 .gallery-page .gallery-wave--flip {
@@ -494,7 +500,7 @@ button:focus-visible {
   width: 100vw;
   margin: 1.75rem calc(50% - 50vw) 0;
   padding: 1rem 1.25rem 2.5rem;
-  background: #FFFFFF; /* Intro section - white */
+  background: var(--gallery-intro-bg); /* Intro section - white */
   position: relative;
   z-index: 1;
 }
@@ -525,7 +531,7 @@ button:focus-visible {
   position: relative;
   --divider-height: clamp(70px, 12vw, 130px);
   padding: calc(2.5rem + var(--divider-height)) 0 2.75rem;
-  background: var(--gallery-bg, #F7FFFA);
+  background: var(--gallery-bg, var(--gallery-extras-bg));
 }
 
 .gallery-page .gallery-section:nth-of-type(even) {
@@ -618,7 +624,7 @@ button:focus-visible {
   margin-top: calc(var(--gallery-wave-height) * -0.45);
   position: relative;
   z-index: 2;
-  --gallery-wave-fill: #FFF7FF; /* Match hair section color */
+  --gallery-wave-fill: var(--gallery-hair-bg); /* Match hair section color */
 }
 
 .gallery-page .gallery-services {
