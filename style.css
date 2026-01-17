@@ -506,7 +506,7 @@ button:focus-visible {
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  max-width: 450px;
+  max-width: 520px;
 }
 
 .gallery-page .gallery-hero-content .hero-title {
