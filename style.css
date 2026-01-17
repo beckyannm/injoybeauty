@@ -240,6 +240,12 @@ button:focus-visible {
   background-position: center;
 }
 
+/* Gallery page uses a different background - neutral and soft */
+.gallery-page .site-main {
+  background: #f9f7f8;
+  background-image: none;
+}
+
 .hero {
   max-width: var(--max-width);
   margin: 0 auto;
