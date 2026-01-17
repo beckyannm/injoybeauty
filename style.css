@@ -438,6 +438,20 @@ button:focus-visible {
   background: var(--gallery-intro-bg); /* Intro section - white */
   position: relative;
   z-index: 1;
+  overflow: visible;
+}
+
+.gallery-page .gallery-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.gallery-page .gallery-hero-backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .gallery-page .gallery-hero-grid {
@@ -447,6 +461,26 @@ button:focus-visible {
   align-items: center;
   max-width: var(--max-width);
   margin: 0 auto; /* Fix: removed duplicate padding/margin that caused visual duplication */
+  position: relative;
+  z-index: 1;
+  padding: 3.5rem 0 2.5rem;
+}
+
+.gallery-page .gallery-hero-accent {
+  align-self: end;
+  justify-self: start;
+  width: min(320px, 80%);
+  aspect-ratio: 3 / 4;
+  border-radius: 18px;
+  overflow: hidden;
+  transform: translateY(3.5rem);
+}
+
+.gallery-page .gallery-hero-accent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .gallery-page .gallery-hero-visual {
@@ -626,6 +660,7 @@ button:focus-visible {
   .gallery-page .gallery-section {
     padding: 2.5rem 0;
   }
+}
 
   .gallery-page .gallery-pair-images {
     grid-template-columns: 1fr;
