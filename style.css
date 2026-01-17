@@ -447,8 +447,8 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-section--aqua {
-  --gallery-bg: #F5FFFF;
-  --gallery-wave-fill: #F5FFFF;
+  --gallery-bg: #FFF7FF;
+  --gallery-wave-fill: #FFF7FF;
 }
 
 .gallery-page .gallery-section--pink {
@@ -457,9 +457,9 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-section--alt {
-  --gallery-bg: #f5ecf3;
-  --gallery-alt-bg: #f5ecf3;
-  --gallery-wave-fill: #f5ecf3;
+  --gallery-bg: #FCF7FF;
+  --gallery-alt-bg: #FCF7FF;
+  --gallery-wave-fill: #FCF7FF;
 }
 
 .gallery-page .gallery-wave--flip {
@@ -494,7 +494,7 @@ button:focus-visible {
   width: 100vw;
   margin: 1.75rem calc(50% - 50vw) 0;
   padding: 1rem 1.25rem 2.5rem;
-  background: #FFFFFF; /* Fix: changed from pink (#FFE3F1) to white */
+  background: #FFFFFF; /* Intro section - white */
   position: relative;
   z-index: 1;
 }
@@ -525,7 +525,7 @@ button:focus-visible {
   position: relative;
   --divider-height: clamp(70px, 12vw, 130px);
   padding: calc(2.5rem + var(--divider-height)) 0 2.75rem;
-  background: var(--gallery-bg, #f7f0f5);
+  background: var(--gallery-bg, #F7FFFA);
 }
 
 .gallery-page .gallery-section:nth-of-type(even) {
@@ -618,7 +618,7 @@ button:focus-visible {
   margin-top: calc(var(--gallery-wave-height) * -0.45);
   position: relative;
   z-index: 2;
-  --gallery-wave-fill: #FFFFFF; /* Fix: override wave color to white for hero overlap */
+  --gallery-wave-fill: #FFF7FF; /* Match hair section color */
 }
 
 .gallery-page .gallery-services {
