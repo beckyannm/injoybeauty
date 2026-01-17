@@ -23,11 +23,11 @@
   --card-border: rgba(255, 255, 255, 0.6);
   --card-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
   
-  /* Gallery section colors */
-  --gallery-intro-bg: #f8f2ec;
-  --gallery-hair-bg: #faf5f0;
-  --gallery-nail-bg: #f0f4f7;
-  --gallery-extras-bg: #f5f0f5;
+  /* Gallery section colors - ColorHunt palette */
+  --gallery-intro-bg: #F5E8DD;
+  --gallery-hair-bg: #EED3D9;
+  --gallery-nail-bg: #CCD3CA;
+  --gallery-extras-bg: #B5C0D0;
   --gallery-accent: #d7b3aa;
 }
 
@@ -250,7 +250,7 @@ button:focus-visible {
 
 /* Gallery page uses a different background - neutral and soft */
 .gallery-page .site-main {
-  background: #f6eee5;
+  background: #F5E8DD;
   background-image: none;
   padding-top: 0;
 }
@@ -488,7 +488,7 @@ button:focus-visible {
   background: #ffffff;
   border-radius: 24px;
   box-shadow: 0 20px 50px rgba(36, 20, 10, 0.12);
-  border: 1px solid rgba(100, 75, 60, 0.1);
+  border: 1px solid rgba(181, 192, 208, 0.3);
   min-height: 460px;
   display: grid;
   place-items: center;
@@ -524,11 +524,11 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-hero-card {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   padding: 1.75rem;
-  box-shadow: 0 18px 36px rgba(40, 20, 10, 0.12);
-  border: 1px solid rgba(122, 90, 70, 0.2);
+  box-shadow: 0 18px 36px rgba(181, 192, 208, 0.25);
+  border: 1px solid rgba(181, 192, 208, 0.3);
 }
 
 .gallery-page .gallery-note {
@@ -540,10 +540,6 @@ button:focus-visible {
   position: relative;
   padding: 3.25rem 0;
   background: var(--gallery-bg, var(--gallery-extras-bg));
-}
-
-.gallery-page .gallery-section:nth-of-type(even) {
-  background: var(--gallery-alt-bg, #f5ecf3);
 }
 
 .gallery-page .gallery-category {
