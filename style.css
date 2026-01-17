@@ -586,6 +586,12 @@ button:focus-visible {
   max-width: 70ch;
 }
 
+.gallery-page .gallery-pair-blurb {
+  margin: 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
 .gallery-page .gallery-services {
   text-align: center;
 }
@@ -597,6 +603,14 @@ button:focus-visible {
 @media (max-width: 900px) {
   .gallery-page .gallery-hero-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-page .gallery-hero-card {
+    order: 2;
+  }
+
+  .gallery-page .gallery-hero-visual {
+    order: 1;
   }
 
   .gallery-page .gallery-hero-card {
