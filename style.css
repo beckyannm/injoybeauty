@@ -510,7 +510,7 @@ button:focus-visible {
 }
 
 .gallery-page .gallery-hero-content .hero-title {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
   margin: 0 0 0.75rem 0;
 }
 
