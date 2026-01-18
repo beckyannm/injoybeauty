@@ -105,15 +105,24 @@ ul, ol {
 }
 
 .nav-logo {
-    font-family: var(--font-heading);
-    font-size: var(--text-2xl);
-    font-weight: var(--font-semibold);
-    color: var(--color-charcoal);
-    letter-spacing: var(--tracking-tight);
+    display: flex;
+    align-items: center;
 }
 
-.nav-logo span {
-    color: var(--color-rose);
+.nav-logo .logo-img {
+    height: 60px;
+    width: auto;
+}
+
+.nav-logo .logo-img-footer {
+    height: 50px;
+    width: auto;
+}
+
+@media (min-width: 768px) {
+    .nav-logo .logo-img {
+        height: 70px;
+    }
 }
 
 .nav-menu {
