@@ -7,152 +7,13 @@
     <title>Gallery | InJoy Beauty</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
-    <style>
-        .gallery-page {
-            background-color: var(--color-cream);
-            min-height: 100vh;
-        }
-        
-        .gallery-hero-section {
-            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream) 100%);
-            padding: var(--space-8);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--space-12);
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-6);
-            align-items: center;
-        }
-        
-        .gallery-hero-images {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: var(--space-4);
-        }
-        
-        .gallery-hero-images img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .gallery-hero-content h1 {
-            margin-bottom: var(--space-4);
-        }
-        
-        .gallery-hero-content p {
-            color: var(--color-gray);
-            line-height: var(--leading-relaxed);
-            margin-bottom: var(--space-3);
-        }
-        
-        .gallery-section {
-            margin-bottom: var(--space-16);
-        }
-        
-        .gallery-section-title {
-            font-size: var(--text-2xl);
-            margin-bottom: var(--space-2);
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-        }
-        
-        .gallery-blurb {
-            color: var(--color-gray);
-            margin-bottom: var(--space-8);
-            max-width: 600px;
-        }
-        
-        .gallery-category-heading {
-            font-size: var(--text-lg);
-            color: var(--color-rose-dark);
-            margin-bottom: var(--space-4);
-            font-weight: var(--font-medium);
-        }
-        
-        .gallery-pairs {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: var(--space-8);
-            margin-bottom: var(--space-8);
-        }
-        
-        .gallery-pair {
-            background: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: var(--space-6);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .gallery-pair-images {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-4);
-            margin-bottom: var(--space-4);
-        }
-        
-        .gallery-pair-images.single {
-            grid-template-columns: 1fr;
-            max-width: 300px;
-        }
-        
-        .gallery-pair-card {
-            position: relative;
-        }
-        
-        .gallery-pair-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: var(--radius-md);
-        }
-        
-        .gallery-pair-label {
-            position: absolute;
-            top: var(--space-2);
-            left: var(--space-2);
-            background: rgba(255, 255, 255, 0.9);
-            padding: var(--space-1) var(--space-3);
-            border-radius: var(--radius-full);
-            font-size: var(--text-xs);
-            font-weight: var(--font-medium);
-            color: var(--color-rose-dark);
-        }
-        
-        .gallery-pair-blurb {
-            color: var(--color-gray);
-            font-size: var(--text-sm);
-            line-height: var(--leading-relaxed);
-            font-style: italic;
-            margin: 0;
-        }
-        
-        @media (min-width: 768px) {
-            .gallery-hero-section {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .gallery-hero-images img {
-                height: 280px;
-            }
-            
-            .gallery-pairs {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
 </head>
-<body class="gallery-page">
+<body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="nav-logo">
-                    <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" style="height: 50px; width: auto;">
-                </a>
+                <a href="index.html" class="nav-logo">InJoy <span>Beauty</span></a>
                 
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
@@ -194,17 +55,17 @@
         </div>
     </section>
 
-    <!-- Gallery Content -->
-    <section class="section">
+    <!-- Gallery Hero -->
+    <section class="about-preview section">
         <div class="container">
-            <!-- Gallery Hero -->
-            <div class="gallery-hero-section">
-                <div class="gallery-hero-images">
+            <div class="about-preview-grid">
+                <div class="about-preview-image">
                     <img src="assets/images/galleryherophoto.jpg" alt="Studio Background">
-                    <img src="assets/images/jaymieselfie.jpg" alt="Jaymie">
                 </div>
-                <div class="gallery-hero-content">
-                    <h2>Welcome to My Space</h2>
+                <div class="about-preview-content">
+                    <span class="section-subtitle">Welcome to My Space</span>
+                    <h2>Where Transformations Happen</h2>
+                    <div class="divider divider-left"></div>
                     <p>
                         <strong>Note:</strong> Studio photos will be added once I move into a new place — 
                         for now I offer only mobile services.
@@ -215,96 +76,109 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Hair Services Gallery -->
+    <section class="gallery-preview section" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">✂️ Hair Services</span>
+                <h2 class="section-title">Hair Transformations</h2>
+                <div class="divider"></div>
+                <p class="section-description">
+                    A curated look at transformations, from fresh trims to full restyles.
+                </p>
+            </div>
             
-            <!-- Hair Services Section -->
-            <div class="gallery-section">
-                <h2 class="gallery-section-title">✂️ Hair Services</h2>
-                <p class="gallery-blurb">A curated look at transformations, from fresh trims to full restyles.</p>
-                
-                <!-- Women -->
-                <h3 class="gallery-category-heading">Women</h3>
-                <div class="gallery-pairs">
-                    <article class="gallery-pair">
-                        <div class="gallery-pair-images">
-                            <figure class="gallery-pair-card">
-                                <span class="gallery-pair-label">All Smiles</span>
-                                <img src="assets/images/gallery/cassieredhair1.jpg" alt="Red highlights - before">
-                            </figure>
-                            <figure class="gallery-pair-card">
-                                <img src="assets/images/gallery/cassieredhair2.jpg" alt="Red highlights - after">
-                            </figure>
-                        </div>
-                        <p class="gallery-pair-blurb">Chunky red highlights, created for the holiday season.</p>
-                    </article>
-                    
-                    <article class="gallery-pair">
-                        <div class="gallery-pair-images">
-                            <figure class="gallery-pair-card">
-                                <img src="assets/images/gallery/jenhair1.jpg" alt="Hair styling - before">
-                            </figure>
-                            <figure class="gallery-pair-card">
-                                <span class="gallery-pair-label">After</span>
-                                <img src="assets/images/gallery/jenhair2.jpg" alt="Hair styling - after">
-                            </figure>
-                        </div>
-                        <p class="gallery-pair-blurb">Sometimes, a simple touch is all it takes to feel good.</p>
-                    </article>
+            <!-- Women's Hair -->
+            <h3 style="color: var(--color-rose-dark); margin-bottom: var(--space-6); font-size: var(--text-xl);">Women</h3>
+            <div class="gallery-grid" style="margin-bottom: var(--space-12);">
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/cassieredhair1.jpg" alt="Red highlights - smile">
+                    <div class="gallery-overlay"><span>Holiday Red Highlights</span></div>
                 </div>
-                
-                <!-- Men -->
-                <h3 class="gallery-category-heading">Men</h3>
-                <div class="gallery-pairs">
-                    <article class="gallery-pair">
-                        <div class="gallery-pair-images">
-                            <figure class="gallery-pair-card">
-                                <span class="gallery-pair-label">During</span>
-                                <img src="assets/images/gallery/stevenhair2.jpg" alt="Men's haircut - during">
-                            </figure>
-                            <figure class="gallery-pair-card">
-                                <span class="gallery-pair-label">After</span>
-                                <img src="assets/images/gallery/stevenhair1.jpg" alt="Men's haircut - after">
-                            </figure>
-                        </div>
-                        <p class="gallery-pair-blurb">Time to play while I work, moving gently and following his comfort and schedule.</p>
-                    </article>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/cassieredhair2.jpg" alt="Red highlights - result">
+                    <div class="gallery-overlay"><span>Chunky Red Highlights</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/jenhair1.jpg" alt="Hair styling - before">
+                    <div class="gallery-overlay"><span>Before</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/jenhair2.jpg" alt="Hair styling - after">
+                    <div class="gallery-overlay"><span>After</span></div>
                 </div>
             </div>
             
-            <!-- Nail Care Section -->
-            <div class="gallery-section">
-                <h2 class="gallery-section-title">💅 Nail Care</h2>
-                <p class="gallery-blurb">Nail care is often overlooked, but it matters. This approach focuses on practical care, comfort, and attention to detail that supports both confidence and well-being.</p>
-                
-                <div class="gallery-pairs">
-                    <article class="gallery-pair">
-                        <div class="gallery-pair-images single">
-                            <figure class="gallery-pair-card">
-                                <img src="assets/images/gallery/jennails2.jpg" alt="Gel manicure">
-                            </figure>
-                        </div>
-                        <p class="gallery-pair-blurb">Nail care is an essential part of self-care. This soft pink gel manicure highlights how even simple maintenance can feel grounding, polished, and worth the time.</p>
-                    </article>
+            <!-- Men's Hair -->
+            <h3 style="color: var(--color-rose-dark); margin-bottom: var(--space-6); font-size: var(--text-xl);">Men</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/stevenhair2.jpg" alt="Men's haircut - during">
+                    <div class="gallery-overlay"><span>During</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/stevenhair1.jpg" alt="Men's haircut - after">
+                    <div class="gallery-overlay"><span>After</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/stevenhair3.jpg" alt="Men's haircut">
+                    <div class="gallery-overlay"><span>Fresh Cut</span></div>
                 </div>
             </div>
+            <p style="font-style: italic; color: var(--color-gray); margin-top: var(--space-4); text-align: center;">
+                Time to play while I work, moving gently and following his comfort and schedule.
+            </p>
+        </div>
+    </section>
+
+    <!-- Nail Care Gallery -->
+    <section class="gallery-preview section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">💅 Nail Care</span>
+                <h2 class="section-title">Nail Artistry</h2>
+                <div class="divider"></div>
+                <p class="section-description">
+                    Nail care is often overlooked, but it matters. Practical care, comfort, and attention to detail.
+                </p>
+            </div>
             
-            <!-- Extras Section -->
-            <div class="gallery-section">
-                <h2 class="gallery-section-title">✨ Extras</h2>
-                <p class="gallery-blurb">Extras are about more than services — they're about the experience. Whether someone wants to be involved, take breaks to play or relax, or simply take their time, this space is designed to meet them where they are.</p>
-                
-                <h3 class="gallery-category-heading">Always a Fun Time</h3>
-                <div class="gallery-pairs">
-                    <article class="gallery-pair">
-                        <div class="gallery-pair-images">
-                            <figure class="gallery-pair-card">
-                                <span class="gallery-pair-label">Getting in on the Action</span>
-                                <img src="assets/images/gallery/cassieextras1.JPG" alt="Fun time - 1">
-                            </figure>
-                            <figure class="gallery-pair-card">
-                                <img src="assets/images/gallery/cassieextras2.JPG" alt="Fun time - 2">
-                            </figure>
-                        </div>
-                    </article>
+            <div style="display: flex; justify-content: center;">
+                <div class="gallery-item" style="max-width: 400px; aspect-ratio: auto;">
+                    <img src="assets/images/gallery/jennails2.jpg" alt="Gel manicure" style="border-radius: var(--radius-lg);">
+                    <div class="gallery-overlay"><span>Soft Pink Gel Manicure</span></div>
+                </div>
+            </div>
+            <p style="font-style: italic; color: var(--color-gray); margin-top: var(--space-4); text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Nail care is an essential part of self-care. Even simple maintenance can feel grounding, polished, and worth the time.
+            </p>
+        </div>
+    </section>
+
+    <!-- Extras Gallery -->
+    <section class="gallery-preview section" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">✨ Extras</span>
+                <h2 class="section-title">Always a Fun Time</h2>
+                <div class="divider"></div>
+                <p class="section-description">
+                    Extras are about more than services — they're about the experience. Whether someone wants to be involved, 
+                    take breaks to play or relax, or simply take their time, this space is designed to meet them where they are.
+                </p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/cassieextras1.JPG" alt="Getting in on the action">
+                    <div class="gallery-overlay"><span>Getting in on the Action</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/cassieextras2.JPG" alt="Fun time">
+                    <div class="gallery-overlay"><span>Fun Time</span></div>
                 </div>
             </div>
         </div>
@@ -324,9 +198,12 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="assets/images/branding/InjoyOGsmall.jpg" alt="InJoy Beauty" style="width: 80px; height: auto; border-radius: var(--radius-md); margin-bottom: var(--space-4);">
-                    <p class="brand-title" style="color: var(--color-white); font-family: var(--font-heading); font-size: var(--text-lg);">INJOY • Inclusive Beauty</p>
-                    <p style="color: var(--color-gray-light); font-style: italic;">Everyone deserves to feel beautiful.</p>
+                    <a href="index.html" class="nav-logo">InJoy <span>Beauty</span></a>
+                    <p>Inclusive, sensory-friendly beauty services. Everyone deserves to feel beautiful.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">📘</a>
+                        <a href="https://www.instagram.com/injoy_beautyy" target="_blank" aria-label="Instagram">📸</a>
+                    </div>
                 </div>
                 
                 <div class="footer-links">

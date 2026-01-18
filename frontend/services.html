@@ -7,120 +7,13 @@
     <title>Services | InJoy Beauty</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
-    <style>
-        .services-page {
-            background-color: var(--color-cream);
-            min-height: 100vh;
-        }
-        
-        .services-intro-card {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto var(--space-12);
-            padding: var(--space-8);
-            background-color: var(--color-white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .services-intro-card h1 {
-            margin-bottom: var(--space-4);
-        }
-        
-        .services-intro-text {
-            font-size: var(--text-lg);
-            color: var(--color-gray);
-            line-height: var(--leading-relaxed);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: var(--space-6);
-            margin-bottom: var(--space-12);
-        }
-        
-        .service-category-card {
-            background-color: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: var(--space-8);
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--color-rose);
-        }
-        
-        .service-category-card h2 {
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-            margin-bottom: var(--space-4);
-            color: var(--color-charcoal);
-        }
-        
-        .service-category-icon {
-            font-size: var(--text-2xl);
-        }
-        
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .service-list li {
-            padding: var(--space-3) 0;
-            border-bottom: 1px solid var(--color-beige);
-            color: var(--color-gray);
-            font-size: var(--text-base);
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-        }
-        
-        .service-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .service-list li::before {
-            content: "✓";
-            color: var(--color-rose);
-            font-weight: bold;
-        }
-        
-        .services-note-card {
-            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream-light) 100%);
-            border-radius: var(--radius-lg);
-            padding: var(--space-8);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .services-note-card p {
-            font-size: var(--text-base);
-            color: var(--color-gray);
-            line-height: var(--leading-relaxed);
-            margin-bottom: var(--space-4);
-        }
-        
-        .services-note-card p:last-of-type {
-            margin-bottom: var(--space-6);
-        }
-        
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-    </style>
 </head>
-<body class="services-page">
+<body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="nav-logo">
-                    <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" style="height: 50px; width: auto;">
-                </a>
+                <a href="index.html" class="nav-logo">InJoy <span>Beauty</span></a>
                 
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
@@ -162,72 +55,74 @@
         </div>
     </section>
 
-    <!-- Services Content -->
-    <section class="section">
-        <div class="container">
-            <!-- Intro -->
-            <div class="services-intro-card">
-                <p class="services-intro-text">
+    <!-- Intro -->
+    <section class="section" style="background-color: var(--color-white); padding-bottom: 0;">
+        <div class="container container-sm">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <p style="font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-gray);">
                     I offer a welcoming, sensory-friendly approach to all services. If you need accommodations 
-                    such as extra time, a quiet space, or a mobile visit, please let me know — your comfort 
-                    is my priority.
+                    such as extra time, a quiet space, or a mobile visit, please let me know — <strong>your comfort 
+                    is my priority</strong>.
                 </p>
             </div>
-            
-            <!-- Services Grid -->
-            <div class="services-grid">
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-section section">
+        <div class="container">
+            <div class="grid grid-3">
                 <!-- Hair Services -->
-                <article class="service-category-card">
-                    <h2>
-                        <span class="service-category-icon">✂️</span>
-                        Hair Services
-                    </h2>
-                    <ul class="service-list">
-                        <li>Haircuts for men, women, and children</li>
-                        <li>Hair coloring & touch-ups</li>
-                        <li>Simple styling and trims</li>
-                        <li>Special occasion styling</li>
+                <div class="service-card" style="text-align: left; border-left: 4px solid var(--color-rose);">
+                    <div class="service-icon" style="margin: 0 0 var(--space-4) 0;">✂️</div>
+                    <h3>Hair Services</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: var(--space-4);">
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Haircuts for men, women, and children</li>
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Hair coloring & touch-ups</li>
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Simple styling and trims</li>
+                        <li style="padding: var(--space-2) 0; color: var(--color-gray);">✓ Special occasion styling</li>
                     </ul>
-                </article>
+                </div>
                 
                 <!-- Facial & Body Hair -->
-                <article class="service-category-card">
-                    <h2>
-                        <span class="service-category-icon">🪒</span>
-                        Facial & Body Hair
-                    </h2>
-                    <ul class="service-list">
-                        <li>Beard trimming & shaping</li>
-                        <li>Shaving services</li>
-                        <li>Leg waxing or shaving</li>
-                        <li>Gentle facial waxing</li>
+                <div class="service-card" style="text-align: left; border-left: 4px solid var(--color-rose);">
+                    <div class="service-icon" style="margin: 0 0 var(--space-4) 0;">🪒</div>
+                    <h3>Facial & Body Hair</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: var(--space-4);">
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Beard trimming & shaping</li>
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Shaving services</li>
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Leg waxing or shaving</li>
+                        <li style="padding: var(--space-2) 0; color: var(--color-gray);">✓ Gentle facial waxing</li>
                     </ul>
-                </article>
+                </div>
                 
                 <!-- Nail Care -->
-                <article class="service-category-card">
-                    <h2>
-                        <span class="service-category-icon">💅</span>
-                        Nail Care
-                    </h2>
-                    <ul class="service-list">
-                        <li>Nail trimming & shaping</li>
-                        <li>Hand & foot care</li>
-                        <li>Nail painting & polish changes</li>
-                        <li>Gel manicures</li>
+                <div class="service-card" style="text-align: left; border-left: 4px solid var(--color-rose);">
+                    <div class="service-icon" style="margin: 0 0 var(--space-4) 0;">💅</div>
+                    <h3>Nail Care</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: var(--space-4);">
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Nail trimming & shaping</li>
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Hand & foot care</li>
+                        <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--color-beige); color: var(--color-gray);">✓ Nail painting & polish changes</li>
+                        <li style="padding: var(--space-2) 0; color: var(--color-gray);">✓ Gel manicures</li>
                     </ul>
-                </article>
+                </div>
             </div>
-            
-            <!-- Note -->
-            <div class="services-note-card">
-                <p>
+        </div>
+    </section>
+
+    <!-- Pricing Note -->
+    <section class="section" style="background-color: var(--color-beige);">
+        <div class="container container-sm">
+            <div style="text-align: center; padding: var(--space-8); background: var(--color-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                <h3 style="margin-bottom: var(--space-4);">Important Information</h3>
+                <p style="color: var(--color-gray); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
                     <strong>All services are available in my home salon or as mobile visits</strong> (additional charge applies). 
                     Pricing varies depending on location, service type, and individual needs.
                 </p>
-                <p>
+                <p style="color: var(--color-gray); line-height: var(--leading-relaxed); margin-bottom: var(--space-6);">
                     If you or your loved one require extra time or accommodations, please let me know — 
-                    I'm happy to adjust the appointment to ensure your comfort. There's never any rush.
+                    I'm happy to adjust the appointment to ensure your comfort. <strong>There's never any rush.</strong>
                 </p>
                 <a href="booking.html" class="btn btn-primary btn-lg">Request a Booking</a>
             </div>
@@ -238,7 +133,7 @@
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Book Your Appointment?</h2>
-            <p>Experience beauty care that works for you.</p>
+            <p>Experience beauty care that works for you — no rush, just care.</p>
             <a href="booking.html" class="btn btn-lg">Book Now</a>
         </div>
     </section>
@@ -248,9 +143,12 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="assets/images/branding/InjoyOGsmall.jpg" alt="InJoy Beauty" style="width: 80px; height: auto; border-radius: var(--radius-md); margin-bottom: var(--space-4);">
-                    <p class="brand-title" style="color: var(--color-white); font-family: var(--font-heading); font-size: var(--text-lg);">INJOY • Inclusive Beauty</p>
-                    <p style="color: var(--color-gray-light); font-style: italic;">Everyone deserves to feel beautiful.</p>
+                    <a href="index.html" class="nav-logo">InJoy <span>Beauty</span></a>
+                    <p>Inclusive, sensory-friendly beauty services. Everyone deserves to feel beautiful.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">📘</a>
+                        <a href="https://www.instagram.com/injoy_beautyy" target="_blank" aria-label="Instagram">📸</a>
+                    </div>
                 </div>
                 
                 <div class="footer-links">

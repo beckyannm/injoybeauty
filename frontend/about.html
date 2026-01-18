@@ -7,185 +7,13 @@
     <title>About Jaymie | InJoy Beauty</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
-    <style>
-        .about-hero {
-            padding: calc(80px + var(--space-12)) 0 var(--space-12);
-            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream) 100%);
-        }
-        
-        .about-hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-8);
-            align-items: center;
-        }
-        
-        .about-image-container {
-            position: relative;
-            max-width: 350px;
-            margin: 0 auto;
-        }
-        
-        .about-image {
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
-            width: 100%;
-        }
-        
-        .about-image-accent {
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: 15px;
-            bottom: 15px;
-            border: 2px solid var(--color-rose);
-            border-radius: var(--radius-lg);
-            z-index: -1;
-        }
-        
-        .photo-caption {
-            text-align: center;
-            margin-top: var(--space-3);
-            font-size: var(--text-sm);
-            color: var(--color-gray);
-            font-style: italic;
-        }
-        
-        .about-intro h1 {
-            margin-bottom: var(--space-4);
-        }
-        
-        .about-intro .lead {
-            font-size: var(--text-xl);
-            color: var(--color-gray);
-            line-height: var(--leading-relaxed);
-        }
-        
-        .about-story {
-            background-color: var(--color-white);
-        }
-        
-        .about-story-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .about-story h2 {
-            text-align: center;
-            margin-bottom: var(--space-8);
-        }
-        
-        .about-story p {
-            font-size: var(--text-lg);
-            line-height: var(--leading-loose);
-            color: var(--color-gray);
-            margin-bottom: var(--space-6);
-        }
-        
-        .about-values {
-            background-color: var(--color-cream);
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: var(--space-6);
-        }
-        
-        .value-card {
-            text-align: center;
-            padding: var(--space-8);
-            background-color: var(--color-white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .value-icon {
-            font-size: var(--text-4xl);
-            margin-bottom: var(--space-4);
-        }
-        
-        .value-card h3 {
-            margin-bottom: var(--space-3);
-        }
-        
-        .value-card p {
-            color: var(--color-gray);
-            font-size: var(--text-sm);
-            margin-bottom: 0;
-        }
-        
-        .qualifications {
-            background: linear-gradient(135deg, var(--color-rose-light) 0%, var(--color-rose) 100%);
-            color: var(--color-white);
-        }
-        
-        .qualifications h2 {
-            color: var(--color-white);
-            text-align: center;
-            margin-bottom: var(--space-8);
-        }
-        
-        .qual-list {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .qual-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-4);
-            padding: var(--space-4) 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .qual-item:last-child {
-            border-bottom: none;
-        }
-        
-        .qual-icon {
-            font-size: var(--text-xl);
-            flex-shrink: 0;
-        }
-        
-        .qual-item h4 {
-            color: var(--color-white);
-            font-size: var(--text-lg);
-            margin-bottom: var(--space-1);
-        }
-        
-        .qual-item p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: var(--text-sm);
-            margin: 0;
-        }
-        
-        @media (min-width: 768px) {
-            .about-hero-grid {
-                grid-template-columns: 1fr 1.2fr;
-                gap: var(--space-12);
-            }
-            
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .values-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="nav-logo">
-                    <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" style="height: 50px; width: auto;">
-                </a>
+                <a href="index.html" class="nav-logo">InJoy <span>Beauty</span></a>
                 
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
@@ -214,26 +42,38 @@
         </div>
     </header>
 
-    <!-- About Hero -->
-    <section class="about-hero">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
-            <div class="about-hero-grid">
-                <div class="about-image-container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>About</span>
+            </nav>
+            <h1>Meet Jaymie</h1>
+            <p>The heart and soul behind InJoy Beauty.</p>
+        </div>
+    </section>
+
+    <!-- About Hero -->
+    <section class="about-preview section">
+        <div class="container">
+            <div class="about-preview-grid">
+                <div class="about-preview-image">
                     <img src="assets/images/jaymieselfie.jpg" 
-                         alt="Jaymie Law - Owner of InJoy Beauty" 
-                         class="about-image">
-                    <div class="about-image-accent"></div>
-                    <p class="photo-caption">Jaymie Law — Owner & DSW</p>
+                         alt="Jaymie Law - Owner of InJoy Beauty">
                 </div>
-                
-                <div class="about-intro">
+                <div class="about-preview-content">
                     <span class="section-subtitle">Hello, I'm Jaymie!</span>
-                    <h1>Passionate About Inclusive Beauty</h1>
+                    <h2>Passionate About Inclusive Beauty</h2>
                     <div class="divider divider-left"></div>
-                    <p class="lead">
-                        I'm Jaymie Law, and I'm the proud owner of InJoy Beauty. I believe that 
-                        everyone deserves to feel beautiful — in a space that feels safe, calm, 
-                        and respectful of their unique needs.
+                    <p>
+                        <strong>Hello! My name is Jaymie Law, and I'm the proud owner of InJoy Beauty.</strong>
+                    </p>
+                    <p>
+                        I am a Developmental Service Worker (DSW) specializing in autism and behavioural therapy, 
+                        with over 7 years of experience supporting adults with special needs. I currently work as 
+                        a Day Program Supervisor, helping clients build independence and confidence every day.
                     </p>
                 </div>
             </div>
@@ -241,33 +81,30 @@
     </section>
 
     <!-- My Story -->
-    <section class="about-story section">
-        <div class="container">
-            <div class="about-story-content">
-                <h2>My Story</h2>
-                
-                <p>
-                    I am a <strong>Developmental Service Worker (DSW)</strong> specializing in autism and 
-                    behavioural therapy, with over <strong>7 years of experience</strong> supporting adults 
-                    with special needs. I currently work as a Day Program Supervisor, helping clients 
-                    build independence and confidence every day.
-                </p>
-                
-                <p>
+    <section class="section" style="background-color: var(--color-white);">
+        <div class="container container-sm">
+            <div class="section-header">
+                <span class="section-subtitle">My Journey</span>
+                <h2 class="section-title">How InJoy Beauty Began</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div style="max-width: 700px; margin: 0 auto;">
+                <p style="font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-gray); margin-bottom: var(--space-6);">
                     After earning my DSW diploma from <strong>Algonquin College</strong>, I wanted to combine 
                     my love for helping others with my passion for beauty and self-care. I completed a 
                     Hairdressing program at <strong>Versailles Academy</strong>, where I developed my skills 
                     in haircutting, coloring, and styling.
                 </p>
                 
-                <p>
+                <p style="font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-gray); margin-bottom: var(--space-6);">
                     Through my work in the developmental services field, I've witnessed how something as 
                     simple as getting a haircut or a beard trim can be <strong>stressful or inaccessible</strong> 
                     for some individuals. Traditional salons can be overwhelming — the noise, the crowds, 
-                    the time pressure. I wanted to change that.
+                    the time pressure.
                 </p>
                 
-                <p>
+                <p style="font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-gray);">
                     <strong>My mission is to remove those barriers</strong> and make self-care a calming, 
                     joyful experience for everyone. At InJoy Beauty, there's no rush, no judgment — just 
                     patient, understanding care tailored to you.
@@ -277,7 +114,7 @@
     </section>
 
     <!-- Why Choose InJoy -->
-    <section class="about-values section">
+    <section class="services-section section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">What Makes Us Different</span>
@@ -285,27 +122,27 @@
                 <div class="divider"></div>
             </div>
             
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">🤫</div>
-                    <h3>Sensory-Friendly Environment</h3>
+            <div class="grid grid-4">
+                <div class="service-card">
+                    <div class="service-icon">🤫</div>
+                    <h3>Sensory-Friendly</h3>
                     <p>Calm, quiet, and accommodating for sensory sensitivities. Adjustable lighting, minimal noise, and a peaceful atmosphere.</p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">🏠</div>
-                    <h3>Mobile Services Available</h3>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Mobile Services</h3>
                     <p>I come to you! Enjoy beauty services in the comfort of your own home. (Additional charge applies for mobile visits.)</p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">⏰</div>
+                <div class="service-card">
+                    <div class="service-icon">⏰</div>
                     <h3>Flexible Appointments</h3>
-                    <p>Allowing breaks, movement, or sensory time as needed. Your appointment works around your comfort, not the other way around.</p>
+                    <p>Allowing breaks, movement, or sensory time as needed. Your appointment works around your comfort.</p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">💜</div>
+                <div class="service-card">
+                    <div class="service-icon">💜</div>
                     <h3>Inclusive & Judgment-Free</h3>
                     <p>Serving all ages and abilities with care, patience, and respect. Everyone is welcome here.</p>
                 </div>
@@ -314,52 +151,50 @@
     </section>
 
     <!-- Qualifications -->
-    <section class="qualifications section">
+    <section class="cta-section">
         <div class="container">
             <h2>Training & Background</h2>
-            
-            <div class="qual-list">
-                <div class="qual-item">
-                    <span class="qual-icon">🎓</span>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6); max-width: 800px; margin: var(--space-8) auto 0; text-align: left;">
+                <div style="display: flex; align-items: start; gap: var(--space-3);">
+                    <span style="font-size: var(--text-2xl);">🎓</span>
                     <div>
-                        <h4>Developmental Service Worker (DSW)</h4>
-                        <p>Diploma from Algonquin College, specializing in autism and behavioural therapy</p>
+                        <h4 style="color: var(--color-white); margin-bottom: var(--space-1);">DSW Diploma</h4>
+                        <p style="font-size: var(--text-sm); margin: 0;">Algonquin College — Autism & Behavioural Therapy</p>
                     </div>
                 </div>
-                
-                <div class="qual-item">
-                    <span class="qual-icon">✂️</span>
+                <div style="display: flex; align-items: start; gap: var(--space-3);">
+                    <span style="font-size: var(--text-2xl);">✂️</span>
                     <div>
-                        <h4>Hairdressing Certificate</h4>
-                        <p>Trained at Versailles Academy in haircutting, coloring, and styling techniques</p>
+                        <h4 style="color: var(--color-white); margin-bottom: var(--space-1);">Hairdressing Certificate</h4>
+                        <p style="font-size: var(--text-sm); margin: 0;">Versailles Academy</p>
                     </div>
                 </div>
-                
-                <div class="qual-item">
-                    <span class="qual-icon">👥</span>
+                <div style="display: flex; align-items: start; gap: var(--space-3);">
+                    <span style="font-size: var(--text-2xl);">👥</span>
                     <div>
-                        <h4>7+ Years Experience</h4>
-                        <p>Supporting adults with special needs, including as a Day Program Supervisor</p>
+                        <h4 style="color: var(--color-white); margin-bottom: var(--space-1);">7+ Years Experience</h4>
+                        <p style="font-size: var(--text-sm); margin: 0;">Supporting adults with special needs</p>
                     </div>
                 </div>
-                
-                <div class="qual-item">
-                    <span class="qual-icon">💛</span>
+                <div style="display: flex; align-items: start; gap: var(--space-3);">
+                    <span style="font-size: var(--text-2xl);">💛</span>
                     <div>
-                        <h4>Passion-Driven Care</h4>
-                        <p>Combining professional beauty skills with deep understanding of accessibility needs</p>
+                        <h4 style="color: var(--color-white); margin-bottom: var(--space-1);">Passion-Driven Care</h4>
+                        <p style="font-size: var(--text-sm); margin: 0;">Beauty + Accessibility expertise</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Let's Create Something Beautiful Together</h2>
-            <p>Ready to experience beauty care that truly understands you?</p>
-            <a href="booking.html" class="btn btn-lg">Book Your Appointment</a>
+    <!-- Book CTA -->
+    <section class="section" style="background-color: var(--color-cream); text-align: center;">
+        <div class="container container-sm">
+            <h2 style="margin-bottom: var(--space-4);">Let's Create Something Beautiful Together</h2>
+            <p style="color: var(--color-gray); font-size: var(--text-lg); margin-bottom: var(--space-6);">
+                Ready to experience beauty care that truly understands you?
+            </p>
+            <a href="booking.html" class="btn btn-primary btn-lg">Book Your Appointment</a>
         </div>
     </section>
 
@@ -368,9 +203,12 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="assets/images/branding/InjoyOGsmall.jpg" alt="InJoy Beauty" style="width: 80px; height: auto; border-radius: var(--radius-md); margin-bottom: var(--space-4);">
-                    <p class="brand-title" style="color: var(--color-white); font-family: var(--font-heading); font-size: var(--text-lg);">INJOY • Inclusive Beauty</p>
-                    <p style="color: var(--color-gray-light); font-style: italic;">Everyone deserves to feel beautiful.</p>
+                    <a href="index.html" class="nav-logo">InJoy <span>Beauty</span></a>
+                    <p>Inclusive, sensory-friendly beauty services. Everyone deserves to feel beautiful.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">📘</a>
+                        <a href="https://www.instagram.com/injoy_beautyy" target="_blank" aria-label="Instagram">📸</a>
+                    </div>
                 </div>
                 
                 <div class="footer-links">

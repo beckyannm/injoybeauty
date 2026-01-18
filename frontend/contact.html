@@ -7,132 +7,13 @@
     <title>Contact | InJoy Beauty</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
-    <style>
-        .contact-page {
-            background-color: var(--color-cream);
-            min-height: 100vh;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-8);
-        }
-        
-        .contact-form-container {
-            background-color: var(--color-white);
-            padding: var(--space-8);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .contact-form-container h2 {
-            margin-bottom: var(--space-2);
-        }
-        
-        .contact-form-container > p {
-            color: var(--color-gray);
-            margin-bottom: var(--space-6);
-        }
-        
-        .contact-info-container {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-6);
-        }
-        
-        .contact-card {
-            background-color: var(--color-white);
-            padding: var(--space-6);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .contact-card-icon {
-            font-size: var(--text-3xl);
-            margin-bottom: var(--space-4);
-        }
-        
-        .contact-card h3 {
-            font-size: var(--text-lg);
-            margin-bottom: var(--space-2);
-        }
-        
-        .contact-card p {
-            color: var(--color-gray);
-            font-size: var(--text-sm);
-            margin-bottom: var(--space-2);
-        }
-        
-        .contact-card p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .contact-card a {
-            color: var(--color-rose);
-            font-weight: var(--font-medium);
-        }
-        
-        .hours-list {
-            font-size: var(--text-sm);
-        }
-        
-        .hours-list dt {
-            color: var(--color-charcoal);
-            font-weight: var(--font-medium);
-            float: left;
-            clear: left;
-            width: 100px;
-        }
-        
-        .hours-list dd {
-            color: var(--color-gray);
-            margin-left: 100px;
-            margin-bottom: var(--space-2);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: var(--space-4);
-            margin-top: var(--space-4);
-        }
-        
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--color-cream);
-            border-radius: var(--radius-full);
-            transition: all var(--transition-fast);
-        }
-        
-        .social-links a:hover {
-            background-color: var(--color-rose-light);
-            transform: translateY(-3px);
-        }
-        
-        .social-links img {
-            width: 24px;
-            height: 24px;
-        }
-        
-        @media (min-width: 1024px) {
-            .contact-container {
-                grid-template-columns: 1.2fr 1fr;
-            }
-        }
-    </style>
 </head>
-<body class="contact-page">
+<body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="nav-logo">
-                    <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" style="height: 50px; width: auto;">
-                </a>
+                <a href="index.html" class="nav-logo">InJoy <span>Beauty</span></a>
                 
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
@@ -177,11 +58,14 @@
     <!-- Contact Content -->
     <section class="section">
         <div class="container">
-            <div class="contact-container">
+            <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8); max-width: 1100px; margin: 0 auto;">
+                
                 <!-- Contact Form -->
-                <div class="contact-form-container">
-                    <h2>Send a Message</h2>
-                    <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+                <div style="background: var(--color-white); padding: var(--space-8); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <h2 style="margin-bottom: var(--space-2);">Send a Message</h2>
+                    <p style="color: var(--color-gray); margin-bottom: var(--space-6);">
+                        Fill out the form below and I'll get back to you as soon as possible.
+                    </p>
                     
                     <form id="contact-form" action="https://formspree.io/f/xgooaepo" method="POST">
                         <input type="hidden" name="_subject" value="Contact Form - InJoy Beauty">
@@ -211,56 +95,65 @@
                         </button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="services-section section">
+        <div class="container">
+            <div class="grid grid-4">
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:jaymie.injoy.services@gmail.com">jaymie.injoy.services@gmail.com</a></p>
+                </div>
                 
-                <!-- Contact Info -->
-                <div class="contact-info-container">
-                    <div class="contact-card">
-                        <div class="contact-card-icon">📧</div>
-                        <h3>Email</h3>
-                        <p>For inquiries and appointments:</p>
-                        <p><a href="mailto:jaymie.injoy.services@gmail.com">jaymie.injoy.services@gmail.com</a></p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-card-icon">📞</div>
-                        <h3>Phone</h3>
-                        <p>Give me a call or text:</p>
-                        <p><a href="tel:6138686944">613-868-6944</a></p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-card-icon">🕐</div>
-                        <h3>Hours</h3>
-                        <dl class="hours-list">
-                            <dt>Mon-Sat</dt>
-                            <dd>3:00 PM - 8:00 PM</dd>
-                            <dt>Sunday</dt>
-                            <dd>Closed</dd>
-                        </dl>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-card-icon">📍</div>
-                        <h3>Location</h3>
-                        <p><strong>Home Salon:</strong> Bourget, Ontario</p>
-                        <p><strong>Mobile Services:</strong> Available throughout the area (additional charge applies)</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-card-icon">🌐</div>
-                        <h3>Follow Along</h3>
-                        <p>Stay connected and see my latest work:</p>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <img src="assets/images/social/facebook2.png" alt="Facebook">
-                            </a>
-                            <a href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <img src="assets/images/social/instagram2.png" alt="Instagram">
-                            </a>
-                        </div>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p>Call or text:<br><a href="tel:6138686944">613-868-6944</a></p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🕐</div>
+                    <h3>Hours</h3>
+                    <p>Mon-Sat: 3PM - 8PM<br>Sunday: Closed</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📍</div>
+                    <h3>Location</h3>
+                    <p><strong>Home Salon:</strong> Bourget, ON<br><strong>Mobile:</strong> Available</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Social -->
+    <section class="section" style="background-color: var(--color-beige); text-align: center;">
+        <div class="container container-sm">
+            <span class="section-subtitle">Stay Connected</span>
+            <h2 style="margin-bottom: var(--space-6);">Follow Along</h2>
+            <div style="display: flex; justify-content: center; gap: var(--space-6);">
+                <a href="https://www.facebook.com" target="_blank" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--color-charcoal);">
+                    <span style="font-size: var(--text-4xl);">📘</span>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/injoy_beautyy" target="_blank" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--color-charcoal);">
+                    <span style="font-size: var(--text-4xl);">📸</span>
+                    <span>@injoy_beautyy</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Book?</h2>
+            <p>Skip the form and request an appointment directly.</p>
+            <a href="booking.html" class="btn btn-lg">Book Appointment</a>
         </div>
     </section>
 
@@ -269,9 +162,12 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="assets/images/branding/InjoyOGsmall.jpg" alt="InJoy Beauty" style="width: 80px; height: auto; border-radius: var(--radius-md); margin-bottom: var(--space-4);">
-                    <p class="brand-title" style="color: var(--color-white); font-family: var(--font-heading); font-size: var(--text-lg);">INJOY • Inclusive Beauty</p>
-                    <p style="color: var(--color-gray-light); font-style: italic;">Everyone deserves to feel beautiful.</p>
+                    <a href="index.html" class="nav-logo">InJoy <span>Beauty</span></a>
+                    <p>Inclusive, sensory-friendly beauty services. Everyone deserves to feel beautiful.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">📘</a>
+                        <a href="https://www.instagram.com/injoy_beautyy" target="_blank" aria-label="Instagram">📸</a>
+                    </div>
                 </div>
                 
                 <div class="footer-links">
