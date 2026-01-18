@@ -754,10 +754,66 @@ ul, ol {
 /* Page header with background image */
 .page-header[style*="background-image"] {
     background-blend-mode: multiply;
-    background-attachment: fixed;
     background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
     overflow: hidden;
+    min-height: 350px;
+}
+
+/* Responsive background sizing and positioning for optimal fit */
+/* Mobile: prioritize showing the center/main content area */
+@media (max-width: 480px) {
+    .page-header[style*="background-image"] {
+        background-size: cover;
+        background-position: center 40%;
+        background-attachment: scroll;
+        min-height: 280px;
+    }
+}
+
+/* Tablet: balanced view of image */
+@media (min-width: 481px) and (max-width: 768px) {
+    .page-header[style*="background-image"] {
+        background-size: cover;
+        background-position: center 35%;
+        background-attachment: scroll;
+        min-height: 320px;
+    }
+}
+
+/* Small desktop: maintain aspect ratio with fixed attachment */
+@media (min-width: 769px) and (max-width: 1023px) {
+    .page-header[style*="background-image"] {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center 35%;
+        min-height: 380px;
+    }
+}
+
+/* Large desktop: optimal viewing with parallax effect */
+@media (min-width: 1024px) {
+    .page-header[style*="background-image"] {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center 30%;
+        min-height: 450px;
+    }
+}
+
+/* Extra large screens: fine-tune positioning */
+@media (min-width: 1440px) {
+    .page-header[style*="background-image"] {
+        background-position: center 25%;
+    }
+}
+
+/* Portrait orientation adjustments */
+@media (orientation: portrait) and (max-width: 768px) {
+    .page-header[style*="background-image"] {
+        background-position: center 50%;
+    }
 }
 
 .page-header[style*="background-image"]::before {
