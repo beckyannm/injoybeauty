@@ -365,19 +365,19 @@ ul, ol {
 }
 
 /* Services at a Glance section variant for home page */
-.services-section[style*="background-color: #EDE8DC"] {
-    background-color: #EDE8DC;
+.services-section[style*="background-color: #DEE8CE"] {
+    background-color: #DEE8CE;
 }
 
-.services-section[style*="background-color: #EDE8DC"] .section-subtitle {
+.services-section[style*="background-color: #DEE8CE"] .section-subtitle {
     color: #D49A89;
 }
 
-.services-section[style*="background-color: #EDE8DC"] .section-title {
+.services-section[style*="background-color: #DEE8CE"] .section-title {
     color: var(--color-charcoal);
 }
 
-.services-section[style*="background-color: #EDE8DC"] .divider {
+.services-section[style*="background-color: #DEE8CE"] .divider {
     background-color: #E7CCCC;
 }
 
@@ -390,22 +390,22 @@ ul, ol {
 }
 
 /* Service cards in Services at a Glance section */
-.services-section[style*="background-color: #EDE8DC"] .service-card {
-    background-color: #DEE8CE;
-    border: 1px solid rgba(222, 232, 206, 0.5);
+.services-section[style*="background-color: #DEE8CE"] .service-card {
+    background-color: #96A78D;
+    border: 1px solid rgba(150, 167, 141, 0.5);
 }
 
-.services-section[style*="background-color: #EDE8DC"] .service-card h3 {
+.services-section[style*="background-color: #DEE8CE"] .service-card h3 {
     color: var(--color-charcoal);
 }
 
-.services-section[style*="background-color: #EDE8DC"] .service-card p {
+.services-section[style*="background-color: #DEE8CE"] .service-card p {
     color: var(--color-charcoal);
     opacity: 0.8;
 }
 
-.services-section[style*="background-color: #EDE8DC"] .service-card:hover {
-    background-color: #D0DDB8;
+.services-section[style*="background-color: #DEE8CE"] .service-card:hover {
+    background-color: #879777;
     border-color: #E7CCCC;
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
@@ -430,17 +430,17 @@ ul, ol {
 }
 
 /* Service icons in Services at a Glance section */
-.services-section[style*="background-color: #EDE8DC"] .service-icon {
+.services-section[style*="background-color: #DEE8CE"] .service-icon {
     background-color: #E7CCCC;
     color: var(--color-charcoal);
 }
 
-.services-section[style*="background-color: #EDE8DC"] .btn-outline {
+.services-section[style*="background-color: #DEE8CE"] .btn-outline {
     border-color: #E7CCCC;
     color: var(--color-charcoal);
 }
 
-.services-section[style*="background-color: #EDE8DC"] .btn-outline:hover {
+.services-section[style*="background-color: #DEE8CE"] .btn-outline:hover {
     background-color: #E7CCCC;
     color: var(--color-charcoal);
 }
