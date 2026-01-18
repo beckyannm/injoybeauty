@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jamie's Beauty Studio - Mobile beauty services including hair, facial, body treatments, and nail care. Book your appointment today.">
+    <title>Jamie's Beauty Studio | Mobile Beauty Services</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="nav-mobile">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="booking.html" class="nav-link">Book Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle">Welcome to</p>
+                <h1 class="hero-title">
+                    Where <strong>Beauty</strong> Comes to <strong>You</strong>
+                </h1>
+                <p class="hero-description">
+                    Experience luxury beauty services in the comfort of your own space. 
+                    From stunning hair transformations to rejuvenating facials, Jamie brings 
+                    the salon experience directly to you.
+                </p>
+                <div class="hero-buttons">
+                    <a href="booking.html" class="btn btn-primary btn-lg">Book Appointment</a>
+                    <a href="services.html" class="btn btn-secondary btn-lg">View Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=800&fit=crop" 
+                     alt="Beautiful hair styling">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-section section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What We Offer</span>
+                <h2 class="section-title">Our Services</h2>
+                <div class="divider"></div>
+                <p class="section-description">
+                    Discover our range of professional beauty services, all delivered 
+                    with care and expertise right at your doorstep.
+                </p>
+            </div>
+            
+            <div class="grid grid-4" id="services-preview">
+                <!-- Services loaded via JavaScript -->
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3>Hair</h3>
+                    <p>Precision cuts, stunning color, and beautiful styling for every occasion.</p>
+                    <a href="services.html?category=Hair" class="btn btn-outline btn-sm">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Facial</h3>
+                    <p>Rejuvenating treatments to reveal your natural glow.</p>
+                    <a href="services.html?category=Facial" class="btn btn-outline btn-sm">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💆</div>
+                    <h3>Body</h3>
+                    <p>Relaxing massages and body treatments for total wellness.</p>
+                    <a href="services.html?category=Body" class="btn btn-outline btn-sm">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💅</div>
+                    <h3>Nailcare</h3>
+                    <p>Luxurious manicures and pedicures with artistic designs.</p>
+                    <a href="services.html?category=Nailcare" class="btn btn-outline btn-sm">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview section">
+        <div class="container">
+            <div class="about-preview-grid">
+                <div class="about-preview-image">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=500&h=600&fit=crop" 
+                         alt="Jamie - Beauty Specialist">
+                </div>
+                <div class="about-preview-content">
+                    <span class="section-subtitle">Meet Jamie</span>
+                    <h2>Passionate About Making You Feel Beautiful</h2>
+                    <div class="divider divider-left"></div>
+                    <p>
+                        With over a decade of experience in the beauty industry, I've dedicated my 
+                        career to helping clients discover their most confident selves. My mobile 
+                        beauty studio brings professional-grade services directly to you.
+                    </p>
+                    <p>
+                        Every appointment is a personalized experience, tailored to your unique 
+                        needs and preferences. Whether it's a special occasion or regular maintenance, 
+                        I'm committed to exceeding your expectations.
+                    </p>
+                    <a href="about.html" class="btn btn-primary">Learn More About Jamie</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="gallery-preview section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">My Work</span>
+                <h2 class="section-title">Portfolio Gallery</h2>
+                <div class="divider"></div>
+                <p class="section-description">
+                    A glimpse into the transformations and artistry that happen every day.
+                </p>
+            </div>
+            
+            <div class="gallery-grid" id="gallery-preview">
+                <!-- Gallery loaded via JavaScript -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop" alt="Hair styling">
+                    <div class="gallery-overlay"><span>Hair</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=400&fit=crop" alt="Highlights">
+                    <div class="gallery-overlay"><span>Hair</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=400&fit=crop" alt="Facial">
+                    <div class="gallery-overlay"><span>Facial</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=400&fit=crop" alt="Styling">
+                    <div class="gallery-overlay"><span>Hair</span></div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: var(--space-8);">
+                <a href="gallery.html" class="btn btn-secondary">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Look and Feel Your Best?</h2>
+            <p>Book your appointment today and experience the luxury of mobile beauty services.</p>
+            <a href="booking.html" class="btn btn-lg">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                    <p>Bringing professional beauty services directly to you. Experience luxury, comfort, and exceptional results.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">👤</a>
+                        <a href="#" aria-label="Pinterest">📌</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html?category=Hair">Hair</a>
+                    <a href="services.html?category=Facial">Facial</a>
+                    <a href="services.html?category=Body">Body</a>
+                    <a href="services.html?category=Nailcare">Nailcare</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📧 hello@jamiesbeauty.com</p>
+                    <p>📞 (555) 123-4567</p>
+                    <p>📍 Serving the Greater Metro Area</p>
+                    <p>🕐 Mon-Sat: 9AM - 6PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jamie's Beauty Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

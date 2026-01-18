@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our full menu of beauty services including hair styling, facials, body treatments, and nail care. Find the perfect service for you.">
+    <title>Services | Jamie's Beauty Studio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+    <style>
+        .services-page {
+            background-color: var(--color-cream);
+            min-height: 100vh;
+        }
+        
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-10);
+        }
+        
+        .category-tab {
+            padding: var(--space-3) var(--space-6);
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+            background-color: var(--color-white);
+            color: var(--color-gray);
+            border: 1px solid var(--color-beige-dark);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .category-tab:hover {
+            border-color: var(--color-rose);
+            color: var(--color-rose);
+        }
+        
+        .category-tab.active {
+            background-color: var(--color-rose);
+            border-color: var(--color-rose);
+            color: var(--color-white);
+        }
+        
+        .service-category {
+            margin-bottom: var(--space-12);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-4);
+            border-bottom: 2px solid var(--color-beige);
+        }
+        
+        .category-icon {
+            font-size: var(--text-3xl);
+        }
+        
+        .category-header h2 {
+            margin: 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+        }
+        
+        .service-item {
+            background-color: var(--color-white);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+        
+        .service-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+        }
+        
+        .service-header h3 {
+            margin: 0;
+            font-size: var(--text-lg);
+        }
+        
+        .service-price {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            font-weight: var(--font-semibold);
+            color: var(--color-rose);
+            white-space: nowrap;
+        }
+        
+        .service-description {
+            color: var(--color-gray);
+            font-size: var(--text-sm);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-4);
+        }
+        
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-duration {
+            font-size: var(--text-sm);
+            color: var(--color-gray-light);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: var(--space-16) 0;
+        }
+        
+        .loading p {
+            margin-top: var(--space-4);
+            color: var(--color-gray);
+        }
+        
+        .error-message {
+            text-align: center;
+            padding: var(--space-12);
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+        }
+        
+        .no-services {
+            text-align: center;
+            padding: var(--space-8);
+            color: var(--color-gray);
+        }
+        
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="services-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+        
+        <div class="nav-mobile">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link active">Services</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="booking.html" class="nav-link">Book Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Services</span>
+            </nav>
+            <h1>Our Services</h1>
+            <p>Discover our full menu of professional beauty services, all delivered with care and expertise.</p>
+        </div>
+    </section>
+
+    <!-- Services Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Category Filters -->
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Services</button>
+                <button class="category-tab" data-category="Hair">Hair</button>
+                <button class="category-tab" data-category="Facial">Facial</button>
+                <button class="category-tab" data-category="Body">Body</button>
+                <button class="category-tab" data-category="Nailcare">Nailcare</button>
+            </div>
+            
+            <!-- Services Container -->
+            <div id="services-container">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading services...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Found Your Perfect Service?</h2>
+            <p>Book your appointment today and experience the difference.</p>
+            <a href="booking.html" class="btn btn-lg">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                    <p>Bringing professional beauty services directly to you. Experience luxury, comfort, and exceptional results.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">👤</a>
+                        <a href="#" aria-label="Pinterest">📌</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html?category=Hair">Hair</a>
+                    <a href="services.html?category=Facial">Facial</a>
+                    <a href="services.html?category=Body">Body</a>
+                    <a href="services.html?category=Nailcare">Nailcare</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📧 hello@jamiesbeauty.com</p>
+                    <p>📞 (555) 123-4567</p>
+                    <p>📍 Serving the Greater Metro Area</p>
+                    <p>🕐 Mon-Sat: 9AM - 6PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jamie's Beauty Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our portfolio of beautiful transformations. See examples of hair styling, facials, nail art, and more from Jamie's Beauty Studio.">
+    <title>Gallery | Jamie's Beauty Studio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+    <style>
+        .gallery-page {
+            background-color: var(--color-cream);
+            min-height: 100vh;
+        }
+        
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-10);
+        }
+        
+        .gallery-filter-btn {
+            padding: var(--space-3) var(--space-6);
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            letter-spacing: var(--tracking-wide);
+            text-transform: uppercase;
+            background-color: var(--color-white);
+            color: var(--color-gray);
+            border: 1px solid var(--color-beige-dark);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .gallery-filter-btn:hover {
+            border-color: var(--color-rose);
+            color: var(--color-rose);
+        }
+        
+        .gallery-filter-btn.active {
+            background-color: var(--color-rose);
+            border-color: var(--color-rose);
+            color: var(--color-white);
+        }
+        
+        #gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+        }
+        
+        #gallery-grid .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+        
+        #gallery-grid .gallery-item-large {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+        
+        #gallery-grid .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        #gallery-grid .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        #gallery-grid .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(61, 61, 61, 0.8), transparent 50%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: var(--space-4);
+        }
+        
+        #gallery-grid .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-category {
+            color: var(--color-rose-light);
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            margin-bottom: var(--space-1);
+        }
+        
+        .gallery-zoom {
+            color: var(--color-white);
+            font-size: var(--text-xl);
+        }
+        
+        /* Lightbox */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: var(--z-modal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-base);
+        }
+        
+        #lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+        }
+        
+        .lightbox-caption {
+            text-align: center;
+            color: var(--color-white);
+            padding: var(--space-4);
+            font-size: var(--text-sm);
+        }
+        
+        .lightbox-close,
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--color-white);
+            font-size: var(--text-2xl);
+            cursor: pointer;
+            padding: var(--space-3);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-fast);
+        }
+        
+        .lightbox-close:hover,
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .lightbox-close {
+            top: -50px;
+            right: 0;
+        }
+        
+        .lightbox-prev {
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .lightbox-next {
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        @media (min-width: 768px) {
+            #gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-6);
+            }
+            
+            #gallery-grid .gallery-item-large {
+                grid-column: span 2;
+                grid-row: span 2;
+                aspect-ratio: 1;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            #gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .lightbox-prev,
+            .lightbox-next {
+                position: fixed;
+                top: auto;
+                bottom: 80px;
+                transform: none;
+            }
+            
+            .lightbox-prev {
+                left: 20%;
+            }
+            
+            .lightbox-next {
+                right: 20%;
+            }
+            
+            .lightbox-close {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="gallery-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                    <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+        
+        <div class="nav-mobile">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="gallery.html" class="nav-link active">Gallery</a>
+            <a href="booking.html" class="nav-link">Book Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Gallery</span>
+            </nav>
+            <h1>Portfolio Gallery</h1>
+            <p>A showcase of beautiful transformations and the artistry that happens every day.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Filters -->
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="all">All</button>
+                <button class="gallery-filter-btn" data-filter="Hair">Hair</button>
+                <button class="gallery-filter-btn" data-filter="Facial">Facial</button>
+                <button class="gallery-filter-btn" data-filter="Nailcare">Nails</button>
+                <button class="gallery-filter-btn" data-filter="Body">Body</button>
+                <button class="gallery-filter-btn" data-filter="Studio">Studio</button>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div id="gallery-grid">
+                <!-- Gallery images loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready for Your Transformation?</h2>
+            <p>Let's create something beautiful together.</p>
+            <a href="booking.html" class="btn btn-lg">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <!-- Lightbox content injected via JavaScript -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                    <p>Bringing professional beauty services directly to you. Experience luxury, comfort, and exceptional results.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">👤</a>
+                        <a href="#" aria-label="Pinterest">📌</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html?category=Hair">Hair</a>
+                    <a href="services.html?category=Facial">Facial</a>
+                    <a href="services.html?category=Body">Body</a>
+                    <a href="services.html?category=Nailcare">Nailcare</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📧 hello@jamiesbeauty.com</p>
+                    <p>📞 (555) 123-4567</p>
+                    <p>📍 Serving the Greater Metro Area</p>
+                    <p>🕐 Mon-Sat: 9AM - 6PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jamie's Beauty Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

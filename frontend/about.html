@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Jamie, the passionate beauty professional behind Jamie's Beauty Studio. Discover my story, qualifications, and approach to beauty.">
+    <title>About Jamie | Jamie's Beauty Studio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+    <style>
+        .about-hero {
+            padding: calc(80px + var(--space-12)) 0 var(--space-12);
+            background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream) 100%);
+        }
+        
+        .about-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+            align-items: center;
+        }
+        
+        .about-image-container {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .about-image {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .about-image-accent {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid var(--color-rose);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+        }
+        
+        .about-intro h1 {
+            margin-bottom: var(--space-4);
+        }
+        
+        .about-intro .lead {
+            font-size: var(--text-xl);
+            color: var(--color-gray);
+            line-height: var(--leading-relaxed);
+        }
+        
+        .about-story {
+            background-color: var(--color-white);
+        }
+        
+        .about-story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-story h2 {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .about-story p {
+            font-size: var(--text-lg);
+            line-height: var(--leading-loose);
+            color: var(--color-gray);
+            margin-bottom: var(--space-6);
+        }
+        
+        .about-values {
+            background-color: var(--color-cream);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: var(--space-6);
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: var(--space-8);
+            background-color: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .value-icon {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-4);
+        }
+        
+        .value-card h3 {
+            margin-bottom: var(--space-3);
+        }
+        
+        .value-card p {
+            color: var(--color-gray);
+            font-size: var(--text-sm);
+            margin-bottom: 0;
+        }
+        
+        .qualifications {
+            background: linear-gradient(135deg, var(--color-rose-light) 0%, var(--color-rose) 100%);
+            color: var(--color-white);
+        }
+        
+        .qualifications h2 {
+            color: var(--color-white);
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .qual-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .qual-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+            padding: var(--space-4) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .qual-item:last-child {
+            border-bottom: none;
+        }
+        
+        .qual-icon {
+            font-size: var(--text-xl);
+            flex-shrink: 0;
+        }
+        
+        .qual-item h4 {
+            color: var(--color-white);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-1);
+        }
+        
+        .qual-item p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: var(--text-sm);
+            margin: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .about-hero-grid {
+                grid-template-columns: 1fr 1.2fr;
+                gap: var(--space-12);
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+        
+        <div class="nav-mobile">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link active">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="booking.html" class="nav-link">Book Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-grid">
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=500&fit=crop" 
+                         alt="Jamie - Beauty Specialist" 
+                         class="about-image">
+                    <div class="about-image-accent"></div>
+                </div>
+                
+                <div class="about-intro">
+                    <span class="section-subtitle">Hello, I'm Jamie</span>
+                    <h1>Passionate About Bringing Out Your Natural Beauty</h1>
+                    <div class="divider divider-left"></div>
+                    <p class="lead">
+                        For over 12 years, I've had the privilege of transforming not just looks, 
+                        but confidence. My mobile beauty studio was born from a simple belief: 
+                        everyone deserves to feel beautiful, and luxury shouldn't be bound by walls.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Story -->
+    <section class="about-story section">
+        <div class="container">
+            <div class="about-story-content">
+                <h2>My Story</h2>
+                
+                <p>
+                    My journey into the beauty industry began in my grandmother's kitchen, watching 
+                    her style hair for neighbors and friends. There was something magical about seeing 
+                    someone's face light up when they caught their reflection. That spark of joy and 
+                    confidence – that's what I knew I wanted to create.
+                </p>
+                
+                <p>
+                    After training at the Academy of Beauty Arts and working at several prestigious 
+                    salons, I noticed something important: many clients struggled to find time for 
+                    self-care between work, family, and life's endless demands. That's when the idea 
+                    for Jamie's Beauty Studio was born – a fully mobile service that brings the salon 
+                    experience to you.
+                </p>
+                
+                <p>
+                    Today, I serve clients throughout the greater metro area, from bridal parties to 
+                    busy professionals to anyone who deserves a moment of pampering. Each appointment 
+                    is more than just a service; it's a personalized experience designed around your 
+                    unique needs, preferences, and lifestyle.
+                </p>
+                
+                <p>
+                    When I'm not behind the chair, you'll find me exploring new techniques, attending 
+                    industry workshops, or simply enjoying time with my rescue dogs. I believe in 
+                    continuous learning and bringing the latest trends and techniques to my clients.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Values -->
+    <section class="about-values section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What I Believe In</span>
+                <h2 class="section-title">My Approach</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Personal Connection</h3>
+                    <p>Every client is unique. I take time to understand your style, preferences, and lifestyle to deliver results that truly reflect you.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3>Quality First</h3>
+                    <p>I use only premium, professional-grade products. Your hair, skin, and nails deserve the best, and I never compromise on quality.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🏠</div>
+                    <h3>Comfort & Convenience</h3>
+                    <p>Skip the commute and the wait. Enjoy salon-quality services in the comfort of your home, office, or wherever works for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualifications -->
+    <section class="qualifications section">
+        <div class="container">
+            <h2>Training & Certifications</h2>
+            
+            <div class="qual-list">
+                <div class="qual-item">
+                    <span class="qual-icon">🎓</span>
+                    <div>
+                        <h4>Licensed Cosmetologist</h4>
+                        <p>State Board Certified with 12+ years of professional experience</p>
+                    </div>
+                </div>
+                
+                <div class="qual-item">
+                    <span class="qual-icon">💇</span>
+                    <div>
+                        <h4>Advanced Color Specialist</h4>
+                        <p>Certified in balayage, color correction, and creative color techniques</p>
+                    </div>
+                </div>
+                
+                <div class="qual-item">
+                    <span class="qual-icon">✨</span>
+                    <div>
+                        <h4>Skincare Professional</h4>
+                        <p>Trained in facial treatments, chemical peels, and advanced skincare</p>
+                    </div>
+                </div>
+                
+                <div class="qual-item">
+                    <span class="qual-icon">💆</span>
+                    <div>
+                        <h4>Massage Therapy Certificate</h4>
+                        <p>Licensed in Swedish, deep tissue, and relaxation massage techniques</p>
+                    </div>
+                </div>
+                
+                <div class="qual-item">
+                    <span class="qual-icon">💅</span>
+                    <div>
+                        <h4>Nail Art Specialist</h4>
+                        <p>Trained in gel, acrylic, and artistic nail design techniques</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Create Something Beautiful Together</h2>
+            <p>Ready to experience personalized beauty services? I'd love to meet you.</p>
+            <a href="booking.html" class="btn btn-lg">Book Your Appointment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                    <p>Bringing professional beauty services directly to you. Experience luxury, comfort, and exceptional results.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">👤</a>
+                        <a href="#" aria-label="Pinterest">📌</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html?category=Hair">Hair</a>
+                    <a href="services.html?category=Facial">Facial</a>
+                    <a href="services.html?category=Body">Body</a>
+                    <a href="services.html?category=Nailcare">Nailcare</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📧 hello@jamiesbeauty.com</p>
+                    <p>📞 (555) 123-4567</p>
+                    <p>📍 Serving the Greater Metro Area</p>
+                    <p>🕐 Mon-Sat: 9AM - 6PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jamie's Beauty Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

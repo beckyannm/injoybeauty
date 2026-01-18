@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your appointment with Jamie's Beauty Studio. Choose your service, pick a date and time, and we'll come to you.">
+    <title>Book Appointment | Jamie's Beauty Studio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+    <style>
+        .booking-page {
+            background-color: var(--color-cream);
+            min-height: 100vh;
+        }
+        
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+        }
+        
+        .booking-form-container {
+            background-color: var(--color-white);
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .booking-form-container h2 {
+            margin-bottom: var(--space-6);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+        }
+        
+        #service-details {
+            min-height: 0;
+        }
+        
+        .service-info-card {
+            background-color: var(--color-cream-light);
+            padding: var(--space-4);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-4);
+        }
+        
+        .service-info-card h4 {
+            margin-bottom: var(--space-2);
+            font-size: var(--text-base);
+        }
+        
+        .service-info-card p {
+            font-size: var(--text-sm);
+            color: var(--color-gray);
+            margin-bottom: var(--space-3);
+        }
+        
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-meta .price {
+            font-size: var(--text-lg);
+        }
+        
+        .service-meta .duration {
+            font-size: var(--text-sm);
+            color: var(--color-gray);
+        }
+        
+        .booking-info {
+            background-color: var(--color-beige);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+        }
+        
+        .booking-info h3 {
+            margin-bottom: var(--space-4);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+        
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-icon {
+            font-size: var(--text-xl);
+            flex-shrink: 0;
+        }
+        
+        .info-item h4 {
+            font-size: var(--text-base);
+            margin-bottom: var(--space-1);
+        }
+        
+        .info-item p {
+            font-size: var(--text-sm);
+            color: var(--color-gray);
+            margin: 0;
+        }
+        
+        /* Booking Confirmation */
+        .booking-confirmation {
+            text-align: center;
+            padding: var(--space-8);
+        }
+        
+        .confirmation-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-sage);
+            color: var(--color-white);
+            font-size: var(--text-3xl);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-6);
+        }
+        
+        .booking-confirmation h2 {
+            margin-bottom: var(--space-2);
+        }
+        
+        .booking-confirmation > p {
+            color: var(--color-gray);
+            margin-bottom: var(--space-8);
+        }
+        
+        .confirmation-details {
+            background-color: var(--color-cream-light);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            text-align: left;
+            margin-bottom: var(--space-6);
+        }
+        
+        .confirmation-details h3 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-4);
+            text-align: center;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid var(--color-beige);
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-row .label {
+            color: var(--color-gray);
+        }
+        
+        .detail-row .value {
+            font-weight: var(--font-medium);
+        }
+        
+        .confirmation-note {
+            font-size: var(--text-sm);
+            color: var(--color-gray);
+            margin-bottom: var(--space-6);
+        }
+        
+        .confirmation-actions {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .booking-container {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="booking-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="booking.html" class="nav-link active">Book Now</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+        
+        <div class="nav-mobile">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="booking.html" class="nav-link active">Book Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Book Appointment</span>
+            </nav>
+            <h1>Book Your Appointment</h1>
+            <p>Select your service, choose a date and time, and we'll bring the salon experience to you.</p>
+        </div>
+    </section>
+
+    <!-- Booking Content -->
+    <section class="section">
+        <div class="container">
+            <div class="booking-container">
+                <!-- Booking Form -->
+                <div class="booking-form-container">
+                    <h2>Schedule Your Visit</h2>
+                    
+                    <form id="booking-form">
+                        <!-- Service Selection -->
+                        <div class="form-group">
+                            <label for="service" class="form-label">Select Service *</label>
+                            <select id="service" name="service" class="form-select" required>
+                                <option value="">Loading services...</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Service Details -->
+                        <div id="service-details"></div>
+                        
+                        <!-- Date and Time -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="booking-date" class="form-label">Preferred Date *</label>
+                                <input type="date" id="booking-date" name="booking_date" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="booking-time" class="form-label">Preferred Time *</label>
+                                <select id="booking-time" name="booking_time" class="form-select" required disabled>
+                                    <option value="">Select a date first</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Client Information -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Your Name *</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Jane Smith" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="jane@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(555) 123-4567">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes" class="form-label">Special Requests or Notes</label>
+                            <textarea id="notes" name="notes" class="form-textarea" placeholder="Let us know about any allergies, preferences, or special requests..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                            Book Appointment
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Booking Info Sidebar -->
+                <div class="booking-info">
+                    <h3>Booking Information</h3>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4>Mobile Service</h4>
+                            <p>We come to you! Service is available throughout the greater metro area.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">🕐</span>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Monday - Saturday<br>9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div>
+                            <h4>Questions?</h4>
+                            <p>Call us at (555) 123-4567 or <a href="contact.html">send a message</a>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">💳</span>
+                        <div>
+                            <h4>Payment</h4>
+                            <p>We accept cash, credit cards, and digital payments. Payment is collected at the time of service.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📝</span>
+                        <div>
+                            <h4>Cancellation Policy</h4>
+                            <p>Please provide at least 24 hours notice for cancellations or rescheduling.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                    <p>Bringing professional beauty services directly to you. Experience luxury, comfort, and exceptional results.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">👤</a>
+                        <a href="#" aria-label="Pinterest">📌</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html?category=Hair">Hair</a>
+                    <a href="services.html?category=Facial">Facial</a>
+                    <a href="services.html?category=Body">Body</a>
+                    <a href="services.html?category=Nailcare">Nailcare</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📧 hello@jamiesbeauty.com</p>
+                    <p>📞 (555) 123-4567</p>
+                    <p>📍 Serving the Greater Metro Area</p>
+                    <p>🕐 Mon-Sat: 9AM - 6PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jamie's Beauty Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
