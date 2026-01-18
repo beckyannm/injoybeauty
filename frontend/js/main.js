@@ -228,10 +228,10 @@ async function loadServicesPreview() {
         const categories = await api.get('/api/services/categories');
         
         const icons = {
-            'Hair': '✂️',
-            'Facial': '✨',
-            'Body': '💆',
-            'Nailcare': '💅'
+            'Hair': '✂',
+            'Facial': '◉',
+            'Body': '◉',
+            'Nailcare': '◈'
         };
 
         const descriptions = {
