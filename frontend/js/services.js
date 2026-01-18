@@ -75,10 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, {});
 
         const categoryIcons = {
-            'Hair': '✂️',
-            'Facial': '✨',
-            'Body': '💆',
-            'Nailcare': '💅'
+            'Hair': '✂',
+            'Facial': '◉',
+            'Body': '◉',
+            'Nailcare': '◈'
         };
 
         let html = '';
