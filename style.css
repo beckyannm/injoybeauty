@@ -253,10 +253,12 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
-/* Gallery page uses a different background - neutral and soft */
+/* Gallery page uses the same background as other pages */
 .gallery-page .site-main {
-  background: #F5E8DD;
-  background-image: none;
+  background: linear-gradient(to right, #F6F5F2, #F0EBE3, #FFEFEF, #F3D0D7);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   padding-top: 0;
 }
 

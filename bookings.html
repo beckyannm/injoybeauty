@@ -112,25 +112,44 @@
 
         <form id="bookingRequest" method="POST" action="https://formspree.io/f/yourFormID" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;max-width:100%;box-sizing:border-box;">
           <input name="honeypot" style="display:none">
-          <label for="rq-name" style="grid-column:1 / -1;">Full name</label>
-          <input id="rq-name" name="name" style="grid-column:1 / -1;box-sizing:border-box;" type="text" required>
+          
+          <div style="grid-column:1 / -1;">
+            <label for="rq-fname">Name (required)</label>
+          </div>
+          
+          <div style="grid-column:1;">
+            <input id="rq-fname" name="firstName" placeholder="First Name" type="text" style="box-sizing:border-box;width:100%;" required>
+          </div>
+          
+          <div style="grid-column:2;">
+            <input id="rq-lname" name="lastName" placeholder="Last Name" type="text" style="box-sizing:border-box;width:100%;" required>
+          </div>
 
-          <label for="rq-email">Email</label>
-          <input id="rq-email" name="email" type="email" style="box-sizing:border-box;" required>
+          <label for="rq-email" style="grid-column:1 / -1;">Email (required)</label>
+          <input id="rq-email" name="email" type="email" style="grid-column:1 / -1;box-sizing:border-box;" required>
 
-          <label for="rq-phone">Phone</label>
-          <input id="rq-phone" name="phone" type="tel" style="box-sizing:border-box;">
+          <label for="rq-phone" style="grid-column:1 / -1;">Phone</label>
+          <input id="rq-phone" name="phone" type="tel" style="grid-column:1 / -1;box-sizing:border-box;">
 
-          <label for="rq-service">Service</label>
-          <select id="rq-service" name="service" style="box-sizing:border-box;">
-            <option>Haircut / Styling</option>
-            <option>Colour</option>
-            <option>Other</option>
+          <label for="rq-service" style="grid-column:1 / -1;">What service would you like to book?</label>
+          <select id="rq-service" name="service" style="grid-column:1 / -1;box-sizing:border-box;">
+            <option value="">Select a service...</option>
+            <option>Haircut/Style</option>
+            <option>Haircut/Style with Coloring</option>
+            <option>Nail Services</option>
+            <option>Nail & Hair Services</option>
           </select>
 
           <div style="grid-column:1 / -1; margin-top:.5rem;">
-            <label for="rq-notes">Notes</label>
-            <textarea id="rq-notes" name="notes" placeholder="Short note about what you'd like" style="width:100%;box-sizing:border-box;min-height:80px;"></textarea>
+            <label for="rq-mobile" style="display:flex;align-items:center;gap:.5rem;cursor:pointer;">
+              <input id="rq-mobile" name="mobileServices" type="checkbox" style="width:auto;">
+              <span>Do you require mobile services?</span>
+            </label>
+          </div>
+
+          <div style="grid-column:1 / -1; margin-top:.5rem;">
+            <label for="rq-summary">Summary of what service you require (required)</label>
+            <textarea id="rq-summary" name="summary" placeholder="Please give a detailed explanation of the needed services and your requirements" style="width:100%;box-sizing:border-box;min-height:100px;" required></textarea>
           </div>
 
           <div style="grid-column:1 / -1; display:flex; gap:.5rem; align-items:center; margin-top:.25rem; flex-wrap:wrap;">
