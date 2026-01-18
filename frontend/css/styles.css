@@ -671,3 +671,186 @@ ul, ol {
 .breadcrumb span {
     color: var(--color-gray-light);
 }
+
+/* ===== Mobile-First Responsive Improvements ===== */
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+    /* Smaller hero text on phones */
+    .hero-title {
+        font-size: var(--text-3xl);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--text-base);
+    }
+    
+    .hero-description {
+        font-size: var(--text-base);
+    }
+    
+    /* Full-width buttons on small screens */
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Smaller section titles */
+    .section-title {
+        font-size: var(--text-2xl);
+    }
+    
+    h1 {
+        font-size: var(--text-3xl);
+    }
+    
+    h2 {
+        font-size: var(--text-2xl);
+    }
+    
+    h3 {
+        font-size: var(--text-xl);
+    }
+    
+    /* Reduce section padding on mobile */
+    .section {
+        padding: var(--space-10) 0;
+    }
+    
+    .page-header {
+        padding: calc(70px + var(--space-10)) 0 var(--space-10);
+    }
+    
+    /* CTA section adjustments */
+    .cta-section {
+        padding: var(--space-10) 0;
+    }
+    
+    .cta-section h2 {
+        font-size: var(--text-2xl);
+    }
+    
+    /* Service card adjustments */
+    .service-card {
+        padding: var(--space-5);
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-2xl);
+    }
+    
+    /* Footer adjustments */
+    .footer {
+        padding: var(--space-10) 0 var(--space-6);
+    }
+    
+    .footer-contact p {
+        flex-wrap: wrap;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+    /* Reduce hero title size */
+    .hero-title {
+        font-size: var(--text-4xl);
+    }
+    
+    /* Stack hero content properly */
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: var(--space-12);
+    }
+    
+    /* Better touch targets */
+    .nav-link {
+        padding: var(--space-2);
+    }
+    
+    .nav-mobile .nav-link {
+        padding: var(--space-4) 0;
+        font-size: var(--text-lg);
+        border-bottom: 1px solid var(--color-beige);
+    }
+    
+    /* Ensure buttons are easily tappable */
+    .btn {
+        min-height: 44px;
+        padding: var(--space-3) var(--space-5);
+    }
+    
+    .btn-lg {
+        padding: var(--space-4) var(--space-6);
+    }
+    
+    /* Form inputs need to be 16px to prevent zoom on iOS */
+    .form-input,
+    .form-select,
+    .form-textarea {
+        font-size: 16px;
+    }
+    
+    /* About preview stack on mobile */
+    .about-preview {
+        background: var(--color-beige);
+    }
+    
+    .about-preview-content {
+        padding: var(--space-6) 0;
+    }
+    
+    .about-preview-image::before {
+        display: none;
+    }
+}
+
+/* Ensure images don't overflow */
+@media (max-width: 640px) {
+    .gallery-grid {
+        gap: var(--space-3);
+    }
+    
+    /* Make checkbox/radio options easier to tap */
+    .checkbox-option,
+    .radio-option {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .checkbox-option input,
+    .radio-option input {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Prevent horizontal scroll */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Smooth scroll for anchor links */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

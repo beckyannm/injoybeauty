@@ -122,6 +122,44 @@
                 grid-template-columns: 1fr 1fr;
             }
         }
+        
+        /* Mobile improvements */
+        @media (max-width: 480px) {
+            .form-section {
+                padding: var(--space-4);
+                margin-bottom: var(--space-4);
+            }
+            
+            .form-section-title {
+                font-size: var(--text-lg);
+            }
+            
+            .form-section-title span {
+                font-size: var(--text-xl);
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+            
+            .radio-option {
+                padding: var(--space-2);
+                background: var(--color-cream-light);
+                border-radius: var(--radius-md);
+                min-height: 44px;
+            }
+            
+            .intake-form-container > div[style*="text-align: center"] p {
+                font-size: var(--text-base) !important;
+            }
+            
+            /* Make submit button full width on mobile */
+            .btn[style*="min-width: 250px"] {
+                width: 100% !important;
+                min-width: auto !important;
+            }
+        }
     </style>
 </head>
 <body>
