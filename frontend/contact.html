@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact InJoy Beauty - Get in touch with Jaymie for questions about sensory-friendly beauty services in Bourget, Ontario.">
+    <title>Contact | InJoy Beauty</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ziy7hsd.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" class="logo-img">
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+        
+        <div class="nav-mobile">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="booking.html" class="nav-link">Book Now</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Contact</span>
+            </nav>
+            <h1>Get in Touch</h1>
+            <p>Have questions or want to learn more? I'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8); max-width: 1100px; margin: 0 auto;">
+                
+                <!-- Contact Form -->
+                <div style="background: var(--color-white); padding: var(--space-8); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <h2 style="margin-bottom: var(--space-2);">Send a Message</h2>
+                    <p style="color: var(--color-gray); margin-bottom: var(--space-6);">
+                        Fill out the form below and I'll get back to you as soon as possible.
+                    </p>
+                    
+                    <form id="contact-form" action="https://formspree.io/f/xgooaepo" method="POST">
+                        <input type="hidden" name="_subject" value="Contact Form - InJoy Beauty">
+                        
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="How can I help you?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me more about your inquiry..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="services-section section">
+        <div class="container">
+            <div class="grid grid-4">
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:jaymie.injoy.services@gmail.com">jaymie.injoy.services@gmail.com</a></p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p>Call or text:<br><a href="tel:6138686944">613-868-6944</a></p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🕐</div>
+                    <h3>Hours</h3>
+                    <p>Mon-Sat: 3PM - 8PM<br>Sunday: Closed</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📍</div>
+                    <h3>Location</h3>
+                    <p><strong>Home Salon:</strong> Bourget, ON<br><strong>Mobile:</strong> Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social -->
+    <section class="section" style="background-color: var(--color-beige); text-align: center;">
+        <div class="container container-sm">
+            <span class="section-subtitle">Stay Connected</span>
+            <h2 style="margin-bottom: var(--space-6);">Follow Along</h2>
+            <div style="display: flex; justify-content: center; gap: var(--space-6);">
+                <a href="https://www.facebook.com" target="_blank" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--color-charcoal);">
+                    <img src="assets/images/social/facebook2.png" alt="Facebook" style="width: 48px; height: 48px;">
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/injoy_beautyy" target="_blank" style="display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--color-charcoal);">
+                    <img src="assets/images/social/instagram2.png" alt="Instagram" style="width: 48px; height: 48px;">
+                    <span>@injoy_beautyy</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Book?</h2>
+            <p>Skip the form and request an appointment directly.</p>
+            <a href="booking.html" class="btn btn-lg">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" class="logo-img-footer">
+                    </a>
+                    <p>Inclusive, sensory-friendly beauty services. Everyone deserves to feel beautiful.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><img src="assets/images/social/facebook2.png" alt="Facebook" style="width: 24px; height: 24px;"></a>
+                        <a href="https://www.instagram.com/injoy_beautyy" target="_blank" aria-label="Instagram"><img src="assets/images/social/instagram2.png" alt="Instagram" style="width: 24px; height: 24px;"></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html">Hair Services</a>
+                    <a href="services.html">Facial & Body Hair</a>
+                    <a href="services.html">Nail Care</a>
+                    <a href="booking.html">Mobile Services</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📧 jaymie.injoy.services@gmail.com</p>
+                    <p>📞 613-868-6944</p>
+                    <p>📍 Bourget, Ontario</p>
+                    <p>🕐 Mon-Sat: 3PM - 8PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 InJoy Beauty — All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

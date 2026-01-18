@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: injoybeauty
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: FLASK_ENV
+        value: production
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: RESEND_API_KEY
+        sync: false
+      - key: NOTIFICATION_EMAIL
+        value: rebeccamayne27@gmail.com
+      - key: CORS_ORIGINS
+        value: https://injoybeauty.ca,https://www.injoybeauty.ca,http://localhost:5000

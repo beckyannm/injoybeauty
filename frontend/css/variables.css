@@ -1,0 +1,139 @@
+/**
+ * CSS Custom Properties for Jamie's Beauty Studio
+ * Design System Variables
+ */
+
+:root {
+    /* ===== Color Palette ===== */
+    
+    /* Primary Colors - New Palette */
+    --color-cream: #F6F5F2;
+    --color-cream-light: #F0EBE3;
+    --color-beige: #F0EBE3;
+    --color-beige-dark: #E8DFD5;
+    --color-taupe: #D9CFC3;
+    --color-taupe-dark: #C4B7A6;
+    
+    /* Accent Colors */
+    --color-rose: #F3D0D7;
+    --color-rose-light: #FFEFEF;
+    --color-rose-dark: #E5C4C4;
+    --color-sage: #B5C4B1;
+    --color-sage-light: #C8D4C5;
+    --color-sage-dark: #9AAF96;
+    
+    /* Text Colors */
+    --color-charcoal: #3D3D3D;
+    --color-charcoal-light: #4A4A4A;
+    --color-gray: #6B6B6B;
+    --color-gray-light: #8A8A8A;
+    --color-white: #FFFFFF;
+    
+    /* Semantic Colors */
+    --color-success: #9AAF96;
+    --color-error: #C27070;
+    --color-warning: #D4B896;
+    
+    /* ===== Typography ===== */
+    
+    /* Font Families */
+    /* TypeKit font (ivypresto-display) for headings, titles, and larger text */
+    --font-heading: 'ivypresto-display', 'Cormorant Garamond', 'Georgia', serif;
+    --font-body: 'Lato', 'Helvetica Neue', sans-serif;
+    --font-accent: 'ivypresto-display', 'Cormorant', serif;
+    
+    /* Font Sizes - Using clamp for responsive sizing */
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+    --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.25rem);
+    --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+    --text-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+    --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+    --text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+    --text-5xl: clamp(3rem, 2rem + 5vw, 5rem);
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* Line Heights */
+    --leading-tight: 1.2;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+    
+    /* Letter Spacing */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    
+    /* ===== Spacing ===== */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+    
+    /* ===== Layout ===== */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1440px;
+    
+    /* ===== Borders ===== */
+    --border-width: 1px;
+    --border-width-2: 2px;
+    --border-color: var(--color-taupe);
+    --border-color-light: var(--color-beige);
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* ===== Shadows ===== */
+    --shadow-sm: 0 1px 2px rgba(61, 61, 61, 0.05);
+    --shadow-md: 0 4px 6px rgba(61, 61, 61, 0.07);
+    --shadow-lg: 0 10px 15px rgba(61, 61, 61, 0.1);
+    --shadow-xl: 0 20px 25px rgba(61, 61, 61, 0.15);
+    
+    /* ===== Transitions ===== */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+    --transition-slower: 500ms ease;
+    
+    /* ===== Z-Index ===== */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-tooltip: 600;
+}
+
+/* Dark mode variables (optional, for future use) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Can be enabled later if needed */
+    }
+}

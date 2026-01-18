@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your appointment with InJoy Beauty. Flexible, sensory-friendly scheduling in Bourget, Ontario or mobile visits to your location.">
+    <title>Book Appointment | InJoy Beauty</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ziy7hsd.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" class="logo-img">
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="booking.html" class="nav-link active">Book Now</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+        
+        <div class="nav-mobile">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="booking.html" class="nav-link active">Book Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Book Appointment</span>
+            </nav>
+            <h1>Appointments That Work for You</h1>
+            <p>Flexible booking to meet your comfort level and needs.</p>
+        </div>
+    </section>
+
+    <!-- Booking Info -->
+    <section class="section" style="background-color: var(--color-white);">
+        <div class="container container-sm">
+            <div style="text-align: center; padding: var(--space-6); background: var(--color-cream); border-radius: var(--radius-lg); margin-bottom: var(--space-8);">
+                <h2 style="margin-bottom: var(--space-4);">Your Visit, Your Way</h2>
+                <p style="color: var(--color-gray); line-height: var(--leading-relaxed); margin-bottom: var(--space-3);">
+                    I offer flexible booking to meet your comfort level and needs. Appointments can be booked 
+                    for either <strong>in-home visits</strong> (mobile services) or <strong>salon appointments</strong> 
+                    in my Bourget location.
+                </p>
+                <p style="color: var(--color-gray); line-height: var(--leading-relaxed); margin-bottom: var(--space-4);">
+                    If you need extra time for sensory breaks, movement, or conversation, I'm happy to schedule 
+                    accordingly — <strong>no rush, no pressure</strong>.
+                </p>
+                <div style="background: var(--color-rose-light); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); display: inline-block;">
+                    <strong style="color: var(--color-rose-dark);">Availability:</strong> Monday → Saturday │ 3:00 PM – 8:00 PM
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8); max-width: 1000px; margin: 0 auto;">
+                
+                <!-- Form -->
+                <div style="background: var(--color-white); padding: var(--space-8); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <h3 style="margin-bottom: var(--space-2);">Request a Booking</h3>
+                    <p style="color: var(--color-gray); font-size: var(--text-sm); margin-bottom: var(--space-6);">
+                        Fill out the form below and I'll follow up to confirm your appointment details.
+                    </p>
+                    
+                    <form id="booking-form" action="https://formspree.io/f/xgooaepo" method="POST">
+                        <input type="hidden" name="_subject" value="New Booking Request - InJoy Beauty">
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" placeholder="First name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Last name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(613) 000-0000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="form-label">Which service are you interested in? *</label>
+                            <select id="service" name="service" class="form-select" required>
+                                <option value="">Select a service...</option>
+                                <option value="haircut-style">Haircut or Styling</option>
+                                <option value="haircut-color">Haircut/Style with Coloring</option>
+                                <option value="nails">Nail Care</option>
+                                <option value="nails-hair">Nailcare & Hair Services</option>
+                                <option value="facial-body">Facial & Body Hair Services</option>
+                                <option value="other">Other (please describe below)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: var(--space-2); cursor: pointer; font-weight: normal;">
+                                <input type="checkbox" name="mobileServices" value="yes" style="width: auto;">
+                                <span>I require mobile services (you come to me)</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="details" class="form-label">Tell Me About Your Visit *</label>
+                            <textarea id="details" name="details" class="form-textarea" placeholder="Please describe the services you're looking for and any specific needs, preferences, or accommodations that would help make your visit comfortable." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                            Send Request
+                        </button>
+                        
+                        <p style="font-size: var(--text-sm); color: var(--color-gray); margin-top: var(--space-4); text-align: center;">
+                            I will contact you to confirm availability and discuss details.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="services-section section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Helpful Info</span>
+                <h2 class="section-title">Booking Details</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="service-card">
+                    <div class="service-icon">📍</div>
+                    <h3>Location</h3>
+                    <p><strong>Home Salon:</strong> Bourget, ON<br><strong>Mobile:</strong> I come to you!</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🕐</div>
+                    <h3>Hours</h3>
+                    <p>Monday - Saturday<br>3:00 PM - 8:00 PM</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📞</div>
+                    <h3>Questions?</h3>
+                    <p>Call/Text: <a href="tel:6138686944">613-868-6944</a></p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Intake Form</h3>
+                    <p>First-time clients, please <a href="intake.html" style="font-weight: bold;">fill out the intake form</a> online or <a href="assets/injoyintakeform.pdf" download>download PDF</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" class="logo-img-footer">
+                    </a>
+                    <p>Inclusive, sensory-friendly beauty services. Everyone deserves to feel beautiful.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><img src="assets/images/social/facebook2.png" alt="Facebook" style="width: 24px; height: 24px;"></a>
+                        <a href="https://www.instagram.com/injoy_beautyy" target="_blank" aria-label="Instagram"><img src="assets/images/social/instagram2.png" alt="Instagram" style="width: 24px; height: 24px;"></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html">Hair Services</a>
+                    <a href="services.html">Facial & Body Hair</a>
+                    <a href="services.html">Nail Care</a>
+                    <a href="booking.html">Mobile Services</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📧 jaymie.injoy.services@gmail.com</p>
+                    <p>📞 613-868-6944</p>
+                    <p>📍 Bourget, Ontario</p>
+                    <p>🕐 Mon-Sat: 3PM - 8PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 InJoy Beauty — All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
