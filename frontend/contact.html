@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with Jamie's Beauty Studio. Contact us for questions, inquiries, or to learn more about our mobile beauty services.">
-    <title>Contact | Jamie's Beauty Studio</title>
+    <meta name="description" content="Contact InJoy Beauty - Get in touch with Jaymie for questions about sensory-friendly beauty services in Bourget, Ontario.">
+    <title>Contact | InJoy Beauty</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
     <style>
         .contact-page {
             background-color: var(--color-cream);
@@ -91,21 +91,6 @@
             margin-bottom: var(--space-2);
         }
         
-        .service-area-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-2);
-            margin-top: var(--space-3);
-        }
-        
-        .service-area-list span {
-            background-color: var(--color-cream);
-            padding: var(--space-1) var(--space-3);
-            border-radius: var(--radius-full);
-            font-size: var(--text-xs);
-            color: var(--color-gray);
-        }
-        
         .social-links {
             display: flex;
             gap: var(--space-4);
@@ -120,41 +105,17 @@
             justify-content: center;
             background-color: var(--color-cream);
             border-radius: var(--radius-full);
-            font-size: var(--text-xl);
             transition: all var(--transition-fast);
         }
         
         .social-links a:hover {
-            background-color: var(--color-rose);
+            background-color: var(--color-rose-light);
             transform: translateY(-3px);
         }
         
-        /* Contact Success */
-        .contact-success {
-            text-align: center;
-            padding: var(--space-8);
-        }
-        
-        .contact-success .success-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--color-sage);
-            color: var(--color-white);
-            font-size: var(--text-3xl);
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--space-6);
-        }
-        
-        .contact-success h3 {
-            margin-bottom: var(--space-2);
-        }
-        
-        .contact-success p {
-            color: var(--color-gray);
-            margin-bottom: var(--space-6);
+        .social-links img {
+            width: 24px;
+            height: 24px;
         }
         
         @media (min-width: 1024px) {
@@ -169,7 +130,9 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" style="height: 50px; width: auto;">
+                </a>
                 
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
@@ -207,7 +170,7 @@
                 <span>Contact</span>
             </nav>
             <h1>Get in Touch</h1>
-            <p>Have questions or want to learn more? We'd love to hear from you.</p>
+            <p>Have questions or want to learn more? I'd love to hear from you.</p>
         </div>
     </section>
 
@@ -218,27 +181,29 @@
                 <!-- Contact Form -->
                 <div class="contact-form-container">
                     <h2>Send a Message</h2>
-                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    <p>Fill out the form below and I'll get back to you as soon as possible.</p>
                     
-                    <form id="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/xgooaepo" method="POST">
+                        <input type="hidden" name="_subject" value="Contact Form - InJoy Beauty">
+                        
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name *</label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Jane Smith" required>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="jane@example.com" required>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-input" placeholder="How can we help you?">
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="How can I help you?">
                         </div>
                         
                         <div class="form-group">
                             <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us more about your inquiry..." required></textarea>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me more about your inquiry..." required></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
@@ -253,32 +218,22 @@
                         <div class="contact-card-icon">📧</div>
                         <h3>Email</h3>
                         <p>For inquiries and appointments:</p>
-                        <p><a href="mailto:hello@jamiesbeauty.com">hello@jamiesbeauty.com</a></p>
+                        <p><a href="mailto:jaymie.injoy.services@gmail.com">jaymie.injoy.services@gmail.com</a></p>
                     </div>
                     
                     <div class="contact-card">
                         <div class="contact-card-icon">📞</div>
                         <h3>Phone</h3>
-                        <p>Give us a call or text:</p>
-                        <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+                        <p>Give me a call or text:</p>
+                        <p><a href="tel:6138686944">613-868-6944</a></p>
                     </div>
                     
                     <div class="contact-card">
                         <div class="contact-card-icon">🕐</div>
                         <h3>Hours</h3>
                         <dl class="hours-list">
-                            <dt>Monday</dt>
-                            <dd>9:00 AM - 6:00 PM</dd>
-                            <dt>Tuesday</dt>
-                            <dd>9:00 AM - 6:00 PM</dd>
-                            <dt>Wednesday</dt>
-                            <dd>9:00 AM - 6:00 PM</dd>
-                            <dt>Thursday</dt>
-                            <dd>9:00 AM - 6:00 PM</dd>
-                            <dt>Friday</dt>
-                            <dd>9:00 AM - 6:00 PM</dd>
-                            <dt>Saturday</dt>
-                            <dd>9:00 AM - 6:00 PM</dd>
+                            <dt>Mon-Sat</dt>
+                            <dd>3:00 PM - 8:00 PM</dd>
                             <dt>Sunday</dt>
                             <dd>Closed</dd>
                         </dl>
@@ -286,27 +241,22 @@
                     
                     <div class="contact-card">
                         <div class="contact-card-icon">📍</div>
-                        <h3>Service Areas</h3>
-                        <p>We bring beauty to you! Mobile services available in:</p>
-                        <div class="service-area-list">
-                            <span>Downtown</span>
-                            <span>Midtown</span>
-                            <span>Uptown</span>
-                            <span>Westside</span>
-                            <span>Eastside</span>
-                            <span>Suburbs</span>
-                        </div>
+                        <h3>Location</h3>
+                        <p><strong>Home Salon:</strong> Bourget, Ontario</p>
+                        <p><strong>Mobile Services:</strong> Available throughout the area (additional charge applies)</p>
                     </div>
                     
                     <div class="contact-card">
                         <div class="contact-card-icon">🌐</div>
-                        <h3>Follow Us</h3>
-                        <p>Stay connected and see our latest work:</p>
+                        <h3>Follow Along</h3>
+                        <p>Stay connected and see my latest work:</p>
                         <div class="social-links">
-                            <a href="#" aria-label="Instagram">📷</a>
-                            <a href="#" aria-label="Facebook">👤</a>
-                            <a href="#" aria-label="Pinterest">📌</a>
-                            <a href="#" aria-label="TikTok">🎵</a>
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <img src="assets/images/social/facebook2.png" alt="Facebook">
+                            </a>
+                            <a href="https://www.instagram.com/injoy_beautyy" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <img src="assets/images/social/instagram2.png" alt="Instagram">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -319,13 +269,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
-                    <p>Bringing professional beauty services directly to you. Experience luxury, comfort, and exceptional results.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="Facebook">👤</a>
-                        <a href="#" aria-label="Pinterest">📌</a>
-                    </div>
+                    <img src="assets/images/branding/InjoyOGsmall.jpg" alt="InJoy Beauty" style="width: 80px; height: auto; border-radius: var(--radius-md); margin-bottom: var(--space-4);">
+                    <p class="brand-title" style="color: var(--color-white); font-family: var(--font-heading); font-size: var(--text-lg);">INJOY • Inclusive Beauty</p>
+                    <p style="color: var(--color-gray-light); font-style: italic;">Everyone deserves to feel beautiful.</p>
                 </div>
                 
                 <div class="footer-links">
@@ -338,28 +284,27 @@
                 
                 <div class="footer-links">
                     <h4 class="footer-title">Services</h4>
-                    <a href="services.html?category=Hair">Hair</a>
-                    <a href="services.html?category=Facial">Facial</a>
-                    <a href="services.html?category=Body">Body</a>
-                    <a href="services.html?category=Nailcare">Nailcare</a>
+                    <a href="services.html">Hair Services</a>
+                    <a href="services.html">Facial & Body Hair</a>
+                    <a href="services.html">Nail Care</a>
+                    <a href="booking.html">Mobile Services</a>
                 </div>
                 
                 <div class="footer-contact">
                     <h4 class="footer-title">Contact</h4>
-                    <p>📧 hello@jamiesbeauty.com</p>
-                    <p>📞 (555) 123-4567</p>
-                    <p>📍 Serving the Greater Metro Area</p>
-                    <p>🕐 Mon-Sat: 9AM - 6PM</p>
+                    <p>📧 jaymie.injoy.services@gmail.com</p>
+                    <p>📞 613-868-6944</p>
+                    <p>📍 Bourget, Ontario</p>
+                    <p>🕐 Mon-Sat: 3PM - 8PM</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 Jamie's Beauty Studio. All rights reserved.</p>
+                <p>&copy; 2026 InJoy Beauty — All Rights Reserved</p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/contact.js"></script>
 </body>
 </html>

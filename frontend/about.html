@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Jamie, the passionate beauty professional behind Jamie's Beauty Studio. Discover my story, qualifications, and approach to beauty.">
-    <title>About Jamie | Jamie's Beauty Studio</title>
+    <meta name="description" content="Meet Jaymie Law, owner of InJoy Beauty. A Developmental Service Worker turned beauty professional, passionate about inclusive, sensory-friendly beauty care.">
+    <title>About Jaymie | InJoy Beauty</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
     <style>
         .about-hero {
             padding: calc(80px + var(--space-12)) 0 var(--space-12);
@@ -22,13 +22,14 @@
         
         .about-image-container {
             position: relative;
-            max-width: 400px;
+            max-width: 350px;
             margin: 0 auto;
         }
         
         .about-image {
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-xl);
+            width: 100%;
         }
         
         .about-image-accent {
@@ -40,6 +41,14 @@
             border: 2px solid var(--color-rose);
             border-radius: var(--radius-lg);
             z-index: -1;
+        }
+        
+        .photo-caption {
+            text-align: center;
+            margin-top: var(--space-3);
+            font-size: var(--text-sm);
+            color: var(--color-gray);
+            font-style: italic;
         }
         
         .about-intro h1 {
@@ -158,7 +167,13 @@
             }
             
             .values-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -168,7 +183,9 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/images/branding/InjoyBeauty.png" alt="InJoy Beauty" style="height: 50px; width: auto;">
+                </a>
                 
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
@@ -202,20 +219,21 @@
         <div class="container">
             <div class="about-hero-grid">
                 <div class="about-image-container">
-                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=500&fit=crop" 
-                         alt="Jamie - Beauty Specialist" 
+                    <img src="assets/images/jaymieselfie.jpg" 
+                         alt="Jaymie Law - Owner of InJoy Beauty" 
                          class="about-image">
                     <div class="about-image-accent"></div>
+                    <p class="photo-caption">Jaymie Law — Owner & DSW</p>
                 </div>
                 
                 <div class="about-intro">
-                    <span class="section-subtitle">Hello, I'm Jamie</span>
-                    <h1>Passionate About Bringing Out Your Natural Beauty</h1>
+                    <span class="section-subtitle">Hello, I'm Jaymie!</span>
+                    <h1>Passionate About Inclusive Beauty</h1>
                     <div class="divider divider-left"></div>
                     <p class="lead">
-                        For over 12 years, I've had the privilege of transforming not just looks, 
-                        but confidence. My mobile beauty studio was born from a simple belief: 
-                        everyone deserves to feel beautiful, and luxury shouldn't be bound by walls.
+                        I'm Jaymie Law, and I'm the proud owner of InJoy Beauty. I believe that 
+                        everyone deserves to feel beautiful — in a space that feels safe, calm, 
+                        and respectful of their unique needs.
                     </p>
                 </div>
             </div>
@@ -229,62 +247,67 @@
                 <h2>My Story</h2>
                 
                 <p>
-                    My journey into the beauty industry began in my grandmother's kitchen, watching 
-                    her style hair for neighbors and friends. There was something magical about seeing 
-                    someone's face light up when they caught their reflection. That spark of joy and 
-                    confidence – that's what I knew I wanted to create.
+                    I am a <strong>Developmental Service Worker (DSW)</strong> specializing in autism and 
+                    behavioural therapy, with over <strong>7 years of experience</strong> supporting adults 
+                    with special needs. I currently work as a Day Program Supervisor, helping clients 
+                    build independence and confidence every day.
                 </p>
                 
                 <p>
-                    After training at the Academy of Beauty Arts and working at several prestigious 
-                    salons, I noticed something important: many clients struggled to find time for 
-                    self-care between work, family, and life's endless demands. That's when the idea 
-                    for Jamie's Beauty Studio was born – a fully mobile service that brings the salon 
-                    experience to you.
+                    After earning my DSW diploma from <strong>Algonquin College</strong>, I wanted to combine 
+                    my love for helping others with my passion for beauty and self-care. I completed a 
+                    Hairdressing program at <strong>Versailles Academy</strong>, where I developed my skills 
+                    in haircutting, coloring, and styling.
                 </p>
                 
                 <p>
-                    Today, I serve clients throughout the greater metro area, from bridal parties to 
-                    busy professionals to anyone who deserves a moment of pampering. Each appointment 
-                    is more than just a service; it's a personalized experience designed around your 
-                    unique needs, preferences, and lifestyle.
+                    Through my work in the developmental services field, I've witnessed how something as 
+                    simple as getting a haircut or a beard trim can be <strong>stressful or inaccessible</strong> 
+                    for some individuals. Traditional salons can be overwhelming — the noise, the crowds, 
+                    the time pressure. I wanted to change that.
                 </p>
                 
                 <p>
-                    When I'm not behind the chair, you'll find me exploring new techniques, attending 
-                    industry workshops, or simply enjoying time with my rescue dogs. I believe in 
-                    continuous learning and bringing the latest trends and techniques to my clients.
+                    <strong>My mission is to remove those barriers</strong> and make self-care a calming, 
+                    joyful experience for everyone. At InJoy Beauty, there's no rush, no judgment — just 
+                    patient, understanding care tailored to you.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- My Values -->
+    <!-- Why Choose InJoy -->
     <section class="about-values section">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">What I Believe In</span>
-                <h2 class="section-title">My Approach</h2>
+                <span class="section-subtitle">What Makes Us Different</span>
+                <h2 class="section-title">Why Choose InJoy Beauty</h2>
                 <div class="divider"></div>
             </div>
             
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">🤝</div>
-                    <h3>Personal Connection</h3>
-                    <p>Every client is unique. I take time to understand your style, preferences, and lifestyle to deliver results that truly reflect you.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">✨</div>
-                    <h3>Quality First</h3>
-                    <p>I use only premium, professional-grade products. Your hair, skin, and nails deserve the best, and I never compromise on quality.</p>
+                    <div class="value-icon">🤫</div>
+                    <h3>Sensory-Friendly Environment</h3>
+                    <p>Calm, quiet, and accommodating for sensory sensitivities. Adjustable lighting, minimal noise, and a peaceful atmosphere.</p>
                 </div>
                 
                 <div class="value-card">
                     <div class="value-icon">🏠</div>
-                    <h3>Comfort & Convenience</h3>
-                    <p>Skip the commute and the wait. Enjoy salon-quality services in the comfort of your home, office, or wherever works for you.</p>
+                    <h3>Mobile Services Available</h3>
+                    <p>I come to you! Enjoy beauty services in the comfort of your own home. (Additional charge applies for mobile visits.)</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">⏰</div>
+                    <h3>Flexible Appointments</h3>
+                    <p>Allowing breaks, movement, or sensory time as needed. Your appointment works around your comfort, not the other way around.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">💜</div>
+                    <h3>Inclusive & Judgment-Free</h3>
+                    <p>Serving all ages and abilities with care, patience, and respect. Everyone is welcome here.</p>
                 </div>
             </div>
         </div>
@@ -293,46 +316,38 @@
     <!-- Qualifications -->
     <section class="qualifications section">
         <div class="container">
-            <h2>Training & Certifications</h2>
+            <h2>Training & Background</h2>
             
             <div class="qual-list">
                 <div class="qual-item">
                     <span class="qual-icon">🎓</span>
                     <div>
-                        <h4>Licensed Cosmetologist</h4>
-                        <p>State Board Certified with 12+ years of professional experience</p>
+                        <h4>Developmental Service Worker (DSW)</h4>
+                        <p>Diploma from Algonquin College, specializing in autism and behavioural therapy</p>
                     </div>
                 </div>
                 
                 <div class="qual-item">
-                    <span class="qual-icon">💇</span>
+                    <span class="qual-icon">✂️</span>
                     <div>
-                        <h4>Advanced Color Specialist</h4>
-                        <p>Certified in balayage, color correction, and creative color techniques</p>
+                        <h4>Hairdressing Certificate</h4>
+                        <p>Trained at Versailles Academy in haircutting, coloring, and styling techniques</p>
                     </div>
                 </div>
                 
                 <div class="qual-item">
-                    <span class="qual-icon">✨</span>
+                    <span class="qual-icon">👥</span>
                     <div>
-                        <h4>Skincare Professional</h4>
-                        <p>Trained in facial treatments, chemical peels, and advanced skincare</p>
+                        <h4>7+ Years Experience</h4>
+                        <p>Supporting adults with special needs, including as a Day Program Supervisor</p>
                     </div>
                 </div>
                 
                 <div class="qual-item">
-                    <span class="qual-icon">💆</span>
+                    <span class="qual-icon">💛</span>
                     <div>
-                        <h4>Massage Therapy Certificate</h4>
-                        <p>Licensed in Swedish, deep tissue, and relaxation massage techniques</p>
-                    </div>
-                </div>
-                
-                <div class="qual-item">
-                    <span class="qual-icon">💅</span>
-                    <div>
-                        <h4>Nail Art Specialist</h4>
-                        <p>Trained in gel, acrylic, and artistic nail design techniques</p>
+                        <h4>Passion-Driven Care</h4>
+                        <p>Combining professional beauty skills with deep understanding of accessibility needs</p>
                     </div>
                 </div>
             </div>
@@ -343,7 +358,7 @@
     <section class="cta-section">
         <div class="container">
             <h2>Let's Create Something Beautiful Together</h2>
-            <p>Ready to experience personalized beauty services? I'd love to meet you.</p>
+            <p>Ready to experience beauty care that truly understands you?</p>
             <a href="booking.html" class="btn btn-lg">Book Your Appointment</a>
         </div>
     </section>
@@ -353,13 +368,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="nav-logo">Jamie's <span>Beauty</span></a>
-                    <p>Bringing professional beauty services directly to you. Experience luxury, comfort, and exceptional results.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="Facebook">👤</a>
-                        <a href="#" aria-label="Pinterest">📌</a>
-                    </div>
+                    <img src="assets/images/branding/InjoyOGsmall.jpg" alt="InJoy Beauty" style="width: 80px; height: auto; border-radius: var(--radius-md); margin-bottom: var(--space-4);">
+                    <p class="brand-title" style="color: var(--color-white); font-family: var(--font-heading); font-size: var(--text-lg);">INJOY • Inclusive Beauty</p>
+                    <p style="color: var(--color-gray-light); font-style: italic;">Everyone deserves to feel beautiful.</p>
                 </div>
                 
                 <div class="footer-links">
@@ -372,23 +383,23 @@
                 
                 <div class="footer-links">
                     <h4 class="footer-title">Services</h4>
-                    <a href="services.html?category=Hair">Hair</a>
-                    <a href="services.html?category=Facial">Facial</a>
-                    <a href="services.html?category=Body">Body</a>
-                    <a href="services.html?category=Nailcare">Nailcare</a>
+                    <a href="services.html">Hair Services</a>
+                    <a href="services.html">Facial & Body Hair</a>
+                    <a href="services.html">Nail Care</a>
+                    <a href="booking.html">Mobile Services</a>
                 </div>
                 
                 <div class="footer-contact">
                     <h4 class="footer-title">Contact</h4>
-                    <p>📧 hello@jamiesbeauty.com</p>
-                    <p>📞 (555) 123-4567</p>
-                    <p>📍 Serving the Greater Metro Area</p>
-                    <p>🕐 Mon-Sat: 9AM - 6PM</p>
+                    <p>📧 jaymie.injoy.services@gmail.com</p>
+                    <p>📞 613-868-6944</p>
+                    <p>📍 Bourget, Ontario</p>
+                    <p>🕐 Mon-Sat: 3PM - 8PM</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 Jamie's Beauty Studio. All rights reserved.</p>
+                <p>&copy; 2026 InJoy Beauty — All Rights Reserved</p>
             </div>
         </div>
     </footer>

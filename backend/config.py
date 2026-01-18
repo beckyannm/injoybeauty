@@ -1,5 +1,5 @@
 """
-Configuration settings for Jamie's Beauty Studio backend.
+Configuration settings for InJoy Beauty backend.
 """
 import os
 from pathlib import Path
@@ -22,11 +22,14 @@ class Config:
     CORS_ORIGINS = ['http://localhost:5000', 'http://127.0.0.1:5000']
     
     # Business settings
-    BUSINESS_NAME = "Jamie's Beauty Studio"
-    BUSINESS_EMAIL = "hello@jamiesbeauty.com"
-    BUSINESS_PHONE = "(555) 123-4567"
+    BUSINESS_NAME = "InJoy Beauty"
+    BUSINESS_TAGLINE = "Inclusive Beauty Services"
+    BUSINESS_EMAIL = "jaymie.injoy.services@gmail.com"
+    BUSINESS_PHONE = "613-868-6944"
+    BUSINESS_LOCATION = "Bourget, Ontario"
+    BUSINESS_INSTAGRAM = "https://www.instagram.com/injoy_beautyy"
     
     # Booking settings
-    BOOKING_START_HOUR = 9   # 9 AM
-    BOOKING_END_HOUR = 18    # 6 PM
-    TIME_SLOT_DURATION = 30  # minutes
+    BOOKING_START_HOUR = 15   # 3 PM
+    BOOKING_END_HOUR = 20     # 8 PM
+    TIME_SLOT_DURATION = 30   # minutes
