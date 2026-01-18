@@ -12,11 +12,11 @@
     .bookings-layout{ max-width:1100px; margin:1.75rem auto 2.5rem; padding:1.25rem; display:grid; gap:1.5rem; width: 100%; box-sizing: border-box; }
     .bookings-card{ background: rgba(255,255,255,0.4); border-radius:20px; padding:1.25rem 1.5rem; box-shadow:0 12px 30px rgba(0,0,0,0.06); border:1px solid rgba(255,255,255,0.7); backdrop-filter: blur(8px); box-sizing: border-box; max-width:920px; margin:0 auto; width: 100%; }
     .booking-card{ background: rgba(255,255,255,0.9); border-radius:20px; padding:1.5rem; box-shadow:0 12px 30px rgba(0,0,0,0.06); border:1px solid rgba(255,255,255,0.7); backdrop-filter: blur(8px); box-sizing: border-box; max-width:980px; margin:0 auto; width: 100%; }
-    .quick-booking-section{ background: transparent; padding:2rem 1.5rem; max-width:980px; margin:0 auto; width: 100%; box-sizing: border-box; }
-    .bookings-title{ font-family: "Playfair Display", serif; font-size:clamp(1.8rem, 3vw, 2.2rem); margin:0 0 0.75rem 0; color:#1f2328; }
-    .bookings-sub{ font-size:clamp(0.95rem, 1.5vw, 1.05rem); margin:0 0 0.75rem 0; color:#5f6368; line-height:1.5; }
-    .bookings-availability{ font-size:0.95rem; margin:0 0 0.5rem 0; color:#5f6368; }
-    .bookings-info{ font-size:0.95rem; margin:0; color:#5f6368; line-height:1.6; }
+    .quick-booking-section{ background: transparent; padding:1.5rem 1rem; max-width:800px; margin:0 auto; width: 100%; box-sizing: border-box; }
+    .bookings-title{ font-family: "Playfair Display", serif; font-size:clamp(1.5rem, 2.5vw, 1.9rem); margin:0 0 0.5rem 0; color:#1f2328; }
+    .bookings-sub{ font-size:clamp(0.9rem, 1.3vw, 0.98rem); margin:0 0 0.5rem 0; color:#5f6368; line-height:1.4; }
+    .bookings-availability{ font-size:0.9rem; margin:0 0 0.4rem 0; color:#5f6368; }
+    .bookings-info{ font-size:0.9rem; margin:0; color:#5f6368; line-height:1.5; }
     .preview-wrap{ display:grid; grid-template-columns: 1fr minmax(0, 340px); gap:1rem; align-items:start; }
     .preview-wrap > *{ min-width:0; }
     .pdf-preview{ width:100%; height:640px; max-width:100%; border-radius:8px; overflow:hidden; border:1px solid #ececec; background:#fff; box-sizing: border-box; }
@@ -32,10 +32,11 @@
     .btn{ background: var(--pill-bg); border:1px solid rgba(0,0,0,0.06); color:var(--pill-text); padding:.5rem .9rem; border-radius:999px; font-weight:600; cursor:pointer; }
     .error{ color:#b00020; font-size:.9rem; margin-top:.5rem; }
     #bookingRequest{ font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-    #bookingRequest input, #bookingRequest select, #bookingRequest textarea { max-width: 100%; box-sizing: border-box; width: 100%; font-size:0.95rem; padding:0.5rem; border:1px solid rgba(0,0,0,0.15); border-radius:6px; }
-    #bookingRequest label{ font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:0.9rem; }
+    #bookingRequest input, #bookingRequest select, #bookingRequest textarea { max-width: 100%; box-sizing: border-box; width: 100%; font-size:0.88rem; padding:0.4rem 0.5rem; border:1px solid rgba(0,0,0,0.15); border-radius:6px; }
+    #bookingRequest label{ font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:0.85rem; font-weight:600; }
+    #bookingRequest textarea{ min-height:70px; resize:vertical; }
     @media (max-width:900px){ .preview-wrap{ grid-template-columns: 1fr; } .pdf-preview{ height:clamp(360px, 70vh, 560px); } }
-    @media (max-width:600px){ .pdf-preview{ height:clamp(320px, 65vh, 520px); } .bookings-layout{ padding: 1rem; } .bookings-card, .booking-card, .quick-booking-section{ padding: 1.25rem; } #bookingRequest{ grid-template-columns: 1fr !important; } }
+    @media (max-width:600px){ .pdf-preview{ height:clamp(320px, 65vh, 520px); } .bookings-layout{ padding: 0.75rem; } .bookings-card{ padding: 1rem; } .booking-card, .quick-booking-section{ padding: 1rem 0.75rem; } #bookingRequest{ grid-template-columns: 1fr !important; gap:0.4rem; } #bookingRequest input, #bookingRequest select, #bookingRequest textarea{ font-size:0.9rem; padding:0.45rem; } }
   </style>
 </head>
 <body class="site-page">
@@ -107,14 +108,14 @@
 
       <!-- Quick Booking Section - moved above PDF Intake Form -->
       <div class="quick-booking-section" role="region" aria-label="Quick booking request">
-        <h2 class="display-title" style="margin:0 0 .75rem 0; font-size:1.5rem;">Quick Booking</h2>
-        <p class="note" style="margin-bottom:1rem;">Request a booking without the full intake form. We'll follow up for details.</p>
+        <h2 class="display-title" style="margin:0 0 .5rem 0; font-size:1.35rem;">Quick Booking</h2>
+        <p class="note" style="margin-bottom:0.75rem;font-size:0.88rem;">Request a booking without the full intake form. We'll follow up for details.</p>
 
-        <form id="bookingRequest" method="POST" action="https://formspree.io/f/yourFormID" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;max-width:100%;box-sizing:border-box;">
+        <form id="bookingRequest" method="POST" action="https://formspree.io/f/yourFormID" style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem;max-width:100%;box-sizing:border-box;">
           <input name="honeypot" style="display:none">
           
           <div style="grid-column:1 / -1;">
-            <label>Name (required)</label>
+            <label style="margin-bottom:0.3rem;">Name (required)</label>
           </div>
           
           <div style="grid-column:1;">
@@ -127,36 +128,36 @@
             <input id="rq-lname" name="lastName" placeholder="Last Name" type="text" style="box-sizing:border-box;width:100%;" required>
           </div>
 
-          <label for="rq-email" style="grid-column:1 / -1;">Email (required)</label>
+          <label for="rq-email" style="grid-column:1 / -1;margin-top:0.3rem;">Email (required)</label>
           <input id="rq-email" name="email" type="email" style="grid-column:1 / -1;box-sizing:border-box;" required>
 
-          <label for="rq-phone" style="grid-column:1 / -1;">Phone</label>
+          <label for="rq-phone" style="grid-column:1 / -1;margin-top:0.3rem;">Phone</label>
           <input id="rq-phone" name="phone" type="tel" style="grid-column:1 / -1;box-sizing:border-box;">
 
-          <label for="rq-service" style="grid-column:1 / -1;">What service would you like to book?</label>
-          <select id="rq-service" name="service" style="grid-column:1 / -1;box-sizing:border-box;">
+          <label for="rq-service" style="grid-column:1 / -1;margin-top:0.3rem;">What service would you like to book?</label>
+          <select id="rq-service" name="service" style="grid-column:1 / -1;box-sizing:border-box;" required>
             <option value="">Select a service...</option>
-            <option>Haircut/Style</option>
-            <option>Haircut/Style with Coloring</option>
-            <option>Nail Services</option>
-            <option>Nail & Hair Services</option>
+            <option value="haircut-style">Haircut/Style</option>
+            <option value="haircut-color">Haircut/Style with Coloring</option>
+            <option value="nails">Nail Services</option>
+            <option value="nails-hair">Nail & Hair Services</option>
           </select>
 
-          <div style="grid-column:1 / -1; margin-top:.5rem;">
-            <label for="rq-mobile" style="display:flex;align-items:center;gap:.5rem;cursor:pointer;">
-              <input id="rq-mobile" name="mobileServices" type="checkbox" style="width:auto;">
-              <span>Do you require mobile services?</span>
+          <div style="grid-column:1 / -1; margin-top:0.4rem;">
+            <label for="rq-mobile" style="display:flex;align-items:center;gap:.4rem;cursor:pointer;font-weight:normal;">
+              <input id="rq-mobile" name="mobileServices" type="checkbox" style="width:auto;margin:0;">
+              <span style="font-size:0.88rem;">Do you require mobile services?</span>
             </label>
           </div>
 
-          <div style="grid-column:1 / -1; margin-top:.5rem;">
+          <div style="grid-column:1 / -1; margin-top:0.4rem;">
             <label for="rq-summary">Summary of what service you require (required)</label>
-            <textarea id="rq-summary" name="summary" placeholder="Please give a detailed explanation of the needed services and your requirements" style="width:100%;box-sizing:border-box;min-height:100px;" required></textarea>
+            <textarea id="rq-summary" name="summary" placeholder="Please give a detailed explanation of the needed services and your requirements" style="width:100%;box-sizing:border-box;" required></textarea>
           </div>
 
-          <div style="grid-column:1 / -1; display:flex; gap:.5rem; align-items:center; margin-top:.25rem; flex-wrap:wrap;">
-            <button class="btn" type="submit">Send request</button>
-            <div class="note">I will contact you to confirm availability.</div>
+          <div style="grid-column:1 / -1; display:flex; gap:.5rem; align-items:center; margin-top:.4rem; flex-wrap:wrap;">
+            <button class="btn" type="submit" style="font-size:0.9rem;padding:0.5rem 1rem;">Send request</button>
+            <div class="note" style="font-size:0.85rem;">I will contact you to confirm availability.</div>
           </div>
         </form>
       </div>
