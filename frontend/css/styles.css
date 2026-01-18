@@ -753,7 +753,11 @@ ul, ol {
 
 /* Page header with background image */
 .page-header[style*="background-image"] {
-    background-blend-mode: overlay;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
 }
 
 .page-header[style*="background-image"]::before {
@@ -763,13 +767,15 @@ ul, ol {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(246, 245, 242, 0.85);
+    background: linear-gradient(135deg, rgba(246, 245, 242, 0.92) 0%, rgba(240, 235, 227, 0.88) 100%);
     z-index: 0;
+    backdrop-filter: blur(1px);
 }
 
 .page-header[style*="background-image"] h1,
 .page-header[style*="background-image"] p,
-.page-header[style*="background-image"] .breadcrumb {
+.page-header[style*="background-image"] .breadcrumb,
+.page-header[style*="background-image"] .container {
     position: relative;
     z-index: 1;
 }
