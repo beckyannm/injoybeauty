@@ -61,6 +61,11 @@ body.home-page {
   background: var(--bg-gradient);
 }
 
+/* Apply gradient background to services page */
+body.services-page {
+  background: var(--bg-gradient);
+}
+
 .display-title {
   font-family: var(--heading-font);
   font-weight: 400;
@@ -269,6 +274,11 @@ button:focus-visible {
 
 /* Make background transparent on home page to show gradient */
 .home-page .site-main {
+  background: transparent;
+}
+
+/* Make background transparent on services page to show gradient */
+.services-page .site-main {
   background: transparent;
 }
 
@@ -754,7 +764,6 @@ button:focus-visible {
   border-radius: 30px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 12px 30px rgba(122, 60, 122, 0.08);
   display: grid;
   gap: 1.75rem;
   backdrop-filter: blur(10px);
