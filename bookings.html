@@ -37,7 +37,21 @@
     #bookingRequest label{ font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:0.85rem; font-weight:600; }
     #bookingRequest textarea{ min-height:70px; resize:vertical; }
     @media (max-width:900px){ .preview-wrap{ grid-template-columns: 1fr; } .pdf-preview{ height:clamp(360px, 70vh, 560px); } }
-    @media (max-width:600px){ .pdf-preview{ height:clamp(320px, 65vh, 520px); } .bookings-layout{ padding: 0.75rem; } .bookings-card{ padding: 1rem; } .booking-card, .quick-booking-section{ padding: 1rem 0.75rem; } #bookingRequest{ grid-template-columns: 1fr !important; gap:0.4rem; } #bookingRequest input, #bookingRequest select, #bookingRequest textarea{ font-size:0.9rem; padding:0.45rem; } }
+    @media (max-width:600px){ 
+      .pdf-preview{ height:clamp(320px, 65vh, 520px); } 
+      .bookings-layout{ padding: 1rem; } 
+      .bookings-card{ padding: 1.5rem 1.25rem; } 
+      .booking-card{ padding: 1.5rem 1.25rem; } 
+      .quick-booking-section{ padding: 1.5rem 1.25rem; } 
+      #bookingRequest{ grid-template-columns: 1fr !important; gap:0.75rem; } 
+      #bookingRequest input, #bookingRequest select, #bookingRequest textarea{ font-size:1rem; padding:0.65rem 0.75rem; min-height:44px; } 
+      #bookingRequest label{ font-size:0.95rem; margin-bottom:0.4rem; }
+      #bookingRequest textarea{ min-height:100px; }
+      .bookings-title{ font-size:1.75rem; margin-bottom:1rem; }
+      .bookings-sub, .bookings-availability, .bookings-info{ font-size:1rem; line-height:1.6; margin-bottom:0.75rem; }
+      .note{ font-size:0.95rem; line-height:1.5; }
+      h2{ font-size:1.5rem !important; margin-bottom:0.75rem !important; }
+    }
   </style>
 </head>
 <body class="site-page">
