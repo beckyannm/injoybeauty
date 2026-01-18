@@ -14,5 +14,8 @@ python-dateutil==2.8.2
 # Form validation
 email-validator==2.1.0
 
+# Email (Resend - 3,000 free emails/month)
+resend==2.19.0
+
 # Production server (optional)
 gunicorn==21.2.0

@@ -89,6 +89,95 @@ def get_intake_form(form_id):
         }), 500
 
 
+@intake_bp.route('/api/intake/preview-email', methods=['GET', 'POST'])
+def preview_intake_email():
+    """Preview what the intake email looks like (for testing)."""
+    from email_helper import generate_email_html
+    
+    # Sample data for preview, or use POST data
+    if request.method == 'POST':
+        data = request.get_json()
+    else:
+        # Sample test data
+        data = {
+            'client_name': 'Jane Test',
+            'email': 'jane.test@example.com',
+            'phone': '613-555-1234',
+            'client_type': 'adult',
+            'service_location': 'mobile',
+            'address': '123 Test Street, Ottawa, ON',
+            'service_requested': 'Haircut and color touch-up. Looking for a trim with some lowlights to blend grays.',
+            'hair_length': 'medium',
+            'desired_style': 'trim',
+            'hair_type': 'wavy',
+            'sensitive_to_noise': True,
+            'sensitive_to_touch': False,
+            'does_not_like_water': True,
+            'nervous_anxious': True,
+            'enjoys_fidget_toys': True,
+            'needs_weighted_cape': False,
+            'requires_quiet_environment': True,
+            'other_sensory_needs': 'Prefers minimal conversation, likes soft music playing',
+            'uses_wheelchair': False,
+            'limited_mobility': False,
+            'has_behaviours': False,
+            'behaviour_notes': '',
+            'additional_notes': 'Best contacted via text message. Available weekday afternoons.'
+        }
+    
+    html = generate_email_html(data)
+    return html, 200, {'Content-Type': 'text/html'}
+
+
+@intake_bp.route('/api/intake/test-email', methods=['POST'])
+def test_send_email():
+    """Send a test email to verify formatting (temporary endpoint)."""
+    from email_helper import send_intake_notification
+    
+    data = request.get_json() or {}
+    test_email = data.get('test_email', 'rebeccamayne@live.com')
+    
+    # Sample test data
+    test_data = {
+        'client_name': 'Test Client',
+        'email': 'testclient@example.com',
+        'phone': '613-555-1234',
+        'client_type': 'adult',
+        'service_location': 'mobile',
+        'address': '123 Main Street, Bourget, ON',
+        'service_requested': 'Looking for a haircut and color touch-up. Would like to blend some grays with lowlights.',
+        'hair_length': 'medium',
+        'desired_style': 'trim',
+        'hair_type': 'wavy',
+        'sensitive_to_noise': True,
+        'sensitive_to_touch': False,
+        'does_not_like_water': True,
+        'nervous_anxious': True,
+        'enjoys_fidget_toys': True,
+        'needs_weighted_cape': False,
+        'requires_quiet_environment': True,
+        'other_sensory_needs': 'Prefers minimal conversation, likes soft music playing',
+        'uses_wheelchair': False,
+        'limited_mobility': True,
+        'has_behaviours': True,
+        'behaviour_notes': 'May get anxious in unfamiliar environments, responds well to calm reassurance',
+        'additional_notes': 'Best contacted via text message. Available weekday afternoons after 3pm. Mom will accompany.'
+    }
+    
+    result = send_intake_notification(test_data, override_email=test_email)
+    
+    if result:
+        return jsonify({
+            'success': True,
+            'message': f'Test email sent to {test_email}!'
+        })
+    else:
+        return jsonify({
+            'success': False,
+            'error': 'Failed to send email. Make sure SMTP_PASSWORD is set as an environment variable.'
+        }), 500
+
+
 @intake_bp.route('/api/intake/<int:form_id>/status', methods=['PATCH'])
 def update_intake_status(form_id):
     """Update the status of an intake form."""

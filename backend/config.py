@@ -34,11 +34,7 @@ class Config:
     BOOKING_END_HOUR = 20     # 8 PM
     TIME_SLOT_DURATION = 30   # minutes
     
-    # Email settings (for notifications)
-    # To enable email: set SMTP_PASSWORD environment variable with Gmail App Password
-    # Get App Password: Google Account > Security > 2-Step Verification > App passwords
-    SMTP_SERVER = "smtp.gmail.com"
-    SMTP_PORT = 587
-    SMTP_EMAIL = os.environ.get('SMTP_EMAIL', 'jaymie.injoy.services@gmail.com')
-    SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')  # Gmail App Password
-    NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'jaymie.injoy.services@gmail.com')
+    # Email settings (using Resend - 3,000 free emails/month)
+    # Note: Free tier only sends to the Resend account email. For other recipients, verify a domain.
+    RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 're_epGa96hn_8nvbJjH9qx5hftfypBsmzRdd')
+    NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'rebeccamayne27@gmail.com')  # Receives form notifications
