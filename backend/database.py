@@ -78,6 +78,56 @@ def init_db():
         )
     ''')
     
+    # Create intake_forms table for client intake
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS intake_forms (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            
+            -- Client Information
+            client_name TEXT NOT NULL,
+            phone TEXT,
+            email TEXT NOT NULL,
+            client_type TEXT DEFAULT 'adult',
+            
+            -- Service Location
+            service_location TEXT DEFAULT 'in-salon',
+            address TEXT,
+            
+            -- Service Requested
+            service_requested TEXT,
+            
+            -- Haircut Details
+            hair_length TEXT,
+            desired_style TEXT,
+            desired_style_other TEXT,
+            hair_type TEXT,
+            
+            -- Sensory & Support Needs (stored as comma-separated or JSON)
+            sensitive_to_noise BOOLEAN DEFAULT 0,
+            sensitive_to_touch BOOLEAN DEFAULT 0,
+            does_not_like_water BOOLEAN DEFAULT 0,
+            nervous_anxious BOOLEAN DEFAULT 0,
+            enjoys_fidget_toys BOOLEAN DEFAULT 0,
+            needs_weighted_cape BOOLEAN DEFAULT 0,
+            requires_quiet_environment BOOLEAN DEFAULT 0,
+            other_sensory_needs TEXT,
+            
+            -- Mobility & Safety
+            uses_wheelchair BOOLEAN DEFAULT 0,
+            limited_mobility BOOLEAN DEFAULT 0,
+            has_behaviours BOOLEAN DEFAULT 0,
+            behaviour_notes TEXT,
+            
+            -- Additional Notes
+            additional_notes TEXT,
+            
+            -- Meta
+            status TEXT DEFAULT 'new',
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    
     conn.commit()
     conn.close()
     print("Database initialized successfully!")

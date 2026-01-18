@@ -18,6 +18,7 @@ from routes.bookings import bookings_bp
 from routes.contact import contact_bp
 from routes.gallery import gallery_bp
 from routes.services import services_bp
+from routes.intake import intake_bp
 
 
 def create_app():
@@ -37,6 +38,7 @@ def create_app():
     app.register_blueprint(contact_bp)
     app.register_blueprint(gallery_bp)
     app.register_blueprint(services_bp)
+    app.register_blueprint(intake_bp)
     
     # Serve frontend pages
     @app.route('/')

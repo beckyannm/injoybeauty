@@ -214,3 +214,103 @@ class GalleryImage:
         images = [dict(row) for row in cursor.fetchall()]
         conn.close()
         return images
+
+
+class IntakeForm:
+    """Client intake form model for InJoy Beauty."""
+    
+    @staticmethod
+    def create(data):
+        """Create a new intake form submission."""
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            INSERT INTO intake_forms (
+                client_name, phone, email, client_type,
+                service_location, address, service_requested,
+                hair_length, desired_style, desired_style_other, hair_type,
+                sensitive_to_noise, sensitive_to_touch, does_not_like_water,
+                nervous_anxious, enjoys_fidget_toys, needs_weighted_cape,
+                requires_quiet_environment, other_sensory_needs,
+                uses_wheelchair, limited_mobility, has_behaviours, behaviour_notes,
+                additional_notes
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            data.get('client_name'),
+            data.get('phone'),
+            data.get('email'),
+            data.get('client_type', 'adult'),
+            data.get('service_location', 'in-salon'),
+            data.get('address'),
+            data.get('service_requested'),
+            data.get('hair_length'),
+            data.get('desired_style'),
+            data.get('desired_style_other'),
+            data.get('hair_type'),
+            1 if data.get('sensitive_to_noise') else 0,
+            1 if data.get('sensitive_to_touch') else 0,
+            1 if data.get('does_not_like_water') else 0,
+            1 if data.get('nervous_anxious') else 0,
+            1 if data.get('enjoys_fidget_toys') else 0,
+            1 if data.get('needs_weighted_cape') else 0,
+            1 if data.get('requires_quiet_environment') else 0,
+            data.get('other_sensory_needs'),
+            1 if data.get('uses_wheelchair') else 0,
+            1 if data.get('limited_mobility') else 0,
+            1 if data.get('has_behaviours') else 0,
+            data.get('behaviour_notes'),
+            data.get('additional_notes')
+        ))
+        
+        form_id = cursor.lastrowid
+        conn.commit()
+        conn.close()
+        return form_id
+    
+    @staticmethod
+    def get_all(status=None):
+        """Get all intake forms, optionally filtered by status."""
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        if status:
+            cursor.execute('SELECT * FROM intake_forms WHERE status = ? ORDER BY created_at DESC', (status,))
+        else:
+            cursor.execute('SELECT * FROM intake_forms ORDER BY created_at DESC')
+        
+        forms = [dict(row) for row in cursor.fetchall()]
+        conn.close()
+        return forms
+    
+    @staticmethod
+    def get_by_id(form_id):
+        """Get a single intake form by ID."""
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM intake_forms WHERE id = ?', (form_id,))
+        row = cursor.fetchone()
+        conn.close()
+        return dict(row) if row else None
+    
+    @staticmethod
+    def update_status(form_id, status):
+        """Update the status of an intake form."""
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            'UPDATE intake_forms SET status = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?',
+            (status, form_id)
+        )
+        conn.commit()
+        conn.close()
+    
+    @staticmethod
+    def get_by_email(email):
+        """Get all intake forms for a specific email."""
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM intake_forms WHERE email = ? ORDER BY created_at DESC', (email,))
+        forms = [dict(row) for row in cursor.fetchall()]
+        conn.close()
+        return forms
