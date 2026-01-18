@@ -253,9 +253,9 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
-/* Gallery page uses solid #F0EBE3 background */
+/* Gallery page uses a different background - neutral and soft */
 .gallery-page .site-main {
-  background: #F0EBE3;
+  background: #F5E8DD;
   background-image: none;
   padding-top: 0;
 }
