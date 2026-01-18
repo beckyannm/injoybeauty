@@ -10,10 +10,13 @@
   <style>
     /* Page-scoped helpers for the PDF preview + upload UI */
     .bookings-layout{ max-width:1100px; margin:1.75rem auto 2.5rem; padding:1.25rem; display:grid; gap:1.5rem; width: 100%; box-sizing: border-box; }
-    .bookings-card,
-    .booking-card{ background: rgba(255,255,255,0.9); border-radius:20px; padding:1.5rem; box-shadow:0 12px 30px rgba(0,0,0,0.06); border:1px solid rgba(255,255,255,0.7); backdrop-filter: blur(8px); box-sizing: border-box; }
-    .bookings-card{ max-width:920px; margin:0 auto; width: 100%; }
-    .booking-card{ max-width:980px; margin:0 auto; width: 100%; }
+    .bookings-card{ background: rgba(255,255,255,0.4); border-radius:20px; padding:1.25rem 1.5rem; box-shadow:0 12px 30px rgba(0,0,0,0.06); border:1px solid rgba(255,255,255,0.7); backdrop-filter: blur(8px); box-sizing: border-box; max-width:920px; margin:0 auto; width: 100%; }
+    .booking-card{ background: rgba(255,255,255,0.9); border-radius:20px; padding:1.5rem; box-shadow:0 12px 30px rgba(0,0,0,0.06); border:1px solid rgba(255,255,255,0.7); backdrop-filter: blur(8px); box-sizing: border-box; max-width:980px; margin:0 auto; width: 100%; }
+    .quick-booking-section{ background: #F5E8DD; border-radius:20px; padding:2rem 1.5rem; box-shadow:0 12px 30px rgba(0,0,0,0.06); border:1px solid rgba(229,224,216,0.5); max-width:980px; margin:0 auto; width: 100%; box-sizing: border-box; }
+    .bookings-title{ font-family: "Playfair Display", serif; font-size:clamp(1.8rem, 3vw, 2.2rem); margin:0 0 0.75rem 0; color:#1f2328; }
+    .bookings-sub{ font-size:clamp(0.95rem, 1.5vw, 1.05rem); margin:0 0 0.75rem 0; color:#5f6368; line-height:1.5; }
+    .bookings-availability{ font-size:0.95rem; margin:0 0 0.5rem 0; color:#5f6368; }
+    .bookings-info{ font-size:0.95rem; margin:0; color:#5f6368; line-height:1.6; }
     .preview-wrap{ display:grid; grid-template-columns: 1fr minmax(0, 340px); gap:1rem; align-items:start; }
     .preview-wrap > *{ min-width:0; }
     .pdf-preview{ width:100%; height:640px; max-width:100%; border-radius:8px; overflow:hidden; border:1px solid #ececec; background:#fff; box-sizing: border-box; }
@@ -28,9 +31,11 @@
     .form-actions{ display:flex; gap:.75rem; align-items:center; margin-top:.75rem; flex-wrap:wrap; }
     .btn{ background: var(--pill-bg); border:1px solid rgba(0,0,0,0.06); color:var(--pill-text); padding:.5rem .9rem; border-radius:999px; font-weight:600; cursor:pointer; }
     .error{ color:#b00020; font-size:.9rem; margin-top:.5rem; }
-    #bookingRequest input, #bookingRequest select, #bookingRequest textarea { max-width: 100%; box-sizing: border-box; width: 100%; }
+    #bookingRequest{ font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    #bookingRequest input, #bookingRequest select, #bookingRequest textarea { max-width: 100%; box-sizing: border-box; width: 100%; font-size:0.95rem; padding:0.5rem; border:1px solid rgba(0,0,0,0.15); border-radius:6px; }
+    #bookingRequest label{ font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:0.9rem; }
     @media (max-width:900px){ .preview-wrap{ grid-template-columns: 1fr; } .pdf-preview{ height:clamp(360px, 70vh, 560px); } }
-    @media (max-width:600px){ .pdf-preview{ height:clamp(320px, 65vh, 520px); } .bookings-layout{ padding: 1rem; } .bookings-card, .booking-card{ padding: 1.25rem; } #bookingRequest{ grid-template-columns: 1fr !important; } }
+    @media (max-width:600px){ .pdf-preview{ height:clamp(320px, 65vh, 520px); } .bookings-layout{ padding: 1rem; } .bookings-card, .booking-card, .quick-booking-section{ padding: 1.25rem; } #bookingRequest{ grid-template-columns: 1fr !important; } }
   </style>
 </head>
 <body class="site-page">
@@ -100,9 +105,45 @@
         </p>
       </div>
 
-      <div class="booking-card" role="region" aria-label="Booking and intake form">
-        <h2 class="display-title" style="margin-top:0; font-size:1.5rem;">Booking & Intake</h2>
-        <p class="note">You can preview the intake form below, download it to fill offline, then upload the completed PDF here. If you prefer, use the HTML booking request form on this page to submit your appointment request.</p>
+      <!-- Quick Booking Section - moved above PDF Intake Form -->
+      <div class="quick-booking-section" role="region" aria-label="Quick booking request">
+        <h2 class="display-title" style="margin:0 0 .75rem 0; font-size:1.5rem;">Quick Booking</h2>
+        <p class="note" style="margin-bottom:1rem;">Request a booking without the full intake form. We'll follow up for details.</p>
+
+        <form id="bookingRequest" method="POST" action="https://formspree.io/f/yourFormID" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;max-width:100%;box-sizing:border-box;">
+          <input name="honeypot" style="display:none">
+          <label for="rq-name" style="grid-column:1 / -1;">Full name</label>
+          <input id="rq-name" name="name" style="grid-column:1 / -1;box-sizing:border-box;" type="text" required>
+
+          <label for="rq-email">Email</label>
+          <input id="rq-email" name="email" type="email" style="box-sizing:border-box;" required>
+
+          <label for="rq-phone">Phone</label>
+          <input id="rq-phone" name="phone" type="tel" style="box-sizing:border-box;">
+
+          <label for="rq-service">Service</label>
+          <select id="rq-service" name="service" style="box-sizing:border-box;">
+            <option>Haircut / Styling</option>
+            <option>Colour</option>
+            <option>Other</option>
+          </select>
+
+          <div style="grid-column:1 / -1; margin-top:.5rem;">
+            <label for="rq-notes">Notes</label>
+            <textarea id="rq-notes" name="notes" placeholder="Short note about what you'd like" style="width:100%;box-sizing:border-box;min-height:80px;"></textarea>
+          </div>
+
+          <div style="grid-column:1 / -1; display:flex; gap:.5rem; align-items:center; margin-top:.25rem; flex-wrap:wrap;">
+            <button class="btn" type="submit">Send request</button>
+            <div class="note">I will contact you to confirm availability.</div>
+          </div>
+        </form>
+      </div>
+
+      <!-- PDF Intake Form Section -->
+      <div class="booking-card" role="region" aria-label="PDF intake form">
+        <h2 class="display-title" style="margin-top:0; font-size:1.5rem;">PDF Intake Form</h2>
+        <p class="note">You can preview the intake form below, download it to fill offline, then upload the completed PDF here.</p>
 
         <div class="preview-wrap" aria-live="polite">
           <!-- LEFT: inline PDF preview (iframe/object) -->
@@ -147,41 +188,6 @@
               <div class="note">If you have trouble uploading, email the completed PDF to <strong>jaymie.injoy.services@gmail.com</strong> or call/text <strong>613-868-6944</strong>.</div>
             </form>
           </aside>
-        </div>
-
-        <!-- Optional: a short HTML booking request form (structured fields) -->
-        <div style="margin-top:1rem;">
-          <h2 class="display-title" style="margin:0 0 .5rem 0;">Quick booking request (optional)</h2>
-          <p class="note">If you'd rather request a booking without the full intake, use this short form and we'll follow up for the details.</p>
-
-          <form id="bookingRequest" method="POST" action="https://formspree.io/f/yourFormID" style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;max-width:100%;box-sizing:border-box;">
-            <input name="honeypot" style="display:none">
-            <label for="rq-name" style="grid-column:1 / -1;">Full name</label>
-            <input id="rq-name" name="name" style="grid-column:1 / -1;box-sizing:border-box;" type="text" required>
-
-            <label for="rq-email">Email</label>
-            <input id="rq-email" name="email" type="email" style="box-sizing:border-box;" required>
-
-            <label for="rq-phone">Phone</label>
-            <input id="rq-phone" name="phone" type="tel" style="box-sizing:border-box;">
-
-            <label for="rq-service">Service</label>
-            <select id="rq-service" name="service" style="box-sizing:border-box;">
-              <option>Haircut / Styling</option>
-              <option>Colour</option>
-              <option>Other</option>
-            </select>
-
-            <div style="grid-column:1 / -1; margin-top:.5rem;">
-              <label for="rq-notes">Notes</label>
-              <textarea id="rq-notes" name="notes" placeholder="Short note about what you'd like" style="width:100%;box-sizing:border-box;min-height:80px;"></textarea>
-            </div>
-
-            <div style="grid-column:1 / -1; display:flex; gap:.5rem; align-items:center; margin-top:.25rem; flex-wrap:wrap;">
-              <button class="btn" type="submit">Send request</button>
-              <div class="note">I will contact you to confirm availability.</div>
-            </div>
-          </form>
         </div>
 
       </div>
