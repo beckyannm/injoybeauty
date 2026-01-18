@@ -104,14 +104,15 @@ ul, ol {
 .nav {
     display: flex;
     align-items: center;
-    gap: var(--space-6);
+    justify-content: space-between;
     padding: var(--space-4) 0;
 }
 
 .nav-logo {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
+    order: 2;
+    margin-left: auto;
 }
 
 .nav-logo .logo-img {
@@ -127,7 +128,7 @@ ul, ol {
 .nav-menu {
     display: none;
     gap: var(--space-8);
-    flex: 1;
+    order: 1;
 }
 
 @media (min-width: 768px) {
