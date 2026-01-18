@@ -572,18 +572,18 @@ ul, ol {
 /* ===== CTA Section ===== */
 
 .cta-section {
-    background: linear-gradient(135deg, var(--color-rose-light) 0%, var(--color-rose) 100%);
+    background-color: #F7D1BA;
     text-align: center;
     padding: var(--space-16) 0;
 }
 
 .cta-section h2 {
-    color: var(--color-white);
+    color: #D49A89;
     margin-bottom: var(--space-4);
 }
 
 .cta-section p {
-    color: rgba(255, 255, 255, 0.9);
+    color: #D49A89;
     font-size: var(--text-lg);
     max-width: 500px;
     margin: 0 auto var(--space-8);
@@ -591,13 +591,14 @@ ul, ol {
 
 .cta-section .btn {
     background-color: var(--color-white);
-    color: var(--color-rose);
+    color: #D49A89;
     border-color: var(--color-white);
 }
 
 .cta-section .btn:hover {
-    background-color: transparent;
+    background-color: #D49A89;
     color: var(--color-white);
+    border-color: #D49A89;
 }
 
 /* ===== Footer ===== */
@@ -845,6 +846,7 @@ ul, ol {
     
     .cta-section h2 {
         font-size: var(--text-2xl);
+        color: #D49A89;
     }
     
     /* Service card adjustments */
