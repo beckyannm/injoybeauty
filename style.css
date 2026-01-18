@@ -243,7 +243,7 @@ button:focus-visible {
 .site-main {
   flex: 1;
   padding-top: var(--header-offset);
-  background: linear-gradient(135deg, #FFE3EC 0%, #E3FDFF 50%, #E3E3FF 100%);
+  background: linear-gradient(to right, #F6F5F2, #F0EBE3, #FFEFEF, #F3D0D7);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
