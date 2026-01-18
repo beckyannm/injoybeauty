@@ -14,18 +14,20 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="nav-logo">
-                    <img src="assets/images/branding/INJOY-logo.png" alt="INJOY Beauty" class="logo-img">
-                </a>
-                
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link active">About</a></li>
-                    <li><a href="services.html" class="nav-link">Services</a></li>
-                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                    <li><a href="booking.html" class="nav-link">Book Now</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
+                <div class="nav-group">
+                    <a href="index.html" class="nav-logo">
+                        <img src="assets/images/branding/INJOY-logo.png" alt="INJOY Beauty" class="logo-img">
+                    </a>
+                    
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link active">About</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                        <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
                 
                 <button class="nav-toggle" aria-label="Toggle menu">
                     <span></span>
@@ -154,37 +156,41 @@
     </section>
 
     <!-- Qualifications -->
-    <section class="cta-section">
+    <section class="section" style="background-color: var(--color-cream-light);">
         <div class="container">
-            <h2>Training & Background</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6); max-width: 800px; margin: var(--space-8) auto 0; text-align: left;">
-                <div style="display: flex; align-items: start; gap: var(--space-3);">
-                    <span style="font-size: var(--text-2xl);">🎓</span>
-                    <div>
-                        <h4 style="color: var(--color-white); margin-bottom: var(--space-1);">DSW Diploma</h4>
-                        <p style="font-size: var(--text-sm); margin: 0;">Algonquin College — Autism & Behavioural Therapy</p>
-                    </div>
+            <div class="section-header">
+                <span class="section-subtitle">My Credentials</span>
+                <h2 class="section-title">Training & Background</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="qualifications-grid">
+                <div class="qualification-card">
+                    <div class="qualification-icon">🎓</div>
+                    <h3 class="qualification-title">DSW Diploma</h3>
+                    <p class="qualification-detail">Algonquin College</p>
+                    <p class="qualification-subdetail">Autism & Behavioural Therapy</p>
                 </div>
-                <div style="display: flex; align-items: start; gap: var(--space-3);">
-                    <span style="font-size: var(--text-2xl);">✂️</span>
-                    <div>
-                        <h4 style="color: var(--color-white); margin-bottom: var(--space-1);">Hairdressing Certificate</h4>
-                        <p style="font-size: var(--text-sm); margin: 0;">Versailles Academy</p>
-                    </div>
+                
+                <div class="qualification-card">
+                    <div class="qualification-icon">✂</div>
+                    <h3 class="qualification-title">Hairdressing Certificate</h3>
+                    <p class="qualification-detail">Versailles Academy</p>
+                    <p class="qualification-subdetail">Professional Training</p>
                 </div>
-                <div style="display: flex; align-items: start; gap: var(--space-3);">
-                    <span style="font-size: var(--text-2xl);">👥</span>
-                    <div>
-                        <h4 style="color: var(--color-white); margin-bottom: var(--space-1);">7+ Years Experience</h4>
-                        <p style="font-size: var(--text-sm); margin: 0;">Supporting adults with special needs</p>
-                    </div>
+                
+                <div class="qualification-card">
+                    <div class="qualification-icon">👥</div>
+                    <h3 class="qualification-title">7+ Years Experience</h3>
+                    <p class="qualification-detail">Supporting Adults</p>
+                    <p class="qualification-subdetail">With Special Needs</p>
                 </div>
-                <div style="display: flex; align-items: start; gap: var(--space-3);">
-                    <span style="font-size: var(--text-2xl);">💛</span>
-                    <div>
-                        <h4 style="color: var(--color-white); margin-bottom: var(--space-1);">Passion-Driven Care</h4>
-                        <p style="font-size: var(--text-sm); margin: 0;">Beauty + Accessibility expertise</p>
-                    </div>
+                
+                <div class="qualification-card">
+                    <div class="qualification-icon">💛</div>
+                    <h3 class="qualification-title">Passion-Driven Care</h3>
+                    <p class="qualification-detail">Beauty + Accessibility</p>
+                    <p class="qualification-subdetail">Expertise Combined</p>
                 </div>
             </div>
         </div>
