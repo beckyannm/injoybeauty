@@ -33,3 +33,12 @@ class Config:
     BOOKING_START_HOUR = 15   # 3 PM
     BOOKING_END_HOUR = 20     # 8 PM
     TIME_SLOT_DURATION = 30   # minutes
+    
+    # Email settings (for notifications)
+    # To enable email: set SMTP_PASSWORD environment variable with Gmail App Password
+    # Get App Password: Google Account > Security > 2-Step Verification > App passwords
+    SMTP_SERVER = "smtp.gmail.com"
+    SMTP_PORT = 587
+    SMTP_EMAIL = os.environ.get('SMTP_EMAIL', 'jaymie.injoy.services@gmail.com')
+    SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')  # Gmail App Password
+    NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'jaymie.injoy.services@gmail.com')

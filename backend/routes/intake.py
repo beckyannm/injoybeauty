@@ -5,6 +5,7 @@ from flask import Blueprint, request, jsonify
 import sys
 sys.path.insert(0, '..')
 from models import IntakeForm
+from email_helper import send_intake_notification
 
 intake_bp = Blueprint('intake', __name__)
 
@@ -24,13 +25,17 @@ def submit_intake_form():
                     'error': f'Missing required field: {field}'
                 }), 400
         
-        # Create the intake form
+        # Create the intake form in database
         form_id = IntakeForm.create(data)
+        
+        # Send email notification to Jaymie
+        email_sent = send_intake_notification(data)
         
         return jsonify({
             'success': True,
             'message': 'Intake form submitted successfully! Jaymie will review your information and contact you soon.',
-            'form_id': form_id
+            'form_id': form_id,
+            'email_sent': email_sent
         }), 201
     
     except Exception as e:
