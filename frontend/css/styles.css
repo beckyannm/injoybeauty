@@ -590,33 +590,33 @@ ul, ol {
 /* ===== CTA Section ===== */
 
 .cta-section {
-    background-color: #F7D1BA;
+    background-color: var(--color-rose-light);
     text-align: center;
     padding: var(--space-16) 0;
 }
 
 .cta-section h2 {
-    color: #D49A89;
+    color: var(--color-rose-dark);
     margin-bottom: var(--space-4);
 }
 
 .cta-section p {
-    color: #D49A89;
+    color: var(--color-charcoal);
     font-size: var(--text-lg);
     max-width: 500px;
     margin: 0 auto var(--space-8);
 }
 
 .cta-section .btn {
-    background-color: var(--color-white);
-    color: #D49A89;
-    border-color: var(--color-white);
+    background-color: var(--color-rose-dark);
+    color: var(--color-white);
+    border-color: var(--color-rose-dark);
 }
 
 .cta-section .btn:hover {
-    background-color: #D49A89;
-    color: var(--color-white);
-    border-color: #D49A89;
+    background-color: var(--color-rose);
+    color: var(--color-charcoal);
+    border-color: var(--color-rose);
 }
 
 /* ===== Footer ===== */
@@ -745,7 +745,7 @@ ul, ol {
 /* ===== Page Header (for inner pages) ===== */
 
 .page-header {
-    padding: calc(80px + var(--space-16)) 0 var(--space-16);
+    padding: calc(80px + var(--space-8)) 0 var(--space-8);
     background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-cream) 100%);
     text-align: center;
     position: relative;
@@ -758,7 +758,7 @@ ul, ol {
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
-    min-height: 350px;
+    min-height: 220px;
 }
 
 /* Responsive background sizing and positioning for optimal fit */
@@ -768,7 +768,7 @@ ul, ol {
         background-size: cover;
         background-position: center center;
         background-attachment: scroll;
-        min-height: 300px;
+        min-height: 180px;
     }
 }
 
@@ -778,7 +778,7 @@ ul, ol {
         background-size: cover;
         background-position: center center;
         background-attachment: scroll;
-        min-height: 350px;
+        min-height: 220px;
     }
 }
 
@@ -788,7 +788,7 @@ ul, ol {
         background-attachment: fixed;
         background-size: cover;
         background-position: center center;
-        min-height: 400px;
+        min-height: 250px;
     }
 }
 
@@ -798,7 +798,7 @@ ul, ol {
         background-attachment: fixed;
         background-size: cover;
         background-position: center center;
-        min-height: 500px;
+        min-height: 280px;
     }
 }
 
@@ -807,7 +807,7 @@ ul, ol {
     .page-header[style*="background-image"] {
         background-position: center center;
         background-size: cover;
-        min-height: 550px;
+        min-height: 300px;
     }
 }
 
