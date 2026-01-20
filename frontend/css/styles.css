@@ -766,9 +766,9 @@ ul, ol {
 @media (max-width: 480px) {
     .page-header[style*="background-image"] {
         background-size: cover;
-        background-position: center 40%;
+        background-position: center center;
         background-attachment: scroll;
-        min-height: 280px;
+        min-height: 300px;
     }
 }
 
@@ -776,9 +776,9 @@ ul, ol {
 @media (min-width: 481px) and (max-width: 768px) {
     .page-header[style*="background-image"] {
         background-size: cover;
-        background-position: center 35%;
+        background-position: center center;
         background-attachment: scroll;
-        min-height: 320px;
+        min-height: 350px;
     }
 }
 
@@ -787,8 +787,8 @@ ul, ol {
     .page-header[style*="background-image"] {
         background-attachment: fixed;
         background-size: cover;
-        background-position: center 35%;
-        min-height: 380px;
+        background-position: center center;
+        min-height: 400px;
     }
 }
 
@@ -797,22 +797,25 @@ ul, ol {
     .page-header[style*="background-image"] {
         background-attachment: fixed;
         background-size: cover;
-        background-position: center 30%;
-        min-height: 450px;
+        background-position: center center;
+        min-height: 500px;
     }
 }
 
-/* Extra large screens: fine-tune positioning */
+/* Extra large screens: ensure full coverage */
 @media (min-width: 1440px) {
     .page-header[style*="background-image"] {
-        background-position: center 25%;
+        background-position: center center;
+        background-size: cover;
+        min-height: 550px;
     }
 }
 
 /* Portrait orientation adjustments */
 @media (orientation: portrait) and (max-width: 768px) {
     .page-header[style*="background-image"] {
-        background-position: center 50%;
+        background-position: center center;
+        background-size: cover;
     }
 }
 
