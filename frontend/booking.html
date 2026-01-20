@@ -8,6 +8,159 @@
     <link rel="stylesheet" href="https://use.typekit.net/ziy7hsd.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
+    <style>
+        .intake-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-section {
+            background: var(--color-white);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .form-section-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            color: var(--color-charcoal);
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-2);
+            border-bottom: 2px solid var(--color-rose-light);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .form-section-title span {
+            font-size: var(--text-2xl);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+        
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+        }
+        
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            cursor: pointer;
+        }
+        
+        .radio-option input, .checkbox-option input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--color-rose);
+        }
+        
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-3);
+        }
+        
+        .checkbox-option {
+            padding: var(--space-3);
+            background: var(--color-cream-light);
+            border-radius: var(--radius-md);
+            transition: background var(--transition-fast);
+        }
+        
+        .checkbox-option:hover {
+            background: var(--color-beige);
+        }
+        
+        .checkbox-option.checked {
+            background: var(--color-rose-light);
+        }
+        
+        .form-note {
+            font-size: var(--text-sm);
+            color: var(--color-gray);
+            font-style: italic;
+            margin-top: var(--space-2);
+        }
+        
+        .success-message {
+            display: none;
+            background: var(--color-sage-light);
+            color: var(--color-charcoal);
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+        
+        .success-message h2 {
+            color: var(--color-sage-dark);
+            margin-bottom: var(--space-4);
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .form-container.hidden {
+            display: none;
+        }
+        
+        @media (min-width: 640px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .checkbox-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* Mobile improvements */
+        @media (max-width: 480px) {
+            .form-section {
+                padding: var(--space-4);
+                margin-bottom: var(--space-4);
+            }
+            
+            .form-section-title {
+                font-size: var(--text-lg);
+            }
+            
+            .form-section-title span {
+                font-size: var(--text-xl);
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+            
+            .radio-option {
+                padding: var(--space-2);
+                background: var(--color-cream-light);
+                border-radius: var(--radius-md);
+                min-height: 44px;
+            }
+            
+            .intake-form-container > div[style*="text-align: center"] p {
+                font-size: var(--text-base) !important;
+            }
+            
+            .btn[style*="min-width: 250px"] {
+                width: 100% !important;
+                min-width: auto !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -81,74 +234,322 @@
         </div>
     </section>
 
-    <!-- Booking Form -->
+    <!-- Main Booking Form (Intake Form) -->
     <section class="section" style="padding-top: 0;">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-8); max-width: 1000px; margin: 0 auto;">
+            <div class="intake-form-container">
+                
+                <!-- Intro -->
+                <div style="text-align: center; margin-bottom: var(--space-8); padding: var(--space-6); background: var(--color-rose-light); border-radius: var(--radius-lg);">
+                    <p style="font-size: var(--text-lg); color: var(--color-charcoal); margin: 0;">
+                        Thank you for choosing InJoy — an inclusive & sensory-friendly beauty experience.<br>
+                        Please complete this form to book your appointment so I can best support your needs.
+                    </p>
+                </div>
+                
+                <!-- Success Message -->
+                <div class="success-message" id="success-message">
+                    <h2>✨ Booking Request Submitted Successfully!</h2>
+                    <p style="font-size: var(--text-lg); margin-bottom: var(--space-6);">
+                        Thank you for completing the booking form. Jaymie will review your information 
+                        and contact you soon to schedule your appointment.
+                    </p>
+                    <a href="index.html" class="btn btn-primary">Return to Home</a>
+                </div>
                 
                 <!-- Form -->
-                <div style="background: var(--color-white); padding: var(--space-8); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-                    <h3 style="margin-bottom: var(--space-2);">Request a Booking</h3>
-                    <p style="color: var(--color-gray); font-size: var(--text-sm); margin-bottom: var(--space-6);">
-                        Fill out the form below and I'll follow up to confirm your appointment details.
-                    </p>
+                <form id="intake-form" class="form-container">
                     
-                    <form id="booking-form" action="https://formspree.io/f/xgooaepo" method="POST">
-                        <input type="hidden" name="_subject" value="New Booking Request - InJoy Beauty">
+                    <!-- Client Information -->
+                    <div class="form-section">
+                        <h3 class="form-section-title"><span>👤</span> Client Information</h3>
                         
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                        <div class="form-row">
                             <div class="form-group">
-                                <label for="firstName" class="form-label">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" class="form-input" placeholder="First name" required>
+                                <label for="client_name" class="form-label">Name *</label>
+                                <input type="text" id="client_name" name="client_name" class="form-input" placeholder="Your full name" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="lastName" class="form-label">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Last name" required>
+                                <label class="form-label">Client is: *</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="client_type" value="adult" checked>
+                                        <span>Adult</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="client_type" value="child">
+                                        <span>Child</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="(613) 000-0000">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Location -->
+                    <div class="form-section">
+                        <h3 class="form-section-title"><span>📍</span> Service Location</h3>
+                        
+                        <div class="form-group">
+                            <div class="radio-group" style="flex-direction: column; gap: var(--space-3);">
+                                <label class="radio-option" style="padding: var(--space-3); background: var(--color-cream-light); border-radius: var(--radius-md);">
+                                    <input type="radio" name="service_location" value="mobile" id="location-mobile">
+                                    <span><strong>Mobile Service</strong> — I come to you (additional fee based on location)</span>
+                                </label>
+                                <label class="radio-option" style="padding: var(--space-3); background: var(--color-cream-light); border-radius: var(--radius-md);">
+                                    <input type="radio" name="service_location" value="in-salon" checked id="location-salon">
+                                    <span><strong>In-Salon Service</strong> — Visit my home salon in Bourget</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" id="address-group" style="display: none;">
+                            <label for="address" class="form-label">Address (for mobile service)</label>
+                            <input type="text" id="address" name="address" class="form-input" placeholder="Your address for mobile visit">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service_requested" class="form-label">Service Requested *</label>
+                            <textarea id="service_requested" name="service_requested" class="form-textarea" 
+                                placeholder="Please describe the service you are looking for (e.g., haircut only, wash & cut, style, trim, major cut, etc.)" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Haircut Details -->
+                    <div class="form-section">
+                        <h3 class="form-section-title"><span>✂️</span> Haircut Details</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Current Hair Length</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="hair_length" value="short">
+                                    <span>Short</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="hair_length" value="medium">
+                                    <span>Medium</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="hair_length" value="long">
+                                    <span>Long</span>
+                                </label>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                            <label class="form-label">Desired Style</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="desired_style" value="trim">
+                                    <span>Trim</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="desired_style" value="short-cut">
+                                    <span>Short Cut</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="desired_style" value="style-change">
+                                    <span>Style Change</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="desired_style" value="other">
+                                    <span>Other</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" id="desired-style-other-group" style="display: none;">
+                            <label for="desired_style_other" class="form-label">Please describe:</label>
+                            <input type="text" id="desired_style_other" name="desired_style_other" class="form-input" placeholder="Describe your desired style">
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(613) 000-0000">
+                            <label class="form-label">Hair Type (optional)</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="hair_type" value="straight">
+                                    <span>Straight</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="hair_type" value="wavy">
+                                    <span>Wavy</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="hair_type" value="curly">
+                                    <span>Curly</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="hair_type" value="coiled">
+                                    <span>Coiled</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sensory & Support Needs -->
+                    <div class="form-section">
+                        <h3 class="form-section-title"><span>💜</span> Sensory & Support Needs</h3>
+                        <p class="form-note" style="margin-bottom: var(--space-4);">Check all that apply. This helps me create a comfortable experience for you.</p>
+                        
+                        <div class="checkbox-grid">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="sensitive_to_noise">
+                                <span>Sensitive to loud noise</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="enjoys_fidget_toys">
+                                <span>Enjoys/focuses better with fidget toys</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="sensitive_to_touch">
+                                <span>Sensitive to touch</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="needs_weighted_cape">
+                                <span>Would benefit from a weighted cape</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="does_not_like_water">
+                                <span>Does not like water</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="requires_quiet_environment">
+                                <span>Requires quiet/low-sensory environment</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="nervous_anxious">
+                                <span>Nervous/anxious during appointments</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: var(--space-4);">
+                            <label for="other_sensory_needs" class="form-label">Other sensory/support considerations:</label>
+                            <textarea id="other_sensory_needs" name="other_sensory_needs" class="form-textarea" 
+                                placeholder="Please share any other sensory needs or supports that would help"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobility & Safety -->
+                    <div class="form-section">
+                        <h3 class="form-section-title"><span>♿</span> Mobility & Safety Information</h3>
+                        
+                        <div class="checkbox-grid" style="grid-template-columns: 1fr;">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="uses_wheelchair">
+                                <span>Uses wheelchair</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="limited_mobility">
+                                <span>Limited mobility</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="has_behaviours" id="has-behaviours">
+                                <span>May have behaviours or aggression (please describe below for safety planning)</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group" id="behaviour-notes-group" style="margin-top: var(--space-4); display: none;">
+                            <label for="behaviour_notes" class="form-label">Please describe behaviours for safety planning:</label>
+                            <textarea id="behaviour_notes" name="behaviour_notes" class="form-textarea" 
+                                placeholder="This information helps me prepare and ensure a safe experience for everyone"></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Notes -->
+                    <div class="form-section">
+                        <h3 class="form-section-title"><span>📝</span> Additional Notes</h3>
+                        
+                        <div class="form-group">
+                            <label for="additional_notes" class="form-label">Anything else that will help make this a positive experience?</label>
+                            <textarea id="additional_notes" name="additional_notes" class="form-textarea" 
+                                placeholder="Allergies, communication supports, routines, preferences, etc."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit -->
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-primary btn-lg" style="min-width: 250px;">
+                            Book Appointment
+                        </button>
+                        <p class="form-note" style="margin-top: var(--space-4);">
+                            After submitting, Jaymie will review your information and contact you to schedule your appointment.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recurring Clients & Inquiries -->
+    <section class="section" style="background-color: var(--color-cream-light);">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto;">
+                <div style="background: var(--color-white); padding: var(--space-8); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                    <h3 style="margin-bottom: var(--space-2);">Recurring Clients & Inquiries</h3>
+                    <p style="color: var(--color-gray); font-size: var(--text-sm); margin-bottom: var(--space-6);">
+                        Already a client? Need to reschedule or have questions about InJoy Beauty? Use this form for quick inquiries.
+                    </p>
+                    
+                    <form id="inquiry-form" action="https://formspree.io/f/xgooaepo" method="POST">
+                        <input type="hidden" name="_subject" value="Recurring Client Inquiry - InJoy Beauty">
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                            <div class="form-group">
+                                <label for="inquiry-firstName" class="form-label">First Name *</label>
+                                <input type="text" id="inquiry-firstName" name="firstName" class="form-input" placeholder="First name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inquiry-lastName" class="form-label">Last Name *</label>
+                                <input type="text" id="inquiry-lastName" name="lastName" class="form-input" placeholder="Last name" required>
+                            </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="service" class="form-label">Which service are you interested in? *</label>
-                            <select id="service" name="service" class="form-select" required>
-                                <option value="">Select a service...</option>
-                                <option value="haircut-style">Haircut or Styling</option>
-                                <option value="haircut-color">Haircut/Style with Coloring</option>
-                                <option value="nails">Nail Care</option>
-                                <option value="nails-hair">Nailcare & Hair Services</option>
-                                <option value="facial-body">Facial & Body Hair Services</option>
-                                <option value="other">Other (please describe below)</option>
+                            <label for="inquiry-email" class="form-label">Email Address *</label>
+                            <input type="email" id="inquiry-email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="inquiry-phone" name="phone" class="form-input" placeholder="(613) 000-0000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-type" class="form-label">Inquiry Type *</label>
+                            <select id="inquiry-type" name="inquiryType" class="form-select" required>
+                                <option value="">Select inquiry type...</option>
+                                <option value="reschedule">Reschedule Existing Appointment</option>
+                                <option value="recurring-booking">Recurring Client - New Booking</option>
+                                <option value="question">General Question About Services</option>
+                                <option value="other">Other Inquiry</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label style="display: flex; align-items: center; gap: var(--space-2); cursor: pointer; font-weight: normal;">
-                                <input type="checkbox" name="mobileServices" value="yes" style="width: auto;">
-                                <span>I require mobile services (you come to me)</span>
-                            </label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="details" class="form-label">Tell Me About Your Visit *</label>
-                            <textarea id="details" name="details" class="form-textarea" placeholder="Please describe the services you're looking for and any specific needs, preferences, or accommodations that would help make your visit comfortable." required></textarea>
+                            <label for="inquiry-message" class="form-label">Message *</label>
+                            <textarea id="inquiry-message" name="message" class="form-textarea" placeholder="Please provide details about your inquiry..." required></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                            Send Request
+                            Send Inquiry
                         </button>
                         
                         <p style="font-size: var(--text-sm); color: var(--color-gray); margin-top: var(--space-4); text-align: center;">
-                            I will contact you to confirm availability and discuss details.
+                            I will get back to you as soon as possible.
                         </p>
                     </form>
                 </div>
@@ -167,6 +568,11 @@
             
             <div class="grid grid-4">
                 <div class="service-card">
+                    <div class="service-icon">◊</div>
+                    <h3>New Clients</h3>
+                    <p>Please complete the booking form above. This helps me understand your needs and create the best experience for you.</p>
+                </div>
+                <div class="service-card">
                     <div class="service-icon">◯</div>
                     <h3>Location</h3>
                     <p><strong>Home Salon:</strong> Bourget, ON<br><strong>Mobile:</strong> I come to you!</p>
@@ -180,11 +586,6 @@
                     <div class="service-icon">◉</div>
                     <h3>Questions?</h3>
                     <p>Call/Text: <a href="tel:6138686944">613-868-6944</a></p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">◊</div>
-                    <h3>Intake Form</h3>
-                    <p>First-time clients, please <a href="intake.html" style="font-weight: bold;">fill out the intake form</a> online or <a href="assets/injoyintakeform.pdf" download>download PDF</a>.</p>
                 </div>
             </div>
         </div>
@@ -221,5 +622,94 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Show/hide address field based on service location
+        document.querySelectorAll('input[name="service_location"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const addressGroup = document.getElementById('address-group');
+                if (addressGroup) {
+                    addressGroup.style.display = this.value === 'mobile' ? 'block' : 'none';
+                }
+            });
+        });
+        
+        // Show/hide desired style other field
+        document.querySelectorAll('input[name="desired_style"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const otherGroup = document.getElementById('desired-style-other-group');
+                if (otherGroup) {
+                    otherGroup.style.display = this.value === 'other' ? 'block' : 'none';
+                }
+            });
+        });
+        
+        // Show/hide behaviour notes field
+        const hasBehavioursCheckbox = document.getElementById('has-behaviours');
+        if (hasBehavioursCheckbox) {
+            hasBehavioursCheckbox.addEventListener('change', function() {
+                const notesGroup = document.getElementById('behaviour-notes-group');
+                if (notesGroup) {
+                    notesGroup.style.display = this.checked ? 'block' : 'none';
+                }
+            });
+        }
+        
+        // Checkbox visual feedback
+        document.querySelectorAll('.checkbox-option input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                this.closest('.checkbox-option').classList.toggle('checked', this.checked);
+            });
+        });
+        
+        // Main booking form submission (intake form)
+        const intakeForm = document.getElementById('intake-form');
+        if (intakeForm) {
+            intakeForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const data = {};
+                
+                // Convert FormData to object
+                for (const [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                
+                // Handle checkboxes (they won't be in FormData if unchecked)
+                const checkboxes = ['sensitive_to_noise', 'sensitive_to_touch', 'does_not_like_water', 
+                                   'nervous_anxious', 'enjoys_fidget_toys', 'needs_weighted_cape', 
+                                   'requires_quiet_environment', 'uses_wheelchair', 'limited_mobility', 'has_behaviours'];
+                checkboxes.forEach(name => {
+                    data[name] = formData.has(name);
+                });
+                
+                try {
+                    const response = await fetch('/api/intake', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        // Show success message
+                        const formContainer = document.querySelector('.form-container');
+                        const successMessage = document.getElementById('success-message');
+                        if (formContainer) formContainer.classList.add('hidden');
+                        if (successMessage) successMessage.classList.add('show');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        alert('Error: ' + result.error);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again or contact us directly.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>

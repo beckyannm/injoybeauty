@@ -37,4 +37,4 @@ class Config:
     # Email settings (using Resend - 3,000 free emails/month)
     # Note: Free tier only sends to the Resend account email. For other recipients, verify a domain.
     RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 're_epGa96hn_8nvbJjH9qx5hftfypBsmzRdd')
-    NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'rebeccamayne27@gmail.com')  # Receives form notifications
+    NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'jaymie.injoy.services@gmail.com')  # Receives form notifications
