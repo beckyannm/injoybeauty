@@ -701,6 +701,12 @@ ul, ol {
     align-items: center;
     justify-content: center;
     margin-bottom: var(--space-2);
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--space-3);
+    background-color: var(--color-rose-light);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
 }
 
 .footer-brand .logo-img-footer {
@@ -810,10 +816,15 @@ ul, ol {
     }
     
     .footer-brand {
-        align-items: flex-start;
-        text-align: left;
+        align-items: center;
+        text-align: center;
         max-width: 320px;
         padding-right: 0;
+    }
+    
+    .footer-brand .nav-logo {
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .footer-social {
