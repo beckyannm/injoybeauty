@@ -107,6 +107,7 @@
     font-size: var(--text-sm);
     color: var(--color-gray);
     line-height: var(--leading-relaxed);
+    text-align: center;
 }
 
 /* ===== Forms ===== */
@@ -220,6 +221,7 @@
     max-width: 600px;
     margin: 0 auto;
     line-height: var(--leading-relaxed);
+    text-align: center;
 }
 
 /* ===== Container ===== */

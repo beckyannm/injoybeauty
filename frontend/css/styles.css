@@ -77,7 +77,15 @@ h4 {
 
 p {
     margin-bottom: var(--space-4);
+    text-align: justify;
+}
+
+.text-center {
     text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
 }
 
 ul, ol {
@@ -318,6 +326,10 @@ ul, ol {
     opacity: 0;
 }
 
+.hero-description.text-justify {
+    text-align: justify;
+}
+
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -453,6 +465,7 @@ ul, ol {
     color: var(--color-gray);
     font-size: var(--text-sm);
     margin-bottom: var(--space-4);
+    text-align: center;
 }
 
 /* ===== About Preview Section ===== */
@@ -505,6 +518,10 @@ ul, ol {
     color: var(--color-gray);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-6);
+}
+
+.about-preview-content p.text-justify {
+    text-align: justify;
 }
 
 @media (min-width: 768px) {
@@ -605,6 +622,7 @@ ul, ol {
     font-size: var(--text-lg);
     max-width: 500px;
     margin: 0 auto var(--space-8);
+    text-align: center;
 }
 
 .cta-section .btn {
@@ -942,6 +960,7 @@ ul, ol {
     font-size: var(--text-lg);
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
 
 /* ===== Breadcrumb ===== */
