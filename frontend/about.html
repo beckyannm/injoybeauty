@@ -56,7 +56,7 @@
                 <span>About</span>
             </nav>
             <h1>Meet Jaymie</h1>
-            <p>The heart and soul behind InJoy Beauty.</p>
+            <p class="page-header-subtitle">The heart and soul behind InJoy Beauty.</p>
         </div>
     </section>
 
@@ -86,7 +86,7 @@
     </section>
 
     <!-- My Story -->
-    <section class="section" style="background-color: var(--color-white);">
+    <section class="section journey-section" style="background-color: var(--color-white);">
         <div class="container" style="max-width: 1400px;">
             <div class="section-header">
                 <span class="section-subtitle">My Journey</span>
@@ -94,8 +94,8 @@
                 <div class="divider"></div>
             </div>
             
-            <div style="display: grid; grid-template-columns: 1fr auto; gap: 0; align-items: start; max-width: 1400px; margin: 0 auto;">
-                <div style="max-width: 700px; margin: 0 auto 0 0;">
+            <div class="journey-content-grid">
+                <div class="journey-text">
                     <p style="font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-gray); margin-bottom: var(--space-6);">
                         After earning my DSW diploma from <strong>Algonquin College</strong>, I wanted to combine 
                         my love for helping others with my passion for beauty and self-care. I completed a 
@@ -116,10 +116,13 @@
                         patient, understanding care tailored to you.
                     </p>
                 </div>
-                <div style="display: flex; justify-content: flex-end; flex-shrink: 0;">
-                    <img src="assets/images/jaymie/hatmerch1cropped.jpg" 
-                         alt="Jaymie Law" 
-                         style="max-width: 350px; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                <div class="journey-image-stack">
+                    <img src="assets/images/aestheticphoto.jpg" 
+                         alt="Jaymie Law - Professional beauty services" 
+                         class="journey-image-base">
+                    <img src="assets/images/jaymie/jaymiesmile.jpg" 
+                         alt="Jaymie Law smiling" 
+                         class="journey-image-overlay">
                 </div>
             </div>
         </div>

@@ -40,7 +40,7 @@ img {
 }
 
 a {
-    color: var(--color-rose);
+    color: var(--color-rose-dark);
     text-decoration: none;
     transition: color var(--transition-fast);
 }
@@ -178,7 +178,7 @@ ul, ol {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-rose);
+    background-color: var(--color-rose-dark);
     transition: width var(--transition-base);
 }
 
@@ -297,7 +297,7 @@ ul, ol {
     font-family: var(--font-accent);
     font-size: var(--text-lg);
     font-style: italic;
-    color: var(--color-rose);
+    color: var(--color-rose-dark);
     letter-spacing: var(--tracking-wider);
     margin-bottom: var(--space-4);
     animation: fadeInUp 0.8s ease forwards;
@@ -489,7 +489,7 @@ ul, ol {
 /* ===== About Preview Section ===== */
 
 .about-preview {
-    background: linear-gradient(to right, var(--color-beige) 50%, var(--color-cream) 50%);
+    background-color: #F8F4ED;
 }
 
 .about-preview-grid {
@@ -515,7 +515,7 @@ ul, ol {
     left: -20px;
     right: 20px;
     bottom: 20px;
-    border: 2px solid var(--color-rose);
+    border: 2px solid var(--color-rose-dark);
     border-radius: var(--radius-lg);
     z-index: -1;
 }
@@ -526,6 +526,7 @@ ul, ol {
 
 .about-preview-content .section-subtitle {
     text-align: left;
+    color: var(--color-rose-dark);
 }
 
 .about-preview-content h2 {
@@ -540,7 +541,7 @@ ul, ol {
 
 @media (min-width: 768px) {
     .about-preview {
-        background: linear-gradient(to right, var(--color-beige) 40%, var(--color-cream) 40%);
+        background-color: #F8F4ED;
     }
     
     .about-preview-grid {
@@ -903,6 +904,15 @@ ul, ol {
     margin: 0 auto;
 }
 
+.page-header-subtitle {
+    font-family: var(--font-heading);
+    color: var(--color-gray);
+    font-size: var(--text-lg);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 /* ===== Breadcrumb ===== */
 
 .breadcrumb {
@@ -1111,7 +1121,7 @@ html, body {
 .qualification-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--color-rose);
+    border-color: var(--color-rose-dark);
 }
 
 .qualification-icon {
@@ -1159,6 +1169,140 @@ html, body {
 @media (min-width: 1024px) {
     .qualifications-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ===== Journey Section (How InJoy Beauty Began) ===== */
+
+.journey-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(12px, 2vw, 28px);
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.journey-text {
+    min-width: 0;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.journey-image-stack {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 400px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.journey-image-base {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 1;
+}
+
+.journey-image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(0%);
+    width: 65%;
+    max-width: 280px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: 2;
+    object-fit: cover;
+}
+
+/* Desktop/Tablet: 2-column layout */
+@media (min-width: 769px) {
+    .journey-content-grid {
+        grid-template-columns: 1fr auto;
+        gap: clamp(12px, 2vw, 28px);
+    }
+    
+    .journey-text {
+        margin: 0 auto 0 0;
+    }
+    
+    .journey-image-stack {
+        justify-content: flex-end;
+        min-width: 0;
+        flex-shrink: 0;
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+    
+    .journey-image-base {
+        max-width: 480px;
+    }
+    
+    .journey-image-overlay {
+        left: 0;
+        right: auto;
+        top: 15%;
+        transform: translateX(-20%) translateY(0%);
+        width: 100%;
+        max-width: 480px;
+    }
+}
+
+/* Mobile: Stack vertically, reduce overlap */
+@media (max-width: 768px) {
+    .journey-content-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+    
+    .journey-text {
+        margin: 0 auto;
+    }
+    
+    .journey-image-stack {
+        min-height: auto;
+        padding-top: 0;
+        justify-content: center;
+    }
+    
+    .journey-image-base {
+        max-width: 100%;
+        margin-bottom: var(--space-4);
+    }
+    
+    .journey-image-overlay {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin-top: calc(-1 * var(--space-6));
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+    }
+}
+
+/* Extra small mobile: further reduce overlap */
+@media (max-width: 480px) {
+    .journey-image-stack {
+        padding-top: 0;
+    }
+    
+    .journey-image-overlay {
+        margin-top: calc(-1 * var(--space-4));
+        width: 85%;
     }
 }
 
