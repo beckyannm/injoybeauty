@@ -397,6 +397,10 @@
     text-align: right;
 }
 
+.text-justify {
+    text-align: justify;
+}
+
 .mt-auto {
     margin-top: auto;
 }

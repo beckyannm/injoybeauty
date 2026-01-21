@@ -75,10 +75,19 @@ h4 {
     font-size: var(--text-xl);
 }
 
+/* Base typography only - no alignment or spacing */
 p {
-    margin-bottom: var(--space-4);
-    text-align: justify;
+    /* Base typography properties only - alignment/spacing handled by components */
 }
+
+/* Scoped paragraph spacing for common content areas */
+.section p,
+.service-info-section p,
+.page-header p {
+    margin-bottom: var(--space-4);
+}
+
+/* Note: .about-preview-content p has its own margin-bottom rule below */
 
 ul, ol {
     list-style: none;
@@ -646,15 +655,15 @@ ul, ol {
 .footer {
     background-color: var(--color-cream-light);
     color: var(--color-charcoal);
-    padding: var(--space-12) 0 var(--space-6);
+    padding: var(--space-6) 0 var(--space-3);
     border-top: 1px solid var(--color-beige-dark);
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-8);
-    margin-bottom: var(--space-8);
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
 }
 
 .footer-brand {
@@ -740,6 +749,21 @@ ul, ol {
     filter: brightness(0.8);
 }
 
+.footer-column-separator {
+    display: none;
+}
+
+.footer-copyright {
+    text-align: center;
+}
+
+.footer-copyright p {
+    color: var(--color-gray);
+    font-size: var(--text-xs);
+    margin: 0;
+    opacity: 0.7;
+}
+
 .footer-bottom {
     padding-top: var(--space-6);
     border-top: 1px solid var(--color-beige-dark);
@@ -755,12 +779,19 @@ ul, ol {
 
 @media (min-width: 768px) {
     .footer-grid {
-        grid-template-columns: 2fr 1fr;
-        gap: var(--space-10);
+        grid-template-columns: 1fr 1fr 1px 1fr;
+        gap: var(--space-5);
     }
     
     .footer {
-        padding: var(--space-16) 0 var(--space-8);
+        padding: var(--space-8) 0 var(--space-4);
+    }
+    
+    .footer-column-separator {
+        display: block;
+        background-color: var(--color-beige-dark);
+        height: 100%;
+        width: 1px;
     }
 }
 
