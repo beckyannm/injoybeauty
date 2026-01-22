@@ -537,7 +537,7 @@ ul, ol {
     color: var(--color-gray);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-6);
-    text-align: left;
+    text-align: justify;
 }
 
 @media (min-width: 768px) {
