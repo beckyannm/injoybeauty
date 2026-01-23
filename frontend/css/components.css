@@ -201,6 +201,7 @@
     font-family: var(--font-accent);
     font-size: var(--text-sm);
     font-style: italic;
+    font-weight: normal;
     color: var(--color-rose-dark);
     letter-spacing: var(--tracking-wider);
     text-transform: uppercase;

@@ -414,7 +414,7 @@ ul, ol {
 }
 
 .services-section[style*="background-color: #DEE8CE"] .section-subtitle {
-    color: #E5C4C4;
+    color: var(--color-sage-dark);
 }
 
 .services-section[style*="background-color: #DEE8CE"] .section-title {
