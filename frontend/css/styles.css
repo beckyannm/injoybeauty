@@ -25,7 +25,7 @@ html {
 body {
     font-family: var(--font-body);
     font-size: var(--text-base);
-    font-weight: var(--font-regular);
+    font-weight: 200;
     line-height: var(--leading-normal);
     color: var(--color-charcoal);
     background-color: var(--color-cream);
@@ -780,8 +780,20 @@ ul, ol {
 
 @media (min-width: 768px) {
     .footer-grid {
-        grid-template-columns: 1fr 1fr 1px 1fr;
+        grid-template-columns: 150px 150px 1px 200px;
         gap: var(--space-5);
+        justify-content: center;
+    }
+    
+    .footer-column {
+        width: 150px;
+    }
+    
+    .footer-brand {
+        width: 200px;
+        justify-self: center;
+        align-items: center;
+        text-align: center;
     }
     
     .footer {
@@ -1198,6 +1210,9 @@ html, body {
     min-height: 400px;
     padding-top: 20px;
     padding-bottom: 30px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .journey-image-base {
@@ -1209,6 +1224,7 @@ html, body {
     box-shadow: var(--shadow-md);
     position: relative;
     z-index: 1;
+    object-fit: cover;
 }
 
 .journey-image-overlay {
@@ -1228,12 +1244,12 @@ html, body {
 /* Desktop/Tablet: 2-column layout */
 @media (min-width: 769px) {
     .journey-content-grid {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 700px) auto;
         gap: clamp(12px, 2vw, 28px);
     }
     
     .journey-text {
-        margin: 0 auto 0 0;
+        margin: 0;
     }
     
     .journey-image-stack {
@@ -1263,21 +1279,31 @@ html, body {
     .journey-content-grid {
         grid-template-columns: 1fr;
         gap: var(--space-8);
+        padding: 0 var(--space-4);
     }
     
     .journey-text {
         margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
     }
     
     .journey-image-stack {
         min-height: auto;
         padding-top: 0;
+        padding-bottom: var(--space-4);
         justify-content: center;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
     }
     
     .journey-image-base {
         max-width: 100%;
+        width: 100%;
         margin-bottom: var(--space-4);
+        margin-left: 0;
+        margin-right: 0;
     }
     
     .journey-image-overlay {
@@ -1287,22 +1313,35 @@ html, body {
         transform: none;
         width: 100%;
         max-width: 100%;
-        margin-top: calc(-1 * var(--space-6));
+        margin-top: calc(-1 * var(--space-4));
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 0;
         opacity: 0.9;
+        z-index: 2;
     }
 }
 
 /* Extra small mobile: further reduce overlap */
 @media (max-width: 480px) {
+    .journey-content-grid {
+        gap: var(--space-6);
+        padding: 0 var(--space-3);
+    }
+    
     .journey-image-stack {
         padding-top: 0;
+        padding-bottom: var(--space-3);
+    }
+    
+    .journey-image-base {
+        margin-bottom: var(--space-3);
     }
     
     .journey-image-overlay {
-        margin-top: calc(-1 * var(--space-4));
-        width: 85%;
+        margin-top: calc(-1 * var(--space-3));
+        width: 100%;
+        max-width: 100%;
     }
 }
 

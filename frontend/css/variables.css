@@ -7,16 +7,16 @@
     /* ===== Color Palette ===== */
     
     /* Primary Colors - New Palette */
-    --color-cream: #F6F5F2;
-    --color-cream-light: #F0EBE3;
-    --color-beige: #F0EBE3;
+    --color-cream: #EFE9E3;
+    --color-cream-light: #F9F8F6;
+    --color-beige: #DCCFC0;
     --color-beige-dark: #E8DFD5;
-    --color-taupe: #D9CFC3;
+    --color-taupe: #D9CFC7;
     --color-taupe-dark: #C4B7A6;
     
     /* Accent Colors */
     --color-rose: #F3D0D7;
-    --color-rose-light: #FFEFEF;
+    --color-rose-light: #F8E8EE;
     --color-rose-dark: #E5C4C4;
     --color-sage: #B5C4B1;
     --color-sage-light: #C8D4C5;
@@ -39,7 +39,7 @@
     /* Font Families */
     /* TypeKit font (ivypresto-display) for headings, titles, and larger text */
     --font-heading: 'ivypresto-display', 'Cormorant Garamond', 'Georgia', serif;
-    --font-body: 'Lato', 'Helvetica Neue', sans-serif;
+    --font-body: 'Nunito', sans-serif;
     --font-accent: 'ivypresto-display', 'Cormorant', serif;
     
     /* Font Sizes - Using clamp for responsive sizing */
