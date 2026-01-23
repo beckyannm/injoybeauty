@@ -658,7 +658,7 @@ ul, ol {
 /* ===== CTA Section ===== */
 
 .cta-section {
-    background-color: var(--color-rose-light);
+    background-color: var(--color-taupe);
     text-align: center;
     padding: var(--space-16) 0;
 }
