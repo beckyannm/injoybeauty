@@ -163,7 +163,7 @@ ul, ol {
 }
 
 .nav-logo .logo-img-footer {
-    height: 50px;
+    height: 62px;
     width: auto;
 }
 
@@ -707,7 +707,7 @@ ul, ol {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-4);
+    gap: var(--space-2);
 }
 
 .footer-brand .nav-logo {
@@ -816,7 +816,7 @@ ul, ol {
 
 @media (min-width: 768px) {
     .footer-grid {
-        grid-template-columns: 150px 150px 1px 200px;
+        grid-template-columns: 150px 150px 1px 280px;
         gap: var(--space-5);
         justify-content: center;
     }
@@ -826,7 +826,7 @@ ul, ol {
     }
     
     .footer-brand {
-        width: 200px;
+        width: 280px;
         justify-self: center;
         align-items: center;
         text-align: center;
