@@ -503,9 +503,9 @@ ul, ol {
 
 .service-info-section {
     background-image: url('../assets/images/scissorsflowerbackgroundedit.jpg');
-    background-position: bottom right;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: contain;
     background-attachment: local;
 }
 
