@@ -503,7 +503,7 @@ ul, ol {
 
 .service-info-section {
     background-image: url('../assets/images/newbackground.png');
-    background-position: center center;
+    background-position: bottom right;
     background-repeat: no-repeat;
     background-size: contain;
     background-attachment: local;
