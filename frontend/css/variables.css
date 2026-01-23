@@ -42,6 +42,10 @@
     --font-body: 'Nunito', sans-serif;
     --font-accent: 'ivypresto-display', 'Cormorant', serif;
     
+    /* Grid Typography Variables */
+    --font-grid-heading: var(--font-heading);
+    --font-grid-body: var(--font-body);
+    
     /* Font Sizes - Using clamp for responsive sizing */
     --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
     --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);

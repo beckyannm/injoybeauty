@@ -224,6 +224,11 @@
     text-align: center;
 }
 
+/* Grid sections override: justify body text */
+.grid .section-description {
+    text-align: justify;
+}
+
 /* ===== Container ===== */
 
 .container {
