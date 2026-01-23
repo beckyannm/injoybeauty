@@ -502,7 +502,7 @@ ul, ol {
 /* ===== Service Details Section Background ===== */
 
 .service-info-section {
-    background-image: url('../assets/images/scissorsflowerbackgroundedit.jpg');
+    background-image: url('../assets/images/newbackground.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1180,7 +1180,7 @@ ul, ol {
     
     .cta-section h2 {
         font-size: var(--text-2xl);
-        color: #D49A89;
+        color: var(--color-rose-dark);
     }
     
     /* Service card adjustments */
