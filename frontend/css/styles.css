@@ -664,7 +664,7 @@ ul, ol {
 }
 
 .cta-section h2 {
-    color: var(--color-rose-dark);
+    color: var(--color-rose-light);
     margin-bottom: var(--space-4);
 }
 
@@ -676,14 +676,14 @@ ul, ol {
 }
 
 .cta-section .btn {
-    background-color: var(--color-rose-dark);
-    color: var(--color-white);
-    border-color: var(--color-rose-dark);
+    background-color: var(--color-rose-light);
+    color: var(--color-rose-dark);
+    border-color: var(--color-rose);
 }
 
 .cta-section .btn:hover {
-    background-color: var(--color-rose);
-    color: var(--color-charcoal);
+    background-color: var(--color-rose-dark);
+    color: var(--color-rose-light);
     border-color: var(--color-rose);
 }
 
