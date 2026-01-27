@@ -16,6 +16,6 @@ services:
       - key: RESEND_API_KEY
         sync: false
       - key: NOTIFICATION_EMAIL
-        value: rebeccamayne27@gmail.com
+        value: jaymie.injoy.services@gmail.com
       - key: CORS_ORIGINS
         value: https://injoybeauty.ca,https://www.injoybeauty.ca,http://localhost:5000

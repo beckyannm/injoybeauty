@@ -537,8 +537,7 @@
                         Already a client? Need to reschedule or have questions about InJoy Beauty? Use this form for quick inquiries.
                     </p>
                     
-                    <form id="inquiry-form" action="https://formspree.io/f/xgooaepo" method="POST">
-                        <input type="hidden" name="_subject" value="Recurring Client Inquiry - InJoy Beauty">
+                    <form id="inquiry-form">
                         
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
                             <div class="form-group">
@@ -717,6 +716,63 @@
                 } catch (error) {
                     console.error('Error:', error);
                     alert('An error occurred. Please try again or contact us directly.');
+                }
+            });
+        }
+        
+        // Recurring client inquiry form submission
+        const inquiryForm = document.getElementById('inquiry-form');
+        if (inquiryForm) {
+            inquiryForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                // Get form data
+                const formData = {
+                    firstName: document.getElementById('inquiry-firstName').value.trim(),
+                    lastName: document.getElementById('inquiry-lastName').value.trim(),
+                    email: document.getElementById('inquiry-email').value.trim(),
+                    phone: document.getElementById('inquiry-phone').value.trim() || '',
+                    inquiryType: document.getElementById('inquiry-type').value.trim(),
+                    message: document.getElementById('inquiry-message').value.trim()
+                };
+                
+                // Validate required fields
+                if (!formData.firstName || !formData.lastName || !formData.email || !formData.inquiryType || !formData.message) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                try {
+                    const response = await fetch('/api/inquiry', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        // Show success message
+                        alert(result.message || 'Your inquiry has been sent successfully!');
+                        inquiryForm.reset();
+                    } else {
+                        alert('Error: ' + (result.error || 'Failed to send inquiry. Please try again.'));
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again or contact us directly.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
                 }
             });
         }

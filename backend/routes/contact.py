@@ -3,6 +3,7 @@ Contact routes for Jamie's Beauty Studio.
 """
 from flask import Blueprint, request, jsonify
 from models import ContactMessage
+from email_helper import send_contact_notification
 import re
 
 contact_bp = Blueprint('contact', __name__)
@@ -29,7 +30,7 @@ def submit_contact():
     if not is_valid_email(data['email']):
         return jsonify({'error': 'Invalid email format'}), 400
     
-    # Create message
+    # Create message in database
     try:
         message_id = ContactMessage.create(
             name=data['name'].strip(),
@@ -38,9 +39,13 @@ def submit_contact():
             message=data['message'].strip()
         )
         
+        # Send email notification via Resend
+        email_sent = send_contact_notification(data)
+        
         return jsonify({
             'message': 'Your message has been sent successfully. We will get back to you soon!',
-            'id': message_id
+            'id': message_id,
+            'email_sent': email_sent
         }), 201
         
     except Exception as e:

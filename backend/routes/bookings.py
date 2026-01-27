@@ -3,10 +3,18 @@ Booking routes for Jamie's Beauty Studio.
 """
 from flask import Blueprint, request, jsonify
 from models import Booking, Service
+from email_helper import send_inquiry_notification
 from datetime import datetime, timedelta
 from config import Config
+import re
 
 bookings_bp = Blueprint('bookings', __name__)
+
+
+def is_valid_email(email):
+    """Simple email validation."""
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(pattern, email) is not None
 
 
 @bookings_bp.route('/api/bookings', methods=['POST'])
@@ -145,3 +153,35 @@ def get_available_times():
         'date': date_str,
         'available_times': available_slots
     })
+
+
+@bookings_bp.route('/api/inquiry', methods=['POST'])
+def submit_inquiry():
+    """Submit a recurring client inquiry."""
+    data = request.get_json()
+    
+    # Validate required fields
+    required_fields = ['firstName', 'lastName', 'email', 'inquiryType', 'message']
+    for field in required_fields:
+        if field not in data or not data[field].strip():
+            return jsonify({'error': f'Missing required field: {field}'}), 400
+    
+    # Validate email format
+    if not is_valid_email(data['email']):
+        return jsonify({'error': 'Invalid email format'}), 400
+    
+    try:
+        # Send email notification via Resend
+        email_sent = send_inquiry_notification(data)
+        
+        return jsonify({
+            'success': True,
+            'message': 'Your inquiry has been sent successfully. Jaymie will get back to you as soon as possible.',
+            'email_sent': email_sent
+        }), 201
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': 'Failed to send inquiry. Please try again.'
+        }), 500

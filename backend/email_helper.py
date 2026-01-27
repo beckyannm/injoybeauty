@@ -135,3 +135,139 @@ def send_intake_notification(form_data, override_email=None):
     except Exception as e:
         print(f"Failed to send email: {e}")
         return False
+
+
+def generate_contact_email_html(contact_data):
+    """Generate HTML email content for contact form."""
+    html_body = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #F5F0E8;">
+        <div style="background: linear-gradient(135deg, #E5C4C4, #D4A5A5); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+            <h1 style="color: #3D3D3D; margin: 0; font-size: 24px;">New Contact Form Submission</h1>
+            <p style="color: #4A4A4A; margin: 10px 0 0 0;">InJoy Beauty - Contact Form</p>
+        </div>
+        
+        <div style="background: #FFFFFF; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #D4A5A5;">
+            <h2 style="color: #D4A5A5; margin-top: 0; font-size: 18px;">Contact Information</h2>
+            <p><strong>Name:</strong> {contact_data.get('name', 'N/A')}</p>
+            <p><strong>Email:</strong> <a href="mailto:{contact_data.get('email', '')}">{contact_data.get('email', 'N/A')}</a></p>
+            {f"<p><strong>Subject:</strong> {contact_data.get('subject', 'No subject')}</p>" if contact_data.get('subject') else ""}
+        </div>
+        
+        <div style="background: #FFFFFF; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #D4A5A5;">
+            <h2 style="color: #D4A5A5; margin-top: 0; font-size: 18px;">Message</h2>
+            <p style="background: #FAF8F5; padding: 15px; border-radius: 5px; white-space: pre-wrap;">{contact_data.get('message', 'No message provided')}</p>
+        </div>
+        
+        <div style="text-align: center; padding: 20px; color: #6B6B6B; border-top: 2px solid #E8DFD5; margin-top: 20px;">
+            <p style="margin-bottom: 15px;">This message was submitted through the <strong>InJoy Beauty</strong> contact form.</p>
+            <a href="mailto:{contact_data.get('email')}" style="display: inline-block; background: #D4A5A5; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold;">Reply to {contact_data.get('name')}</a>
+        </div>
+    </body>
+    </html>
+    """
+    return html_body
+
+
+def generate_inquiry_email_html(inquiry_data):
+    """Generate HTML email content for recurring client inquiry form."""
+    html_body = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #F5F0E8;">
+        <div style="background: linear-gradient(135deg, #E5C4C4, #D4A5A5); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+            <h1 style="color: #3D3D3D; margin: 0; font-size: 24px;">Recurring Client Inquiry</h1>
+            <p style="color: #4A4A4A; margin: 10px 0 0 0;">InJoy Beauty - Booking Inquiry</p>
+        </div>
+        
+        <div style="background: #FFFFFF; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #D4A5A5;">
+            <h2 style="color: #D4A5A5; margin-top: 0; font-size: 18px;">Client Information</h2>
+            <p><strong>Name:</strong> {inquiry_data.get('firstName', '')} {inquiry_data.get('lastName', '')}</p>
+            <p><strong>Email:</strong> <a href="mailto:{inquiry_data.get('email', '')}">{inquiry_data.get('email', 'N/A')}</a></p>
+            {f"<p><strong>Phone:</strong> <a href=\"tel:{inquiry_data.get('phone', '')}\">{inquiry_data.get('phone', 'Not provided')}</a></p>" if inquiry_data.get('phone') else ""}
+            <p><strong>Inquiry Type:</strong> {inquiry_data.get('inquiryType', 'Not specified').replace('-', ' ').title()}</p>
+        </div>
+        
+        <div style="background: #FFFFFF; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #D4A5A5;">
+            <h2 style="color: #D4A5A5; margin-top: 0; font-size: 18px;">Message</h2>
+            <p style="background: #FAF8F5; padding: 15px; border-radius: 5px; white-space: pre-wrap;">{inquiry_data.get('message', 'No message provided')}</p>
+        </div>
+        
+        <div style="text-align: center; padding: 20px; color: #6B6B6B; border-top: 2px solid #E8DFD5; margin-top: 20px;">
+            <p style="margin-bottom: 15px;">This inquiry was submitted through the <strong>InJoy Beauty</strong> booking page.</p>
+            <a href="mailto:{inquiry_data.get('email')}" style="display: inline-block; background: #D4A5A5; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold;">Reply to {inquiry_data.get('firstName', 'Client')}</a>
+        </div>
+    </body>
+    </html>
+    """
+    return html_body
+
+
+def send_contact_notification(contact_data, override_email=None):
+    """
+    Send email notification when a contact form is submitted.
+    Returns True if sent, False if failed.
+    """
+    if not Config.RESEND_API_KEY:
+        print("Email not configured - RESEND_API_KEY not set.")
+        return False
+    
+    try:
+        recipient = override_email or Config.NOTIFICATION_EMAIL
+        subject = f"Contact Form: {contact_data.get('subject', 'New Message')}" if contact_data.get('subject') else "New Contact Form Message"
+        html_body = generate_contact_email_html(contact_data)
+        
+        params = {
+            "from": "InJoy Beauty <onboarding@resend.dev>",
+            "to": [recipient],
+            "subject": subject,
+            "html": html_body,
+            "reply_to": contact_data.get('email')
+        }
+        
+        response = resend.Emails.send(params)
+        print(f"Contact email sent successfully to {recipient}! ID: {response.get('id')}")
+        return True
+        
+    except Exception as e:
+        print(f"Failed to send contact email: {e}")
+        return False
+
+
+def send_inquiry_notification(inquiry_data, override_email=None):
+    """
+    Send email notification when a recurring client inquiry is submitted.
+    Returns True if sent, False if failed.
+    """
+    if not Config.RESEND_API_KEY:
+        print("Email not configured - RESEND_API_KEY not set.")
+        return False
+    
+    try:
+        recipient = override_email or Config.NOTIFICATION_EMAIL
+        inquiry_type = inquiry_data.get('inquiryType', 'Inquiry').replace('-', ' ').title()
+        subject = f"Recurring Client Inquiry: {inquiry_type}"
+        html_body = generate_inquiry_email_html(inquiry_data)
+        
+        params = {
+            "from": "InJoy Beauty <onboarding@resend.dev>",
+            "to": [recipient],
+            "subject": subject,
+            "html": html_body,
+            "reply_to": inquiry_data.get('email')
+        }
+        
+        response = resend.Emails.send(params)
+        print(f"Inquiry email sent successfully to {recipient}! ID: {response.get('id')}")
+        return True
+        
+    except Exception as e:
+        print(f"Failed to send inquiry email: {e}")
+        return False
