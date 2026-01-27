@@ -2,8 +2,8 @@ services:
   - type: web
     name: injoybeauty
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn backend.app:app --bind 0.0.0.0:$PORT
+    buildCommand: pip install --upgrade pip && pip install --cache-dir .pip-cache -r requirements.txt && python -m compileall -q backend/
+    startCommand: gunicorn backend.app:app --bind 0.0.0.0:$PORT --workers 2 --threads 2 --timeout 30 --graceful-timeout 10 --preload --access-logfile - --error-logfile -
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0

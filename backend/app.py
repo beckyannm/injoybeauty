@@ -68,10 +68,25 @@ def create_app():
             'business': Config.BUSINESS_NAME
         })
     
+    # Lazy database initialization (non-blocking startup)
+    # Database will be initialized on first request instead of at app startup
+    @app.before_request
+    def ensure_db_initialized():
+        """Initialize database on first request (lazy loading)."""
+        if not hasattr(app, '_db_initialized'):
+            try:
+                init_db()
+                seed_services()
+                seed_gallery()
+                app._db_initialized = True
+                print("Database initialized on first request.")
+            except Exception as e:
+                print(f"Database initialization error: {e}")
+    
     return app
 
 
-# Initialize database and seed data on startup
+# Initialize database and seed data (for local development)
 def setup_database():
     """Initialize database with tables and seed data."""
     print("Setting up database...")
@@ -82,14 +97,6 @@ def setup_database():
 
 # Create app instance for gunicorn (must be at module level)
 app = create_app()
-
-# Initialize database on first import (for production)
-# This prevents double initialization in development
-if not os.environ.get('WERKZEUG_RUN_MAIN'):
-    try:
-        setup_database()
-    except Exception as e:
-        print(f"Database setup note: {e}")
 
 if __name__ == '__main__':
     # Setup database

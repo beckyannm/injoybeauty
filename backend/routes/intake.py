@@ -135,7 +135,7 @@ def test_send_email():
     from email_helper import send_intake_notification
     
     data = request.get_json() or {}
-    test_email = data.get('test_email', 'rebeccamayne@live.com')
+    test_email = data.get('test_email', 'jaymie.injoy.services@gmail.com')
     
     # Sample test data
     test_data = {
