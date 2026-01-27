@@ -174,7 +174,7 @@ def test_send_email():
     else:
         return jsonify({
             'success': False,
-            'error': 'Failed to send email. Make sure SMTP_PASSWORD is set as an environment variable.'
+            'error': 'Failed to send email. Make sure RESEND_API_KEY is set as an environment variable in Render.'
         }), 500
 
 

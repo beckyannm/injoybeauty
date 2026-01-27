@@ -35,6 +35,7 @@ class Config:
     TIME_SLOT_DURATION = 30   # minutes
     
     # Email settings (using Resend - 3,000 free emails/month)
-    # Note: Free tier only sends to the Resend account email. For other recipients, verify a domain.
-    RESEND_API_KEY = os.environ.get('RESEND_API_KEY', 're_epGa96hn_8nvbJjH9qx5hftfypBsmzRdd')
+    # Note: API key must be set via RESEND_API_KEY environment variable in Render
+    # No default fallback for security - ensures production always uses Render env var
+    RESEND_API_KEY = os.environ.get('RESEND_API_KEY')
     NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'jaymie.injoy.services@gmail.com')  # Receives form notifications
